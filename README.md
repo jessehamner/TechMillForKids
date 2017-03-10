@@ -1,7 +1,7 @@
 # TechMill for Kids
 
 ##### _We've arranged a global civilization in which the most crucial elements — transportation, communications, and all other industries; agriculture, medicine, education, entertainment, protecting the environment; and even the key democratic institution of voting, profoundly depend on science and technology. We have also arranged things so that almost no one understands science and technology. This is a prescription for disaster. We might get away with it for a while, but sooner or later this combustible mixture of ignorance and power is going to blow up in our faces._
-##### -- Carl Sagan
+##### -- Sagan, Carl. 1995. _The Demon-Haunted World : Science as a Candle in the Dark._ New York: Random House. p. 26.
 
 ## Introduction
 A few months ago my friend Adam asked me if I would teach his son about how computers work -- not "how do I use Windows" or "tips and tricks for a Raspberry Pi", but rather, how binary works and how logic circuits can do stuff like add numbers. He wanted an afternoon to do it, but I was pretty sure this was a multi-day event.
@@ -15,21 +15,25 @@ I did write a little more explanation of basic electronic components than was st
 
 The basic flow of the lesson is "enough math to understand binary", "enough electronics to understand how electricity flows", "enough circuit theory to understand the common logic gates", and "enough digital logic to see how computers can [add](https://en.wikipedia.org/wiki/Adder_(electronics)) or [compare](https://en.wikipedia.org/wiki/XNOR_gate) numbers." That's actually a _lot._ 
 
-I threw in a bunch of "experiments" or "applications" like the classic lemon battery, a saltwater resistor, a [Leyden jar](https://en.wikipedia.org/wiki/Leyden_jar) (the earliest capacitor), and a cardboard/aluminum foil variable capacitor. There are a handful of thought experiments designed to introduce slightly advanced topics like _buffer overflow_ without making it too hard.
+I threw in a bunch of "experiments" or "applications" like the classic lemon battery, a saltwater resistor, a [Leyden jar](https://en.wikipedia.org/wiki/Leyden_jar) (the earliest capacitor), and a cardboard/aluminum foil variable capacitor. There are a handful of thought experiments designed to introduce slightly advanced topics like _buffer overflow_ without making it too hard. It might be useful to make an [aluminum foil & corrugated cardboard multi-layer capacitor](http://bizarrelabs.com/crystal.htm "Crystal Radio page on bizarrelabs.com") too, either beforehand or in place of the Leyden jar.
 
 ## Latent Demand?
 
 During [Open Data Day](https://www.opendenton.com/open-data-day), another friend asked me about the existence of anything resembling this project, and I told him about it. I also said I would teach his daughter (also a third grader at Newton Rayzor) along with Adam's son and my daughter. I had already revised the first half of the workshop anyway, and my daughter had since become much more adept at handling binary (not just the middle finger part). So I offered another child the chance to participate.
 
-I am perennially over-committed, and have little free time as it is, but this, like so many projects, did seem worthy and I did seem like the guy to do it. But: I want some feedback from some fellow nerds. If I'm doing something that seems useful, I want other people to know about it. And since I don't have the time to run a summer workshop or anything like that, I am happy to post it on github so we can all work on it and share it, and so _somebody besides me_ can turn this into a successful "thing" if it looks like it's worth the trouble.
+I am perennially over-committed, and have little free time as it is, but this, like so many projects, did seem worthy and I did seem like the guy to do it. But: I want some feedback from some fellow nerds. If I'm doing something that seems useful, I want other people to know about it, and I value collaborative efforts. And since I don't have the time to run a summer workshop or anything like that, I am happy to post it on github so we can all work on it and share it, and so _somebody besides me_ can turn this into a successful "thing" if it looks like it's worth the trouble.
 
 ## What You Can Do
 
-Download the PDF and read it. If you love it or hate it, tell me. If you want to help make the document better, add comments or propose edits and we can all improve it. Why [LaTeX](https://tug.org)? For one, I love it. Second, it's open-source, and beautiful. And third, there's no way to do a bunch of this stuff like [circuit diagrams](https://en.wikipedia.org/wiki/CircuiTikZ "Wikipedia CircuiTikz Page") or elegant tables in Markdown. I wrote a fair number of TeX macros and additional files, so the project probably needs some documentation help too. 
+Download the PDF and read it. If you love it or hate it, tell me. If you want to help make the document better, add comments or propose edits and we can all improve it. Why [LaTeX](https://tug.org)? For one, I love it. Second, it's open-source, and beautiful. And third, there's no way to do a bunch of this stuff like [circuit diagrams](https://en.wikipedia.org/wiki/CircuiTikZ "Wikipedia CircuiTikz Page") or elegant tables in Markdown. I wrote a fair number of TeX macros and additional files, so the macro file probably needs some documentation help too. 
 
 I took or modified sentences here and there from Wikipedia (and Simple Wikipedia, which wasn't always better), and I know that sometimes the language is above the heads of 8- and 9-year olds. But they can learn the words, and with good instruction, the concepts are accessible. Still, I'd like to have some more careful or soft introductions to some of the ideas. The extra eyes, and authors, are most welcome.
 
 In addition to reading and refining it, you can think about outlets for it. Do you think high schoolers could teach it to younger kids? Would a public library or elementary school summer program be interested in this workshop? What ages are actually appropriate for this topic and materials? 
 
+## Next Steps
 
+I've produced some simple logic gate PCBs (OR, AND, NOR, and NAND, but not XOR) and will test their applicability and performance before including the Eagle CAD files in this repository. It will also make sense to implement some composite gates (say, half- and full-adders) using integrated components, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. Sparkfun has already produced a similar set of gates, but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks. As an added bonus, the kids can learn to solder (I've got a separate tutorial for that) and can make their own gates, since I use entirely through-hole components for the four PCBs.
+
+Jesse Hamner, 2017 :rocket:
 
