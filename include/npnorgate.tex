@@ -1,0 +1,40 @@
+\begin{circuitikz}
+
+\draw 
+% IN nodes:
+	(3,6) node[ocirc](ina) {}
+	(3,6) node[left] {{\color{red}$INPUT~A$}} % INPUT A label
+	(3,3) node[ocirc](inb) {}
+	(3,3) node[left] {{\color{red}$INPUT~B$}} % INPUT B label
+
+
+% OUT node:
+	(8.5,2) node[ocirc](out){} 
+	(8.5,2) node[right] {{\color{red}$OUT$}} % OUT label
+	(6.0,2) |- (out)
+	(6.0,2) node[circ](outjoint){}
+
+% 2 Transistors:
+	(7,6) node[npn](Q1){$Q_1$}
+	(6,3) node[npn](Q2){$Q_2$}
+
+% Vcc and GND:
+	(7,7.5) node[vcc](vcc){$V_{cc}$}
+	(6,4.25) node[vcc](vcc1){$V_{cc}$}
+    (6,0) node[ground](ground){}
+    
+% Resistors:
+	(ina) to [R, l^=$R_1$] (5,6)
+	(5,6) |- (Q1.B)
+	(inb) to [R, l^=$R_2$] (Q2.B) 
+	(Q2.E) to [R, l^=$R_3$] (ground)
+
+% Nets:
+	(Q1.E) |- (7,4.0)
+	(7,4.0) |- (7,2)
+	(7,2) node[circ](){}
+	
+	(vcc) |- (Q1.C)
+	(vcc1) |- (Q2.C)
+;
+\end{circuitikz}

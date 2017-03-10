@@ -1,0 +1,67 @@
+\begin{circuitikz}
+\draw
+% Inputs and outputs:
+	(0,4.25) node[ocirc](ain) {} % A node
+	(0,4.3) node[left] {{\color{red}$A$}} % A label
+	
+	(0,3.72) node[ocirc](bin) {} % B node
+	(0,3.72) node[left] {{\color{red}$B$}} % B label
+
+	(0,1.72) node[ocirc](cin) {} % C-in node
+	(0,1.72) node[left] {{\color{red}$C_{in}$}} % C-in label
+
+	(10,1.0) node[ocirc](cout) {} % C-out node
+	(10,1.0) node[right] {{\color{red}$C_{out}$}} % C-out label
+
+	(10,3.72) node[ocirc](sout) {} % S node
+	(10,3.72) node[right] {{\color{red}$Sum$}} % S label
+
+% Gates:
+	(4,4) node[xor port](xorGate1) {} % xor gate 1
+	(4.2,4.9) node[left] {$XOR_1$} % XOR_1 label
+
+	(7,3.72) node[xor port](xorGate2) {} % xor gate 2
+	(7.3,4.6) node[left] {$XOR_2$} % XOR_2 label 
+
+	(4,0) node[and port](andGate1) {} % AND gate 1
+	(4.2,-1.0) node[left] {$AND_1$} % AND_1 label
+ 
+	(7,2) node[and port](andGate2) {} % AND gate 2
+	(7.2,1) node[left] {$AND_2$} % AND_2 label
+
+	(9.25,1) node[or port](orGate1) {} % or gate
+	(9.25,0.25) node[left] {$OR$} % OR label
+
+% Tie A and B to XOR_1:
+	(ain) to[short](xorGate1.in 1) 
+	(bin) to[short](xorGate1.in 2)  
+
+% Tie XOR_1 output to XOR_2 input and to AND_2 input:
+	(xorGate1.out) |- (xorGate2.in 1) 
+	(5,4.0) node[circ]{}
+	(5,4.0) |- (andGate2.in 1)
+
+% Tie A and B to AND_1:	
+	(1,4.25) node[circ] {}
+	(1.5,3.72) node[circ] {}
+	(1.5,3.72) |- (andGate1.in 1)
+	(1,4.25)   |- (andGate1.in 2)
+
+% Tie C-in to AND_2 and XOR_2:
+	(cin) |- (andGate2.in 2)
+	(4.5,1.72) node[circ]{}
+	(4.5,1.72) |- (4.5, 3.4)
+	(4.5,3.4) |- (xorGate2.in 2)
+
+% Tie AND gate outputs to the OR gate:
+	(andGate2.out) |- (7.5,2)
+	(andGate1.out) to[short](7.5,0)
+	(7.5,2)   |- (orGate1.in 1)
+	(7.5,0)   |- (orGate1.in 2)
+
+% Outputs:
+	(xorGate2.out) |- (sout) % XOR_2 to Sum
+	(orGate1.out) |- (cout) % OR to Carry-out
+
+;
+\end{circuitikz}

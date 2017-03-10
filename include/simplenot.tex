@@ -1,0 +1,34 @@
+\begin{circuitikz}
+
+\draw 
+% IN node:
+	(1,3) node[ocirc](in) {}
+	(1,3) node[left] {{\color{red}$IN$}} % IN label
+
+% OUT node:
+	(6.0,4) node[ocirc](out){} 
+	(6.25,4) node[right] {{\color{red}$OUT$}} % OUT label
+
+	(4,4) node[circ](){}
+
+% The Transistor:
+	(4,3) node[npn](Q1){}
+	(4,2.75) node[right]{$Q_1$}
+
+% Vcc and GND:
+	(4,6.5) node[vcc](vcc){$V_{cc}$}
+    (4,2) node[ground](ground){}
+    
+% Resistors:
+	(1,3) to [R, l^=$R_1$] (3.5,3)
+	(4,6) to [R, l^=$R_2$ ](4,4.5)
+
+
+% Nets:
+	(Q1.E) to (ground)
+	(Q1.C) to (4,4.5)
+	(4,6) to (vcc)
+	(4,4) to (out)
+
+;
+\end{circuitikz}

@@ -1,0 +1,70 @@
+\begin{circuitikz}
+
+\draw
+% Inputs:
+	(2,4.25) node[american not port](nota){}   % not gate #1 input
+	(2,1.75) node[american not port](notb){}   % not gate #2 input
+
+	(0,5.5) node[ocirc](anode) {} %A node
+	(0.25,6.0) node[left] {{\color{red}$A$}} %A label
+	
+	(0.75,5.5) node[ocirc](bnode) {} %B node
+	(1.1,6.0) node[left] {{\color{red}$B$}} %B label
+	
+% AND gates:
+	(4.5,3.75) node[american and port](andGate1) {} % AND gate #1 
+	(4.5,2.25) node[american and port](andGate2) {} % AND gate #2 
+	(5,0) node[american and port](andGate3) {} % AND gate #3
+
+% OR gate:
+	(7.0,3) node[american or port](orGate) {}
+
+% From the NOT gates out to the AND gates and OR gate:
+	(nota.out) to[short](andGate1.in 1) % S output wiring goes into andGate1.in 1
+	(notb.out) to[short](andGate2.in 2) % S output wiring goes into andGate1.in 2
+
+	(0,3.5) node[circ](atoand1){}
+	(atoand1) to [short](andGate1.in 2)
+
+
+	(andGate1.out) to [short](5.0,3.75)
+	(5.0,3.75)  |- (orGate.in 1)
+
+	(andGate2.out) to [short](5.0,2.25)
+	(5.0,2.25)  |- (orGate.in 2)
+
+	(0.75,4.25) node[circ](btonot1){}	
+	(bnode) |- (nota.in)
+
+	(0,5.5) |- (notb.in)
+	(0,1.75) node[circ](atonot2){}
+	(atonot2) |- (andGate3.in 2)
+
+% B input line nets:
+	(0.75,4.25) to [short](0.75,2.5)
+	(0.75,2.5) node[circ]{}
+	(0.75,2.5) |- (andGate2.in 1)
+	(0.75,2.5) |- (andGate3.in 1)
+	
+% Output nodes:
+	(8,3) node[ocirc](snode) {} %S node
+	(8.25,3) node[right] {{\color{red}$Sum$}} % S label
+
+	(5.75,0) node[ocirc](cnode) {} % C node
+	(6.0,0) node[right] {{\color{red}$Carry$}} % C label
+
+	(andGate3.out) to[short](cnode) % C output
+	(orGate.out) to [short](snode) % S output 
+
+	
+% Labeling:
+	(1.75,4.85) node[right] {{\footnotesize{NOT 1}}} 
+	(1.75,1.15) node[right] {{\footnotesize{NOT 2}}} 
+	(3.5,4.6) node[right] {{\footnotesize{AND 1}}} 
+	(3.5,1.35) node[right] {{\footnotesize{AND 2}}}
+	(4.5,-0.6) node[right] {{\footnotesize{AND 3}}}
+	(6.5,3.7) node[right] {{\footnotesize{OR}}}
+    
+    ;
+
+\end{circuitikz}

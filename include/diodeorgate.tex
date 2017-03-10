@@ -1,0 +1,35 @@
+\begin{circuitikz}
+
+\draw 
+% IN nodes:
+	(0,5) node[ocirc](ina) {}
+	(0,5) node[left] {{\color{red}$INPUT~A$}} % INPUT A label
+	(0,3) node[ocirc](inb) {}
+	(0,3) node[left] {{\color{red}$INPUT~B$}} % INPUT B label
+
+
+% OUT node:
+	(4.5,3) node[ocirc](out){} 
+	(4.5,3) node[right] {{\color{red}$OUT$}} % OUT label
+	(3,3) |- (out)
+	(3,3) node[circ](outjoint){}
+
+%  GND:
+    (3,0) node[ground](ground){}
+    
+% Diodes:
+	(ina) to [Do, l^=$D_1$] (2,5)
+	(inb) to [Do, l^=$D_2$] (2,3) 
+
+% Resistor:
+	(3,3) to [R, l^=$R_1$] (ground)
+
+% Nets:
+		(2,4) node[circ](diodemerge){}
+		(2,5) to (diodemerge)
+		(2,3) to (diodemerge)
+		(diodemerge) to (3,4)
+		(3,4) to (outjoint)
+
+;
+\end{circuitikz}
