@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage[left=1in,right=1in,top=0.75in,bottom=1in]{geometry} % never use the anysize package!
+\usepackage{amsmath, amssymb, fp}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{multirow,multicol}
+\usepackage{rotating}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[firstpage]{draftwatermark}
+\usepackage[american, cuteinductors]{circuitikz}
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+
+\input{macros.tex}
+\graphicspath{{./images/}}
+
+\SetWatermarkFontSize{5cm}
+\SetWatermarkScale{4}
+
+\fboxsep = 6.0pt
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+
+\title{Introducing Computer Theory to Third Graders}
+\author{Jesse Hamner, PhD\\
+\texttt{jhamner@gmail.com}}
+\date{February 2017\\ 
+\vspace{0.2in}
+\begin{quote}
+\centering
+{\color{red}\emph{Draft Copy: Do not redistribute or cite.}}\\\bigskip
+\end{quote}
+}
+
+\maketitle
+
+\begin{abstract}
+Kids are using technology that is intuitive to control, but entirely opaque to the children's understanding. Why do computers work? How do computers count? What makes transistors so important? This workshop aims to produce a short course of study for third to sixth graders, that takes about three afternoons to complete. Children are introduced to math concepts fundamental to the study of computing such as binary counting, exponentiation, basic electronics theory, and computing logic. Several hands-on projects are included in the text and can enhance the students' learning while breaking up the ``lecture'' format of the workshop.\\
+~\\
+\textbf{Keywords:} STEM; education; computing theory; logic; electronics theory; elementary education; logic gates; science experiments.
+
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+%---------------------------
+\newpage
+\input{introduction.tex}
+%---------------------------
+
+
+%---------------------------
+\newpage
+\input{math.tex}
+%---------------------------
+
+
+%---------------------------
+\newpage
+\input{computermath.tex}
+%---------------------------
+
+
+%---------------------------
+\newpage
+\input{electricity.tex}
+%---------------------------
+
+
+%---------------------------
+\newpage
+\input{basicelectronics.tex}
+%---------------------------
+
+
+%---------------------------
+\newpage
+\input{logicgates.tex}
+%---------------------------
+
+
+%---------------------------
+\newpage
+\input{logiccircuits.tex}
+%---------------------------
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

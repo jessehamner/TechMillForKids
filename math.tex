@@ -1,0 +1,300 @@
+\section{Math}
+
+The next few sections introduce some math ideas that may or may not be familiar to you. In order to really understand how computers work, you need to understand several math concepts that are not hard, but may be unfamiliar. The first concept is the \emph{exponent}. 
+
+\subsection*{Bases and Exponents}
+
+Exponentiation is a mathematical operation, written as $b^n$, involving two numbers, the base, $b$, and the exponent, $n$. Exponentiation means ``repeated multiplication of the base." 
+
+\noindent That is, $b^n$ is the product of multiplying n bases:
+
+
+\begin{equation*}
+b^{n}=\underbrace {b\times \cdots \times b} _{n}
+\end{equation*}
+
+\noindent In this case, $b^n$ is called the ``\emph{n-th} power of b", or ``b raised to the power n."
+
+Put another way: the exponent is a number, smaller and on the upper right hand side of a number, that means ``multiplying a number times itself zero times, once, or more than once" depending on whether the number is 0, 1, 2, or another number (written $n$ in the description above). It is possible to use fractions as exponents, but we won't talk about that here.
+
+The base can be any number, though most people think most easily in base-10. So in base-10, 10 to the power 2, or 10 to the second power, means $10 \times 10$. 
+
+\subsection*{Order of Magnitude}
+
+When counting up from zero, in base 10, you eventually get to 9. In order to count any higher, you must ``carry the one" over to the next column and reset the counter in the ``ones" column (the place that counts by one, from zero to nine). When you move from the ``\emph{ones}'' column to the ``\emph{tens}'' column, you move to the next \emph{order of magnitude} of the base. ``Magnitude" means ``size", and in math, it means, specifically, moving from counting by one number (the base) to counting by the base times itself -- first twice, then three times, then more. For base-10, you count from 0 to 9 in the right-most column, then from 10 to 90 in the next column to the left, then from 100 to 900 in the next column to the left, then from 1000 to 9000, and so on. Each time the counter gets full (reaches 9), you cannot represent any more of the quantity being counted without moving to the next largest order of magnitude. That is, if your display only shows two digits, once you count past 99, you have no idea is the number is 0, or 100, or 200, or 900, or ten thousand, or 4 billion.
+
+
+
+\newpage
+
+\subsection*{Squares}
+Squares are the same on each of two sides. \emph{Squaring a number} is multiplying the number times itself, just like, in a square, both sides are the same length (number). The most common way you will see a ``squared number" described is with a little 2 up above the number, like  $2^2$, or $3^2$, or $10^2$. That smaller `2' is the exponent. \\
+
+Squaring the number 10 gets: $10 \times 10 = 100$
+
+\bigskip
+
+\begin{tabular}{l m{0.75in} l l }
+
+\blockline{1}{0.5} & $1 \times 1 = $ & \blockline{1}{0.5} & $=1^2$ \\
+\\
+\blockline{2}{0.5} & $2 \times 2 = $ & \makeplate{2}{1}{0.5} & $=2^2$ \\
+\\
+\blockline{3}{0.5} & $3\times 3 = $ & \makeplate{3}{1}{0.5} & $=3^2$\\
+\\
+\blockline{4}{0.5} & $4 \times 4 = $ & \makeplate{4}{1}{0.5} & $=4^2$ \\
+
+\end{tabular}
+
+\newpage
+\subsection*{Cubes}
+Cubes are the same length on each of \emph{three} sides. When cubing a number, you are multiplying the number times itself, and then multiplying it times itself \emph{again}, because all three sides are the same (number). The most common way you will see a ``cubed number" described is with a little 3 up above the number, like  $2^3$, or $3^3$, or $10^3$. That little number is called the ``exponent.'' The exponent tells you how many times you multiply the number times itself. \\
+
+Cubing the number 10 gets: $10 \times 10 \times 10 = 1000$
+
+\bigskip
+
+\begin{tabular}{m{1.0in} m{1.1in} m{1.25in} m{2.00in}}
+
+\blockline{1}{0.5} & $1 \times 1 \times 1 = $ & \blockline{1}{0.5} & One times itself is just one.\\
+\\
+\blockline{2}{0.5} & $2 \times 2\times 2 = $ & \makeplate{2}{2}{0.5} & Two sets of four, or $4+4$ (that is, $2^2 + 2^2$) \\
+\\
+\blockline{3}{0.5} & $3 \times 3 \times 3 = $ & \makeplate{3}{3}{0.5} & Three sets of nine, or $9+9+9$ Put another way: $9 \times 3 = 27$ \\
+\\
+
+\blockline{4}{0.5} & $4 \times 4 \times 4 = $ & \makeplate{4}{4}{0.5} & Cubes get big quickly! This is four sets of 16. $16 + 16 + 16 + 16 = 64$ \\
+\\
+
+
+\end{tabular}
+
+\subsection*{Higher Order Exponents}
+
+You can multiply a number times itself as many times as you want. Understanding a little more about exponents (the number of times you multiply a number times itself) will make understanding the language we use to discuss computers quite a bit easier. Let's do some ``powers of two".
+
+\newcommand{\expline}[2]{
+$2^{#1}$ & = & #2 
+}
+
+\begin{tabular}{l c l p{3.5in} }
+
+\multicolumn{3}{c}{\textbf{Powers of Two}} & \textbf{Notes} \\ 
+\hline\\[\negsep]
+
+\expline{0}{1}& This one is strange, sort of. But it works! Any number ``to the zeroth power" is equal to 1. \\
+\expline{1}{2} \\
+\expline{2}{4} \\
+\expline{3}{8} \\
+\expline{4}{16} & Since $2^2 = 4$, $2^2 \times 2^2 = 16 $   \\
+\expline{5}{32} &  This is why you can count to 31 on one hand. \\
+\expline{6}{64} \\
+\expline{7}{128} \\
+\expline{8}{256} & 8-bit computers were the first really big deals for consumers. \\ 
+\expline{9}{512} \\
+\expline{10}{1,024} & 1,000 usually gets the prefix \emph{kilo-}, like a kilogram is 1000 grams. A \emph{kilobyte} is 1024 bytes.\\
+\expline{16}{65,536} \\
+\expline{20}{1,048,576} & $2^{10}$ bytes is a kilobyte; ($2^{10} \times 2^{10}$) bytes is a \emph{megabyte}.\\
+\expline{24}{16,777,216} & Most computer displays can show up to 16 million colors, using red, green, and blue, all in combination. Each piece of the color can have 256 ($2^8$) levels, from zero (black) to 255 (100\% red, or green, or blue)\\
+\expline{30}{1,073,741,824} & $2^{30}$ bytes is a \emph{gibibyte}, or a bit more than a \emph{gigabyte}, which is 1000 megabytes. \\
+\expline{32}{4,294,967,296} \\ 
+\expline{40}{1,099,511,627,776} & $2^{40}$ bytes is a \emph{tebibyte}, or a few percent more than 1000 gigabytes -- a \emph{terabyte.} \\
+\expline{50}{1,125,899,906,842,624} & $2^{50}$ bytes is \emph{pebibyte}. A petabyte is so large that one petabyte is enough to store the DNA of the entire population of the USA\ldots{}and then clone them, \emph{twice.} \\[\sep]
+\hline
+\end{tabular}
+
+% $10^2 & = & 100 & \\
+%$10^3 & = & 1000 & \\
+%$10^4 & = & 10000 & \\
+
+\vfill
+
+\stbox{\emph{Explanation:} The reason that any number to the zeroth power is equal to one comes from the way we subtract exponents when dividing. You know that 8 divided by 4 equals 2; written another way, $2^3 \div 2^2 = 2^1$. Notice that the exponents change by subtraction, but the equation is the same! You can \emph{divide} base-exponent numbers by \emph{subtracting} the exponents (\emph{extra-special historical trivia: this is how slide rules work}). And since any number divided by itself equals one, as in $2^3 \div 2^3 = 1 $, subtracting the exponents gives $2^0$.   }
+
+
+\newpage
+\subsection*{Representing Numbers in Decimal}
+
+\emph{Decimal} means ``with tens". You've always been taught to count in the decimal system -- by ten. When you are counting by ones, once you get past 9, you reset the right-most number to zero and add that ten to the next column, which is the \emph{tens} column (so you only increment that counter by one, since you are adding \emph{one} ``ten'' to the total). Once you fill up 9 ``tens" (90) and count up past 9 in the ``ones'' column (that is, you add one to 99), you have to set the ones column and the tens column to zero, and add one to the ``hundreds'' column. You \emph{carry} the ten to the left from the ones, and carry the hundred to the left, to the next-largest set of tens. One hundred is ten tens, one thousand is 100 tens, and so forth.
+\bigskip
+
+\noindent It looks like this:
+\bigskip
+
+\begin{tabular}{l l l l l | l r }
+\rot{ten thousands} & \rot{thousands} & \rot{hundreds} & \rot{tens} & \rot{ones} & \multicolumn{2}{c}{Number} \\
+\hline
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 0 && 0 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 1 && 1 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 2 && 2 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 3 && 3 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 4 && 4 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 5 && 5 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 6 && 6 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 7 && 7 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 8 && 8 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 9 && 9 \\
+{\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 1 & 0 && 10 \\
+\end{tabular}
+\bigskip
+
+When you get to the bottom of the column, you re-set the counter for that column to zero, and add one to the next column over (carry). So you go from 9 to 10, or 19 to 20, or 99 to 100. So any column can only hold between 0 and 9, before you have to carry over to the next \emph{order of magnitude}, which for a decimal system is \emph{ten times the size of one step in the column}. So when you run out of room for the ones column, you go to the \emph{tens} column, which contains ten times as many units as any single step (from 1 to 2, or from 8 to 9) in the column to the right of it. When you run out of room in the column, you have to carry to the next order of magnitude. You go from the ones, to the tens, to the hundreds (100 is $10 \times 10$), to the thousands (1000 is $10 \times 100$), and so on.
+
+
+\newpage
+
+Here are a few examples of numbers expressed in columns. For each one, you count up how many units in the column exist, then count them for each order of magnitude, and add each value together to get the number being described:
+
+\bigskip
+\begin{tabular}{p{2.6in} | l l   l l l l | l l r }
+\hline
+\textbf{Text Description} & & \rot{ten thousands} & \rot{thousands} & \rot{hundreds} & \rot{tens} & \rot{ones} && \multicolumn{2}{c}{\textbf{Number}} \\[\sep]
+\hline
+& && & & & & &&\\[-2mm]
+
+no ten-thousands, no thousands, no hundreds, no tens, and no ones   && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 0 &&& 0 \\[7mm]
+no ten-thousands, no thousands, no hundreds, no tens, and one ones   && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 1 &&& 1 \\[7mm]
+no ten-thousands, no thousands, no hundreds, no tens, and two ones  && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 2 &&& 2 \\[7mm]
+no ten-thousands, no thousands, no hundreds, three tens, and no ones && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 3 & 0 &&& 30 \\[7mm]
+no ten-thousands, no thousands, four hundreds, no tens, and no ones && {\color{lightgray}0} & {\color{lightgray}0} & 4 & 0 & 0 &&& 400 \\[7mm]
+no ten-thousands, no thousands, five hundreds, five tens, and five ones && {\color{lightgray}0} & {\color{lightgray}0} & 5 & 5 & 5 &&& 555 \\[7mm]
+no ten-thousands, six thousands, five hundreds, no tens, and two ones && {\color{lightgray}0} & 6 & 5 & 0 & 2 &&& 6502 \\[7mm]
+six ten-thousands, eight thousands, no hundreds, three tens, and no ones && 6 & 8 & 0 & 3 & 0 &&& 68030 \\[7mm]
+\hline
+\end{tabular}
+
+
+\bigskip
+
+
+\stbox{\emph{Exercise:} What if, in the above table, you counted past 99,999? What number would you see? What happened to the hundred thousand that should be counted? Do you need to know how many hundred thousands are in the number? How would you handle the need for a larger number, if you have it? (Introduces the concept of \emph{overflow}.)}
+
+
+\newpage
+\subsection*{Representing Numbers in Binary}
+
+Computers only understand ``1'' and ``0'' -- because it can sense the electricity in a wire that is either \emph{on} (having a detectable voltage greater than zero) or \emph{off} (having a reference voltage that is basically at ground potential, usually ``zero volts"). That means that computers, in order to add, subtract, or store information, has to express \emph{literally everything it can handle} in terms of either ones or zeroes. This system is called \emph{binary}, because computers only understand two ``states" -- on, or off. Instead of ``base-10" counting (where moving to the next column happens when you pass 9), binary is ``base-2'' counting; the numbers move to the next column when the number passes 1.
+
+In order to add numbers in binary, we can't count to ten. We must count to one, and then, if the resulting number is greater than one, carry the digit to the next column. Counting in binary is interesting because it is different, and because it introduces us to a new way of doing math.
+
+\bigskip
+
+In order to add two numbers, computers have to do the following:
+\be
+\+ Store each number in a binary format
+\+ compare each column (ones, twos, fours, eights, etc.) of each number and see if the numbers in that column add up to more than one
+\+ carry the ``one'' to the next column (the next \emph{order of magnitude}, which is two times the previous column). That is, if the number goes from one to two, the ``one" will go to zero and the ``two" will be moved -- and added -- to the next column over to the left.
+\+ keep on adding and carrying digits until the addition is complete.
+\+ count up the values of each order of magnitude (either one, or none) and add them together.
+\+ report the new number as a [binary] result
+\ee
+
+\begin{tabular}{l | p{0.10in} p{0.10in} p{0.10in} p{0.10in} | l r}
+\textbf{Description} & \rot{eights} & \rot{fours} & \rot{twos} & \rot{ones} && \textbf{{\color{webblue}base 10}}\\[\sep]
+\hline\\[\negsep]
+$0+0+0+0$ & 0 & 0 & 0 & 0 && {\color{webblue}0} \\
+no eights, no fours, no twos, one one  & 0 & 0 & 0 & 1 && {\color{webblue}1} \\
+
+no eights, no fours, one two, no ones  & 0 & 0 & 1 & 0 && {\color{webblue}2} \\
+
+no eights, no fours, one two, one one  & 0 & 0 & 1 & 1 && {\color{webblue}3} \\
+
+$0 + 4 + 0 + 0 $  & 0 & 1 & 0 & 0 && {\color{webblue}4} \\
+
+no eights, one four, no twos, one one  & 0 & 1 & 0 & 1 && {\color{webblue}5} \\
+
+$0 + 4 + 2 + 0 $  & 0 & 1 & 1 & 0 && {\color{webblue}6} \\
+
+no eights, one four, one two, one one  & 0 & 1 & 1 & 1 && {\color{webblue}7} \\
+
+$8 + 0 + 0 + 0 $  & 1 & 0 & 0 & 0 && {\color{webblue}8} \\
+
+$8 + 0 + 0 + 1 $  & 1 & 0 & 0 & 1 && {\color{webblue}9} \\
+
+$8 + 0 + 2 + 0 $  & 1 & 0 & 1 & 0 && {\color{webblue}10} \\
+
+$8 + 0 + 2 + 1 $  & 1 & 0 & 1 & 1 && {\color{webblue}11} \\
+
+$8 + 4 + 0 + 0 $  & 1 & 1 & 0 & 0 && {\color{webblue}12} \\
+
+$8 + 4 + 0 + 1 $  & 1 & 1 & 0 & 1 && {\color{webblue}13} \\
+
+$8 + 4 + 2 + 0 $  & 1 & 1 & 1 & 0 && {\color{webblue}14} \\
+
+$8 + 4 + 2 + 1 $  & 1 & 1 & 1 & 1 && {\color{webblue}15} \\
+
+\hline
+\end{tabular}
+
+\bigskip
+
+\stbox{\emph{Problem 1:} what happens in the above table if you add 1 to 15? What number would the computer report?
+}
+
+
+\bigskip
+
+\stbox{\emph{Problem 2:} Let's say the counter runs by itself at some regular speed, like one number (operation) per second. Let's also say you are using the counter as a way to control a single blinking light, since ``1'' means ``there is electricity available to that wire" and so a ``1'' would turn the light on. Remembering that ``a line that has a voltage" is a 1 and ``no voltage'' is a zero, which line (column) would make the light blink fastest? Which line would blink the slowest?
+}
+
+
+\bigskip
+
+
+\begin{tabular}{ llll llll llll llll l}
+
+\multicolumn{17}{c}{\textbf{How Computers Count to 65,535}}\\[\sep]
+
+\hline\\[\negsep]
+
+$2^{15}$ & $2^{14}$ & $2^{13}$ & $2^{12}$ & $2^{11}$ & $2^{10}$ & $2^9$ & $2^8$ &
+$2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \\
+\hline\\[\negsep]
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & zero \\
+ 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 32,767 \\
+ 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 32,768 \\
+ 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 65,535 \\
+
+\end{tabular}
+
+\bigskip
+
+If the computer counts up from zero, then once it gets past the $2^{14}$ column, it jumps to the $2^{15}$ (32,768) column. If we had told the computer that it was using \emph{signed} numbers, it would count upwards from -32,768, and the first column would be a one, to indicate it was negative, with the rest of them zeros. That is, the format for storing negative numbers subtracts 32,768 from 0 -- the range is still the same (65,536 numbers), but the starting point is different. 
+
+\stbox{\emph{Useless skill:} Did you know you can count to 31 on one hand? You have five fingers, and each finger can be open or closed, and $2^5$ is 32. Use your thumb for the ``0 or 1" ($2^0$, ``two to the zeroth power") column; the digit to its left represents two to the first power (the ``twos digit"); the next digit to the left represents two to the second power (the ``fours digit"); and so on.}
+
+\begin{tabular}{llll llll l}
+
+\rot{128} & \rot{64} & \rot{32} & \rot{sixteen} & \rot{eight} & \rot{four} & \rot{two} & \rot{one} &  \\[\sep]
+\hline\\[\negsep]
+
+$2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \textbf{Result} \\[\sep]
+\hline\\[\negsep]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & {\color{webblue}\textbf{0}} \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & {\color{webblue}\textbf{2}} ($2 + 0$) \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & {\color{webblue}\textbf{3}} ($2 + 1$) \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & {\color{webblue}\textbf{4}} ($4 + 0 + 0$) \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & {\color{webblue}\textbf{7}} ($4 + 2 + 1$) \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & {\color{webblue}\textbf{8}} ($8 + 0 + 0 + 0$) \\
+\\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & \makeblank{1.5in} \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & \makeblank{1.5in} \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & \makeblank{1.5in} \\
+0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & \makeblank{1.5in} \\
+0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & \makeblank{1.5in} \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & \makeblank{1.5in} \\
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & \makeblank{1.5in} \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & \makeblank{1.5in} \\
+
+\end{tabular}
+\bigskip
+
+\stbox{\emph{Tip:} if you have a sequence of all ones, like 7 or 15 or 31, rather than adding up each binary column, you can just subtract one from the next largest column base number. So \texttt{0111} equals \texttt{1000} minus one.}
+
+
+\vfill
+
+{\color{red}\textbf{Joke:}}
+\stbox{\emph{Remember:}  There are only 10 types of people in the world;\\
+those who understand binary, and those who don't.
+}

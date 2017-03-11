@@ -1,0 +1,255 @@
+\section{Logic Gates}
+
+The basic building blocks of computers are called \emph{gates}. Their only function is to report, with some electrical response, the result of their circuit following some input.
+
+\subsection*{The OR Gate}
+
+OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 are equal to 1. 
+The symbol for an OR gate is:\\
+
+\medskip
+
+\begin{tabular}{m{2.1in} }
+\begin{circuitikz}
+	\draw(0,0)
+	node[american or port](orgate){}
+	(orgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(orgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(orgate.out) node [right](){{\color{red}$OUT$}}
+;
+\end{circuitikz}
+\end{tabular}
+
+\bigskip
+
+\noindent The ``Truth Table" (diagram of how they work) is:
+
+\bigskip
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{OR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 0  \\
+1 & 0 & 1  \\
+0 & 1 & 1  \\
+1 & 1 & 1  \\
+\hline
+\end{tabular}
+
+\bigskip
+
+\noindent OR gates are very simple. They are so simple that transistors are not even needed, though they certainly can be used.
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/diodeorgate.tex}
+\caption{A very simple OR gate schematic. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal on Input A or on Input B, OUT will carry a voltage (and therefore, a ``1'').}
+
+\end{center}
+\end{figure}
+
+\stbox{\emph{Experiment:} Wire up an OR gate on a breadboard. Use LEDs as indicators for Input A, Input B, and OUT. Feel free to use diodes, but using transistors is pretty easy. It's best to use N-type transistors as switches for each LED and for the OR-output LED.}
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/npnorgate.tex}
+\caption{A simple transistor-based OR gate. Transistors are better than diodes in this application because transistors amplify (or at least do not degrade) signals, while diodes lose half a volt or more. Diode \emph{propagation delay} is also slower than transistors, making the circuits without these diodes run faster. In this schematic, each transistor acts as an independent switch for the output -- either switch pushes OUT to high.}
+\label{Fig:npnorgate}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1.25]{orgateschembetter.png}
+\caption{A schematic from a real circuit design program showing a practical, real implementation of the idealized schematic in Figure \ref{Fig:npnorgate}. The wires connecting components are the green lines. Mostly there are more resistors to help keep the transistors behaving well. For instance, the 100K resistors make sure the transistors are always at a low logic level (zero volts) when the inputs are `off'.}
+\label{Fig:orgateeagleschematic}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.25]{trimmedorgate.png}
+\caption{A circuit board designed using the above OR gate schematic. You can solder these without much trouble. You can see the top and bottom of the board here, but all components go on the top. However, both top and bottom have \emph{traces}, that carry electricity instead of using loose/floppy wires. The larger resistors are the lowest value (they're just there to make the transistors behave a little better): 100R means ``100 Ohms''. The smaller resistors are either 100,000 Ohms (that is, 100K Ohms) or 1,000 Ohms (1K Ohms). The OR gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
+\end{center}
+\end{figure}
+
+
+
+
+
+\clearpage
+\newpage
+
+\subsection*{The AND Gate}
+
+AND gates take two inputs and provide a ``yes'' (a one, or a ``logic high" signal) only if both line 1 AND line 2 are equal to 1. The symbol for an AND gate is:\\
+
+\medskip
+
+
+\begin{tabular}{m{2.1in} m{1.7in} }
+\begin{circuitikz}
+	\draw(0,0)
+	node[american and port](andgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+&
+
+
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{AND Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 0  \\
+1 & 0 & 0  \\
+0 & 1 & 0  \\
+1 & 1 & 1  \\
+\hline
+\end{tabular}
+
+\end{tabular}
+
+\bigskip
+
+There are much more complicated AND gates, but this is an easy-to-understand example (and it totally works):
+
+\bigskip
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/simpleand.tex}
+
+\caption{A simple AND gate schematic. When Input A is a zero, no current flows into the ``collector" (voltage input wire) of Transistor 2. When Input B is zero, no current can flow to OUT, regardless of whether Input A is 0 or 1. Only when Input A is 1 (current can flow past Q1) and when Input B is 1 (current is available to Q2, and Q2 is turned ``on'', allowing current to pass) does OUT go ``high".}
+
+\end{center}
+\end{figure}
+
+\stbox{\emph{Experiment:} Wire up an AND gate on a breadboard. Use LEDs as indicators for Input A, Input B, and OUT.}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.25]{andgate.png}
+\caption{A circuit board designed using the above AND gate schematic. This one looks almost exactly like the OR gate, but the wiring is different! Also, you can see both the front and back sides of the circuit board in this image. The AND gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
+\end{center}
+\end{figure}
+
+
+\clearpage
+\newpage
+
+\subsection*{The NOT Gate}
+
+NOT gates take one input and reverse the value of that input. So a 1 becomes a 0, or vice versa. Also note this is the \emph{complement} of the input value, as seen above.
+The symbol for a NOT gate is:\\
+
+\medskip
+
+
+\begin{tabular}{m{2.1in} m{1.7in} }
+\begin{circuitikz}
+	\draw(0,-0.5)
+	node[american not port](notgate){}
+	(notgate.in) node [left](){{\color{red}$INPUT$}}
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+;
+\end{circuitikz}
+
+& 
+\begin{tabular}{l | c}
+\multicolumn{2}{c}{\textbf{NOT Gate }}\\
+\multicolumn{2}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{IN} & \textbf{OUT}\\
+\hline
+0 & 1 \\
+1 & 0  \\
+\hline
+\end{tabular}
+
+\end{tabular}
+
+\bigskip
+
+A simple NOT circuit is easy to understand, though this example is not how NOT gates are actually implemented, because of the poor efficiency (and wasted energy turns into heat, which then has to be cooled somehow; it is better to not make the heat in the first place).
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/simplenot.tex}
+\caption{A very simple NOT gate schematic. When IN is logic low (off), electricity cannot pass through to the ground, and so it is available at the OUT terminal. That means OUT is a 1. When IN is carrying current, the transistor opens up and electricity starts flowing to ground -- the ``path of least resistance''. Then, because $R_3$ provides a little resistance, electricity flows to ground instead of OUT, meaning OUT has a very, very low voltage available -- making it a zero.}
+
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\input{./include/practicalnot.tex}
+\caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy.}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.25]{notgate.png}
+\caption{A circuit board designed using a more elegant NOT gate schematic. This one looks almost exactly like the OR gate and the AND gate, but the wiring is different! Also, it has only one input and one output. The NOT gate takes one \emph{input}, A, and produces one \emph{result}, R.}
+\end{center}
+\end{figure}
+
+\clearpage
+\newpage
+
+\subsection*{Complex Gates}
+
+Combining gates is possible to produce more complex circuits that answer different questions. A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate -- so it has the exact opposite truth table. Since a NAND gate just reverses the output of AND, you can put a NOT gate on the result (output) line of an AND gate and make a NAND gate, just like you were using Legos. 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.25]{trimmednandgate.png}
+\caption{A circuit board designed to make a NAND gate. Note that it uses four transistors.}
+\end{center}
+\end{figure}
+
+Not surprisingly, there is also a NOR gate, that has the reverse truth table to an OR gate. NOR gates are easy to implement, though as we have said elsewhere, more complicated NOR gates save power. 
+
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{Agc_nor2.jpg}
+\caption{An early integrated circuit NOR gate. It has six transistors, eight resistors, and three pairs of A/B inputs (thus, it has three separate yes/no outputs). This chip was part of the guidance computer that took Americans to the moon in 1969. \emph{Photo credit: Wikimedia Foundation}.}
+\end{center}
+\end{figure}
+
+
+
+
+There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors.
+\bigskip
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{XOR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 0  \\
+1 & 0 & 1  \\
+0 & 1 & 1  \\
+1 & 1 & 0  \\
+\hline
+\end{tabular}
+

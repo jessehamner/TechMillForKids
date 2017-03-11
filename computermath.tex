@@ -1,0 +1,118 @@
+\section{Computer Math}
+
+
+\subsection*{Sign}
+
+Representing \emph{positive} numbers is easy for a computer: it counts upwards from zero. Representing \emph{negative} numbers is harder, because \emph{taking away values by adding them} is a little awkward. To represent a negative, designers use the leading (left-most) bit to declare ``positive'' (zero) or ``negative'' (one). Note that the \emph{range} of numbers that can be represented does not change -- for a 4-digit binary number, whether counting from zero to 15, or from -8 to 7, the total space used on the number line is still 16 numbers, in order.
+
+\stbox{
+\emph{Problem:} If the computer doesn't know it is supposed to use that first number to determine whether a number is negative or not, how does it evaluate the number?
+}
+
+\subsection*{Complement}
+
+In mathematics, the \emph{complement} of a binary number is 
+\begin{quote}
+the value obtained by inverting all the bits in the binary representation of the number (swapping 0s for 1s and vice versa). The ones' complement of the number then behaves like the negative of the original number in some arithmetic operations.\footnote{{\color{webblue}\href{https://en.wikipedia.org/wiki/Ones\%27_complement}{Wikipedia page on Ones' Complement.}}}
+\end{quote}
+
+Here's an example:
+
+\bigskip
+
+\begin{tabular} {c c c}
+ Number &  $+$   &   $-$ \\[\sep]
+ \hline\\[\negsep]
+ 0  &  0000 &  1111  \\ 
+ 1  & 0001  & 1110  \\
+ 2  & 0010  & 1101\\
+ 3  & 0011  & 1100\\
+ 4  & 0100  & 1011\\
+ 5  & 0101  & 1010\\
+ 6  & 0110  & 1001\\
+ 7  & 0111  & 1000\\
+ \hline
+
+\end{tabular}
+
+%% ? Note that both +0 and ?0 return TRUE when tested for zero
+%% ? and FALSE when tested for non-zero. 
+
+\bigskip
+
+\subsection*{Addition}
+
+Adding two values is straightforward. Simply align the values on the least significant bit and add, propagating any carry to the bit one position left. If the carry extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around carry"}. When this occurs, the bit must be added back in at the right-most bit. %This phenomenon does not occur in two's complement arithmetic.
+
+\begin{verbatim}
+  Binary:     Decimal:
+   
+  0001 0110     22
++ 0000 0011      3
+===========   ====
+  0001 1001     25
+\end{verbatim}
+
+
+\bigskip
+
+\noindent Your turn! Add these numbers in binary (and then convert them to decimal to see how you did)
+\begin{verbatim}
+   Binary:       Decimal:
+
+  0000 0010      
++ 0000 0011      
+===========      ====
+
+___________      ____
+\end{verbatim}
+
+\bigskip
+
+
+\begin{verbatim}
+   Binary:       Decimal:
+
+  0000 1010      
++ 0001 1011      
+===========      ====
+
+___________      ____
+\end{verbatim}
+
+% Not yet ready for prime time; may not include it at any rate because
+% of the "negative-zero" problem.
+
+\begin{comment}
+\newpage
+\subsection*{Subtraction}
+
+Subtraction is similar, except that borrows, rather than carries, are propagated to the left. If the borrow extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around borrow"}. When this occurs, the bit must be subtracted from the right-most bit. % This phenomenon does not occur in two's complement arithmetic.
+
+In subtraction by 1's complement we subtract two binary numbers using carried by 1's complement.
+
+The steps to be followed in subtraction by 1's complement are:
+
+i) To write down 1's complement of the subtrahend.
+
+ii) To add this with the minuend.
+
+iii) If the result of addition has a carry over then it is dropped and an 1 is added in the last bit.
+
+iv) If there is no carry over, then 1's complement of the result of addition is obtained to get the final result and it is negative.
+
+
+
+
+\begin{verbatim}
+  0000 0110      6
+- 0001 0011     19
+===========   ====
+1 1111 0011    -12    - Must end-around borrow; sign bit of intermediate result is 1.
+- 0000 0001      1    - Subtract the end-around borrow from the result.
+===========   ====
+  1111 0010    -13    -The correct result (6 - 19 = -13)
+\end{verbatim}
+
+\end{comment}
+
