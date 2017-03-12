@@ -7,6 +7,27 @@ The following sections briefly introduce electronic components. Each of these pi
 
 A resistor limits the electrical current that flows through a circuit. Resistance is the restriction of current. In a resistor, the energy of the electrons that pass through the resistor are changed to heat and/or light. For example, in a light bulb there is a resistor made of tungsten which converts the electrons into light and a great deal of heat.
 
+\begin{center}
+  	\begin{circuitikz}
+    	\draw (0,0)
+      	to[battery] (0,2) % 
+     	to[R=$R_1$] (2,2)
+     	to[short] (2,0) -- (0,0) 
+		;
+
+     	\draw (0,0)
+      	node[ground] {} % ground connection
+		;
+		\node[scale=0.7, thick ] at (-0.25,1.4) {$+$};
+		\node[scale=0.7, thick ] at (-0.25,0.6) {$-$};
+
+   \end{circuitikz}
+
+{A very simple circuit. Electricity flows through the resistor (maybe it's a light bulb). The resistor controls how much current flows in the circuit, and heats up.}
+\end{center}
+
+
+
 \subsection*{Capacitors}
 
 A capacitor (also called condenser, which is the older term) is an electronic device that stores electric energy (a ``charge''). It is similar to a battery, but is smaller, lightweight and charges up much quicker. Typically, capacitors hold much less energy than a battery, but can provide almost their entire charge to the circuit quickly. Capacitors are used in many electronic devices today, and can be made out of many different types of material. 
@@ -33,6 +54,7 @@ Capacitors are usually made with two metal plates that are on top of each other 
 		\vertionarray{1.25}{2}{\ionradius}{$-$}
    \end{circuitikz}
 
+\medskip
 {Open capacitors in a steady state. No current flows, but there is a charge.}
 \end{center}
 
@@ -49,7 +71,33 @@ It is also possible to make a regular capacitor with the paper-foil layers, sepa
 
 A diode is an electronic component with two electrodes (connectors). It allows electricity to go through it only in one direction.
 
-Diodes can be used to convert alternating current to direct current (this circuit is called a diode bridge). They are often used in power supplies and can be used to decode AM (``amplitude modulation") radio signals (like in a crystal radio). Light-emitting diodes (LEDs) are a type of diode that produce light.
+Diodes can be used to convert alternating current to direct current (this circuit is called a diode bridge). They are often used in power supplies and can be used to decode AM (``amplitude modulation") radio signals (like in a crystal radio). Light-emitting diodes (LEDs) are a type of diode that produce light. 
+
+
+\begin{center}
+  	\begin{circuitikz}
+    	\draw (0,0)
+      	to[battery] (0,2) % 
+     	to[R=$R_1$] (2,2)
+		to[empty led](2,0)
+     	to[short] (2,0) -- (0,0) 
+		;
+
+		\draw(2.5, 1.5)
+		node[right]{$D_1$};
+
+     	\draw (0,0)
+      	node[ground] {} % ground connection
+		;
+		\node[scale=0.7, thick ] at (-0.25,1.4) {$+$};
+		\node[scale=0.7, thick ] at (-0.25,0.6) {$-$};
+
+   \end{circuitikz}
+
+\medskip
+{A very simple circuit. Electricity flows through the resistor, that controls how much current flows into the LED. If the battery was put in backwards,  no electricity could flow in the opposite direction, so the LED would not light up.}
+\end{center}
+
 
 \subsection*{Inductors (Coils)}
 
@@ -60,12 +108,29 @@ Inductors do many interesting things. For instance, they are used to block AC wh
 \noindent The symbol for an inductor is a coil icon. Inductors are usually abbreviated with an L: 
 
 \bigskip
-\begin{circuitikz}
+
+\begin{center}
+  	\begin{circuitikz}
     	\draw (0,0)
-      	to[L, l_=$L_1$] (1,0) % The inductor
-;
+      	to[battery] (0,2) % 
+     	to[L, l^=$L_1$] (2,2) % The inductor
+		to[C, l^=$C_1$](2,0)
+     	to[short] (2,0) -- (0,0) 
+		;
+
+     	\draw (0,0)
+      	node[ground] {} % ground connection
+		;
+		\node[scale=0.7, thick ] at (-0.25,1.4) {$+$};
+		\node[scale=0.7, thick ] at (-0.25,0.6) {$-$};
+
    \end{circuitikz}
 
+\medskip
+
+A simple circuit with one coil and one capacitor. This sort of circuit is one way to make an \emph{oscillator}. This kind of circuit is found in radios.
+
+\end{center}
 
 \subsection*{Transistors}
 

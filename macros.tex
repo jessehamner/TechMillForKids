@@ -40,6 +40,8 @@
 
 \newcommand{\cb}{\cellcolor{black!35}}
 
+% A command that makes a uniform box around a paragraph. 
+% It's a minipage environment, which means it doesn't support some commands.
 \newcommand{\stbox}[1]{
 	\begin{center}
 	\fbox{
@@ -52,9 +54,12 @@
 }
 
 
+% A series of macros that enable programmatic of drawing stylized
+% ions, protons, or electrons.
+% Supports,  e.g., richer drawings of capacitors or
+% current flowing in wires:
 
-
-\newcommand{\ionradius}{0.06} % FIXME should make it possible to change this too
+\newcommand{\ionradius}{0.06} % TODO should make it possible to change this too
 
 \newcommand{\drawion}[4]{
 		\draw [black, very thin] (#1,#2) circle [radius=#3];
@@ -103,132 +108,19 @@
 	\drawion{#1}{\len}{\ionradius}{#4}
 }
 
-\newcommand{\toninetwo}[3]{
-\begin{tikzpicture}
 
-\filldraw[fill=lightgray, draw=black](0.8,0) -- (0.9,0.0) -- (1,0.1) -- (1,0.9) -- (0.9,1.0) -- (0.8,1.0) ;
-\filldraw[fill=lightgray, draw=black](0.8,1) arc (90:270:5.5mm and 5mm);
 
-\filldraw[very thin, fill=white](0.8,0.2) circle [radius=0.5mm];
-\filldraw[very thin, fill=white](0.8,0.5) circle [radius=0.5mm];
-\filldraw[very thin, fill=white](0.8,0.8) circle [radius=0.5mm];
-
-\node[scale=0.7, thick ] at (1.25,0.9) {#1};
-\node[scale=0.7, thick ] at (1.25,0.5) {#2};
-\node[scale=0.7, thick ] at (1.25,0.1) {#3};
-\node[scale=1, thick ] at (0.5,1.8) {TO-92 Package, top view};
-
-\end{tikzpicture}
-}
-
-\newcommand{\toeighteen}[3]{
-  	\begin{circuitikz}
-	\filldraw[thick, fill=lightgray](1,0.5) circle [radius=5mm];
-
-% FIXME is it possible to compute this dynamically? With FP maybe?
-
-% r is 6mm
-% x1 + r * cos(theta)   is x
-% -0.82 is cos(145), and r cos(theta) is -4.915mm
-% x1 + r cos(theta) is  5.085mm
-%  
-% y1 + r * sin(theta)   is y
-% 0.574 is sin(145)
-% y1 + 3.44 mm is start value, or 8.44mm
-	
-	\draw[ draw=black](5.085mm, 8.44mm) arc (145:485:6mm);	
-
-% next draw the tab, at 1 mm wide and long
-
-\draw[rotate around={135:(1.21mm, 6.31mm)}](0mm,0mm) rectangle(2mm,2mm);
-
-	\filldraw[very thin, fill=white](0.85,0.8) circle [radius=0.5mm];
-	\filldraw[very thin, fill=white](1.3,0.5) circle [radius=0.5mm];
-	\filldraw[very thin, fill=white](0.85,0.2) circle [radius=0.5mm];
-
-	\node[scale=0.7, thick ] at (0.8,1.3) {#1};
-	\node[scale=0.7, thick ] at (1.8,0.5) {#2};
-	\node[scale=0.7, thick ] at (0.3,0.1) {#3};
-
-	\node[scale=1, thick ] at (0.5,1.8) {TO-18 Package, top view};
-	\end{circuitikz}
+% Nokia 84 x 48 pixel LCD screen (usually model number 5110 or 3310)
+\newcommand{\drawnokiagrid}{
+\draw[step=1cm,blue!30,very thin] (0,0) grid (6,8);
+\foreach \x in {0,1,2,3,4,5}
+	\draw (\x cm, 0pt) -- (\x cm, -3pt) node[anchor=north] {$\x$};
+\foreach \y in {1,2,3,4,5,6,7,8}
+	\draw (0pt, \y cm) -- (-3pt, \y cm) node[anchor=east] {$\y$};
 }
 
 
-\newcommand{\dpak}[4]{
-  	\begin{circuitikz}
-
-% main body: 
-	\filldraw[thick, fill=gray](0.0mm,0.0mm) rectangle(10mm,9mm);
-
-% tab:
-	\draw[thick](1mm,11mm) to (3mm,12mm)
-	to (7mm,12mm)
-	to (9mm,11mm)
-	to (9mm,10mm)
-	to (1mm,10mm)
-	to (1mm,11mm);
-
-% scalloped top:
-	\filldraw[black,thick, fill=gray]	(0mm,9mm) arc(270:360:1mm) --
-	(9mm,10mm) --
-	(9mm,10mm) arc(180:270:1mm) --
-	(10mm,9mm) --  
-	(1mm,9mm) -- 
- 	cycle;
-
-% pins:	
-	\draw[thick](1mm,0mm) rectangle(2.5mm,-6mm);
-	\draw[thick](4.25mm,0mm) rectangle(5.75mm,-3mm);
-	\draw[thick](7.5mm,0mm) rectangle(9.0mm,-6mm);
-
-% labels:
-	\node[scale=0.7, thick ] at (-0.1,-0.3) {#1};
-	\node[scale=0.7, thick ] at (0.5,-0.75) {#2};
-	\node[scale=0.7, thick ] at (1.1,-0.3) {#3};
-	\node[scale=0.7, thick ] at (0.5,1.4) {#4};
-	\node[scale=1, thick ] at (0.5,1.9) {TO-252 Package};
-	\end{circuitikz}
-}
-
-
-% P-type MOSFET, e.g.: \totwotwenty{B}{E}{C}{}
-\newcommand{\totwotwenty}[4]{
-  	\begin{circuitikz}
-
-% main body: 
-	\filldraw[thick, fill=gray](0.0mm,0.0mm) rectangle(10mm,9mm);
-
-% tab:
-	\draw[thick](0mm,9mm) 
-	rectangle(10mm,17mm)
-	;
-	\draw[thick](5mm,13.5mm) circle(1.75mm);
-
-
-% pins:	
-	\newcommand{\ypll}{-4mm}
-	\draw[thick](1mm,0mm) rectangle(2.5mm,\ypll);
-	\draw[thick](4.25mm,0mm) rectangle(5.75mm,\ypll);
-	\draw[thick](7.5mm,0mm) rectangle(9.0mm,\ypll);
-	
-% smaller pin descenders:
-	\draw[thick](1.5mm,\ypll) rectangle(2.0mm,-9mm);
-	\draw[thick](5.0mm,\ypll) rectangle(5.5mm,-9mm);
-	\draw[thick](8.0mm,\ypll) rectangle(8.5mm,-9mm);
-		
-
-% labels:
-	\node[scale=0.7, thick ] at (-0.1,-0.3) {#1};
-	\node[scale=0.7, thick ] at (0.5,-1.1) {#2};
-	\node[scale=0.7, thick ] at (1.1,-0.3) {#3};
-	\node[scale=0.7, thick ] at (0.5,1.4) {#4};
-	\node[scale=1, thick ] at (0.5,2.1) {TO-220 Package};
-	\end{circuitikz}
-}
-
-
-
+% part of the Nokia grid set of commands
 \newcommand{\msqo}[3]{
 \def\mycmd{#3}
 
@@ -239,14 +131,8 @@
 \fi
 }
 
-\newcommand{\drawnokiagrid}{
-\draw[step=1cm,blue!30,very thin] (0,0) grid (6,8);
-\foreach \x in {0,1,2,3,4,5}
-	\draw (\x cm, 0pt) -- (\x cm, -3pt) node[anchor=north] {$\x$};
-\foreach \y in {1,2,3,4,5,6,7,8}
-	\draw (0pt, \y cm) -- (-3pt, \y cm) node[anchor=east] {$\y$};
-}
 
+% part of the Nokia grid set of commands
 \newcommand{\msq}[3]{
 \edef\myx{#1}
 \pgfmathparse{\myx+1.0}
@@ -256,6 +142,8 @@
 \edef\myytwo{\pgfmathresult}
 \fill[#3] (\myx,#2) rectangle (\myxtwo,\myytwo);}
 
+
+% part of the Nokia grid set of commands
 \newcommand{\mcol}[9]{
 \msqo{#1}{#2}{#3}
 \msqo{#1}{#4}{#5}
@@ -263,6 +151,8 @@
 \msqo{#1}{#8}{#9}
 }
 
+
+% part of the Nokia grid set of commands
 \newcommand{\hexlabel}[5]{
 \node[rotate=90] at (0.5,-1) {\Large\texttt{#1}};
 \node[rotate=90] at (1.5,-1) {\Large\texttt{#2}};
@@ -271,6 +161,9 @@
 \node[rotate=90] at (4.5,-1) {\Large\texttt{#5}};
 }
 
+
+
+% drawing cubes using TikZ:
 \newcommand{\makecube}[2]{
 \begin{tikzpicture}[xscale=#2,yscale=#2]
 \foreach \x in{0,...,#1}
@@ -284,6 +177,8 @@
 \end{tikzpicture}
 }
 
+
+% Draw faux-3D squares or cubes:
 \newcommand{\makeplate}[3]{
 \begin{tikzpicture}[xscale=#3,yscale=#3]
 
@@ -323,6 +218,8 @@
 \end{tikzpicture}
 }
 
+
+% Draw a line of faux-3D shaded blocks using TikZ:
 \newcommand{\blockline}[2]{
 \begin{tikzpicture}[xscale=#2,yscale=#2]
 
@@ -349,8 +246,12 @@
 \end{tikzpicture}
 }
 
+
+% make a blank line under which, e.g., someone could write an unknown answer:
 \newcommand{\makeblank}[1]{
 \underline{\makebox[#1][l]{}}
 }
 
+
+% tilt the text atop a table row at an angle:
 \newcommand*\rot{\multicolumn{1}{R{55}{1.2ex}}}% no optional argument here, please!
