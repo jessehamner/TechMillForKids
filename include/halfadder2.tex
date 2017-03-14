@@ -26,7 +26,6 @@
 	(0,3.5) node[circ](atoand1){}
 	(atoand1) to [short](andGate1.in 2)
 
-
 	(andGate1.out) to [short](5.0,3.75)
 	(5.0,3.75)  |- (orGate.in 1)
 
@@ -42,8 +41,8 @@
 
 % B input line nets:
 	(0.75,4.25) to [short](0.75,2.5)
-	(0.75,2.5) node[circ]{}
-	(0.75,2.5) |- (andGate2.in 1)
+	(0.75,2.52) node[circ]{}
+	(0.75,2.52) |- (andGate2.in 1)
 	(0.75,2.5) |- (andGate3.in 1)
 	
 % Output nodes:
@@ -55,7 +54,6 @@
 
 	(andGate3.out) to[short](cnode) % C output
 	(orGate.out) to [short](snode) % S output 
-
 	
 % Labeling:
 	(1.75,4.85) node[right] {{\footnotesize{NOT 1}}} 

@@ -4,12 +4,17 @@ The basic building blocks of computers are called \emph{gates}. Their only funct
 
 \subsection*{The OR Gate}
 
-OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 are equal to 1. 
-The symbol for an OR gate is:\\
+OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 are equal to 1.
 
 \medskip
+\begin{center}
 
-\begin{tabular}{m{2.1in} }
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+The symbol for an OR gate is:
+
+\vspace{0.25in}
+
 \begin{circuitikz}
 	\draw(0,0)
 	node[american or port](orgate){}
@@ -18,13 +23,13 @@ The symbol for an OR gate is:\\
 	(orgate.out) node [right](){{\color{red}$OUT$}}
 ;
 \end{circuitikz}
-\end{tabular}
 
-\bigskip
+&
 
-\noindent The ``Truth Table" (diagram of how they work) is:
+\centering
 
-\bigskip
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
 
 \begin{tabular}{ll | c}
 \multicolumn{3}{c}{\textbf{OR Gate }}\\
@@ -38,7 +43,12 @@ The symbol for an OR gate is:\\
 1 & 1 & 1  \\
 \hline
 \end{tabular}
+\\
+\tabularnewline
+\hline\\[\negsep]
+\end{tabular}
 
+\end{center}
 \bigskip
 
 \noindent OR gates are very simple. They are so simple that transistors are not even needed, though they certainly can be used.
@@ -88,12 +98,18 @@ The symbol for an OR gate is:\\
 
 \subsection*{The AND Gate}
 
-AND gates take two inputs and provide a ``yes'' (a one, or a ``logic high" signal) only if both line 1 AND line 2 are equal to 1. The symbol for an AND gate is:\\
+AND gates take two inputs and provide a ``yes'' (a one, or a ``logic high" signal) only if both line 1 AND line 2 are equal to 1.
 
 \medskip
+\begin{center}
 
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
 
-\begin{tabular}{m{2.1in} m{1.7in} }
+The symbol for an AND gate is:
+
+\vspace{0.25in}
+
 \begin{circuitikz}
 	\draw(0,0)
 	node[american and port](andgate){}
@@ -105,7 +121,10 @@ AND gates take two inputs and provide a ``yes'' (a one, or a ``logic high" signa
 
 &
 
+\centering
 
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
 
 \begin{tabular}{ll | c}
 \multicolumn{3}{c}{\textbf{AND Gate }}\\
@@ -119,8 +138,13 @@ AND gates take two inputs and provide a ``yes'' (a one, or a ``logic high" signa
 1 & 1 & 1  \\
 \hline
 \end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
 
 \end{tabular}
+\end{center}
 
 \bigskip
 
@@ -154,12 +178,16 @@ There are much more complicated AND gates, but this is an easy-to-understand exa
 \subsection*{The NOT Gate}
 
 NOT gates take one input and reverse the value of that input. So a 1 becomes a 0, or vice versa. Also note this is the \emph{complement} of the input value, as seen above.
-The symbol for a NOT gate is:\\
 
 \medskip
+\begin{center}
 
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
 
-\begin{tabular}{m{2.1in} m{1.7in} }
+The symbol for a NOT gate is:
+\vspace{0.25in}
+
 \begin{circuitikz}
 	\draw(0,-0.5)
 	node[american not port](notgate){}
@@ -168,7 +196,13 @@ The symbol for a NOT gate is:\\
 ;
 \end{circuitikz}
 
-& 
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
+
 \begin{tabular}{l | c}
 \multicolumn{2}{c}{\textbf{NOT Gate }}\\
 \multicolumn{2}{c}{\textbf{Truth Table}}\\
@@ -179,8 +213,13 @@ The symbol for a NOT gate is:\\
 1 & 0  \\
 \hline
 \end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
 
 \end{tabular}
+\end{center}
 
 \bigskip
 
@@ -215,7 +254,64 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 
 \subsection*{Complex Gates}
 
-Combining gates is possible to produce more complex circuits that answer different questions. A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate -- so it has the exact opposite truth table. Since a NAND gate just reverses the output of AND, you can put a NOT gate on the result (output) line of an AND gate and make a NAND gate, just like you were using Legos. 
+Combining gates is possible to produce more complex circuits that answer different questions. A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate -- so it has the exact opposite truth table. Since a NAND gate just reverses the output of AND, you can put a NOT gate on the result (output) line of an AND gate and make a NAND gate, just like you were using Legos.
+
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for a NAND gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american nand port](nandgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+(see the circle on the output? That's the \emph{not} part)
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{NAND Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 1  \\
+1 & 0 & 1  \\
+0 & 1 & 1  \\
+1 & 1 & 0  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
+
+
+
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.25]{trimmednandgate.png}
@@ -223,8 +319,62 @@ Combining gates is possible to produce more complex circuits that answer differe
 \end{center}
 \end{figure}
 
+\clearpage
+\newpage
+
 Not surprisingly, there is also a NOR gate, that has the reverse truth table to an OR gate. NOR gates are easy to implement, though as we have said elsewhere, more complicated NOR gates save power. 
 
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for a NOR gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american nor port](norgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+(see the circle on the output? That's the \emph{not} part)
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{NOR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 1  \\
+1 & 0 & 0  \\
+0 & 1 & 0  \\
+1 & 1 & 0  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
 
 
 \begin{figure}[h!]
@@ -235,10 +385,40 @@ Not surprisingly, there is also a NOR gate, that has the reverse truth table to 
 \end{figure}
 
 
-
+\clearpage
+\newpage
 
 There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors.
-\bigskip
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for an XOR gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american xor port](xorgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+(the curved line behind the OR gate means that it is ``exclusive")
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
 
 \begin{tabular}{ll | c}
 \multicolumn{3}{c}{\textbf{XOR Gate }}\\
@@ -252,4 +432,16 @@ There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result)
 1 & 1 & 0  \\
 \hline
 \end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
+
+
+
 
