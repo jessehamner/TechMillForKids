@@ -1,0 +1,84 @@
+\newcommand*\low[1]{\overline{#1}}
+
+\begin{circuitikz}
+
+\draw 
+% Vdd:
+%	(4,5) node[vdd](vdd){}
+	(2,5) node[circ](vdd1) {}
+	(6,5) node[circ](vdd2) {}	
+    (4,5) node[above] {{\color{red}$V_{dd}$}} % Vdd
+    (1.5,5) |- (6.5,5)
+
+% GND
+	(2,0) node[circ](gnd1) {}
+	(6,0) node[circ](gnd2) {}
+    (4,0) node[ground](ground){}
+    (1.5,0) |- (6.5,0)
+
+% Bit Line nodes:
+	(0,2.25) node[circ](bllow) {}
+	(0,1) node[left] {{\color{red}$\low{BL}$}} % BL low
+	(8,2.75) node[circ](blhigh) {}
+	(8,1) node[right] {{\color{red}$BL$}} % BL
+
+% Bit Line:
+	(0,0) |- (0,6)
+	(8,0) |- (8,6)
+
+% Word Line:
+	(1,6) node[circ](wlgate1){} 
+	(4,6) node[above] {{\color{red}$WL$}} % WL label
+	(0.5,6) |- (7.5,6)
+	(7,6) node[circ](wlgate2){}
+
+% Two inverters:
+
+% 2 P-type FETs:
+	(2,4) node[pmos, emptycircle, xscale=-1](M2){}
+	(1.5,4) node[above]{$M_2$}
+	(6,4) node[pmos, emptycircle](M4){$M_4$}
+	
+% 2 N-type FETs:
+	(2,1) node[nmos, xscale=-1](M1){}
+	(1.5,1) node[above]{$M_1$}
+	(6,1) node[nmos](M3){$M_3$}
+
+
+% Word line gate N-type FETs:
+	(1,2.25) node[nmos, rotate=-90](M5){}
+	(0.5,3.0) node[above]{$M_5$}
+	
+	(7,2.75) node[nmos, rotate=-90](M6){}
+	(7.5,3.45) node[above]{$M_6$}
+
+% Bit Line FET nodes:
+ (6, 2.75) node[circ] (m6Q1){}
+ (2, 2.25) node[circ] (m5Q1){}
+ 
+ (2.98,2.75) node[circ] (m6q2){}
+ (5.01,2.25) node[circ] (m5q2){}
+
+% Nets:
+ (wlgate1) |- (M5.G)
+ (wlgate2) |- (M6.G)
+
+ (vdd1) |- (M2.S)
+ (vdd2) |- (M4.S)
+
+ (M1.S) |- (gnd1)
+ (M3.S) |- (gnd2)
+
+ (M1.D) |- (M2.D)
+ (M3.D) |- (M4.D)
+ 
+ (M2.G) |- (M1.G)
+ (M4.G) |- (M3.G)
+ 
+ (M6.S) |- (2.97,2.75)
+ (M5.D) |- (5.01,2.25)
+
+ (bllow) |- (M5.S)
+ (blhigh) |- (M6.D)
+;
+\end{circuitikz}

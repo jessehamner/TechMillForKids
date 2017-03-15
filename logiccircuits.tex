@@ -84,3 +84,11 @@ Logic circuits need to store the numbers they are working with in order to do mo
 
 There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory these days is a circuit made up of six transistors, or one transistor and a capacitor or two. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the number, or the instructions, from memory on to be processed.
 
+% TODO add a simpler diagram here, substituting NOT gate symbols for the twin CMOS NOT gates.
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/sramcell.tex}
+\caption{A static ram cell. It uses six transistors per bit instead of one transistor and a capacitor for bit (as used in dynamic ram, the main memory for the computer), so it's expensive and bulky, but it's also faster. Usually SRAM is used very close to the CPU core, so it is available for immediate use by the core processing operations. To keep the diagram simple, no resistors are shown. If you look closely at the M1/M2 and M3/M4 transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate).} % from Wikipedia and http://www.iue.tuwien.ac.at/phd/entner/node34.html 
+\end{center}
+\end{figure}
