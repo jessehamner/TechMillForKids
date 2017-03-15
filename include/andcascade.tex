@@ -1,0 +1,82 @@
+\begin{circuitikz}
+
+\draw
+
+% Gates:
+	(2,0.5) node[xnor port](xnorGate0) {} % xnor gate
+	(1.05,1.05) node[above] {$XNOR_0$} % XNOR label
+
+	(2,2.5) node[xnor port](xnorGate1) {} % xnor gate
+	(1.05,3.1) node[above] {$XNOR_1$} % XNOR label
+	
+	(4.5,1.5) node[and port](andGate0) {} % AND gate 0
+%	(4.1,2) node[left] {$AND_0$} % AND label
+
+	(2,6.5) node[xnor port](xnorGate3) {} % xnor gate
+	(1.05,7.05) node[above] {$XNOR_3$} % XNOR label
+
+	(2,4.5) node[xnor port](xnorGate2) {} % xnor gate
+	(1.05,5.1) node[above] {$XNOR_2$} % XNOR label
+	
+	(4.5,5.5) node[and port](andGate1) {} % AND gate 1
+	
+	(6.5,3.5) node[and port](andGate2) {} % AND gate 2
+
+
+% Input nodes:
+	(0,0.77) node[ocirc](ainput0) {} % A node
+	(0,0.83) node[left] {{\color{red}$A_0$}} % A label
+
+	(0,0.25) node[ocirc](binput0) {} % B node
+	(0,0.22) node[left] {{\color{red}$B_0$}} % B label
+
+	(0,2.77) node[ocirc](ainput1) {} % A node
+	(0,2.75) node[left] {{\color{red}$A_1$}} % A label
+
+	(0,2.22) node[ocirc](binput1) {} % B node
+	(0,2.20) node[left] {{\color{red}$B_1$}} % B label
+
+
+	(0,4.77) node[ocirc](ainput2) {} % A node
+	(0,4.72) node[left] {{\color{red}$A_2$}} % A label
+
+	(0,4.22) node[ocirc](binput2) {} % B node
+	(0,4.23) node[left] {{\color{red}$B_2$}} % B label
+
+	(0,6.77) node[ocirc](ainput3) {} % A node
+	(0,6.75) node[left] {{\color{red}$A_3$}} % B label
+
+	(0,6.22) node[ocirc](binput3) {} % B node
+	(0,6.20) node[left] {{\color{red}$B_3$}} % B label
+
+% Output nodes:
+
+	(7.5, 3.5) node[ocirc](output){}
+	(7.7, 3.75) node[above] {{\color{red}$Result$}}
+	(andGate2.out) |- (output)
+
+% Nets:
+	(ainput0) |- (xnorGate0.in 1) % xor A wiring
+	(binput0) |- (xnorGate0.in 2) % xor B wiring
+
+	(ainput1) |- (xnorGate1.in 1) % xor A wiring
+	(binput1) |- (xnorGate1.in 2) % xor B wiring	
+
+	(ainput2) |- (xnorGate2.in 1) % xor A wiring
+	(binput2) |- (xnorGate2.in 2) % xor B wiring
+
+	(ainput3) |- (xnorGate3.in 1) % xor A wiring
+	(binput3) |- (xnorGate3.in 2) % xor B wiring	
+
+	(xnorGate0.out) |- (andGate0.in 2)
+	(xnorGate1.out)	|- (andGate0.in 1)
+
+	(xnorGate2.out) |- (andGate1.in 2)
+	(xnorGate3.out)	|- (andGate1.in 1)
+
+	(andGate0.out) |- (andGate2.in 2)
+	(andGate1.out) |- (andGate2.in 1)
+
+;
+
+\end{circuitikz}

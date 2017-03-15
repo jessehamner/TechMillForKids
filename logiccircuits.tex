@@ -62,18 +62,65 @@ This type of adder is a little more difficult to implement than a half-adder. Th
 
 \subsection*{Equality}
 
-A 1 bit equality comparator can be implemented with an XNOR (XOR passing output into a NOT) gate. To compare large numbers, the circuit requires an XNOR gate for each binary digit (bit) in the numbers being compared. If any XNOR gate returns zero, the numbers are not equivalent. To build all of the XNOR gates into a single yes or no answer, each XNOR output could go into a series of AND gates -- that is, since AND returns a ``yes'' only if both inputs are one, a single ``no'' prevents the AND gate from returning ``yes''. 
+Comparing two one-bit numbers to see if they are identical is done with XNOR gates. These gates are the same as an XOR gate passing output into a NOT gate. 
 
-$$
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.5in} p{3.5in} }
+\hline\\[\negsep]
+
+The symbol for an XNOR gate is:
+
+\vspace{0.25in}
+
 \begin{circuitikz}
 \draw
 	(0,0) node[xnor port](xnorGate) {}
-	(xnorGate.in 1) node[left] {{\color{red}$A$}}
-	(xnorGate.in 2) node[left] {{\color{red}$B$}}
-	(xnorGate.out) node[right] {{\color{red}$Y$}}
+	(xnorGate.in 1) node[left] {{\color{red}$INPUT~A$}}
+	(xnorGate.in 2) node[left] {{\color{red}$INPUT~B$}}
+	(xnorGate.out) node[right] {{\color{red}$OUT$}}
 ;
 \end{circuitikz}
-$$
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is: 
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{XNOR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 1  \\
+1 & 0 & 0  \\
+0 & 1 & 0  \\
+1 & 1 & 1  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
+
+To compare large numbers, the circuit requires an XNOR gate for each binary digit (bit) in the numbers being compared. If any XNOR gate returns zero, the numbers are not equivalent. To build all of the XNOR gates into a single yes or no answer, each XNOR output could go into a series of AND gates -- that is, since AND returns a ``yes'' only if both inputs are one, a single ``no'' prevents the AND gate from returning ``yes''. 
+
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/andcascade.tex}
+\caption{A circuit to provide a yes/no answer to the question, ``are  two four-bit numbers, A and B, equal?" Each XNOR gate compares the bits in each position of each number, and passes the answer to an AND gate input. The AND results ripple forward to a final answer.}
+\end{center}
+\end{figure}
 
 %---------------------------
 \newpage
