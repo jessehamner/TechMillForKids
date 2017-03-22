@@ -1,10 +1,28 @@
 \section{Logic Gates}
 
-The basic building blocks of computers are called \emph{gates}. Their only function is to report, with some electrical response, the result of their circuit following some input.
+The basic building blocks of computers are called \emph{gates}. Their only function is to report, with some yes-or-no electrical output, the result of their circuit following some input from somewhere else in the circuit. The way to understand how gates make decisions is called ``Boolean Algebra", but really it's a fairly simple set of decisions that get strung together in useful ways.
+
+\subsection*{Boolean Logic}
+
+Boolean logic is the sort of decision making and answers that computers use. You can use it too, of course, and it will help you learn to program computers. The answer to every question in Boolean logic is either ``yes'' or ``no'' -- ``true'' or ``false''. In computers, that's a one or a zero, of course.   Every operation (decision) is composed of a set of operations: \emph{and}, \emph{or}, and \emph{not}. A British man named George Boole introduced these ideas to the world in 1847\footnote{\emph{The Mathematical Analysis of Logic} (1847), and \emph{An Investigation of the Laws of Thought} (1854). For more, see his {\color{webblue}\href{https://en.wikipedia.org/wiki/George_Boole}{Wikipedia entry}}.} He did not realize he was laying the foundations for computing, but 50 years later another very important mathematician, Claude Shannon, understood that Boole's system for understanding decisions could be used to design electronic circuits. 
+
+It may be helpful to see some of the logic and operations (decisions) made in a graphical form, looking at the overlap between circles, or between a circle and its surrounding area.
+
+% Draw Venn diagrams to graphically demonstrate OR, AND, and NOT.
+\begin{figure}[h!]
+\begin{center}
+\input{./include/vennand.tex}
+\caption{A graphic representing {\sc{and}}, {\sc{or}}, and {\sc{not}} with overlapping circles.}
+\end{center}
+\end{figure}
+
+
+Also note: more complex decisions can be made by combining these operations: NOT $+$ AND, for instance). 
+
 
 \subsection*{The OR Gate}
 
-OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 are equal to 1.
+OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 are equal to 1 -- that is, if either line has a voltage level above zero.
 
 \medskip
 \begin{center}
@@ -61,7 +79,7 @@ The ``Truth Table" (how they behave) is:
 \end{center}
 \end{figure}
 
-\stbox{\emph{Experiment:} Wire up an OR gate on a breadboard. Use LEDs as indicators for Input A, Input B, and OUT. Feel free to use diodes, but using transistors is pretty easy. It's best to use N-type transistors as switches for each LED and for the OR-output LED.}
+\stbox{\emph{Experiment:} Wire up an OR gate on a breadboard, like the one seen in the cover image. Use LEDs as indicators for Input A, Input B, and OUT. Feel free to use diodes, but using transistors is pretty easy. It's best to use N-type transistors as switches for each LED and for the OR-output LED.}
 
 \begin{figure}[h!]
 \begin{center}
@@ -234,7 +252,7 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 \input{./include/practicalnot.tex}
 \caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy.}
