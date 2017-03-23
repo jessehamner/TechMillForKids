@@ -1,0 +1,45 @@
+\begin{circuitikz}
+
+\draw 
+	(0,3.0) node[ocirc](in) {} %IN node
+	(0,3.0) node[left] {{\color{red}$IN$}} % IN label
+%	(0,3.0) |- (1,3.0)
+	
+	(7.5,4) node[ocirc](out){} % OUT node
+	(7.75,4) node[right] {{\color{red}$OUT$}} % OUT label
+	(6,4) |- (out)
+	(6,4) node[circ](){}
+
+% Vdd:
+	(6,7.5) node[vcc](vin){}
+    (5.5,7.5) node[above] {$V_{in}$} % Vin
+
+% GND
+    (6,0) node[ground](ground){}
+ %   (6.75,0.5) node[below] {{\color{red}$GND$}} % GND
+
+% P-type FET
+	(6,5) node[pmos, emptycircle, xscale=1](Q1){}
+	(6.5,5.0) node[above]{$Q_1$}
+
+% N-type FET
+	(6,3) node[nmos, rotate=0](Q2){}
+	(6.5,2.5) node[above]{$Q_2$}
+
+% Resistors:
+	(4,0) to [R, l^=$R_1$](4,3)
+	(Q2.S) to [R, l^=$R_2$ ](ground) 
+	(in) to [R, l^=$R_3$](Q2.G) 
+	(4,7) to [R, l^=$R_4$](4,5)
+
+% nets:
+	(vin) |- (Q1.S)
+	(4,3.0) node[circ](){}
+	(6,0.0) node[circ](){}
+	(6,7) node[circ](){}
+	(Q1.D) |- (Q2.D)
+	(4,0) |- (ground)
+	(6,7) |- (4,7)
+	(4,5) |- (Q1.G) 
+;
+\end{circuitikz}
