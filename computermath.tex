@@ -43,7 +43,7 @@ Here's an example:
 
 \subsection*{Addition}
 
-Adding two values is straightforward. Simply align the values on the least significant bit and add, propagating any carry to the bit one position left. If the carry extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around carry"}. When this occurs, the bit must be added back in at the right-most bit. %This phenomenon does not occur in two's complement arithmetic.
+Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic. If the carry extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around carry"}. When this occurs, the bit must be added back in at the right-most bit. Kind of strange, but that's how this type of binary addition works. %This phenomenon does not occur in two's complement arithmetic.
 
 \begin{verbatim}
   Binary:     Decimal:
