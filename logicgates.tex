@@ -14,6 +14,7 @@ It may be helpful to see some of the logic and operations (decisions) made in a 
 \input{./include/vennand.tex}
 \caption{A graphic representing {\sc{and}}, {\sc{or}}, and {\sc{not}} with overlapping circles.}
 \end{center}
+\label{fig:vennlogic}
 \end{figure}
 
 
@@ -75,7 +76,7 @@ The ``Truth Table" (how they behave) is:
 \begin{center}
 \input{./include/diodeorgate.tex}
 \caption{A very simple OR gate schematic. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal on Input A or on Input B, OUT will carry a voltage (and therefore, a ``1'').}
-
+\label{fig:diodeorgate}
 \end{center}
 \end{figure}
 
@@ -85,15 +86,15 @@ The ``Truth Table" (how they behave) is:
 \begin{center}
 \input{./include/npnorgate.tex}
 \caption{A simple transistor-based OR gate. Transistors are better than diodes in this application because transistors amplify (or at least do not degrade) signals, while diodes lose half a volt or more. Diode \emph{propagation delay} is also slower than transistors, making the circuits without these diodes run faster. In this schematic, each transistor acts as an independent switch for the output -- either switch pushes OUT to high.}
-\label{Fig:npnorgate}
+\label{fig:npnorgate}
 \end{center}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=1.25]{orgateschembetter.png}
-\caption{A schematic from a real circuit design program showing a practical, real implementation of the idealized schematic in Figure \ref{Fig:npnorgate}. The wires connecting components are the green lines. Mostly there are more resistors to help keep the transistors behaving well. For instance, the 100K resistors make sure the transistors are always at a low logic level (zero volts) when the inputs are `off'.}
-\label{Fig:orgateeagleschematic}
+\caption{A schematic from a real circuit design program showing a practical, real implementation of the idealized schematic in Figure \ref{fig:npnorgate}. The wires connecting components are the green lines. Mostly there are more resistors to help keep the transistors behaving well. For instance, the 100K resistors make sure the transistors are always at a low logic level (zero volts) when the inputs are `off'.}
+\label{fig:orgateeagleschematic}
 \end{center}
 \end{figure}
 
@@ -104,6 +105,7 @@ The ``Truth Table" (how they behave) is:
 \begin{center}
 \includegraphics[scale=0.25]{trimmedorgate.png}
 \caption{A circuit board designed using the above OR gate schematic. You can solder these without much trouble. You can see the top and bottom of the board here, but all components go on the top. However, both top and bottom have \emph{traces}, that carry electricity instead of using loose/floppy wires. The larger resistors are the lowest value (they're just there to make the transistors behave a little better): 100R means ``100 Ohms''. The smaller resistors are either 100,000 Ohms (that is, 100K Ohms) or 1,000 Ohms (1K Ohms). The OR gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
+\label{fig:orgatepcbs}
 \end{center}
 \end{figure}
 
@@ -175,7 +177,7 @@ There are much more complicated AND gates, but this is an easy-to-understand exa
 \input{./include/simpleand.tex}
 
 \caption{A simple AND gate schematic. When Input A is a zero, no current flows into the ``collector" (voltage input wire) of Transistor 2. When Input B is zero, no current can flow to OUT, regardless of whether Input A is 0 or 1. Only when Input A is 1 (current can flow past Q1) and when Input B is 1 (current is available to Q2, and Q2 is turned ``on'', allowing current to pass) does OUT go ``high".}
-
+\label{fig:simpleandgate}
 \end{center}
 \end{figure}
 
@@ -187,6 +189,7 @@ There are much more complicated AND gates, but this is an easy-to-understand exa
 \includegraphics[scale=0.25]{andgate.png}
 \caption{A circuit board designed using the above AND gate schematic. This one looks almost exactly like the OR gate, but the wiring is different! Also, you can see both the front and back sides of the circuit board in this image. The AND gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
 \end{center}
+\label{fig:andgate}
 \end{figure}
 
 
@@ -247,7 +250,7 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 \begin{center}
 \input{./include/simplenot.tex}
 \caption{A very simple NOT gate schematic. When IN is logic low (off), electricity cannot pass through to the ground, and so it is available at the OUT terminal. That means OUT is a 1. When IN is carrying current, the transistor opens up and electricity starts flowing to ground -- the ``path of least resistance''. Then, because $R_3$ provides a little resistance, electricity flows to ground instead of OUT, meaning OUT has a very, very low voltage available -- making it a zero.}
-
+\label{fig:simplenot}
 \end{center}
 \end{figure}
 
@@ -343,6 +346,7 @@ The ``Truth Table" (how they behave) is:
 \begin{center}
 \includegraphics[scale=0.25]{trimmednandgate.png}
 \caption{A circuit board designed to make a NAND gate. Note that it uses four transistors.}
+\label{fig:nandgate}
 \end{center}
 \end{figure}
 
@@ -409,6 +413,7 @@ The ``Truth Table" (how they behave) is:
 \includegraphics[scale=0.5]{Agc_nor2.jpg}
 \caption{An early integrated circuit NOR gate. It has six transistors, eight resistors, and three pairs of A/B inputs (thus, it has three separate yes/no outputs). This chip was part of the guidance computer that took Americans to the moon in 1969. \emph{Photo credit: Wikimedia Foundation}.}
 \end{center}
+\label{fig:apollonorgate}
 \end{figure}
 
 
