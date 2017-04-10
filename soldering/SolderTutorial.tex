@@ -67,7 +67,7 @@ The author's daughter, repairing a DC motor for her elementary school.
 
 \+[Flux:] from the Latin meaning ``to flow", flux cleans metallic surfaces of oxides (usually with some kind of acid), prevents oxides from forming, and reduces the surface tension of molten solder (put another way, it improves ``wetting'' of metals with the molten solder). Oxides usually resist solder bonding, and oxides form quickly at high temperatures. Flux is really important. Most solder now has a supply of flux contained in the solder wire itself, but there are flux pens for cases where you need more flux, like surface-mount soldering and component de-soldering.
 
-\+[Eutectic:] a metal alloy having a lower melting point than any of its component metals. Weird, right? Solder is a eutectic alloy, and that's very useful for soldering---it can bind metals together without melting them.
+\+[Eutectic:] a metal alloy having a lower melting point than any of its component metals. Weird, right? Solder is a eutectic alloy, and that's very useful for soldering---it can bind wires or components together without melting the metal (melting metals together is \emph{welding}).
 
 \+[Gauge:] the thickness of a wire according to a very old American standard system. It is more convenient to ask for ``20-gauge solder'' than to say ``0.032-inch'' or ``0.8 millimeter'' thickness.
 
@@ -75,9 +75,9 @@ The author's daughter, repairing a DC motor for her elementary school.
 
 \+[Surface-mount technology (SMT):] The modern, high-density, means to attach components to circuit boards. No holes -- instead, tiny solder blobs hold the small (usually very small!) components to one side of the board, and don't require holes. Additionally, they don't make a hole in the other side of the board that traces have to route around. SMT soldering is a quite different skill from through-hole soldering, but the results are usually impressive, efficient, and cheaper than through-hole designs. But not for beginners.
 
-\+[Dual In-line Package (DIP):] the oldest form factor for integrated circuits (chips). Pins are spaced 0.1" apart. Rows are usually 0.3" or 0.6" apart, and the pins can be through-hole soldered or put into sockets. A DIP is usually referred to as a DIP\emph{n}, where \emph{n} is the total number of pins. 
+\+[Dual In-line Package (DIP):] the oldest form factor for integrated circuits (chips). Pins are spaced 0.1" apart. Rows are usually 0.3" or 0.6" apart, and the pins can be through-hole soldered or put into sockets. A DIP is usually referred to as a DIP\emph{n}, where \emph{n} is the total number of pins, with each row having half the overall count of pins. 
 
-\+[Surface-mount packages:] chips where the pins do not go through the board, even if the pins are 0.1" apart or built on a DIP carrier. The pins on these chips get too small to reliably solder with a soldering iron.
+\+[Surface-mount packages:] chips where the pins do not go through the board, even if the pins are 0.1" apart or built on a DIP carrier. The pins on these chips get too small to reliably solder with a soldering iron, but plenty of surface-mount parts can be reliably soldered with a regular iron.
 
 \+[Soldering iron:] a pencil-shaped tool with a removable tip (tips come in various shapes) that gets hot enough to melt solder. Usually powered by electricity, but some use butane heaters.
 
@@ -85,7 +85,7 @@ The author's daughter, repairing a DC motor for her elementary school.
 
 \+[Solder sucker:] a small, spring-loaded vacuum pump, allowing the user to heat a defective or wrongly-placed solder joint, and pull almost all the solder away from the joint. The joint can then be separated without pliers or damage.
 
-\+[Solder braid:] A flat, woven cable of loose copper fibers, usually covered in flux. Copper transfers heat rapidly, and capillary action of the tiny fibers makes it possible to remove solder from a joint without a solder sucker. A higher difficulty of use, but produces good results.
+\+[Solder braid:] A flat, woven cable of loose copper fibers, usually covered in solid flux. Copper transfers heat rapidly, and capillary action of the tiny fibers makes it possible to remove solder from a joint without a solder sucker. A higher difficulty of use, but produces good results.
 
 \+[Thermal shock:] damage to components caused by physical strain on a component that is heated or cooled too rapidly (different points expand differently, depending on how hot or cold they get over some small slice of time).
 
@@ -95,9 +95,9 @@ The author's daughter, repairing a DC motor for her elementary school.
 
 \+[Cold Solder Joint:] It is possible to put solder on a joint and not electrically connect the metallic components. Hugely frustrating to diagnose -- the joint usually appears to be complete. Always caused by insufficient heating of the solder joint. 
 
-\+[Hot air rework:] Using a stream of super-heated air to heat a solder joint instead of direct contact with a metal tip. Typically slower, and runs a greater risk of thermal damage to a component.
+\+[Hot air rework:] Using a stream of super-heated air to heat a solder joint instead of direct contact with a metal tip. Typically slower, and runs a greater risk of thermal damage to a component. But for desoldering work, it's usually a great choice.
 
-\+[Solder paste:] ``paintable" solder with flux and solder in a paste, instead of a wire. When combined with hot air rework, or a reflow oven, allows you to make solder available to all the components you want to solder at once. Thus you expose all items to heat at once -- and all the soldering happens simultaneously.
+\+[Solder paste:] ``spreadable" solder with flux and solder in a paste, instead of a wire. When combined with hot air rework, or a reflow oven, solder paste allows you to solder all the components you want to solder at once. Thus you expose all items to heat at once -- and all the soldering happens simultaneously.
 
 \+[Ohm:] Abbreviated $\Omega$, an Ohm is a unit of resistance to electrical flow. One Ohm is a very small amount of resistance. 10,000 Ohms (10K$\Omega$) is a moderate amount of resistance. 10 megaohms (10M$\Omega$) is a lot of resistance. Resistors dissipate some electricity as heat. The greater the resistance for a given voltage, the lower the current will be. This is Ohm's Law: $V=IR$ 
 
@@ -120,11 +120,16 @@ For this exercise, we need:
 \+ masking tape
 \+ third hand and/or Panavise
 \+ brass cleaner sponge
-\+ flush cutter (optional)
+\+ flush cutters (optional)
 \+ some quantity of small-gauge insulated electrical wire (solid or stranded, but solid is better for this tutorial)
-\+ three through-hole, 1/4 watt resistors per person (10K$\Omega$, 1K$\Omega$, and 220$\Omega$)
+\+ three through-hole, $\frac{1}{4}$ watt resistors per person (10K$\Omega$, 1K$\Omega$, and 220$\Omega$)
 \+ one through-hole, leaded LED per person
-\+ one simple soldering kit (Sparkfun's {\color{webblue}\href{https://www.sparkfun.com/products/10723}{WeevilEye}}, \$10, is a great choice; Maker Shed's {\color{webblue}\href{http://www.makershed.com/products/learn-to-solder-skill-badge-kit}{Makey Robot Badge}}, \$3, is another)
+\+ one simple soldering kit:
+	\begin{itemize} 
+	\+ Sparkfun's {\color{webblue}\href{https://www.sparkfun.com/products/10723}{WeevilEye}}, \$10, is a great choice
+	\+ Maker Shed's {\color{webblue}\href{http://www.makershed.com/products/learn-to-solder-skill-badge-kit}{Makey Robot Badge}}, \$3, is another
+	\+ logic gate PCBs (designed by the author and suitable for beginners, though some of the parts do get close together)
+	\end{itemize}
 \+ shrink tubing (optional)
 \end{enumerate}
 
@@ -147,7 +152,7 @@ Everyone should have:
 
 Next:
 
-Get a soldering iron. Ensure the end of the iron is safely in its holder. Power up the iron. Ensure the temperature is set to about 650\degs{F}.  Set up the third hand, if you have one. Strip the ends off of two pieces of wire and discard the insulation.
+Get a soldering iron. Ensure the end of the iron is safely in its holder. Power up the iron. Ensure the temperature is set to about 650\degs{F} or 700\degs{F}.  Set up the third hand, if you have one. Strip about $\frac{1}{4}$\textsuperscript{\texttt{"}} off of two pieces of wire and discard the insulation.
 
 \subsection{Flux and Solder}
 
