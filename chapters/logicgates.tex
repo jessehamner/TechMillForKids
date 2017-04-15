@@ -75,7 +75,7 @@ The ``Truth Table" (how they behave) is:
 \begin{figure}[h!]
 \begin{center}
 \input{./include/diodeorgate.tex}
-\caption{A very simple OR gate schematic. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal on Input A or on Input B, OUT will carry a voltage (and therefore, a ``1'').}
+\caption{A very simple OR gate schematic. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal on Input A or on Input B, OUT will carry a voltage (and therefore, a ``1''). Diode \emph{propagation delay} (how much time the signal takes to cross through the diode) is slower than transistors, meaning transistorized circuits run faster.}
 \label{fig:diodeorgate}
 \end{center}
 \end{figure}
@@ -85,7 +85,7 @@ The ``Truth Table" (how they behave) is:
 \begin{figure}[h!]
 \begin{center}
 \input{./include/npnorgate.tex}
-\caption{A simple transistor-based OR gate. Transistors are better than diodes in this application because transistors amplify (or at least do not degrade) signals, while diodes lose half a volt or more. Diode \emph{propagation delay} is also slower than transistors, making the circuits without these diodes run faster. In this schematic, each transistor acts as an independent switch for the output -- either switch pushes OUT to high.}
+\caption{A simple transistor-based OR gate. Transistors are better than diodes in this application because transistors amplify (or at least do not degrade) signals, while diodes lose half a volt or more.  In this schematic, each transistor acts as an independent switch for the output -- either switch pushes OUT to high.}
 \label{fig:npnorgate}
 \end{center}
 \end{figure}
@@ -168,7 +168,8 @@ The ``Truth Table" (how they behave) is:
 
 \bigskip
 
-There are much more complicated AND gates, but this is an easy-to-understand example (and it totally works):
+
+There are much more complicated AND gates, but see below for an easy-to-understand example (and it totally works). Remember that transistors act like switches: the \emph{gate} acts like the switch that opens up the flow of electricity from the \emph{source} to the \emph{drain}. Look at the schematic in Figure \ref{fig:simpleandgate} -- note that the drain of the top transistor ($Q_1$) flows into the source of the other transistor ($Q_2$), meaning that even if $Q_2$ is turned on, it may not necessarily start carrying electricity (because $Q_1$ may not allow the electricity from $V_{cc}$ to pass through). Thus, both gate 1 AND gate 2 have to be turned on in order to see voltage at the output.
 
 \bigskip
 
@@ -176,7 +177,7 @@ There are much more complicated AND gates, but this is an easy-to-understand exa
 \begin{center}
 \input{./include/simpleand.tex}
 
-\caption{A simple AND gate schematic. When Input A is a zero, no current flows into the ``collector" (voltage input wire) of Transistor 2. When Input B is zero, no current can flow to OUT, regardless of whether Input A is 0 or 1. Only when Input A is 1 (current can flow past Q1) and when Input B is 1 (current is available to Q2, and Q2 is turned ``on'', allowing current to pass) does OUT go ``high".}
+\caption{A simple AND gate schematic. When Input A is a zero, no current flows into the ``collector" (voltage input wire) of Transistor 2. When Input B is zero, no current can flow to OUT, regardless of whether Input A is 0 or 1. Only when Input A is 1 (current can flow past Q1) and when Input B is 1 (current is available to Q2, and Q2 is turned ``on'', allowing current to pass) does OUT go ``high". $R_3$ prevents too much current from flowing to ground, and is not strictly necessary in all gates, but is included here because it is common to see them.}
 \label{fig:simpleandgate}
 \end{center}
 \end{figure}
@@ -187,7 +188,7 @@ There are much more complicated AND gates, but this is an easy-to-understand exa
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.25]{andgate.png}
-\caption{A circuit board designed using the above AND gate schematic. This one looks almost exactly like the OR gate, but the wiring is different! Also, you can see both the front and back sides of the circuit board in this image. The AND gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
+\caption{A circuit board designed using the above AND gate schematic, though with two 100K pull-down resistors also implemented (these guarantee the transistor's gate are reliably held at 0 volts instead of allowed to \emph{float}, until either of the inputs goes high (that is, pushes some voltage into the transistor gate). The pull-down resistors are important practically, but they do not appear in this circuit diagram for simplicity. This board looks almost exactly like the OR gate, but the wiring is different! Also, you can see both the front and back sides of the circuit board in this image. The AND gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
 \end{center}
 \label{fig:andgate}
 \end{figure}
@@ -267,7 +268,7 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.25]{notgate.png}
+\includegraphics[scale=0.25]{trimmednotgate.png} % convert NOTgate.png -alpha off -trim  trimmednotgate.png 
 \caption{A circuit board designed using the more elegant NOT gate schematic seen in Figure \ref{fig:cmosnot}. This one looks almost exactly like the OR gate and the AND gate, but the wiring is different! Also, it has only one input and one output. The NOT gate takes one \emph{input}, A, and produces one \emph{result}, R.}
 \label{fig:notgateboard}
 \end{center}
