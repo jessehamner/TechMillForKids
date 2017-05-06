@@ -260,7 +260,7 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 \begin{center}
 \input{./include/CMOSNOT.tex}
 
-\caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy. It uses one P-type and one N-type \emph{field effect transistor} (FET). The diodes prevent current from $V_{in}$ flowing through the pull-up resistor ($R_4$) and the pull-down resistor ($R_1$) to ground -- it would add a little voltage to each gate all the time, effectively making the gate voltages float.}
+\caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy. It uses one P-type and one N-type \emph{field effect transistor} (FET). Each transistor gate (the ``switch" you turn on or off with voltage) is tied to ground through a fairly high value resistor. P-type transistors clamp off electricity when their gate \emph{has} voltage on it. N-type transistors clamp off when their gate \emph{does not have} voltage on it. So, here, when the input is high, the top transistor clamps off voltage input, and the bottom transistor opens up, allowing any current to flow to ground--but there's no current available! The situation nicely reverses itself when the input is low: the top transistor opens up, allowing current to flow, and the bottom transistor clamps off, preventing current from going anywhere -- but putting a high signal at the output.  }
 \label{fig:cmosnot}
 \end{center}
 \end{figure}
