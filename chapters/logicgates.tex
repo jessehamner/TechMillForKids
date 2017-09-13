@@ -283,9 +283,13 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 \clearpage
 \newpage
 
-\subsection*{Complex Gates}
+\section{Complex Logic Gates}
 
-Combining gates is possible to produce more complex circuits that answer different questions. A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate -- so it has the exact opposite truth table. Since a NAND gate just reverses the output of AND, you can put a NOT gate on the result (output) line of an AND gate and make a NAND gate, just like you were using Legos.
+Combining gates is possible to produce more complex circuits that answer different questions, like outputs that tell us if two inputs are ``NOT AND" or ``NOT OR" or ``Exclusively OR". Each of these gates allows new comparisons between two inputs, but each is composed of the fundamental three gates, seen above. There is even an "Exclusive NOT OR" gate, which is how computers determine if two numbers are equal to each other.
+
+\subsection*{The NAND Gate}
+
+A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate -- so it has the exact opposite truth table. Since a NAND gate just reverses the output of AND, you can put a NOT gate on the result (output) line of an AND gate and make a NAND gate, just like you were using Legos.
 
 
 \medskip
@@ -345,7 +349,7 @@ The ``Truth Table" (how they behave) is:
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.25]{trimmednandgate.png}
+\includegraphics[scale=0.16]{trimmednandgate.png}
 \caption{A circuit board designed to make a NAND gate. Note that it uses four transistors.}
 \label{fig:nandgate}
 \end{center}
@@ -353,6 +357,8 @@ The ``Truth Table" (how they behave) is:
 
 \clearpage
 \newpage
+
+\subsection*{The NOR Gate}
 
 Not surprisingly, there is also a NOR gate, that has the reverse truth table to an OR gate. NOR gates are easy to implement, though as we have said elsewhere, more complicated NOR gates save power. 
 
@@ -421,7 +427,8 @@ The ``Truth Table" (how they behave) is:
 \clearpage
 \newpage
 
-There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors.
+\subsection*{The Exclusive-OR Gate}
+There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors. See Figure \ref{fig:xorgate}.
 
 \medskip
 \begin{center}
@@ -475,6 +482,24 @@ The ``Truth Table" (how they behave) is:
 
 \bigskip
 
+\begin{figure}[h!]
+\begin{center}
+\fbox{
+\includegraphics[scale=0.15]{xorgatebreadboard.jpg}
+}
+\caption{An XOR gate wired up on a breadboard with discrete transistors and resistors. This is the same schematic (and the same color-coded signal wires) seen in Figure \ref{fig:xorgate}. The red switch is signal A and the blue switch is signal B. On the LED line, 0 and 1 are A and B, and 2 and 3 (lit up) are NOT A and NOT B.}
+\label{fig:xorbreadboard}
+\end{center}
+\end{figure}
 
 
+\begin{figure}[h!]
+\begin{center}
+\input{include/xorgate.tex}
+\caption{An exclusive-or (XOR) gate, composed of 12 transistors and some supporting resistors. You don't need to understand how it works, but it's not that hard if you break it down into signals and AND gates.}
+\label{fig:xorgate}
+\end{center}
+\end{figure}
+
+\clearpage
 

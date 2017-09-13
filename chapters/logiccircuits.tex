@@ -14,10 +14,10 @@ A \emph{half adder} demonstrates the way in which computer logic gates can corre
 
 &
 
-\begin{tabular}{ll | ll | c}
+\begin{tabular}{ll | cc | c}
 \multicolumn{5}{c}{\textbf{Truth Table}}\\
 \hline\\[\negsep]
-\textbf{A} & \textbf{B} & \textbf{S} & \textbf{C} & \textbf{Decimal}\\
+\textbf{A} & \textbf{B} & \textbf{Sum} & \textbf{Carry} & \textbf{Decimal}\\
 \hline
 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 1  & 0 & 1 \\
@@ -35,7 +35,7 @@ A \emph{half adder} demonstrates the way in which computer logic gates can corre
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}[hb!]
 \begin{center}
 
 \input{./include/halfadder2.tex}
@@ -58,7 +58,17 @@ This type of adder is a little more difficult to implement than a half-adder. Th
 \end{figure}
 
 
-\newpage
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.19]{FullAdderboard.png}
+\caption{A full-adder circuit, implemented on a small circuit board, with individual integrated circuit gates instead of discrete transistors. You can see the circuits easily but the board is much simpler to work with, compared to the single-gate boards.}
+\end{center}
+\end{figure}
+
+
+
+
+\clearpage
 
 \subsection*{Equality}
 
@@ -139,3 +149,4 @@ There have been \emph{many} forms of memory through the years, including punched
 \caption{A static ram cell. It uses six transistors per bit instead of one transistor and a capacitor for bit (as used in dynamic ram, the main memory for the computer), so it's expensive and bulky, but it's also faster. Usually SRAM is used very close to the CPU core, so it is available for immediate use by the core processing operations. To keep the diagram simple, no resistors are shown. If you look closely at the M1/M2 and M3/M4 transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate).} % from Wikipedia and http://www.iue.tuwien.ac.at/phd/entner/node34.html 
 \end{center}
 \end{figure}
+

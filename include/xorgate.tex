@@ -1,0 +1,237 @@
+\def\y{8}
+\def\x{9}
+
+\begin{circuitikz}
+
+% First NOT gate, Input A
+\draw 
+	(0,\y+5) node[ocirc](ain) {} % IN node
+	(0,\y+5) node[above] {{\color{red}$A$}} % A  label
+	
+%	(6.75,\y+4) node[short](aout){} % OUT node
+	(7,\y+4) node[above] {{\color{red}$A'$}} % NOT A label
+	(5,\y+4) |- (6.75,\y+4)
+	(5,\y+4) node[circ](){}
+	(3,\y+3) node[circ](){}
+
+% Vdd:
+	(5,\y+6) node[vcc](avin){}
+    (4.5,\y+6) node[above] {$V_{in}$} % Vin
+
+% GND
+    (5,\y) node[ground](aground){}
+%   (7.75,0.5) node[below] {{\color{red}$GND$}} % GND
+
+% P-type FET
+	(5,\y+5) node[pmos, emptycircle, xscale=1](Q1){}
+	(5.5,\y+5) node[above]{$Q_1$}
+
+% N-type FET
+	(5,\y+3) node[nmos, rotate=0](Q2){}
+	(5.5,\y+2.5) node[above]{$Q_2$}
+
+% Resistors:
+	(3,\y+3) to [R, l^=$R_1$](3,\y)
+	(Q2.S) to [R, -*, l^=$R_2$](aground) 
+	(ain) to [R, -*, l^=$R_3$](3,\y+5)
+
+% nets:
+	(avin) |- (Q1.S)
+	(Q1.D) -* (Q2.D)
+	(3,\y) |- (aground)
+	(3,\y+5) |- (Q2.G)
+	(3,\y+5) |- (Q1.G)
+
+;
+
+% Second NOT gate, Input B
+\draw 
+	(0,5) node[ocirc](in) {} % IN node
+	(0,5) node[above] {{\color{red}$B$}} % B label
+	
+	(6.5,4) node[circ](notb){} % OUT node
+	(6.25,4) node[above] {{\color{red}$B'$}} % NOT B label
+	(5,4) |- (notb)
+	(5,4) node[circ](){}
+
+% Vdd:
+	(5,6.0) node[vcc](vin){}
+    (4.5,6.0) node[above] {$V_{in}$} % Vin
+
+% GND
+    (5,0) node[ground](ground){}
+%   (7.75,0.5) node[below] {{\color{red}$GND$}} % GND
+
+% P-type FET
+	(5,5) node[pmos, emptycircle, xscale=1](Q3){}
+	(5.5,5.0) node[above]{$Q_3$}
+
+% N-type FET
+	(5,3) node[nmos, rotate=0](Q4){}
+	(5.5,2.5) node[above]{$Q_4$}
+
+% Resistors:
+	(3,3) to [R, l^=$R_4$](3,0)
+	(Q4.S) to [R, -*, l^=$R_5$](ground) 
+	(in) to [R, -*, l^=$R_6$](3,5)
+
+% nets:
+	(vin) |- (Q3.S)
+	(3,3) |- (3,5)
+	(3,3) node[circ](){}	
+	(Q3.D) |- (Q4.D)
+	(3,0) |- (ground)
+	(3,3) |- (Q4.G)
+	(3,5) |- (Q3.G)
+;
+
+
+\draw
+% P-type FET
+	(\x,\y+5) node[pmos, emptycircle, xscale=1](Q5){}
+	(\x+0.5,\y+5) node[above]{$Q_5$}
+
+% P-type FET
+	(\x,\y+3) node[pmos, emptycircle, xscale=1](Q6){}
+	(\x+0.5,\y+3) node[above]{$Q_6$}
+
+% P-type FET
+	(\x+3,\y+5) node[pmos, emptycircle, xscale=1](Q7){}
+	(\x+3.5,\y+5) node[above]{$Q_7$}
+
+% P-type FET
+	(\x+3,\y+3) node[pmos, emptycircle, xscale=1](Q8){}
+	(\x+3.5,\y+3) node[above]{$Q_8$}
+
+% Vdd:
+	(\x,\y+6) node[vcc](cvin){}
+    (\x+0.5,\y+6) node[above] {$V_{in}$} % Vin
+
+% Vdd:
+	(\x+3,\y+6) node[vcc](dvin){}
+    (\x+3.5,\y+6) node[above] {$V_{in}$} % Vin
+
+% Nets:
+	(Q5.D) to (Q6.S)
+	(Q7.D) to (Q8.S)
+	(cvin) to (Q5.S)
+	(dvin) to (Q7.S)
+;
+
+
+\draw
+% N-type FET
+	(\x,\y-1) node[nmos, xscale=1](Q9){}
+	(\x+0.5,\y-1) node[above]{$Q_9$}
+
+% N-type FET
+	(\x,\y-3) node[nmos, xscale=1](Q10){}
+	(\x+0.5,\y-3) node[above]{$Q_{10}$}
+
+% N-type FET
+	(\x+3,\y-1) node[nmos,  xscale=1](Q11){}
+	(\x+3.5,\y-1) node[above]{$Q_{11}$}
+
+% N-type FET
+	(\x+3,\y-3) node[nmos, xscale=1](Q12){}
+	(\x+3.5,\y-3) node[above]{$Q_{12}$}
+
+% Grounds:
+    (\x,2) node[ground](ground2){}
+    (\x+5,-1) node[ground](ground3){}
+
+% Current-limiting resistors:
+	(Q10.S) to [R, -, l^=$R_7$](ground2) 
+	(Q12.S) to [R, -, l^=$R_8$](12,2) 
+	
+% Nets:
+	(Q11.S) to (Q12.D)
+	(Q9.S) to (Q10.D)
+	
+	(Q8.D) to (Q11.D)
+	(Q6.D) to (Q9.D)
+	
+	(\x, \y+4.0) -| (\x+3, \y+4.0)	
+	(\x,\y+4.0) node[circ](){}
+	(\x+3,\y+4.0) node[circ](){}
+
+	(12,2) -- (14,2) -- (ground3)
+
+;
+
+% A signal:
+\draw[ultra thick, yellow]
+	(3,\y+5) -- (3, \y+7) -- (6, \y+7) -- (6,\y-1) -- (Q9.G)
+	(6,\y+5) node[circ, color=yellow](){}
+	(6,\y+5) -| (Q5.G)
+;
+
+
+% B signal:
+\draw[thick, blue]
+	(3,4) -| (2, 4) -- (2, -1) -| (7,-1) -- (7,5) --  (7.5,5) -- (Q10.G)
+	(3,4) node[circ, color=blue](){}
+	(7.5,5) node[circ, color=blue](){}
+	(7.5,5) -- (7.5,10) --  (10,10) -- (10,13) -- (Q7.G)
+;
+
+
+% NOT A signal:
+\draw[thick, orange]
+	(6.75,\y+4) -- (7.25, 12) -- (7.25, -1.0) -- (10.5, -1.0) -- (10.5,7) -- (Q11.G)
+	(7.25,11) -- (Q6.G)
+	(7.25,11) node[circ, color=orange](){}
+	(6.75,\y+4) -- (5,\y+4)
+;
+
+
+% NOT B signal:
+\draw[line width=3, color=black]
+	(5,4) -- (6.5, 4) -| (6.5, 0.5) -- (10,0.5) -- (10,5) -- (Q12.G)
+	(10,3) -- (10,8.0) -- (11, 8.0) -- (Q8.G)
+;
+
+\draw[thick, color=white]
+	(5,4) -- (6.5,4) --  (6.5,0.5) -- (10,0.5) -- (10,5) -- (Q12.G)
+	(10,3) -- (10,8.0) -- (11, 8.0) -- (Q8.G)
+;
+
+%\draw
+%	(6.5, 4) node[circ, color=black](){}
+% ;
+
+\draw
+% Pull-down resistors, R9 (NOT_A) and R10 (NOT_B)
+	(10.5,-1.0) node[circ, color=orange](){}
+	(10.5,-1.0) to [R, -* , l^=$R_9$](14,-1)
+
+	(10.0,0.5) node[circ, color=black](){}
+	(10.0,0.5) to [R, -* , l^=$R_{10}$](14,0.5)
+
+
+;
+
+% XOR signal:
+
+\draw[color=brown, ultra thick]
+	(\x, \y+1) -* (\x+3, \y+1)
+	(\x,\y+1) node[circ](){}
+	(\x+3,\y+1) node[circ](){}
+	
+	(\x+5,\y+1) node[circ](xor){} % OUT node
+	(\x+4.25,\y+1) node[above] {{\color{red}$A~XOR~B$}} % XOR label
+	(\x+3,\y+1) |- (xor)
+;
+
+% Labeling and explanation
+\draw
+ (15,6) node[align=left](exp1){This pair of AND \\ gates grounds \\ the circuit if \\ both inputs are \\  the same.}
+
+ (15,12) node[align=left](exp1){This pair of AND \\ gates controls \\ circuit power input. \\ Each (linked) pair \\ only functions if the \\ inputs are different.}
+
+ (1,7) node[align=left](exp1){Two NOT \\ gates enable \\ comparisons \\ among inputs.}
+
+;
+
+
+\end{circuitikz}
