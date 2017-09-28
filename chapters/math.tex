@@ -25,7 +25,7 @@ Put another way: the exponent is a number, smaller and on the upper right hand s
 
 The base can be any number, though most people think most easily in base-10. So in base-10, 10 to the power 2, or 10 to the second power, means $10 \times 10$. 
 
-\subsection*{Order of Magnitude}
+\subsection*{Order of Magnitude (Columns)}
 
 When counting up from zero, in base 10, you eventually get to 9. In order to count any higher, you must ``carry the one" over to the next column and reset the counter in the ``ones" column (the place that counts by one, from zero to nine). When you move from the ``\emph{ones}'' column to the ``\emph{tens}'' column, you move to the next \emph{order of magnitude} of the base. ``Magnitude" means ``size", and in math, it means, specifically, moving from counting by one number (the base) to counting by the base times itself -- first twice, then three times, then more. For base-10, you count from 0 to 9 in the right-most column, then from 10 to 90 in the next column to the left, then from 100 to 900 in the next column to the left, then from 1000 to 9000, and so on. Each time the counter gets full (reaches 9), you cannot represent any more of the quantity being counted without moving to the next largest order of magnitude. That is, if your display only shows two digits, once you count past 99, you have no idea is the number is 0, or 100, or 200, or 900, or ten thousand, or 4 billion.
 
@@ -46,14 +46,18 @@ Squaring the number 10 gets: $10 \times 10 = 100$
 \\
 \blockline{2}{0.5} & $2 \times 2 = $ & \makeplate{2}{1}{0.5} & $=2^2$ \\
 \\
-\blockline{3}{0.5} & $3\times 3 = $ & \makeplate{3}{1}{0.5} & $=3^2$\\
+\blockline{3}{0.5} & $3 \times 3 = $ & \makeplate{3}{1}{0.5} & $=3^2$\\
 \\
 \blockline{4}{0.5} & $4 \times 4 = $ & \makeplate{4}{1}{0.5} & $=4^2$ \\
+\\
+\blockline{5}{0.5} & $5 \times 5 = $ & \makeplate{5}{1}{0.5} & $=5^2$ \\
+\\
+\blockline{6}{0.5} & $6 \times 6 = $ & \makeplate{6}{1}{0.5} & $=6^2$ \\
 
 \end{tabular}
 
-
 \newpage
+
 \subsection*{Cubes}
 
 Cubes are the same length on each of \emph{three} sides. When cubing a number, you are multiplying the number times itself, and then multiplying it times itself \emph{again}, because all three sides are the same (number). The most common way you will see a ``cubed number" described is with a little 3 up above the number, like  $2^3$, or $3^3$, or $10^3$. That little number is called the ``exponent.'' The exponent tells you how many times you multiply the number times itself. \\
@@ -62,7 +66,7 @@ Cubing the number 10 gets: $10 \times 10 \times 10 = 1000$
 
 \bigskip
 
-\begin{tabular}{m{1.0in} m{1.1in} m{1.25in} m{2.00in}}
+\begin{tabular}{m{1.0in} m{1.0in} m{1.35in} m{2.20in}}
 
 \blockline{1}{0.5} & $1 \times 1 \times 1 = $ & \blockline{1}{0.5} & One times itself is just one.\\
 \\
@@ -71,7 +75,10 @@ Cubing the number 10 gets: $10 \times 10 \times 10 = 1000$
 \blockline{3}{0.5} & $3 \times 3 \times 3 = $ & \makeplate{3}{3}{0.5} & Three sets of nine, or $9+9+9$ Put another way: $9 \times 3 = 27$ \\
 \\
 
-\blockline{4}{0.5} & $4 \times 4 \times 4 = $ & \makeplate{4}{4}{0.5} & Cubes get big quickly! This is four sets of 16. $16 + 16 + 16 + 16 = 64$ \\
+\blockline{4}{0.5} & $4 \times 4 \times 4 = $ & \makeplate{4}{4}{0.5} & Cubes get big quickly! This is four sets of 16. $16 \times 4 = 64$ \\
+\\
+
+\blockline{5}{0.5} & $5 \times 5 \times 5 = $ & \makeplate{5}{5}{0.5} & Five sets of 25. $25 \times 5 = 125$ \\
 \\
 
 
@@ -85,50 +92,7 @@ In systems of measurement, when talking about, say, weight, height, or pressure,
 
 The same goes for weight. You probably weigh between 20 and 40 \emph{kilograms}. The prefix ``{kilo-}'' means \emph{one thousand} of whatever the base unit is. Put another way, grams are pretty small amounts of weight, so measuring things like people or cars is impractical if we use grams, because cars weigh millions of grams. Medicines, on the other hand,  are usually measured in quantities called \emph{milligrams} -- each milligram is only $\frac{1}{1000}$ (one one-thousandth) of a gram. Don't be confused into thinking ``milli-" means ``million'' --- ``mega" means ``million.''
 
-When thinking about computers, we hear terms that are often expressed as multiples of things like memory and storage capacity. A kilobyte is 1,000 bytes (a \emph{byte} is 8 individual bits, and each bit is the smallest unit of computing -- it can only represent 1 or 0). A megabyte is 1,000 kilobytes (or, 1,000,000 bytes). A gigabyte is one \emph{billion} bytes, and a terabyte is one \emph{trillion} bytes. There are also less common (but more carefully defined) units of storage that invent new multiplier terms for bits and bytes, because of the ``powers of 2.'' So let's learn about base-2 exponents.
-
-
-\subsection*{Higher Order Exponents}
-
-You can multiply a number times itself as many times as you want. Understanding a little more about exponents (the number of times you multiply a number times itself) will make understanding the language we use to discuss computers quite a bit easier. Let's do some ``powers of two".
-
-\newcommand{\expline}[2]{
-$2^{#1}$ & = & #2 
-}
-
-\begin{tabular}{l c l p{3.5in} }
-
-\multicolumn{3}{c}{\textbf{Powers of Two}} & \textbf{Notes} \\ 
-\hline\\[\negsep]
-
-\expline{0}{1}& This one is strange, sort of. But it works! Any number ``to the zeroth power" is equal to 1. See below for more. \\
-\expline{1}{2} \\
-\expline{2}{4} \\
-\expline{3}{8} \\
-\expline{4}{16} & Since $2^2 = 4$, $2^2 \times 2^2 = 16 $   \\
-\expline{5}{32} &  This is why you can count to 31 on one hand. \\
-\expline{6}{64} \\
-\expline{7}{128} \\
-\expline{8}{256} & 8-bit computers were the first machines really adopted by consumers. Also, 8 bits makes up one \emph{byte} of computer memory, so each byte can take on up to 256 values. \\ 
-\expline{9}{512} \\
-\expline{10}{1,024} & 1,000 usually gets the prefix \emph{kilo-}, like a kilogram is 1000 grams. A \emph{kilobyte} is 1024 bytes.\\
-\expline{16}{65,536} \\
-\expline{20}{1,048,576} & $2^{10}$ bytes is a kilobyte; ($2^{10} \times 2^{10}$) bytes is a \emph{megabyte}.\\
-\expline{24}{16,777,216} & Most computer displays can show up to 16 million colors, using red, green, and blue, all in combination. Each piece of the color can have 256 ($2^8$) levels, from zero (black) to 255 (100\% red, or green, or blue)\\
-\expline{30}{1,073,741,824} & $2^{30}$ bytes is a \emph{gibibyte}, or a bit more than a \emph{gigabyte}, which is 1000 megabytes. \\
-\expline{32}{4,294,967,296} \\ 
-\expline{40}{1,099,511,627,776} & $2^{40}$ bytes is a \emph{tebibyte}, or a few percent more than 1000 gigabytes -- a \emph{terabyte.} \\
-\expline{50}{1,125,899,906,842,624} & $2^{50}$ bytes is \emph{pebibyte}. A petabyte is so large that one petabyte is enough to store the DNA of the entire population of the USA\ldots{}and then clone them, \emph{twice.} \\[\sep]
-\hline
-\end{tabular}
-
-% $10^2 & = & 100 & \\
-%$10^3 & = & 1000 & \\
-%$10^4 & = & 10000 & \\
-
-\vfill
-
-\stbox{\emph{Explanation:} The reason that any number to the zeroth power is equal to one comes from the way we subtract exponents when dividing. You know that 8 divided by 4 equals 2; written another way, $2^3 \div 2^2 = 2^1$. Notice that the exponents change by subtraction, but the equation is the same! You can \emph{divide} base-exponent numbers by \emph{subtracting} the exponents (\emph{extra-special historical trivia: this is how slide rules work}; see Figure \ref{fig:sliderule} for a picture). And since any number divided by itself equals one, as in $2^3 \div 2^3 = 1 $, subtracting the exponents gives $2^0$.}
+When thinking about computers, we hear terms that are often expressed as multiples of things like memory and storage capacity. A kilobyte is 1,000 bytes (a \emph{byte} is 8 individual bits, and each bit is the smallest unit of computing -- it can only represent 1 or 0). A megabyte is 1,000 kilobytes (or, 1,000,000 bytes). A gigabyte is one \emph{billion} bytes, and a terabyte is one \emph{trillion} bytes. 
 
 
 \newpage
@@ -274,7 +238,7 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \\
 
 \bigskip
 
-If the computer counts up from zero, then once it gets past the $2^{14}$ column, it jumps to the $2^{15}$ (32,768) column. If we had told the computer that it was using \emph{signed} numbers, it would count upwards from -32,768, and the first column would be a one, to indicate it was negative, with the rest of them zeros. That is, the format for storing negative numbers subtracts 32,768 from 0 -- the range is still the same (65,536 numbers), but the starting point is different. 
+If the computer counts up from zero, then once it gets past the $2^{14}$ column, it jumps to the $2^{15}$ (32,768) column. 
 
 \stbox{\emph{Useless skill:} Did you know you can count to 31 on one hand? You have five fingers, and each finger can be open or closed, and $2^5$ is 32. Use your thumb for the ``0 or 1" ($2^0$, ``two to the zeroth power") column; the digit to its left represents two to the first power (the ``twos digit"); the next digit to the left represents two to the second power (the ``fours digit"); and so on.}
 

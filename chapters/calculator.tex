@@ -8,3 +8,12 @@ Put two sets of toggle switches on a breadboard and, if desired, two 8-LED reado
 Run wires out from the switches, perhaps using one color for one bank of switches, and a different color for the second bank, to each input of each full adder, and wire up each ``carry-out'' to the next (leftward!) ``carry-in''. The left-most carry-out digit should run to another LED, perhaps not on the 8-LED output, to indicate an overflow. The overflow, a type of error, means the answer is not correctly displayed on the LED output bar.
 
 Run each adder ``sum" wire to each output LED input. In doing this you will have wired up each column of output, meaning you can read off the sum of the two numbers.
+
+% Subtracting is adding the two's complement (one's complement + 1 );
+% so, to subtract, you'll need a vector of NOT gates to get the one's complement,
+% plus a trip through the adder circuit for both numbers
+% (and someplace to store the result!) before you can implement subtraction.
+% Probably only suitable an an appendix to this document because of the 
+% additional "moving parts" and the memory requirement (8 latches or SRAM cells isn't
+% that much work, but scope creep is already a problem with this project).
+

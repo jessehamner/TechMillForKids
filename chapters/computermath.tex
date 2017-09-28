@@ -43,7 +43,7 @@ Here's an example:
 
 \subsection*{Addition}
 
-Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic. If the carry extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around carry"}. When this occurs, the bit must be added back in at the right-most bit. Kind of strange, but that's how this type of binary addition works. %This phenomenon does not occur in two's complement arithmetic.
+Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic. %If the carry extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around carry"}. When this occurs, the bit must be added back in at the right-most bit. Kind of strange, but that's how this type of binary addition works. %This phenomenon does not occur in two's complement arithmetic.
 
 \begin{verbatim}
   Binary:     Decimal:
@@ -125,40 +125,4 @@ ___________      ____
 \end{tabular}
 
 
-
-% Not yet ready for prime time; may not include it at any rate because
-% of the "negative-zero" problem.
-
-\begin{comment}
-\newpage
-\subsection*{Subtraction}
-
-Subtraction is similar, except that borrows, rather than carries, are propagated to the left. If the borrow extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around borrow"}. When this occurs, the bit must be subtracted from the right-most bit. % This phenomenon does not occur in two's complement arithmetic.
-
-In subtraction by 1's complement we subtract two binary numbers using carried by 1's complement.
-
-The steps to be followed in subtraction by 1's complement are:
-
-i) To write down 1's complement of the subtrahend.
-
-ii) To add this with the minuend.
-
-iii) If the result of addition has a carry over then it is dropped and an 1 is added in the last bit.
-
-iv) If there is no carry over, then 1's complement of the result of addition is obtained to get the final result and it is negative.
-
-
-
-
-\begin{verbatim}
-  0000 0110      6
-- 0001 0011     19
-===========   ====
-1 1111 0011    -12    - Must end-around borrow; sign bit of intermediate result is 1.
-- 0000 0001      1    - Subtract the end-around borrow from the result.
-===========   ====
-  1111 0010    -13    -The correct result (6 - 19 = -13)
-\end{verbatim}
-
-\end{comment}
 

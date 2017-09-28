@@ -1,0 +1,104 @@
+% appendices.tex
+
+\section{Appendices}
+
+% Not yet ready for prime time; may not include it at any rate because
+% of the "negative-zero" problem.
+
+\subsection*{Higher Order Exponents}
+
+You can multiply a number times itself as many times as you want. Understanding a little more about exponents (the number of times you multiply a number times itself) will make understanding the language we use to discuss computers quite a bit easier. Just as we mention kilobytes and megabytes as units of storage, there are also less common units of storage that invent new multiplier terms for bits and bytes, because of the ``powers of 2.'' So let's learn about base-2 exponents-- the ``powers of two".
+
+\newcommand{\expline}[2]{
+$2^{#1}$ & = & #2 
+}
+
+\begin{tabular}{l c l p{3.5in} }
+
+\multicolumn{3}{c}{\textbf{Powers of Two}} & \textbf{Notes} \\ 
+\hline\\[\negsep]
+
+\expline{0}{1}& This one is strange, sort of. But it works! Any number ``to the zeroth power" is equal to 1. See below for more. \\
+\expline{1}{2} \\
+\expline{2}{4} \\
+\expline{3}{8} \\
+\expline{4}{16} & Since $2^2 = 4$, $2^2 \times 2^2 = 16 $   \\
+\expline{5}{32} &  This is why you can count to 31 on one hand. \\
+\expline{6}{64} \\
+\expline{7}{128} \\
+\expline{8}{256} & 8-bit computers were the first machines really adopted by consumers. Also, 8 bits makes up one \emph{byte} of computer memory, so each byte can take on up to 256 values. \\ 
+\expline{9}{512} \\
+\expline{10}{1,024} & 1,000 usually gets the prefix \emph{kilo-}, like a kilogram is 1000 grams. A \emph{kilobyte} is 1024 bytes.\\
+\expline{16}{65,536} \\
+\expline{20}{1,048,576} & $2^{10}$ bytes is a kilobyte; ($2^{10} \times 2^{10}$) bytes is a \emph{megabyte}.\\
+\expline{24}{16,777,216} & Most computer displays can show up to 16 million colors, using red, green, and blue, all in combination. Each piece of the color can have 256 ($2^8$) levels, from zero (black) to 255 (100\% red, or green, or blue)\\
+\expline{30}{1,073,741,824} & $2^{30}$ bytes is a \emph{gibibyte}, or a bit more than a \emph{gigabyte}, which is 1000 megabytes. \\
+\expline{32}{4,294,967,296} \\ 
+\expline{40}{1,099,511,627,776} & $2^{40}$ bytes is a \emph{tebibyte}, or a few percent more than 1000 gigabytes -- a \emph{terabyte.} \\
+\expline{50}{1,125,899,906,842,624} & $2^{50}$ bytes is \emph{pebibyte}. A petabyte is so large that one petabyte is enough to store the DNA of the entire population of the USA\ldots{}and then clone them, \emph{twice.} \\[\sep]
+\hline
+\end{tabular}
+
+% $10^2 & = & 100 & \\
+%$10^3 & = & 1000 & \\
+%$10^4 & = & 10000 & \\
+
+\vfill
+
+\stbox{\emph{Explanation:} The reason that any number to the zeroth power is equal to one comes from the way we subtract exponents when dividing. You know that 8 divided by 4 equals 2; written another way, $2^3 \div 2^2 = 2^1$. Notice that the exponents change by subtraction, but the equation is the same! You can \emph{divide} base-exponent numbers by \emph{subtracting} the exponents (\emph{extra-special historical trivia: this is how slide rules work}; see Figure \ref{fig:sliderule} for a picture). And since any number divided by itself equals one, as in $2^3 \div 2^3 = 1 $, subtracting the exponents gives $2^0$.}
+
+
+%\subsection*{Negative Numbers}
+%
+% If we had told the computer that it was using \emph{signed} numbers, it would count upwards from -32,768, and the first column would be a one, to indicate it was negative, with the rest of them zeros. That is, the format for storing negative numbers subtracts 32,768 from 0 -- the range is still the same (65,536 numbers), but the starting point is different. 
+
+\subsection*{Subtraction}
+
+Subtraction is similar, except that borrows, rather than carries, are propagated to the left. If the borrow extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around borrow"}. When this occurs, the bit must be subtracted from the right-most bit. % This phenomenon does not occur in two's complement arithmetic.
+
+In subtraction by 1's complement we subtract two binary numbers using carried by 1's complement.
+
+The steps to be followed in subtraction by 1's complement are:
+
+i) To write down 1's complement of the subtrahend.
+
+ii) To add this with the minuend.
+
+iii) If the result of addition has a carry over then it is dropped and an 1 is added in the last bit.
+
+iv) If there is no carry over, then 1's complement of the result of addition is obtained to get the final result and it is negative.
+
+
+
+
+\begin{verbatim}
+  0000 0110      6
+- 0001 0011     19
+===========   ====
+1 1111 0011    -12    - Must end-around borrow; sign bit of intermediate result is 1.
+- 0000 0001      1    - Subtract the end-around borrow from the result.
+===========   ====
+  1111 0010    -13    -The correct result (6 - 19 = -13)
+\end{verbatim}
+
+
+
+\section*{Soldering To Aluminum Foil}
+
+It is possible but not recommended to solder a copper wire to the aluminum foil. Soldering it is pretty hard and also the resulting joint is not very strong. If you want to try it, you'll need to put a big drop of heavy oil (motor oil or soybean oil, say) on the aluminum foil to get anything to solder to a copper wire. The heat from the soldering iron rapidly changes the aluminum into \emph{aluminum oxide} and you cannot solder to aluminum oxide. The oil prevents oxygen from getting to the aluminum (and therefore, the important part of the solder joint), but it's not a very good solution to the problem. The oil will smoke. You should solder outside away from things that burn.
+
+
+\section*{Resistor Chart}
+
+Resistors are marked with colored bands to make it easy to determine what resistance value they have, and how close each individual part's value is guaranteed to be to that stated value.
+
+
+\begin{figure}[h!]
+\begin{center}
+\fbox{
+\includegraphics[scale=0.60]{resistorchart.png}
+}
+\end{center}
+\caption{A resistor value color band chart. The `tolerance' stripe (how close the value is guaranteed to be to the stated value) is on the right side. }
+\label{fig:resistorchart}
+\end{figure}
