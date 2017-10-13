@@ -54,32 +54,68 @@ $2^{#1}$ & = & #2
 
 \subsection*{Subtraction}
 
-Subtraction is similar, except that borrows, rather than carries, are propagated to the left. If the borrow extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around borrow"}. When this occurs, the bit must be subtracted from the right-most bit. % This phenomenon does not occur in two's complement arithmetic.
+Subtraction is similar to addition -- very similar, since the process is ``adding a negative number". To this point, we haven't seen negative numbers, because numbers below zero are harder to create or see, compared to numbers between zero and 15, or some other positive number. To get a negative number, computer scientists decided to create a pattern for describing negative numbers, that computers can correctly interpret. They decided to use the first bit (1 or 0, just a ``yes'' or ``no'' indicator) of the number as the \emph{sign bit}: that is, if the first bit, in a ``signed integer", is 1, then the number is a negative number. So if we have a four bit number, and the first bit is only for the ``is this number negative'' indicator, the number represents numbers in the range $[-7,8]$ -- still 16 values, but counting from $-7$ instead of zero. Also note that if you don't tell the computer the number is signed, it will happily assume the number is \emph{unsigned} and give you the wrong answer\footnote{Well, really, it will give you the \emph{right} answer to a question that is different from the question you thought you were asking!}.
 
-In subtraction by 1's complement we subtract two binary numbers using carried by 1's complement.
+To subtract, we first create the \emph{two's complement} of the number we are subtracting (the ``subtrahend"). We leave the number from which we are subtracting (the ``minuend") alone.
 
-The steps to be followed in subtraction by 1's complement are:
+Twos complement works like this: you take the \emph{complement} of the number, and add one. \emph{Complement} means you swap all the zeroes for ones, and all the ones for zeroes. Put another way, you run each bit through a NOT gate, then add a one to the result, using a set of full adders.
 
-i) To write down 1's complement of the subtrahend.
+Let's take the two's complement of 7.
 
-ii) To add this with the minuend.
+\begin{verbatim}
+       0111      7
 
-iii) If the result of addition has a carry over then it is dropped and an 1 is added in the last bit.
+       1000           ones' complement of 7
+       0001           add one to get two's complement of 7
+===========   ====
+       1001     -8 + 1 = -7 
 
-iv) If there is no carry over, then 1's complement of the result of addition is obtained to get the final result and it is negative.
+\end{verbatim}
+
+So here's a simple example of subtraction:
+
+\begin{verbatim}
+       0110      6
+-      0011      3
+===========   ====
+
+	   1100           ones' complement of 3
+	   0001           add one to get two's complement
+===========   ====	   
+	   1101		(-8 + 1 + 0 + 4) = -3 ... good. Now we can add:
 
 
+       0110      6
++      1101     -3
+===========   ====
+       0011      3      (see how the sign bit was converted to positive?)
+                        (the overflowed bit doesn't matter in this case)
 
+\end{verbatim}
+
+
+And here's a slightly more interesting one, with 8 bit numbers:
 
 \begin{verbatim}
   0000 0110      6
 - 0001 0011     19
 ===========   ====
-1 1111 0011    -12    - Must end-around borrow; sign bit of intermediate result is 1.
-- 0000 0001      1    - Subtract the end-around borrow from the result.
+
+  0001 0011     19
+  
+  1110 1100             ones' complement
+  0000 0001             add one
 ===========   ====
-  1111 0010    -13    -The correct result (6 - 19 = -13)
+  1110 1101     (-128 + 64 + 32 + 0 + 8 + 4 + 0 + 1) = -19
+
+
+  0000 0110      6
++ 1110 1101    -19
+===========   ====
+  1111 0011    -13   (-128 + 64 + 32 + 16 + 0 + 0 + 2 + 1) = BOOM! 
+  
 \end{verbatim}
+
 
 
 

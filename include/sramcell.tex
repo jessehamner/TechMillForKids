@@ -35,22 +35,22 @@
 % Two inverters:
 
 % 2 P-type FETs:
-	(2,4) node[pmos, emptycircle, xscale=-1](M2){}
-	(1.5,4) node[above]{$M_2$}
-	(6,4) node[pmos, emptycircle](M4){$M_4$}
+	(2,4) node[pmos, emptycircle, xscale=-1](Q2){}
+	(1.5,4) node[above]{$Q_2$}
+	(6,4) node[pmos, emptycircle](Q4){$Q_4$}
 	
 % 2 N-type FETs:
-	(2,1) node[nmos, xscale=-1](M1){}
-	(1.5,1) node[above]{$M_1$}
-	(6,1) node[nmos](M3){$M_3$}
+	(2,1) node[nmos, xscale=-1](Q1){}
+	(1.5,1) node[above]{$Q_1$}
+	(6,1) node[nmos](Q3){$Q_3$}
 
 
 % Word line gate N-type FETs:
-	(1,2.25) node[nmos, rotate=-90](M5){}
-	(0.5,3.0) node[above]{$M_5$}
+	(1,2.25) node[nmos, rotate=-90](Q5){}
+	(0.5,3.0) node[above]{$Q_5$}
 	
-	(7,2.75) node[nmos, rotate=-90](M6){}
-	(7.5,3.45) node[above]{$M_6$}
+	(7,2.75) node[nmos, rotate=-90](Q6){}
+	(7.5,3.45) node[above]{$Q_6$}
 
 % Bit Line FET nodes:
  (6, 2.75) node[circ] (m6Q1){}
@@ -60,25 +60,25 @@
  (5.01,2.25) node[circ] (m5q2){}
 
 % Nets:
- (wlgate1) |- (M5.G)
- (wlgate2) |- (M6.G)
+ (wlgate1) |- (Q5.G)
+ (wlgate2) |- (Q6.G)
 
- (vdd1) |- (M2.S)
- (vdd2) |- (M4.S)
+ (vdd1) |- (Q2.S)
+ (vdd2) |- (Q4.S)
 
- (M1.S) |- (gnd1)
- (M3.S) |- (gnd2)
+ (Q1.S) |- (gnd1)
+ (Q3.S) |- (gnd2)
 
- (M1.D) |- (M2.D)
- (M3.D) |- (M4.D)
+ (Q1.D) |- (Q2.D)
+ (Q3.D) |- (Q4.D)
  
- (M2.G) |- (M1.G)
- (M4.G) |- (M3.G)
+ (Q2.G) |- (Q1.G)
+ (Q4.G) |- (Q3.G)
  
- (M6.S) |- (2.97,2.75)
- (M5.D) |- (5.01,2.25)
+ (Q6.S) |- (2.97,2.75)
+ (Q5.D) |- (5.01,2.25)
 
- (bllow) |- (M5.S)
- (blhigh) |- (M6.D)
+ (bllow) |- (Q5.S)
+ (blhigh) |- (Q6.D)
 ;
 \end{circuitikz}
