@@ -7,6 +7,10 @@
 
 ##### -- Asimov, Isaac. 1980.  "A Cult of Ignorance". _Newsweek_. January 21, 1980, p. 19.
 
+
+##### _A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects._
+
+##### -- Heinlein, Robert. 1973. [_Time Enough for Love_](https://en.wikipedia.org/wiki/Time_Enough_for_Love). New York: G.P. Putnam's Sons.
 ---
 
 ## Introduction
@@ -41,7 +45,7 @@ In addition to reading and refining it, you can think about outlets for it. Do y
 
 ## Next Steps
 
-I've produced some simple logic gate PCBs (OR, AND, NOT, NOR, and NAND, but not [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates") or [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates")  since they require so many transistors) and will test their applicability and performance before including the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote1"><sup>1</sup></a> files in this repository. It will also make sense to implement some composite gates (say, half- and full-adders) using integrated components, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. Sparkfun has already produced a similar set of gates, but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks. As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that) and can make their own gates, since I use entirely through-hole components for the five PCBs. 
+I've produced some simple logic gate PCBs (OR, AND, NOT, NOR, and NAND, and even [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates"), but not [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates")) and will test their applicability and performance before including the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote1"><sup>1</sup></a> files in this repository. I have designed some full-adders using integrated components; each gate is discrete, making it easy to see the design. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. Sparkfun has already produced a similar set of gates, but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks. As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that) and can make their own gates, since I use entirely through-hole components for the five PCBs. 
 
 Kids can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs will be very useful.
 
