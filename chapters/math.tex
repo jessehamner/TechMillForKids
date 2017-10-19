@@ -34,7 +34,9 @@ When counting up from zero, in base 10, you eventually get to 9. In order to cou
 \newpage
 \subsection*{Squares}
 
-Squares are the same on each of two sides. \emph{Squaring a number} is multiplying the number times itself, just like, in a square, both sides are the same length (number). The most common way you will see a ``squared number" described is with a little 2 up above the number, like  $2^2$, or $3^2$, or $10^2$. That smaller `2' is the exponent. \\
+Squares are the same on each of two sides. \emph{Squaring a number} is multiplying the number times itself, just like, in a square, both sides are the same length (number). The most common way you will see a ``squared number" described is with a little 2 up above the number, like  $2^2$, or $3^2$, or $10^2$. That smaller `2' is the exponent.
+
+\medskip
 
 Squaring the number 10 gets: $10 \times 10 = 100$
 
@@ -60,25 +62,27 @@ Squaring the number 10 gets: $10 \times 10 = 100$
 
 \subsection*{Cubes}
 
-Cubes are the same length on each of \emph{three} sides. When cubing a number, you are multiplying the number times itself, and then multiplying it times itself \emph{again}, because all three sides are the same (number). The most common way you will see a ``cubed number" described is with a little 3 up above the number, like  $2^3$, or $3^3$, or $10^3$. That little number is called the ``exponent.'' The exponent tells you how many times you multiply the number times itself. \\
+Cubes are the same length on each of \emph{three} sides. When cubing a number, you are multiplying the number times itself, and then multiplying it times itself \emph{again}, because all three sides are the same (number). The most common way you will see a ``cubed number" described is with a little 3 up above the number, like  $2^3$, or $3^3$, or $10^3$. That little number is called the ``exponent.'' The exponent tells you how many times you multiply the number times itself.
+
+\medskip
 
 Cubing the number 10 gets: $10 \times 10 \times 10 = 1000$
 
 \bigskip
 
-\begin{tabular}{m{1.0in} m{1.0in} m{1.35in} m{2.20in}}
+\begin{tabular}{m{1.1in} m{1.0in} m{1.45in} m{1.9in}}
 
-\blockline{1}{0.5} & $1 \times 1 \times 1 = $ & \blockline{1}{0.5} & One times itself is just one.\\
+\blockline{1}{0.5} & $1 \times 1 \times 1 = $ & \blockline{1}{0.5} & One times itself is one.\\
 \\
-\blockline{2}{0.5} & $2 \times 2\times 2 = $ & \makeplate{2}{2}{0.5} & Two sets of four, or $4+4$ (that is, $2^2 + 2^2$) \\
+\blockline{2}{0.5} & $2 \times 2\times 2 = $ & \makeplate{2}{2}{0.5} & Two sets of four, or \newline$4+4$ (that is, $2^2 + 2^2$) \\
 \\
-\blockline{3}{0.5} & $3 \times 3 \times 3 = $ & \makeplate{3}{3}{0.5} & Three sets of nine, or $9+9+9$ Put another way: $9 \times 3 = 27$ \\
-\\
-
-\blockline{4}{0.5} & $4 \times 4 \times 4 = $ & \makeplate{4}{4}{0.5} & Cubes get big quickly! This is four sets of 16. $16 \times 4 = 64$ \\
+\blockline{3}{0.5} & $3 \times 3 \times 3 = $ & \makeplate{3}{3}{0.5} & Three sets of nine, or \newline$9+9+9$\newline Put another way:\newline $9 \times 3 = 27$ \\
 \\
 
-\blockline{5}{0.5} & $5 \times 5 \times 5 = $ & \makeplate{5}{5}{0.5} & Five sets of 25. $25 \times 5 = 125$ \\
+\blockline{4}{0.5} & $4 \times 4 \times 4 = $ & \makeplate{4}{4}{0.5} & Cubes get big quickly---\newline This cube is four sets of 16. \newline$16 \times 4 = 64$ \\
+\\
+
+\blockline{5}{0.5} & $5 \times 5 \times 5 = $ & \makeplate{5}{5}{0.5} & Five sets of 25. \newline$25 \times 5 = 125$ \\
 \\
 
 
@@ -155,7 +159,7 @@ six ten-thousands, eight thousands, no hundreds, three tens, and no ones && 6 & 
 \newpage
 \subsection*{Representing Numbers in Binary}
 
-Computers only understand ``1'' and ``0'' -- because it can sense the electricity in a wire that is either \emph{on} (having a detectable voltage greater than zero) or \emph{off} (having a reference voltage that is basically at ground potential, usually ``zero volts"). That means that computers, in order to add, subtract, or store information, has to express \emph{literally everything it can handle} in terms of either ones or zeroes. This system is called \emph{binary}, because computers only understand two ``states" -- on, or off. Instead of ``base-10" counting (where moving to the next column happens when you pass 9), binary is ``base-2'' counting; the numbers move to the next column when the number passes 1.
+Computers only understand ``1'' and ``0'' -- because it can sense the electricity in a wire that is either \emph{on} (having a detectable voltage greater than zero) or \emph{off} (having a reference voltage that is basically at ``zero volts", or ``ground."). That means that a computer, in order to add, subtract, or store information, has to express \emph{literally anything and everything it can handle} in terms of either ones or zeroes. This system is called \emph{binary}, because computers only understand two ``states" -- on, or off. Instead of ``base-10" counting (where moving to the next column happens when you pass 9), binary is ``base-2'' counting; the numbers move to the next column when the number passes 1---because {\color{webblue}\href{https://www.youtube.com/watch?v=MOn_ySghN2Y}{there's no such number as ``two''}} if you're a computer!
 
 In order to add numbers in binary, we can't count to ten. We must count to one, and then, if the resulting number is greater than one, carry the digit to the next column. Counting in binary is interesting because it is different, and because it introduces us to a new way of doing math.
 
@@ -211,13 +215,10 @@ $8 + 4 + 2 + 1 $  & 1 & 1 & 1 & 1 && {\color{webblue}15} \\
 \stbox{\emph{Problem 1:} what happens in the above table if you add 1 to 15? What number would the computer report if it only has four columns to use?
 }
 
-
 \stbox{\emph{Problem 2:} Let's say the machine runs by itself at some regular speed, and adds one to the number each second. Let's also say you are using this counter as a way to control a single blinking light, since ``1'' means ``there is electricity available to that wire" and so a ``1'' would turn the light on. Look at each column of numbers (that is, each \emph{order of magnitude!}). Remembering that ``a line that has a voltage" is a 1 and ``no voltage'' is a zero, which line (column) would make the light blink fastest? Which line would blink the slowest?
 }
 
-
 \bigskip
-
 
 \begin{tabular}{ llll llll llll llll l}
 
@@ -278,3 +279,4 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \textbf{Result}
 \stbox{\emph{Remember:}  There are only 10 types of people in the world;\\
 those who understand binary, and those who don't.
 }
+

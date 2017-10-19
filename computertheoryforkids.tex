@@ -5,17 +5,20 @@
 \usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{multirow,multicol}
-\usepackage{rotating}
+%\usepackage{rotating}
 \usepackage{adjustbox}
-\usepackage{array}
-\usepackage{booktabs}
+%\usepackage{array}
+%\usepackage{booktabs}
 \usepackage{morefloats}
 \usepackage{tikz}
 \usepackage[firstpage]{draftwatermark}
 \usepackage[american, cuteinductors]{circuitikz}
 \usepackage{hyperref}
 \usepackage{verbatim}
+\usepackage{marvosym}
 
+\newcommand{\ckb}{\item[$\square$]} % list checkboxes (requires marvosym)
+\renewcommand*{\thefootnote}{\arabic{footnote}}
 
 \newcolumntype{R}[2]{%
     >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
@@ -58,6 +61,15 @@ Kids are using technology that is intuitive to control, but entirely opaque to t
 
 \end{abstract}
 
+\vfill
+
+\begin{center}
+\includegraphics[scale=1.0]{by-nc-nd.png}
+
+This work is licensed under a {\color{webblue}\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.}} 
+
+% Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+\end{center}
 
 % Table of Contents:
 %---------------------------
@@ -69,7 +81,7 @@ Kids are using technology that is intuitive to control, but entirely opaque to t
 \begin{figure}
 \begin{center}
 \fbox{
-\includegraphics[scale=0.125]{breadboardgates.jpg}
+\includegraphics[scale=0.09]{breadboardgates.jpg}
 }
 \medskip
 \caption{Two logic gates (one OR, one AND) implemented with N-type MOSFET transistors on a solderless breadboard. Note pull-down resistors connecting transistor gate pins to ground.}

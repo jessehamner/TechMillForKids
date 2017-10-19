@@ -1,57 +1,18 @@
 \section{Computer Math}
 
-In this section, I introduce the vocabulary terms that help you understand how computers do certain things, and why they matter. For instance, how do computers represent numbers below zero? How do they add?
-
-\subsection*{Sign}
-
-Representing \emph{positive} numbers is easy for a computer: it counts upwards from zero. Representing \emph{negative} numbers is harder, because \emph{taking away values by adding them} is a little awkward. To represent a negative, designers use the leading (left-most) bit to declare ``positive'' (zero) or ``negative'' (one). Note that the \emph{range} of numbers that can be represented does not change -- for a 4-digit binary number, whether counting from zero to 15, or from -8 to 7, the total space used on the number line is still 16 numbers, in order.
-
-\stbox{
-\emph{Problem:} If the computer doesn't know it is supposed to use that first number to determine whether a number is negative or not, how does it evaluate the number?
-}
-
-\subsection*{Complement}
-
-In mathematics, the \emph{complement} of a binary number is 
-\begin{quote}
-the value obtained by inverting all the bits in the binary representation of the number (swapping 0s for 1s and vice versa). The ones' complement of the number then behaves like the negative of the original number in some arithmetic operations.\footnote{{\color{webblue}\href{https://en.wikipedia.org/wiki/Ones\%27_complement}{Wikipedia page on Ones' Complement.}}}
-\end{quote}
-
-Here's an example:
-
-\bigskip
-
-\begin{tabular} {c c c}
- Number &  $+$   &   $-$ \\[\sep]
- \hline\\[\negsep]
- 0  &  0000 &  1111  \\ 
- 1  & 0001  & 1110  \\
- 2  & 0010  & 1101\\
- 3  & 0011  & 1100\\
- 4  & 0100  & 1011\\
- 5  & 0101  & 1010\\
- 6  & 0110  & 1001\\
- 7  & 0111  & 1000\\
- \hline
-
-\end{tabular}
-
-%% ? Note that both +0 and ?0 return TRUE when tested for zero
-%% ? and FALSE when tested for non-zero. 
-
-\bigskip
+In this section, I introduce a few vocabulary terms that help you understand how computers do certain things, like add two (binary) numbers.
 
 \subsection*{Addition}
 
-Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic. %If the carry extends past the end of the word it is said to have ``wrapped around", a condition called an \textbf{``end-around carry"}. When this occurs, the bit must be added back in at the right-most bit. Kind of strange, but that's how this type of binary addition works. %This phenomenon does not occur in two's complement arithmetic.
+Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic. 
 
 \begin{verbatim}
   Binary:     Decimal:
    
-  0001 0110   (0 + 2 + 4 + 0 + 16) =   22
-+ 0000 0011   (1 + 2 + 0 + 0 + 0)  =    3
+  0001 0110   (16 + 0 + 4 + 2 + 0) =   22
++ 0000 0011    (0 + 0 + 0 + 1 + 2) =    3
 ===========                          ====
-  0001 1001                            25
+  0001 1001   (16 + 8 + 0 + 0 + 1) =   25
 \end{verbatim}
 
 
@@ -124,5 +85,5 @@ ___________      ____
 \hline
 \end{tabular}
 
-
+There is more information about binary arithmetic in the Appendix -- you can see how to represent negative numbers, and how to subtract numbers, in binary, just the way a computer does.
 

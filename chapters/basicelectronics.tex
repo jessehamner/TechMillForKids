@@ -30,11 +30,9 @@ A resistor limits the electrical current that flows through a circuit. Resistanc
 
 \subsection*{Capacitors}
 
-A capacitor (also called condenser, which is the older term) is an electronic device that stores electric energy (a ``charge''). It is similar to a battery, but is smaller, lightweight and charges up much quicker. Typically, capacitors hold much less energy than a battery, but can provide almost their entire charge to the circuit quickly. Capacitors are used in many electronic devices today, and can be made out of many different types of material. 
+A capacitor (also called condenser, which is the older term) is an electronic device that stores electric energy (a ``charge''). It is similar to a battery, but is smaller, lightweight and charges up much quicker. Typically, capacitors hold much less energy than a battery, but can provide almost their entire charge to the circuit quickly. Capacitors are used in many electronic devices today, and can be made out of many different types of material. A capacitor-like effect can also result just from two conductors being close to each other, whether you want it to exist or not-- if you've ever been shocked by a door knob or metal refrigerator in the winter, you have been one plate of a capacitor, because you've been storing a charge!
 
-The Leyden jar was one of the first capacitors invented: metal foil was placed inside a glass jar, and wrapped around the outside of a glass jar, but neither foil gets near the top of the jar. The glass barrier between the foil sheets (inside and outside) allows a charge to build up between the foil without allowing the electrical charge to move through the glass. Leyden jars didn't hold much charge, but the concept it demonstrated has not changed.
 
-Capacitors are usually made with two metal plates that are on top of each other (or wrapped around each other), but that do not actually touch. When powered, they allow energy to be stored inside an electrical field. Because the plates need a lot of area to store even a small amount of charge, the plates are usually rolled up into some other shape, such as a cylinder. Sometimes, other shapes of capacitors are used for special purposes. A capacitor-like effect can also result just from two conductors being close to each other, whether you want it to exist or not-- if you've ever been shocked by a door knob or metal refrigerator in the winter, you have been one plate of a capacitor, because you've been storing a charge!
 
 \begin{center}
   	\begin{circuitikz}
@@ -59,14 +57,6 @@ Capacitors are usually made with two metal plates that are on top of each other 
 {Open capacitors in a steady state. No current flows, but there is a charge.}
 
 
-\bigskip
-\stbox{
-\emph{Experiment:} make a variable capacitor from aluminum foil, paper, and a paper towel tube. The paper should go around the roll only once. Cut the foil one-quarter or one-half inch smaller than the paper on all sides. Tape a small wire to one corner of the foil, if possible using metallic/conductive tape\footnote{See the appendices for guidance on soldering to aluminum foil}. Tape the foil to the paper. Tape one edge of the paper, foil side down, against the cardboard tube. Make another paper/foil combination. Wrap the paper/foil around the cardboard tube, but tape the paper only to itself, and just loose enough to slide a little. 
-
-\bigskip
-
-It is also possible to make a regular capacitor with the paper-foil layers, separated by flat sheets of cardboard. Keep track of the ``up'' and ``down'' sides! Note that it is pretty easy to gang each ``plate'' together and make capacitor with a larger value; tying all the anodes together, and all the cathodes together, makes a larger capacitor.
-}
 
 \subsection*{Diodes}
 
@@ -105,7 +95,7 @@ Diodes can be used to convert alternating current to direct current (this circui
 
 An inductor, also called a coil or (rarely) a reactor, is a two-terminal electrical component that stores electrical energy in a magnetic field, when electric current is flowing through it. An inductor typically consists of an electric conductor, such as a wire, that is wound into a \emph{coil}. Sometimes inductors include a magnetic bar or ring, around which the wire is wound. Other times the wire is wound with only air in the middle (which still works, because the Earth has a magnetic field).
 
-Inductors do many interesting things. For instance, they are used to block AC while allowing DC to pass; inductors designed for this purpose are called \emph{chokes}. They are also used in electronic filters to separate signals of different frequencies, and in combination with capacitors to make tuned circuits, used to tune radio and TV receivers.
+They are often used as electronic filters, to separate signals of different frequencies, and in combination with capacitors to make tuned circuits, used to tune radio and TV receivers.
 
 \noindent The symbol for an inductor is a coil icon. Inductors are usually abbreviated with an L: 
 
@@ -140,7 +130,7 @@ A transistor is a \emph{semiconductor} (see below) device used to amplify or swi
 
 The transistor is the fundamental building block of modern electronic devices. It might be the most important -- or at least the most influential -- engineering discovery, ever.
 
-Why are transistors important? They enable a lot of powerful new devices. 
+Why are transistors important? They enable a lot of powerful new devices, automation, information analysis, and even artificial intelligence. They have enabled huge leaps in our ability to do new things, since 1947. 
 
 \bi
 
@@ -154,9 +144,9 @@ Why are transistors important? They enable a lot of powerful new devices.
 
 \subsection*{A Little History}
 
-Many years ago, a ``computer'' meant ``the person who did the math problems." A few people invented adding machines like an abacus, and \emph{slide rules} made even difficult calculations very possible, but they still required a person to do the math. In the same way, people had learned about electricity, but couldn't do much with it except power light bulbs, street cars, and telegraphs. Talking to someone many miles away meant either using Morse code, or writing a letter. 
+Many years ago, a ``computer'' meant ``the person who did the math problems." A few people invented adding machines like an abacus, and \emph{slide rules} (see Figure \ref{fig:sliderule}) made even difficult calculations very possible, but they still required a person to do the math. In the same way, people had learned about electricity, but couldn't do much with it except power light bulbs, street cars, and telegraphs. Talking to someone many miles away meant either using Morse code, or writing a letter. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \begin{center}
 \fbox{
 \includegraphics[scale=0.10]{SlideRule-2.jpg}
@@ -177,7 +167,6 @@ In the 1940s, three scientists discovered that some substances could either beha
 The world changed amazingly quickly when we started using transistors. Today, there are many different kinds of transistors. The computer in your house has many \emph{billions} of transistors inside it. So does your phone, your car, your microwave, your television...wow!
 
 Some transistors are made especially for certain applications, like making audio louder, or pushing radio signals, or just for doing computations. These are all transistors, but they are different. 
-
 
 
 
@@ -207,7 +196,7 @@ Most transistors have three pins. For this kind of transistor (called an ``NPN")
 
 \end{center}
 
-\noindent Most computers use a transistor type called a ``FET" (\emph{Field Effect Transistor}), that is very efficient and does not require very much electricity to switch from ``on'' to ``off''. They are faster and run cooler than the older types of transistors. Somewhat confusingly, these transistors have different names for their pins, compared to the older ``BJT" type transistors, seen above.
+\noindent Most computers use a transistor type called a ``FET" (\emph{Field Effect Transistor}), that is very efficient and does not require very much electricity to switch from ``on'' to ``off''. They are faster and run cooler than the older types of transistors. Somewhat confusingly, these transistors have different names for their pins, compared to the older (but still preferable for some applications) ``BJT" type transistors, seen above. 
 
 \begin{center}
 \begin{circuitikz}
@@ -215,8 +204,8 @@ Most transistors have three pins. For this kind of transistor (called an ``NPN")
 (1,1) node[nigfete,solderdot](Q2){} % an N-type IGFET, also called a MOSFET
 (0.75,1.75) node[left](){$Q_2$}
 (Q1.B) node[left](){$Gate$} %label
-(Q1.C) node[right]() {$Source$} %label
-(Q1.E) node[right]() {$Drain$} %label
+(Q1.C) node[right]() {$Drain$} %label
+(Q1.E) node[right]() {$Source$} %label
 ;
 \end{circuitikz}
 \end{center}

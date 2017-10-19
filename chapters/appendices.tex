@@ -9,10 +9,12 @@
 
 You can multiply a number times itself as many times as you want. Understanding a little more about exponents (the number of times you multiply a number times itself) will make understanding the language we use to discuss computers quite a bit easier. Just as we mention kilobytes and megabytes as units of storage, there are also less common units of storage that invent new multiplier terms for bits and bytes, because of the ``powers of 2.'' So let's learn about base-2 exponents-- the ``powers of two".
 
+\bigskip
 \newcommand{\expline}[2]{
 $2^{#1}$ & = & #2 
 }
 
+\begin{footnotesize}
 \begin{tabular}{l c l p{3.5in} }
 
 \multicolumn{3}{c}{\textbf{Powers of Two}} & \textbf{Notes} \\ 
@@ -35,10 +37,11 @@ $2^{#1}$ & = & #2
 \expline{30}{1,073,741,824} & $2^{30}$ bytes is a \emph{gibibyte}, or a bit more than a \emph{gigabyte}, which is 1000 megabytes. \\
 \expline{32}{4,294,967,296} \\ 
 \expline{40}{1,099,511,627,776} & $2^{40}$ bytes is a \emph{tebibyte}, or a few percent more than 1000 gigabytes -- a \emph{terabyte.} \\
-\expline{50}{1,125,899,906,842,624} & $2^{50}$ bytes is \emph{pebibyte}. A petabyte is so large that one petabyte is enough to store the DNA of the entire population of the USA\ldots{}and then clone them, \emph{twice.} \\[\sep]
+\expline{50}{1,125,899,906,842,624} & $2^{50}$ bytes is \emph{pebibyte}. A petabyte is so large that one pebibyte is enough to store the DNA of the entire population of the USA\ldots{}and then clone them, \emph{twice.} \\[\sep]
 \hline
 \end{tabular}
 
+\end{footnotesize}
 % $10^2 & = & 100 & \\
 %$10^3 & = & 1000 & \\
 %$10^4 & = & 10000 & \\
@@ -52,13 +55,45 @@ $2^{#1}$ & = & #2
 %
 % If we had told the computer that it was using \emph{signed} numbers, it would count upwards from -32,768, and the first column would be a one, to indicate it was negative, with the rest of them zeros. That is, the format for storing negative numbers subtracts 32,768 from 0 -- the range is still the same (65,536 numbers), but the starting point is different. 
 
+\subsection*{Numbers Below Zero?}
+
+Representing \emph{positive} numbers is easy for a computer: it counts upwards from zero. Representing \emph{negative} numbers is harder, because \emph{taking away values by adding them} is a little awkward. To represent a negative, designers use the leading (left-most) bit to declare ``positive'' (zero) or ``negative'' (one). Note that the \emph{range} of numbers that can be represented does not change -- for a 4-digit binary number, whether counting from zero to 15, or from -8 to 7, the total space used on the number line is still 16 numbers, in order.
+
+\stbox{
+\emph{Problem:} If the computer doesn't know it is supposed to use that first number to determine whether a number is negative or not, how does it evaluate the number?
+}
+
+\subsection*{Complement of a Number}
+
+In mathematics, the \emph{complement} of a binary number is ``the value obtained by inverting all the bits in the binary representation of the number (swapping 0s for 1s and vice versa)." This number is called the \emph{ones' complement} of the number.\footnote{{\color{webblue}\href{https://en.wikipedia.org/wiki/Ones\%27_complement}{Wikipedia page on Ones' Complement.}}}
+
+
+Here's an example:
+
+\bigskip
+
+\begin{tabular} {c c c}
+ Number &  $+$   &   $-$ \\[\sep]
+ \hline\\[\negsep]
+ 0  &  0000 &  1111  \\ 
+ 1  & 0001  & 1110  \\
+ 2  & 0010  & 1101\\
+ 3  & 0011  & 1100\\
+ 4  & 0100  & 1011\\
+ 5  & 0101  & 1010\\
+ 6  & 0110  & 1001\\
+ 7  & 0111  & 1000\\
+ \hline
+
+\end{tabular}
+
 \subsection*{Subtraction}
 
 Subtraction is similar to addition -- very similar, since the process is ``adding a negative number". To this point, we haven't seen negative numbers, because numbers below zero are harder to create or see, compared to numbers between zero and 15, or some other positive number. To get a negative number, computer scientists decided to create a pattern for describing negative numbers, that computers can correctly interpret. They decided to use the first bit (1 or 0, just a ``yes'' or ``no'' indicator) of the number as the \emph{sign bit}: that is, if the first bit, in a ``signed integer", is 1, then the number is a negative number. So if we have a four bit number, and the first bit is only for the ``is this number negative'' indicator, the number represents numbers in the range $[-7,8]$ -- still 16 values, but counting from $-7$ instead of zero. Also note that if you don't tell the computer the number is signed, it will happily assume the number is \emph{unsigned} and give you the wrong answer\footnote{Well, really, it will give you the \emph{right} answer to a question that is different from the question you thought you were asking!}.
 
 To subtract, we first create the \emph{two's complement} of the number we are subtracting (the ``subtrahend"). We leave the number from which we are subtracting (the ``minuend") alone.
 
-Twos complement works like this: you take the \emph{complement} of the number, and add one. \emph{Complement} means you swap all the zeroes for ones, and all the ones for zeroes. Put another way, you run each bit through a NOT gate, then add a one to the result, using a set of full adders.
+Two's complement works like this: you take the \emph{complement} of the number, and add one. \emph{Complement} means you swap all the zeroes for ones, and all the ones for zeroes. Put another way, you run each bit through a NOT gate, then add a one to the result, using a set of full adders.
 
 Let's take the two's complement of 7.
 
@@ -79,10 +114,10 @@ So here's a simple example of subtraction:
 -      0011      3
 ===========   ====
 
-	   1100           ones' complement of 3
-	   0001           add one to get two's complement
-===========   ====	   
-	   1101		(-8 + 1 + 0 + 4) = -3 ... good. Now we can add:
+       1100           ones' complement of 3
+       0001           add one to get two's complement
+===========	   
+       1101           (-8 + 1 + 0 + 4) = -3 ... good. Now we can add:
 
 
        0110      6
@@ -93,7 +128,7 @@ So here's a simple example of subtraction:
 
 \end{verbatim}
 
-
+\newpage
 And here's a slightly more interesting one, with 8 bit numbers:
 
 \begin{verbatim}
@@ -116,6 +151,21 @@ And here's a slightly more interesting one, with 8 bit numbers:
   
 \end{verbatim}
 
+\newpage
+\section*{A Bit More About Capacitors}
+
+The Leyden jar was one of the first capacitors invented: metal foil was placed inside a glass jar, and wrapped around the outside of a glass jar, but neither foil gets near the top of the jar. The glass barrier between the foil sheets (inside and outside) allows a charge to build up between the foil without allowing the electrical charge to move through the glass. Leyden jars didn't hold much charge, but the concept it demonstrated has not changed.
+
+Capacitors are usually made with two metal plates that are on top of each other (or wrapped around each other), but that do not actually touch. When powered, they allow energy to be stored inside an electrical field. Because the plates need a lot of area to store even a small amount of charge, the plates are usually rolled up into some other shape, such as a cylinder. Sometimes, other shapes of capacitors are used for special purposes. 
+
+\bigskip
+\stbox{
+\emph{Experiment:} make a variable capacitor from aluminum foil, paper, and a paper towel tube. The paper should go around the roll only once. Cut the foil one-quarter or one-half inch smaller than the paper on all sides. Tape a small wire to one corner of the foil, if possible using metallic/conductive tape\footnote{See the appendices for guidance on soldering to aluminum foil}. Tape the foil to the paper. Tape one edge of the paper, foil side down, against the cardboard tube. Make another paper/foil combination. Wrap the paper/foil around the cardboard tube, but tape the paper only to itself, and just loose enough to slide a little. 
+
+\bigskip
+
+It is also possible to make a regular capacitor with the paper-foil layers, separated by flat sheets of cardboard. Keep track of the ``up'' and ``down'' sides! Note that it is pretty easy to gang each ``plate'' together and make capacitor with a larger value; tying all the anodes together, and all the cathodes together, makes a larger capacitor.
+}
 
 
 
@@ -123,13 +173,13 @@ And here's a slightly more interesting one, with 8 bit numbers:
 
 It is possible but not recommended to solder a copper wire to the aluminum foil. Soldering it is pretty hard and also the resulting joint is not very strong. If you want to try it, you'll need to put a big drop of heavy oil (motor oil or soybean oil, say) on the aluminum foil to get anything to solder to a copper wire. The heat from the soldering iron rapidly changes the aluminum into \emph{aluminum oxide} and you cannot solder to aluminum oxide. The oil prevents oxygen from getting to the aluminum (and therefore, the important part of the solder joint), but it's not a very good solution to the problem. The oil will smoke. You should solder outside away from things that burn.
 
-
+\newpage
 \section*{Resistor Chart}
 
 Resistors are marked with colored bands to make it easy to determine what resistance value they have, and how close each individual part's value is guaranteed to be to that stated value.
 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \begin{center}
 \fbox{
 \includegraphics[scale=0.60]{resistorchart.png}
