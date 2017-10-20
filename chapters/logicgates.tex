@@ -213,7 +213,7 @@ A single AND gate on a solderless breadboard. The transistor on the left, contro
 
 \subsection*{The NOT Gate}
 
-NOT gates take one input and reverse the value of that input. So a 1 becomes a 0, or vice versa. Also note this is the \emph{complement} of the input value, as seen above.
+NOT gates, sometimes called \emph{inverters}, take one input and reverse the value of that input. So a 1 becomes a 0, or vice versa. Also note this is the \emph{complement} of the input value, as seen above.
 
 \medskip
 \begin{center}
@@ -259,7 +259,7 @@ The ``Truth Table" (how they behave) is:
 
 \bigskip
 
-A simple NOT circuit is easy to understand, though this example is not how NOT gates are actually implemented, because of the poor efficiency (and wasted energy turns into heat, which then has to be cooled somehow; it is better to not make the heat in the first place).
+A simple NOT circuit is easy to understand, though this example is not how NOT gates are actually implemented, because of the poor efficiency---wasted energy turns into heat, which then has to be cooled somehow. It is better to not make the heat in the first place.
 
 \begin{figure}[!h]
 \begin{center}
@@ -274,7 +274,7 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 \begin{center}
 \input{./include/CMOSNOT.tex}
 
-\caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy. It uses one P-type and one N-type \emph{field effect transistor} (FET). Each transistor gate (the ``switch" you turn on or off with voltage) is tied to ground through a fairly high value resistor. P-type transistors clamp off electricity when their gate \emph{has} voltage on it. N-type transistors clamp off when their gate \emph{does not have} voltage on it. So, here, when the input is high, the top transistor clamps off voltage input, and the bottom transistor opens up, allowing any current to flow to ground--but there's no current available! The situation nicely reverses itself when the input is low: the top transistor opens up, allowing current to flow, and the bottom transistor clamps off, preventing current from going anywhere -- but putting a high signal at the output.  }
+\caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy. It uses one P-type and one N-type \emph{field effect transistor} (FET). P-type transistors clamp off electricity when their gate \emph{has} voltage on it. N-type transistors clamp off when their gate \emph{does not have} voltage on it. So, here, when the input is high, the top transistor clamps off voltage input, and the bottom transistor opens up, allowing any current to flow to ground--but there's no current available! The situation reverses when the input is low: the top transistor opens up, allowing current to flow, and the bottom transistor clamps off, preventing current from going anywhere -- but putting a high signal at the output.}
 \label{fig:cmosnot}
 \end{center}
 \end{figure}
@@ -283,14 +283,14 @@ A simple NOT circuit is easy to understand, though this example is not how NOT g
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[scale=0.25]{trimmednotgate.png} % convert NOTgate.png -alpha off -trim  trimmednotgate.png 
-\caption{A circuit board designed using the more elegant NOT gate schematic seen in Figure \ref{fig:cmosnot}. This one looks almost exactly like the OR gate and the AND gate, but the wiring is different! Also, it has only one input and one output. The NOT gate takes one \emph{input}, A, and produces one \emph{result}, R.}
+\caption{A circuit board designed using the more elegant NOT gate schematic seen in Figure \ref{fig:cmosnot}. The NOT gate takes exactly one \emph{input}, A, and produces a \emph{result}, R.}
 \label{fig:notgateboard}
 \end{center}
 \end{figure}
 
 \begin{table}
 \input{./include/NOTgateBOM.tex}
-\caption{The list of components needed to solder up the NOT gate seen in Figures \ref{fig:cmosnot} and \ref{fig:notgateboard}.}
+\caption{The list of components needed to make the NOT gate seen in Figures \ref{fig:cmosnot} and \ref{fig:notgateboard}.}
 
 \end{table}
 
