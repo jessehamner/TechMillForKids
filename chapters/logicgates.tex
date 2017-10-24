@@ -259,12 +259,12 @@ The ``Truth Table" (how they behave) is:
 
 \bigskip
 
-A simple NOT circuit is easy to understand, though this example is not how NOT gates are actually implemented, because of the poor efficiency---wasted energy turns into heat, which then has to be cooled somehow. It is better to not make the heat in the first place.
+A simple NOT circuit, using a very old resistor-transistor logic (RTL) design. It is easy to understand, though this example is not how NOT gates are actually implemented any more, because of the poor efficiency---wasted energy turns into heat, which then has to be cooled somehow. It is better to not make the heat in the first place.
 
 \begin{figure}[!h]
 \begin{center}
 \input{./include/simplenot.tex}
-\caption{A very simple NOT gate schematic. When IN is logic low (off), electricity cannot pass through to the ground, and so it is available at the OUT terminal. That means OUT is a 1. When IN is carrying current, the transistor opens up and electricity starts flowing to ground -- the ``path of least resistance''. Then, because $R_3$ provides a little resistance, electricity flows to ground instead of OUT, meaning OUT has a very, very low voltage available -- making it a zero.}
+\caption{A very simple NOT gate schematic. When IN is logic low (off), electricity cannot pass through to the ground, and so it is available at the OUT terminal---OUT is a 1. When IN is carrying current, the transistor opens up and electricity starts flowing to ground -- the ``path of least resistance''. As electricity flows to ground instead of OUT, OUT has a very low voltage available -- making it a zero.}
 \label{fig:simplenot}
 \end{center}
 \end{figure}
@@ -312,7 +312,7 @@ A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate
 \begin{tabular}{p{2.3in} p{3.7in} }
 \hline\\[\negsep]
 
-The symbol for a NAND gate is:
+The NAND gate symbol is:
 
 \vspace{0.25in}
 

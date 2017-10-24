@@ -61,7 +61,7 @@ This type of adder is a little more difficult to implement than a half-adder. Th
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[scale=0.19]{FullAdderboard.png}
-\caption{A full-adder circuit for adding two bits plus a carry-in digit, implemented on a small circuit board using individual integrated circuit gates instead of discrete transistors. You can see the circuits easily but the board is much simpler to work with, compared to the single-gate boards.}
+\caption{A single full-adder circuit for adding two bits plus a carry-in digit, implemented on a small circuit board using individual integrated circuit gates instead of discrete transistors. You can see the gates easily, but the board is much simpler to work with, compared to forming up a full adder from five of the single-gate boards.}
 \end{center}
 \end{figure}
 
@@ -122,6 +122,13 @@ The ``Truth Table" (how they behave) is:
 
 \bigskip
 
+\begin{figure}[hb!]
+\begin{center}
+\includegraphics[scale=0.17]{XNOR1.jpg}
+\caption{A discrete-transistor XOR and NOT gate. Tying the output of the XOR gate to the input of the NOT gate makes the result of the NOT gate an XNOR of the original two XOR gate inputs---answering the question ``are the two inputs equal?"}
+\end{center}
+\end{figure}
+
 To compare large numbers, the circuit requires an XNOR gate for each binary digit (bit) in the numbers being compared. If any XNOR gate returns zero, the numbers are not equivalent. To build all of the XNOR gates into a single yes or no answer, each XNOR output could go into a series of AND gates -- that is, since AND returns a ``yes'' only if both inputs are one, a single ``no'' prevents the AND gate from returning ``yes''. 
 
 
@@ -132,12 +139,7 @@ To compare large numbers, the circuit requires an XNOR gate for each binary digi
 \end{center}
 \end{figure}
 
-\begin{figure}[hb!]
-\begin{center}
-\includegraphics[scale=0.17]{XNORgate.jpg}
-\caption{A discrete-transistor XOR and NOT gate. Tying the output of the XOR gate to the input of the NOT gate makes the result of the NOT gate an XNOR of the original two XOR gate inputs---answering the question ``are the two inputs equal?"}
-\end{center}
-\end{figure}
+
 
 \clearpage
 
