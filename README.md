@@ -45,9 +45,12 @@ In addition to reading and refining it, you can think about outlets for it. Do y
 
 ## Next Steps
 
-I've produced some simple logic gate PCBs (OR, AND, NOT, NOR, and NAND, and even [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates"), but not [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates")) and will test their applicability and performance before including the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote1"><sup>1</sup></a> files in this repository. I have designed some full-adders using integrated components; each gate is discrete, making it easy to see the design. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. Sparkfun has already produced a similar set of gates, but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks. As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that, and a slightly more challenging [Atari Punk Console soldering project repository](https://github.com/jessehamner/AtariPunkConsole) as well) and can make their own gates, since I use entirely through-hole components for the five PCBs. 
+I've produced some simple logic gate PCBs for discrete components<a name="myfootnote1"><sup>1</sup></a>, including OR, AND, NOT, NOR, NAND, and even [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates"), but not [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates") (although I demonstrate using a NOT gate with an XOR gate in the text) and am testing their applicability and performance before I include the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote2"><sup>2</sup></a> files in this repository. Additionally, I have designed some full-adder PCBs using integrated components. As each gate is discrete, it is still easy to see the design of the full adder. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. 
+As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that, and a slightly more challenging [Atari Punk Console soldering project repository](https://github.com/jessehamner/AtariPunkConsole) as well) and can make their own gates, since I use entirely through-hole components for the five PCBs. 
 
 Kids can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs will be very useful.
+
+![Image of 4-toggle switch deck](https://github.com/jessehamner/TechMillForKids/blob/master/4toggleboarddesign.png)
 
 Jesse Hamner, 2017 :rocket:
 
@@ -55,4 +58,6 @@ Jesse Hamner, 2017 :rocket:
 
 ## Footnotes
 
-<sup>[1](#myfootnote1)</sup>In keeping with the open-source philosophy, and AutoDesk's recent change in the terms of use for Eagle CAD, KiCAD looms large in the future of this project.
+<sup>[1](#myfootnote1)</sup>Sparkfun has already produced [a similar set of gates](https://www.sparkfun.com/products/11006), but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks.
+ 
+<sup>[2](#myfootnote2)</sup>In keeping with the open-source philosophy, and AutoDesk's recent change in the terms of use for Eagle CAD, KiCAD looms large in the future of this project.
