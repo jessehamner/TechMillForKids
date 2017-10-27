@@ -50,7 +50,7 @@ As an added bonus, the kids can learn to solder (I've got a [separate tutorial](
 
 Kids can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs will be very useful.
 
-![Image of 4-toggle switch deck](https://github.com/jessehamner/TechMillForKids/blob/master/4toggleboarddesign.png)
+![Image of 4-toggle switch deck](https://github.com/jessehamner/TechMillForKids/blob/master/images/4toggleboarddesign.png)
 
 Jesse Hamner, 2017 :rocket:
 
