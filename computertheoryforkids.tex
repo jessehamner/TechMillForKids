@@ -17,7 +17,6 @@
 \usepackage{verbatim}
 \usepackage{marvosym}
 
-\newcommand{\ckb}{\item[$\square$]} % list checkboxes (requires marvosym)
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 
 \newcolumntype{R}[2]{%
@@ -26,7 +25,6 @@
     <{\egroup}%
 }
 
-\input{macros.tex}
 \graphicspath{{./images/}{./soldering/}}
 
 \SetWatermarkFontSize{5cm}
@@ -35,6 +33,9 @@
 \fboxsep = 6.0pt
 \parskip = 6.0pt
 \parindent = 0.0pt
+
+% Numerous macros in here:
+\input{macros.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -45,19 +46,25 @@
 \title{Introducing Computer Theory to Fourth Graders}
 \author{Jesse Hamner}
 \date{2017\\
-\vspace{0.2in}
+\vspace{0.15in}
 \begin{quote}
 \centering
-{\color{red}\emph{Draft Copy: Do not cite.}}\\\bigskip
+{\color{red}\emph{Draft Copy: Do not cite.}} % use version number later
 \end{quote}
 }
 
 \maketitle
 
 \begin{abstract}
-Kids are using technology that is intuitive to control, but entirely opaque to the children's understanding. Why do computers work? How do computers count? What makes transistors so important? This workshop aims to produce a short course of study for third to sixth graders, that takes about three afternoons to complete. Children are introduced to math concepts fundamental to the study of computing such as binary counting, exponentiation, basic electronics theory, and computing logic. Several hands-on projects are included in the text and can enhance the students' learning while breaking up the ``lecture'' format of the workshop.\\
-~\\
-\textbf{Keywords:} STEM; education; computing theory; logic; electronics theory; elementary education; logic gates; science experiments.
+Kids are using technology that is intuitive to control, but entirely opaque to the children's understanding. Why do computers work? How do computers count? What makes transistors so important? This workshop aims to produce a short course of study for third to sixth graders, that takes about three afternoons to complete. Children are introduced to math concepts fundamental to the study of computing such as binary counting, exponentiation, basic electronics theory, and computing logic. Several hands-on projects are included in the text and can enhance the students' learning while breaking up the ``lecture'' format of the workshop.
+
+\bigskip 
+
+\noindent\textbf{Keywords:} STEM; education; computing theory; logic; electronics theory; elementary education; logic gates; science experiments.
+
+\bigskip
+
+\noindent All source code for this document are available at {\color{webblue}\href{https://github.com/jessehamner/TechMillForKids}{the author's github page}}.
 
 \end{abstract}
 

@@ -1,3 +1,7 @@
+# Makefile for the LaTeX document.
+# This file, on Unix-like systems, will compile the document up to 8 times,
+# halting when -egrep- no longer finds "hey, you might need to re-run this."
+
 all: computertheoryforkids.pdf
 
 pdf: computertheoryforkids.pdf

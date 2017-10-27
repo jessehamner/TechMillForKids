@@ -40,7 +40,7 @@ A \emph{half adder} demonstrates the way in which computer logic gates can corre
 
 \input{./include/halfadder2.tex}
 
-\caption{Another half-adder circuit. The XOR gate has been replaced by an equivalent circuit made up of simpler gates.}
+\caption{Another half-adder circuit. The exclusive-OR gate has been replaced by an equivalent circuit made up of five simpler gates. You can see why XOR requires so many transistors!}
 \end{center}
 \end{figure}
 
@@ -53,7 +53,7 @@ This type of adder is a little more difficult to implement than a half-adder. Th
 \begin{figure}[!hb]
 \begin{center}
 \input{./include/fulladder1.tex}
-\caption{A full-adder circuit, made up of two half-adder circuits. A full-adder enables carry-in as well as carry-out. These units can be linked together to make binary addition work even for very large numbers.}
+\caption{A full-adder circuit, made up of two half-adder circuits. A full-adder enables carry-in as well as carry-out. This means that the full adder can add \emph{three} inputs together, and keep track of all of them. If the sum is two or three, the carry-out signal goes high. These units can be linked together to make binary addition work even for very large numbers.}
 \end{center}
 \end{figure}
 
@@ -143,26 +143,4 @@ To compare large numbers, the circuit requires an XNOR gate for each binary digi
 
 \clearpage
 
-
-%---------------------------
-\newpage
-\section*{Memory}
-%---------------------------
-
-Logic circuits need to store the numbers they are working with in order to do more than one thing. Central Processing Units (CPUs), Arithmetic Logic Units (ALUs) or Floating-Point Units (FPUs) each work with numbers, and need to fetch them from somewhere and put them somewhere when they are done. The ``somewhere" is \emph{memory}. Keeping with the use of binary math and binary logic, a high voltage would be a 1 and a low voltage would be a 0. Through the use of these little stored charges, computers can keep track of many, many pieces of information. No matter what the circuits are doing, everything being stored is composed of some count of zeros and ones. 
-
-There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory these days is a circuit made up of six transistors, or one transistor and a capacitor or two. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the number, or the instructions, from memory on to be processed.
-
-One type of computer memory, called \emph{static RAM}, uses six transistors per bit instead of one transistor and a capacitor for bit (as used in dynamic ram, the main memory for the computer), so it's bulky, but it's also faster. To store one bit with 6 transistors is also expensive so SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
-which is pretty complicated, but if you understand how the two types of transistors are turned on and off, it will make sense. To keep this diagram simple, no resistors are shown. If you look closely at the $Q_1$/$Q_2$ and $Q_3$/$Q_4$ transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate). When WL (the ``word line") goes high, $Q_5$ and $Q_6$ open up, allowing access to the single bit stored in $BL$ and the inverse of that bit in $\overline{BL}$. 
-
-% TODO add a simpler diagram here, substituting NOT gate symbols for the twin CMOS NOT gates.
-
-\begin{figure}[h!]
-\begin{center}
-\input{./include/sramcell.tex}
-\caption{A static ram cell.} 
-\label{fig:sram}
-\end{center}
-\end{figure}
 

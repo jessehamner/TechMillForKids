@@ -126,26 +126,27 @@ When thinking about computers, we hear terms that are often expressed as multipl
 
 When you get to the bottom of the column, you re-set the counter for that column to zero, and add one to the next column over (carry). So you go from 9 to 10, or 19 to 20, or 99 to 100. So any column can only hold between 0 and 9, before you have to carry over to the next \emph{order of magnitude}, which for a decimal system is \emph{ten times the size of one step in the column}. So when you run out of room for the ones column, you go to the \emph{tens} column, which contains ten times as many units as any single step (from 1 to 2, or from 8 to 9) in the column to the right of it. When you run out of room in the column, you have to carry to the next order of magnitude. You go from the ones, to the tens, to the hundreds (100 is $10 \times 10$), to the thousands (1000 is $10 \times 100$), and so on.
 
+To express a number, we count up the amount of each order of magnitude and add them all together. The number 628 is made of $(6 \times 100) +  (2 \times 10) +  (8 \times 1)$, for instance.
 
 \newpage
 
 Here are a few examples of numbers expressed in columns. For each one, you count up how many units in the column exist, then count them for each order of magnitude, and add each value together to get the number being described:
 
 \bigskip
-\begin{tabular}{p{2.6in} | l l   l l l l | l l r }
+\begin{tabular}{p{2.7in} | l l   l l l l | l l r }
 \hline
 \textbf{Text Description} & & \rot{ten thousands} & \rot{thousands} & \rot{hundreds} & \rot{tens} & \rot{ones} && \multicolumn{2}{c}{\textbf{Number}} \\[\sep]
 \hline
 & && & & & & &&\\[-2mm]
 
-no ten-thousands, no thousands, no hundreds, no tens, and no ones   && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 0 &&& 0 \\[7mm]
-no ten-thousands, no thousands, no hundreds, no tens, and one ones   && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 1 &&& 1 \\[7mm]
-no ten-thousands, no thousands, no hundreds, no tens, and two ones  && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 2 &&& 2 \\[7mm]
-no ten-thousands, no thousands, no hundreds, three tens, and no ones && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 3 & 0 &&& 30 \\[7mm]
-no ten-thousands, no thousands, four hundreds, no tens, and no ones && {\color{lightgray}0} & {\color{lightgray}0} & 4 & 0 & 0 &&& 400 \\[7mm]
-no ten-thousands, no thousands, five hundreds, five tens, and five ones && {\color{lightgray}0} & {\color{lightgray}0} & 5 & 5 & 5 &&& 555 \\[7mm]
-no ten-thousands, six thousands, five hundreds, no tens, and two ones && {\color{lightgray}0} & 6 & 5 & 0 & 2 &&& 6502 \\[7mm]
-six ten-thousands, eight thousands, no hundreds, three tens, and no ones && 6 & 8 & 0 & 3 & 0 &&& 68030 \\[7mm]
+no ten-thousands, no thousands, no hundreds, no tens, and no ones   && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 0 &&& 0 \\[\widesep]
+no ten-thousands, no thousands, no hundreds, no tens, and one ones   && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 1 &&& 1 \\[\widesep]
+no ten-thousands, no thousands, no hundreds, no tens, and two ones  && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 2 &&& 2 \\[\widesep]
+no ten-thousands, no thousands, no hundreds, three tens, and no ones && {\color{lightgray}0} & {\color{lightgray}0} & {\color{lightgray}0} & 3 & 0 &&& 30 \\[\widesep]
+no ten-thousands, no thousands, four hundreds, no tens, and no ones && {\color{lightgray}0} & {\color{lightgray}0} & 4 & 0 & 0 &&& 400 \\[\widesep]
+no ten-thousands, no thousands, five hundreds, five tens, and five ones && {\color{lightgray}0} & {\color{lightgray}0} & 5 & 5 & 5 &&& 555 \\[\widesep]
+no ten-thousands, six thousands, five hundreds, no tens, and two ones && {\color{lightgray}0} & 6 & 5 & 0 & 2 & & & 6502 \\[\widesep]
+six ten-thousands, eight thousands, no hundreds, three tens, and no ones && 6 & 8 & 0 & 3 & 0 & & & 68030 \\[\widesep]
 \hline
 \end{tabular}
 
@@ -153,7 +154,7 @@ six ten-thousands, eight thousands, no hundreds, three tens, and no ones && 6 & 
 \bigskip
 
 
-\stbox{\emph{Exercise:} What if, in the above table, you counted past 99,999? What number would you see? What happened to the hundred thousand that should be counted? Do you need to know how many hundred thousands are in the number? How would you handle the need for a larger number, if you have it? (Introduces the concept of \emph{overflow}.)}
+\stbox{6.0in}{\emph{Exercise:} What if, in the above table, you counted past 99,999? What number would you see? That is, what do you see if there is not a ``hundred-thousands" column? What happened to the hundred thousand that should be counted? Do you need to know how many hundred thousands are in the number? How would you handle the need for a larger number, if you have it? (Introduces the concept of \emph{overflow}.)}
 
 
 \newpage
@@ -165,31 +166,38 @@ In order to add numbers in binary, we can't count to ten. We must count to one, 
 
 In order to add two numbers, computers have to do the following:
 \be
-\+ Store each number in a binary format
-\+ compare each column (ones, twos, fours, eights, etc.) of each number and see if the numbers in that column add up to more than one
-\+ carry the ``one'' to the next column (the next \emph{order of magnitude}, which is two times the previous column). That is, if the number goes from one to two, the ``one" will go to zero and the ``two" will be moved -- and added -- to the next column over to the left.
-\+ keep on adding and carrying digits until the addition is complete.
-\+ count up the values of each order of magnitude (either one, or none) and add them together.
-\+ report the new number as a [binary] result
+\+ store each number in a binary format;
+\+ compare each column (ones, twos, fours, eights, etc.) of each number and see if the numbers in that column add up to more than one;
+\+ carry the ``one'' to the next column (the next \emph{order of magnitude}, which is two times the previous column). That is, if the number goes from one to two, the ``one" will go to zero and the ``two" will be moved -- and added -- to the next column over to the left;
+\+ keep on adding and carrying digits until the addition is complete;
+\+ count up the values of each order of magnitude (either one, or none) and add them together; and
+\+ report the new number as a [binary] result.
 \ee
 
-\begin{tabular}{l | p{0.10in} p{0.10in} p{0.10in} p{0.10in} | l r}
+
+\begin{minipage}[c]{6.5in}
+\begin{center}
+\textbf{Binary and decimal representation for each number from 0 to 15:}
+
+\smallskip
+\begin{tabular}{p{1.25in} | p{0.10in} p{0.10in} p{0.10in} p{0.10in} | l r}
+\hline\\[\negsep]
 \textbf{Description} & \rot{eights} & \rot{fours} & \rot{twos} & \rot{ones} && \textbf{{\color{webblue}base 10}}\\[\sep]
 \hline\\[\negsep]
-$0+0+0+0$ & 0 & 0 & 0 & 0 && {\color{webblue}0} \\
-no eights, no fours, no twos, one one  & 0 & 0 & 0 & 1 && {\color{webblue}1} \\
+$0 + 0 + 0 + 0$   & 0 & 0 & 0 & 0 && {\color{webblue}0} \\
+$0 + 0 + 0 + 1$   & 0 & 0 & 0 & 1 && {\color{webblue}1} \\
 
-no eights, no fours, one two, no ones  & 0 & 0 & 1 & 0 && {\color{webblue}2} \\
+$0 + 0 + 2 + 0$   & 0 & 0 & 1 & 0 && {\color{webblue}2} \\
 
-no eights, no fours, one two, one one  & 0 & 0 & 1 & 1 && {\color{webblue}3} \\
+$0 + 0 + 2 + 1$   & 0 & 0 & 1 & 1 && {\color{webblue}3} \\
 
-$0 + 4 + 0 + 0 $  & 0 & 1 & 0 & 0 && {\color{webblue}4} \\
+$0 + 4 + 0 + 0$   & 0 & 1 & 0 & 0 && {\color{webblue}4} \\
 
-no eights, one four, no twos, one one  & 0 & 1 & 0 & 1 && {\color{webblue}5} \\
+$0 + 4 + 0 + 1$   & 0 & 1 & 0 & 1 && {\color{webblue}5} \\
 
-$0 + 4 + 2 + 0 $  & 0 & 1 & 1 & 0 && {\color{webblue}6} \\
+$0 + 4 + 2 + 0$   & 0 & 1 & 1 & 0 && {\color{webblue}6} \\
 
-no eights, one four, one two, one one  & 0 & 1 & 1 & 1 && {\color{webblue}7} \\
+$0 + 4 + 2 + 1$   & 0 & 1 & 1 & 1 && {\color{webblue}7} \\
 
 $8 + 0 + 0 + 0 $  & 1 & 0 & 0 & 0 && {\color{webblue}8} \\
 
@@ -209,14 +217,15 @@ $8 + 4 + 2 + 1 $  & 1 & 1 & 1 & 1 && {\color{webblue}15} \\
 
 \hline
 \end{tabular}
+\end{center}
 
-\bigskip
-
-\stbox{\emph{Problem 1:} what happens in the above table if you add 1 to 15? What number would the computer report if it only has four columns to use?
+\stbox{6.0in}{\emph{Problem 1:} what happens in the above table if you add 1 to 15? What number would the computer report if it only has four columns to use?
 }
 
-\stbox{\emph{Problem 2:} Let's say the machine runs by itself at some regular speed, and adds one to the number each second. Let's also say you are using this counter as a way to control a single blinking light, since ``1'' means ``there is electricity available to that wire" and so a ``1'' would turn the light on. Look at each column of numbers (that is, each \emph{order of magnitude!}). Remembering that ``a line that has a voltage" is a 1 and ``no voltage'' is a zero, which line (column) would make the light blink fastest? Which line would blink the slowest?
+\stbox{6.0in}{\emph{Problem 2:} Let's say the machine runs by itself at some regular speed, and adds one to the number each second. Let's also say you are using this counter as a way to control a single blinking light, since ``1'' means ``there is electricity available to that wire" and so a ``1'' would turn the light on. Look at each column of numbers (that is, each \emph{order of magnitude!}). Remembering that ``a line that has a voltage" is a 1 and ``no voltage'' is a zero, which line (column) would make the light blink fastest? Which line would blink the slowest?
 }
+\end{minipage}
+
 
 \bigskip
 
@@ -241,7 +250,7 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \\
 
 If the computer counts up from zero, then once it gets past the $2^{14}$ column, it jumps to the $2^{15}$ (32,768) column. 
 
-\stbox{\emph{Useless skill:} Did you know you can count to 31 on one hand? You have five fingers, and each finger can be open or closed, and $2^5$ is 32. Use your thumb for the ``0 or 1" ($2^0$, ``two to the zeroth power") column; the digit to its left represents two to the first power (the ``twos digit"); the next digit to the left represents two to the second power (the ``fours digit"); and so on.}
+\stbox{6.0in}{\emph{Useless skill:} Did you know you can count to 31 on one hand? You have five fingers, and each finger can be open or closed, and $2^5$ is 32. Use your thumb for the ``0 or 1" ($2^0$, ``two to the zeroth power") column; the digit to its left represents two to the first power (the ``twos digit"); the next digit to the left represents two to the second power (the ``fours digit"); and so on.}
 
 \begin{tabular}{llll llll l}
 
@@ -270,13 +279,14 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \textbf{Result}
 \end{tabular}
 \bigskip
 
-\stbox{\emph{Tip:} if you have a sequence of all ones, like 7 or 15 or 31, rather than adding up each binary column, you can just subtract one from the next largest column base number. So \texttt{0111} equals \texttt{1000} minus one.}
+\stbox{6.0in}{\emph{Tip:} if you have a sequence of all ones, like 7 or 15 or 31, rather than adding up each binary column, you can just subtract one from the next largest column base number. So \texttt{0111} equals \texttt{1000} minus one.}
 
 
 \vfill
 
-{\color{red}\textbf{Joke:}}
-\stbox{\emph{Remember:}  There are only 10 types of people in the world;\\
-those who understand binary, and those who don't.
-}
+\stbox{4.25in}{\noindent{\color{red}\textbf{Joke:}}
+    
+    \medskip
 
+    \noindent\emph{Remember:}  There are only 10 types of people in the world;\\
+those who understand binary, and those who don't.}

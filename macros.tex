@@ -26,6 +26,7 @@
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \newcommand{\sep}{1mm}
 \newcommand{\negsep}{-4mm}
+\newcommand{\widesep}{7mm}
 \newcommand{\thisscale}{0.6}
 
 \newcommand{\+}{\item}		% easier than typing \item a lot
@@ -40,13 +41,15 @@
 
 \newcommand{\cb}{\cellcolor{black!35}}
 
+\newcommand{\ckb}{\item[$\square$]} % list checkboxes (requires marvosym)
+
 % A command that makes a uniform box around a paragraph. 
 % It's a minipage environment, which means it doesn't support some commands.
-\newcommand{\stbox}[1]{
+\newcommand{\stbox}[2]{
 	\begin{center}
 	\fbox{
-		\begin{minipage}[c]{6.0in}{
-		\noindent #1
+		\begin{minipage}[c]{#1}{
+		\noindent #2
 		}
 		\end{minipage}
 	}
