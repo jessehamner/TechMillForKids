@@ -9,6 +9,13 @@ Run wires out from the switches, perhaps using one color for one bank of switche
 
 Run each adder ``sum" wire to each output LED input. In doing this you will have wired up each column of output, meaning you can read off the sum of the two numbers.
 
+
+\begin{figure}
+\includegraphics[scale=0.15]{4bitadder.jpg}
+\caption{A properly wired 4-bit adder, with a carryout. This setup can count to 30. Here, it is adding ($8 + 4 + 0 + 1$) and ($8 + 0 + 2 + 1$), and the result is 24. The input values are color coded in pairs, so the 1s are yellow, the 2s are orange, the 4s are red, and the 8s are white. The carry-out and carry-in jumpers are blue, and the sum lines (that go to the LEDs) are green.}
+
+\end{figure}
+
 % Subtracting is adding the two's complement (one's complement + 1 );
 % so, to subtract, you'll need a vector of NOT gates to get the one's complement,
 % plus a trip through the adder circuit for both numbers
