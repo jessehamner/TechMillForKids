@@ -140,6 +140,18 @@ To compare large numbers, the circuit requires an XNOR gate for each binary digi
 \end{figure}
 
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.16, clip=TRUE, trim=0 0 500 0]{4bitxnor.jpg}
+\caption{Testing for equality with four XNOR gates. Here, XNOR gates are created with XOR gates that pass the output (green wires) to a NOT gate. An XOR gate only goes logic high if the inputs are different. Thus, NOT XOR means both inputs are the same! Each XNOR output (blue wires) passes to a NAND gate--recall that NAND gates only return zero if both inputs are 1. The output of each NAND gate (purple wires) passes to one input of a NOR gate. Recall that NOR gates only return 1 if both inputs are zero. The result: the NOR gate lights up an LED if all inputs are equal. It is no different than the AND-gate cascade in the result, it just uses negative logic to get there. Here, both inputs are equal to 1, so the LED is lit.}
+\end{center}
+\end{figure}
+
+
+
+
+
+
 
 \clearpage
 
