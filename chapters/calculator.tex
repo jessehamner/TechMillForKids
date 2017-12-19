@@ -1,13 +1,17 @@
 \section{Building an Adding Machine}
-All of these little units, experiments, and instruction have been moving towards a goal -- to make a primitive electronic calculator. Here, we will be able to add two four-bit numbers using only full adders, toggle switches, and LED blocks, all wired together on a breadboard. At the end of this unit, you will be able to enter two numbers in binary using toggle switches, and read the result on an LED readout, also in binary. There's no reason you have to stop at 4 bits -- the 8-LED block means you could add two 7-bit numbers if you have seven full adders and more toggle switches, without \emph{overflowing} the capabilities of the setup. ``Overflow'' means that you have tried to put numbers into the system that cannot be represented by the computer because they are too large, or else the result is too large to display. 
+All of these little units, experiments, and instruction have been moving towards a goal -- to make a primitive electronic calculator. Here, we will be able to add two four-bit numbers using only full adders, toggle switches, and LED blocks, all wired together on a breadboard. At the end of this unit, you will be able to enter two numbers in binary using toggle switches, and read the result on an LED readout, also in binary. There's no reason you have to stop at 4 bits -- the 8-LED block means you could add two 7-bit numbers if you have seven full adders and more toggle switches, without \emph{overflowing} the capabilities of the setup. An ``overflow" is a type of error, and means the answer is not correctly displayed on the LED output bar. Either you have tried to put numbers into the system that cannot be represented by the computer because they are too large, or else the result of the two numbers is too large to display.
+
+Anyway, let's build a calculator!
 
 \subsection*{Wiring up the adders}
 
-Put two sets of toggle switches on a breadboard and, if desired, two 8-LED readouts (one for each set of toggles). Wire up power and ground to the switches and LEDs, and wire the switch outputs to the LED inputs, moving from right to left, because the rightmost digit is the smallest number value in our example, either 0 or 1.
+Put two sets of toggle switches on a breadboard and enough LEDs to display the sum (that is, at least 4 LEDs). Wire up power and ground to the switches and LEDs. If you're using your own LEDs, be sure and run a 220$\Omega$ or 330$\Omega$ resistor from the negative terminal of each LED to ground. Wire the switch outputs to the LED inputs, moving from right to left, because the rightmost digit is the smallest number value in our example, either 0 or 1.
 
-Run wires out from the switches, perhaps using one color for one bank of switches, and a different color for the second bank, to each input of each full adder, and wire up each ``carry-out'' to the next (leftward!) ``carry-in''. The left-most carry-out digit should run to another LED, perhaps not on the 8-LED output, to indicate an overflow. The overflow, a type of error, means the answer is not correctly displayed on the LED output bar.
+It may be helpful to use one color LED for each bank of switches, and a different color for the ``result" display. The 4-toggle LED boards included in this workshop have built-in LEDs to make it easy.
 
-Run each adder ``sum" wire to each output LED input. In doing this you will have wired up each column of output, meaning you can read off the sum of the two numbers.
+Run an additional wire from each switch output, in order, to the input of a full adder. Wire up each ``carry-out'' from one full adder to the next (leftward!) ``carry-in'' of the next full adder. The left-most carry-out digit should run to another LED, perhaps an LED of a different color, to indicate an overflow.
+
+Next, run each adder ``sum" wire to each output LED's positive terminal. In doing this you will have wired up each column of output, meaning you can read off the sum of the two numbers in binary.
 
 
 \begin{figure}
@@ -20,7 +24,6 @@ Run each adder ``sum" wire to each output LED input. In doing this you will have
 % so, to subtract, you'll need a vector of NOT gates to get the one's complement,
 % plus a trip through the adder circuit for both numbers
 % (and someplace to store the result!) before you can implement subtraction.
-% Probably only suitable an an appendix to this document because of the 
+% Probably only suitable an an appendix to this document because of the
 % additional "moving parts" and the memory requirement (8 latches or SRAM cells isn't
 % that much work, but scope creep is already a problem with this project).
-

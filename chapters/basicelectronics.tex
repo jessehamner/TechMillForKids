@@ -3,16 +3,16 @@
 
 The following sections briefly introduce electronic components. Each of these pieces can be used to make complex, powerful circuits.\footnote{Most of these definitions come from Wikipedia, though they have been edited and augmented by the author in several places.}
 
-\subsection*{Resistors} 
+\subsection*{Resistors}
 
 A resistor limits the electrical current that flows through a circuit. Resistance is the restriction of current. In a resistor, the energy of the electrons that pass through the resistor are changed to heat and/or light. For example, in a light bulb there is a resistor made of tungsten which converts the electrons into light and a great deal of heat.
 
 \begin{center}
   	\begin{circuitikz}
     	\draw (0,0)
-      	to[battery] (0,2) % 
+      	to[battery] (0,2) %
      	to[R=$R_1$] (2,2)
-     	to[short] (2,0) -- (0,0) 
+     	to[short] (2,0) -- (0,0)
 		;
 
      	\draw (0,0)
@@ -30,16 +30,16 @@ A resistor limits the electrical current that flows through a circuit. Resistanc
 
 \subsection*{Capacitors}
 
-A capacitor (also called condenser, which is the older term) is an electronic device that stores electric energy (a ``charge''). It is similar to a battery, but is smaller, lightweight and charges up much quicker. Typically, capacitors hold much less energy than a battery, but can provide almost their entire charge to the circuit quickly. Capacitors are used in many electronic devices today, and can be made out of many different types of material. A capacitor-like effect can also result just from two conductors being close to each other, whether you want it to exist or not-- if you've ever been shocked by a door knob or metal refrigerator in the winter, you have been one plate of a capacitor, because you've been storing a charge!
+A capacitor (also called a \emph{condenser}, which is the older term) is an electronic device that stores electric energy (a ``charge''). It is similar to a battery, but is smaller, lightweight and charges up much quicker. Typically, capacitors hold much less energy than a battery, but can provide almost their entire charge to the circuit quickly. Capacitors are used in many electronic devices today, and can be made out of many different types of material. A capacitor-like effect can also result just from two conductors being close to each other, whether you want it to exist or not-- if you've ever been shocked by a door knob or metal refrigerator in the winter, you have been one plate of a capacitor, because you've been storing a charge!
 
 
 
 \begin{center}
   	\begin{circuitikz}
     	\draw (0,0)
-      	to[battery] (0,2) % 
+      	to[battery] (0,2) %
      	to[C=$C_1$] (2,2)
-     	to[short] (2,0) -- (0,0) 
+     	to[short] (2,0) -- (0,0)
 		;
 
      	\draw (0,0)
@@ -62,16 +62,16 @@ A capacitor (also called condenser, which is the older term) is an electronic de
 
 A diode is an electronic component with two electrodes (connectors). It allows electricity to go through it only in one direction.
 
-Diodes can be used to convert alternating current to direct current (this circuit is called a diode bridge). They are often used in power supplies and can be used to decode AM (``amplitude modulation") radio signals (like in a crystal radio). Light-emitting diodes (LEDs) are a type of diode that produce light. 
+Diodes can be used to convert alternating current to direct current (this circuit is called a diode bridge). They are often used in power supplies and can be used to decode AM (``amplitude modulation") radio signals (like in a crystal radio). Light-emitting diodes (LEDs) are a type of diode that produce light.
 
 
 \begin{center}
   	\begin{circuitikz}
     	\draw (0,0)
-      	to[battery] (0,2) % 
+      	to[battery] (0,2) %
      	to[R=$R_1$] (2,2)
 		to[empty led](2,0)
-     	to[short] (2,0) -- (0,0) 
+     	to[short] (2,0) -- (0,0)
 		;
 
 		\draw(2.5, 1.5)
@@ -97,17 +97,17 @@ An inductor, also called a coil or (rarely) a reactor, is a two-terminal electri
 
 They are often used as electronic filters, to separate signals of different frequencies, and in combination with capacitors to make tuned circuits, used to tune radio and TV receivers.
 
-\noindent The symbol for an inductor is a coil icon. Inductors are usually abbreviated with an L: 
+\noindent The symbol for an inductor is a coil icon. Inductors are usually abbreviated with an L:
 
 \bigskip
 
 \begin{center}
   	\begin{circuitikz}
     	\draw (0,0)
-      	to[battery] (0,2) % 
+      	to[battery] (0,2) %
      	to[L, l^=$L_1$] (2,2) % The inductor
 		to[C, l^=$C_1$](2,0)
-     	to[short] (2,0) -- (0,0) 
+     	to[short] (2,0) -- (0,0)
 		;
 
      	\draw (0,0)
@@ -144,7 +144,7 @@ Why are transistors important? They enable a lot of powerful new devices, automa
 
 \subsection*{A Little History}
 
-Many years ago, a ``computer'' meant ``the person who did the math problems." A few people invented adding machines like an abacus, and \emph{slide rules} (see Figure \ref{fig:sliderule}) made even difficult calculations very possible, but they still required a person to do the math. In the same way, people had learned about electricity, but couldn't do much with it except power light bulbs, street cars, and telegraphs. Talking to someone many miles away meant either using Morse code, or writing a letter. 
+Many years ago, a ``computer'' meant ``the person who did the math problems." A few people invented adding machines like an abacus, and \emph{slide rules} (see Figure \ref{fig:sliderule}) made even difficult calculations very possible, but they still required a person to do the math. In the same way, people had learned about electricity, but couldn't do much with it except power light bulbs, street cars, and telegraphs. Talking to someone many miles away meant either using Morse code, or writing a letter.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -156,23 +156,23 @@ Many years ago, a ``computer'' meant ``the person who did the math problems." A 
 \label{fig:sliderule}
 \end{figure}
 
-The first discovery that led to the transistor was the \emph{vacuum tube diode}, which uses a hot wire in a glass enclosure with no air in it to push electrons to another conductor, just like any other diode. Unfortunately, vacuum tube diodes are big, fragile, hard to make, and produce a huge amount of heat. The \emph{vacuum tube triode}, which does everything a transistor does, came next. Since electrons are negatively charged, a slight negative charge on the third wire (between, but not touching, the hot-wire emitter and the collector) permitted people to control the flow of electrons from one side to the other -- it acted like a switch. 
+The first discovery that led to the transistor was the \emph{vacuum tube diode}, which uses a hot wire in a glass enclosure with no air in it to push electrons to another conductor, just like any other diode. Unfortunately, vacuum tube diodes are big, fragile, hard to make, and produce a huge amount of heat. The \emph{vacuum tube triode}, which does everything a transistor does, came next. Since electrons are negatively charged, a slight negative charge on the third wire (between, but not touching, the hot-wire emitter and the collector) permitted people to control the flow of electrons from one side to the other -- it acted like a switch.
 
 Vacuum tube triodes have all the same shortcomings as the vacuum diode, and have even more parts to fail. Despite their shortcomings, vacuum tubes changed the world in a \emph{huge} way: they enabled radios, televisions, radar, and the first digital computers. But these computers were the size of a small house, weighed 30 tons, and required powerful cooling.
 
-In the 1940s, three scientists discovered that some substances could either behave like an insulator \emph{or} a conductor, depending on how much electricity or heat was applied to it. Being able to change a slab of glass or silicon from an insulator into a conductor meant they could do everything a vacuum tube could do, except much smaller, cheaper, and cooler. About nine years after they announced the discovery and proved that it works, the three men won the Nobel Prize. They had discovered a \emph{semiconductor}. 
+In the 1940s, three scientists discovered that some substances could either behave like an insulator \emph{or} a conductor, depending on how much electricity or heat was applied to it. Being able to change a slab of glass or silicon from an insulator into a conductor meant they could do everything a vacuum tube could do, except much smaller, cheaper, and cooler. About nine years after they announced the discovery and proved that it works, the three men won the Nobel Prize. They had discovered a \emph{semiconductor}.
 
 \stbox{6.0in}{There's a longer documentary about the transistor on YouTube {\color{webblue}\href{https://www.youtube.com/watch?v=jYxf3gYUZBM}{here}}.}
 
 The world changed amazingly quickly when we started using transistors. Today, there are many different kinds of transistors. The computer in your house has many \emph{billions} of transistors inside it. So does your phone, your car, your microwave, your television...wow!
 
-Some transistors are made especially for certain applications, like making audio louder, or pushing radio signals, or just for doing computations. These are all transistors, but they are different. 
+Some transistors are made especially for certain applications, like making audio louder, or pushing radio signals, or just for doing computations. These are all transistors, but they are different.
 
 
 
 \subsection*{Electronics and Transistors}
 
-Transistors are usually abbreviated with $Q$. There are several kinds of transistors, but they work mostly the same. 
+Transistors are usually abbreviated with $Q$. There are several kinds of transistors, but they work mostly the same.
 
 \begin{center}
 \begin{circuitikz}
@@ -191,12 +191,12 @@ Most transistors have three pins. For this kind of transistor (called an ``NPN")
 \+ Electricity comes in the \emph{collector}
 \+ Electricity applied to the \emph{base} opens up the flow of electricity to the \emph{emitter}
 \+ Electricity, when able, flows out the emitter and towards a ground.
-\+ Therefore, the base is like a switch. It turns the transistor from an insulator into a conductive wire. 
+\+ Therefore, the base is like a switch. It turns the transistor from an insulator into a conductive wire.
 \ei
 
 \end{center}
 
-\noindent Most computers use a transistor type called a ``FET" (\emph{Field Effect Transistor}), that is very efficient and does not require very much electricity to switch from ``on'' to ``off''. They are faster and run cooler than the older types of transistors. Somewhat confusingly, these transistors have different names for their pins, compared to the older (but still preferable for some applications) ``BJT" type transistors, seen above. 
+\noindent Most computers use a transistor type called a ``FET" (\emph{Field Effect Transistor}), that is very efficient and does not require very much electricity to switch from ``on'' to ``off''. They are faster and run cooler than the older types of transistors. Somewhat confusingly, these transistors have different names for their pins, compared to the older (but still preferable for some applications) ``BJT" type transistors, seen above.
 
 \begin{center}
 \begin{circuitikz}
@@ -217,7 +217,6 @@ For questions of computers, we will treat transistors like a switch and nothing 
 
 But how do transistors do all the cool stuff they do? Why are pocket calculators or iPhones possible? How do collections of electronic components enable us to do math, send text messages, or simulate a nuclear explosion without anything going kaboom?
 
-At the absolute base of the entire electronics world, just above transistors, are \emph{logic gates}. They are the simplest building blocks of digital computers. 
+At the absolute base of the entire electronics world, just above transistors, are \emph{logic gates}. They are the simplest building blocks of digital computers.
 
 \stbox{6.0in}{A good additional introduction video is {\color{webblue}\href{http://ed.ted.com/lessons/how-transistors-work-gokul-j-krishnan}{here}} (\texttt{ed.ted.com}).}
-

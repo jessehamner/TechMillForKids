@@ -1,14 +1,14 @@
 \section{Computer Math}
 
-In this section, I introduce a few vocabulary terms that help you understand how computers do certain things, like add two (binary) numbers.
+In this section, I introduce a few vocabulary terms that help you understand how computers do certain things, like add two (binary) numbers. In most respects, adding these numbers is no different from how you already add numbers. When the numbers in any column is too big to be held in that column, you must ``carry'' the extra number to the next larger column. The difference, and it is slightly awkward at first, is remembering that any column can only hold 0 or 1 -- if you reach 2, you have to carry the ``two'' to the next column.
 
 \subsection*{Addition}
 
-Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic. 
+Adding two values is straightforward. Simply align the values on the least significant bit and add each column, moving any ``carry'' to the bit one position left, just like you already do with ``regular'' (base-10) arithmetic.
 
 \begin{verbatim}
   Binary:     Decimal:
-   
+
   0001 0110   (16 + 0 + 4 + 2 + 0) =   22
 + 0000 0011    (0 + 0 + 0 + 1 + 2) =    3
 ===========                          ====
@@ -29,8 +29,8 @@ Adding two values is straightforward. Simply align the values on the least signi
 \begin{verbatim}
    Binary:       Decimal:
 
-  0000 0000      
-+ 0000 0011      
+  0000 0000
++ 0000 0011
 ===========      ====
 
 ___________      ____
@@ -43,8 +43,8 @@ ___________      ____
 \begin{verbatim}
    Binary:       Decimal:
 
-  0000 0010      
-+ 0000 0010      
+  0000 0010
++ 0000 0010
 ===========      ====
 
 ___________      ____
@@ -59,8 +59,8 @@ ___________      ____
 \begin{verbatim}
    Binary:       Decimal:
 
-  0000 0110      
-+ 0000 0011      
+  0000 0110
++ 0000 0011
 ===========      ====
 
 ___________      ____
@@ -73,8 +73,8 @@ ___________      ____
 \begin{verbatim}
    Binary:       Decimal:
 
-  0000 1010      
-+ 0001 1011      
+  0000 1010
++ 0001 1011
 ===========      ====
 
 ___________      ____
@@ -85,5 +85,4 @@ ___________      ____
 \hline
 \end{tabular}
 
-There is more information about binary arithmetic in the Appendix -- you can see how to represent negative numbers, and how to subtract numbers, in binary, just the way a computer does.
-
+There is more information about binary arithmetic in the Appendix -- you can see how to represent negative numbers, and how to subtract numbers, in binary, just the way a computer does. But for now, you know enough to move on.
