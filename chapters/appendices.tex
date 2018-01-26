@@ -160,7 +160,7 @@ Capacitors are usually made with two metal plates that are on top of each other 
 
 \bigskip
 \stbox{6.0in}{
-\emph{Experiment:} make a variable capacitor from aluminum foil, paper, and a paper towel tube. The paper should go around the roll only once. Cut the foil one-quarter or one-half inch smaller than the paper on all sides. Tape a small wire to one corner of the foil, if possible using metallic/conductive tape\footnote{See below for guidance on soldering to aluminum foil}. Tape the foil to the paper. Tape one edge of the paper, foil side down, against the cardboard tube. Make another paper/foil combination. Wrap the paper/foil around the cardboard tube, but tape the paper only to itself, and just loose enough to slide a little. 
+\emph{Experiment:} make a variable capacitor from aluminum foil, paper, and a paper towel tube. The paper should go around the roll only once. Cut the foil one-quarter or one-half inch smaller than the paper on all sides. Tape a small wire to one corner of the foil, if possible using metallic/conductive tape\footnote{While it is possible to solder to aluminum foil, really there are much better and safer ways to attach a wire to the foil for the purposes of this workshop.}. Tape the foil to the paper. Tape one edge of the paper, foil side down, against the cardboard tube. Make another paper/foil combination. Wrap the paper/foil around the cardboard tube, but tape the paper only to itself, and just loose enough to slide a little. 
 
 Another example, using a coke can, can be found {\color{webblue}\href{http://www.tompolk.com/crystalradios/cokecancapacitor.html}{here}}.
 
@@ -168,14 +168,6 @@ Another example, using a coke can, can be found {\color{webblue}\href{http://www
 
 It is also possible to make a regular capacitor with the paper-foil layers, separated by flat sheets of cardboard. Keep track of the ``up'' and ``down'' sides! Note that it is pretty easy to gang each ``plate'' together and make capacitor with a larger value; tying all the anodes together, and all the cathodes together, makes a larger capacitor.
 }
-
-
-
-\section*{Soldering To Aluminum Foil}
-
-It is possible but not recommended to solder a copper wire to the aluminum foil. Soldering it is pretty hard and also the resulting joint is not very strong. If you want to try it, you'll need to put a big drop of heavy oil (motor oil or soybean oil, say) on the aluminum foil to get anything to solder to a copper wire. The heat from the soldering iron rapidly changes the aluminum into \emph{aluminum oxide} and you cannot solder to aluminum oxide. The oil prevents oxygen from getting to the aluminum (and therefore, the important part of the solder joint), but it's not a very good solution to the problem. The oil will smoke. You should solder outside away from things that burn.
-
-\newpage
 
 
 %---------------------------
@@ -187,21 +179,34 @@ Logic circuits need to store the numbers they are working with in order to do mo
 
 There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory these days is a circuit made up of six transistors, or one transistor and a capacitor or two. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the number, or the instructions, from memory on to be processed.
 
-One type of computer memory, called \emph{static RAM}, uses six transistors per bit instead of one transistor and a capacitor for bit (as used in dynamic ram, the main memory for the computer), so it's bulky, but it's also faster. To store one bit with 6 transistors is also expensive so SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
-which is pretty complicated, but if you understand how the two types of transistors are turned on and off, it will make sense. To keep this diagram simple, no resistors are shown. If you look closely at the $Q_1$/$Q_2$ and $Q_3$/$Q_4$ transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate). When WL (the ``word line") goes high, $Q_5$ and $Q_6$ open up, allowing access to the single bit stored in $BL$ and the inverse of that bit in $\overline{BL}$. 
+One type of computer memory, called \emph{static RAM}, uses six transistors per bit instead of one transistor and a capacitor for bit (as used in dynamic RAM, or DRAM, the main memory for the computer), so it's bulky, but it's also faster. To store one bit with 6 transistors is also expensive so SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
+which is pretty complicated, but if you understand how the two types of transistors are turned on and off, it will make sense. To keep this diagram simple, no resistors are shown. If you look closely at the $Q_1$/$Q_2$ and $Q_3$/$Q_4$ transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate). When WL (the ``word line") goes high, $Q_5$ and $Q_6$ open up, allowing access to the single bit stored in $BL$ and the inverse of that bit in $\overline{BL}$. Whether the word line is active (that is, whether or not you can write to the memory bit), it is possible to read the value of the bit--making SRAM very fast, because the system does not wait on the word line to activate.
 
 % TODO add a simpler diagram here, substituting NOT gate symbols for the twin CMOS NOT gates.
 
 \begin{figure}[h!]
 \begin{center}
 \input{./include/sramcell.tex}
-\caption{A static ram cell.} 
+\caption{A static ram cell. The bit line ($BL$) on the right is the value of the bit, and the bit line on the left ($\low{BL}$) is the complement (NOT) the value of that bit. With a bit of careful circuitry, it is possible to write using only one of the bit lines, but it is safer to have two inputs (one positive, and one complement) to ensure the gates both change and lock in the value of the bit. } 
 \label{fig:sram}
 \end{center}
 \end{figure}
 
+SRAM uses 6 transistors per bit, making it very expensive compared to dynamic RAM, but each bit of SRAM can stand alone, with no other supporting circuitry except for the word line transistors. So, we use SRAM here because you can see the circuit and see how it works. As a bonus, you can construct a bit of SRAM with opposing NOT gates, making it fairly easy to see what is happening.
 
-\newpage
+\begin{figure}[!hb]
+\begin{center}
+%\fbox{
+\includegraphics[scale=0.17, clip=true, trim=0 0 0 0]{sramnotgates.jpg}
+%}
+\medskip
+\caption{One implementations of a single bit of static RAM, using the NOT gates as seen elsewhere in this workshop plus a two-transistor switch as the word-line controller.}
+\label{fig:srambreadboard}
+\end{center}
+\end{figure}
+
+
+\clearpage
 
 
 \section*{Resistor Chart}
@@ -214,7 +219,7 @@ Resistors are marked with colored bands to make it easy to determine what resist
 \fbox{
 \includegraphics[scale=0.60]{resistorchart.png}
 }
-\end{center}
 \caption{A resistor value color band chart. The `tolerance' stripe (how close the value is guaranteed to be to the stated value) is on the right side. }
 \label{fig:resistorchart}
+\end{center}
 \end{figure}

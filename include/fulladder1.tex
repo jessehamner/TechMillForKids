@@ -8,15 +8,17 @@
 	(0,3.72) node[left] {{\color{red}$B$}} % B label
 
 	(0,1.72) node[ocirc](cin) {} % C-in node
-	(0,1.72) node[left] {{\color{red}$C_{in}$}} % C-in label
+	(0,1.72) node[left] {{\color{red}$Carry_{in}$}} % C-in label
 
 	(8.2,1.0) node[ocirc](cout) {} % C-out node
-	(8.2,1.0) node[right] {{\color{red}$C_{out}$}} % C-out label
+	(8.2,1.0) node[right] {{\color{red}$Carry_{out}$}} % C-out label
 
 	(8.2,3.72) node[ocirc](sout) {} % S node
 	(8.2,3.72) node[right] {{\color{red}$Sum$}} % S label
+;
 
 % Gates:
+\draw
 	(2.8,4.0) node[xor port](xorGate1) {} % xor gate 1
 	(3.0,4.9) node[left] {$XOR_1$} % XOR_1 label
 
@@ -31,35 +33,56 @@
 
 	(7.75,1.00) node[or port](orGate1) {} % or gate
 	(7.55,0.1) node[left] {$OR$} % OR label
+;
 
 % Tie A and B to XOR_1:
+\draw
 	(ain) to[short](xorGate1.in 1) 
+;
+
+\draw[green!70!black, thick]	
 	(bin) to[short](xorGate1.in 2)  
+;
 
 % Tie XOR_1 output to XOR_2 input and to AND_2 input:
+\draw[red, thick]
 	(xorGate1.out) |- (xorGate2.in 1) 
-	(3.5,4.0) node[circ]{}
+	(3.5,4.0) node[circ, color=red]{}
 	(3.5,4.0) |- (andGate2.in 1)
+;
 
 % Tie A and B to AND_1:	
-	(1.0,3.72) node[circ] {}
-	(0.5,4.25) node[circ] {}
-	(1.0,3.72) |- (andGate1.in 1)
+\draw
+	(0.5,4.25) node[circ] {}	
 	(0.5,4.25) |- (andGate1.in 2)
+;
+
+\draw[green!70!black, thick]
+	(1.0,3.72) node[circ, color=green!70!black] {}
+	(1.0,3.72) |- (andGate1.in 1)
+;
 
 % Tie C-in to AND_2 and XOR_2:
+\draw[blue, thick]
 	(cin) |- (andGate2.in 2)
-	(3.0,1.72) node[circ]{}
+	(3.0,1.72) node[circ, color=blue]{}
 	(3.0,1.72) |- (3.0, 3.4)
 	(3.0,3.40) |- (xorGate2.in 2)
+;
 
 % Tie AND gate outputs to the OR gate:
+\draw[orange, thick]
 	(andGate2.out) |- (6,2)
-	(andGate1.out) to[short](6,0)
 	(6,2)   |- (orGate1.in 1)
+;	
+
+\draw[brown, thick]
+	(andGate1.out) to[short](6,0)
 	(6,0)   |- (orGate1.in 2)
+;
 
 % Outputs:
+\draw
 	(xorGate2.out) |- (sout) % XOR_2 to Sum
 	(orGate1.out) |- (cout) % OR to Carry-out
 

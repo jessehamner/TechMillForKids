@@ -1,3 +1,5 @@
+
+
 \begin{circuitikz}
 
 \draw
@@ -24,17 +26,19 @@
 	(5,0) node[ocirc](cnode) {} % C node
 	(andGate.out) to (cnode) % C output wiring
 	(5,0) node[right] {{\color{red}$Carry$}} % C label
+;
 
 % Nets:
+\draw
 	(ainput) |- (xorGate.in 1) % xor A wiring
 	(binput) |- (xorGate.in 2) % xor B wiring	
-	
+;
+\draw[blue, thick]
 	(1,2.27) node[circ] {}
 	(1.5,1.72) node[circ] {}
 	
 	(1.5,1.72) |- (andGate.in 1)
 	(1,2.27) |- (andGate.in 2)
-
 ;
 
 \end{circuitikz}

@@ -282,7 +282,7 @@ A simple NOT circuit, using a very old resistor-transistor logic (RTL) design. I
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[scale=0.25]{trimmednotgate.png} % convert NOTgate.png -alpha off -trim  trimmednotgate.png
+\includegraphics[scale=0.15]{trimmednotgate.png} % convert NOTgate.png -alpha off -trim  trimmednotgate.png
 \caption{A circuit board designed using the more elegant NOT gate schematic seen in Figure \ref{fig:cmosnot}. The NOT gate takes exactly one \emph{input}, A, and produces a \emph{result}, R.}
 \label{fig:notgateboard}
 \end{center}
@@ -327,7 +327,31 @@ The NAND gate symbol is:
 
 \vspace{0.15in}
 
-(see the circle on the output? That's the \emph{not} part)
+You can also think of a NAND gate as two separate gates:
+
+\vspace{0.15in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american and port](andgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	;
+	
+	\draw(1.5,0)
+	node[american not port](notgate){}
+	(andgate.out) |- (notgate.in)
+	;
+	
+	\draw(3,0)
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+	;
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+See the circle on the output? That means ``\emph{not}".
 
 &
 
@@ -397,7 +421,31 @@ The symbol for a NOR gate is:
 
 \vspace{0.15in}
 
-(see the circle on the output? That's the \emph{not} part)
+You can also think of a NOR gate as two separate gates:
+
+\vspace{0.15in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american or port](orgate){}
+	(orgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(orgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	;
+	
+	\draw(1.5,0)
+	node[american not port](notgate){}
+	(orgate.out) |- (notgate.in)
+	;
+	
+	\draw(3,0)
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+	;
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+See the circle on the output? That means ``\emph{not}".
 
 &
 
@@ -442,7 +490,7 @@ The ``Truth Table" (how they behave) is:
 \newpage
 
 \subsection*{The Exclusive-OR Gate}
-There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors. See Figure \ref{fig:xorgate}.
+There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors. See Figures \ref{fig:xorcomposite}, \ref{fig:xorbreadboard}, and \ref{fig:xorgate}.
 
 \medskip
 \begin{center}
@@ -493,6 +541,21 @@ The ``Truth Table" (how they behave) is:
 
 \end{tabular}
 \end{center}
+
+\bigskip
+
+% XOR gate, composited:
+\begin{figure}[h!]
+\begin{center}
+\input{include/xorcomposited.tex}
+\caption{XOR gate, as a composite of the simple gates.}
+\label{fig:xorcomposite}
+\end{center}
+\end{figure}
+
+XOR gates return ``true'' if---and \emph{only} if---the inputs are different. Put another way, the inputs ``must sum to 1'', or the inputs ``must not be equal''. OR gates return ``true'' if the inputs are different, but \emph{also} if both inputs are 1. So, it isn't the same. There are two cases where XOR can be ``true''--where A is 1 and B is 0, or where A is 0 and B is 1. The logic of the XOR circuit must handle either case, and list the result of 1 (``true'') for only those two cases.
+
+Take a look at Figure \ref{fig:xorcomposite}: You can see that there are two AND gates. Recall that AND gates only return ``true'' if both inputs are 1. For XOR, we require that both inputs are different. So to correctly identify ``A is 1 and B is 0'', we use an inverter (a NOT gate) on the B input -- so if the B is a zero, the NOT gate converts the B to a 1, and then the AND gate gets both inputs as 1. The lower AND gate ($AND_2$) captures the opposite case: if A is 0 and B is 1, then the A input gets inverted by the NOT gate into a 1, and for that case, also, the AND gate correctly reports that the inputs are ``true''. Since the OR gate will return ``true'' if either input is 1, then both opposite cases where XOR is true can be passed along to the result. 
 
 \bigskip
 
