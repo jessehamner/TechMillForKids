@@ -15,30 +15,49 @@
 	(6,0) node[circ](gnd2) {}
     (4,0) node[ground](ground){}
     (1.5,0) |- (6.5,0)
+;
+
 
 % Bit Line nodes:
-	(0,2.25) node[circ](bllow) {}
+\draw
+	(0,2.25) node[circ, color=blue](bllow) {}
 	(0,1) node[left] {{\color{red}$\low{BL}$}} % BL low
-	(8,2.75) node[circ](blhigh) {}
+;
+
+\draw
+	(8,2.75) node[circ, color=orange](blhigh) {}
 	(8,1) node[right] {{\color{red}$BL$}} % BL
+;
 
 % Bit Line:
+\draw[blue, thick]
 	(0,0) |- (0,6)
-	(8,0) |- (8,6)
+;
 
-% Word Line:
-	(1,6) node[circ](wlgate1){} 
+% Bit Line Complement:
+\draw[orange, thick]
+	(8,0) |- (8,6)
+;
+
+
+% Word Line nets and nodes:
+\draw[green!70!black, thick]
+	(1,6) node[circ, color=green!70!black](wlgate1){} 
 	(4,6) node[above] {{\color{red}$WL$}} % WL label
 	(0.5,6) |- (7.5,6)
-	(7,6) node[circ](wlgate2){}
 
+	(7,6) node[circ, color=green!70!black](wlgate2){}
+;
+
+\draw
 % Two inverters:
 
 % 2 P-type FETs:
 	(2,4) node[pmos, emptycircle, xscale=-1](Q2){}
 	(1.5,4) node[above]{$Q_2$}
 	(6,4) node[pmos, emptycircle](Q4){$Q_4$}
-	
+
+
 % 2 N-type FETs:
 	(2,1) node[nmos, xscale=-1](Q1){}
 	(1.5,1) node[above]{$Q_1$}
@@ -51,34 +70,56 @@
 	
 	(7,2.75) node[nmos, rotate=-90](Q6){}
 	(7.5,3.45) node[above]{$Q_6$}
+;
 
-% Bit Line FET nodes:
- (6, 2.75) node[circ] (m6Q1){}
- (2, 2.25) node[circ] (m5Q1){}
+
+% Inverter net intersection nodes:
+\draw[green!70!black, thick]
+ (6, 2.75) node[circ, color=red!30!blue!90] (m6Q1){}
+ (2, 2.25) node[circ, color=red] (m5Q1){}
+;
  
- (2.98,2.75) node[circ] (m6q2){}
- (5.01,2.25) node[circ] (m5q2){}
+
+ 
+\draw
+ (2.98,2.75) node[circ, color=red!30!blue!90] (m6q2){}
+ (5.01,2.25) node[circ, color=red] (m5q2){}
+;
+
 
 % Nets:
+
+\draw[green!70!black, thick]
  (wlgate1) |- (Q5.G)
  (wlgate2) |- (Q6.G)
+;
 
+\draw
  (vdd1) |- (Q2.S)
  (vdd2) |- (Q4.S)
 
  (Q1.S) |- (gnd1)
  (Q3.S) |- (gnd2)
+;
 
+\draw[red, thick]
  (Q1.D) |- (Q2.D)
- (Q3.D) |- (Q4.D)
- 
- (Q2.G) |- (Q1.G)
- (Q4.G) |- (Q3.G)
- 
- (Q6.S) |- (2.97,2.75)
- (Q5.D) |- (5.01,2.25)
+;
 
+\draw[red!30!blue!90, thick]
+ (Q3.D) |- (Q4.D)
+ (Q2.G) |- (Q1.G)
+ (Q6.S) |- (2.97,2.75)
+;
+
+\draw[red, thick]
+ (Q4.G) |- (Q3.G)
+ (Q5.D) |- (5.01,2.25)
+;
+
+\draw
  (bllow) |- (Q5.S)
  (blhigh) |- (Q6.D)
 ;
+
 \end{circuitikz}
