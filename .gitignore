@@ -2,8 +2,10 @@
 ## Sandbox:
 sandbox.*
 
+
 ## Clean Up Gerbers files are in a different repo:
 prepwork.sh
+comments.rtf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

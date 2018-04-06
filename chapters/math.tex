@@ -185,34 +185,43 @@ In order to add two numbers, computers have to do the following:
 \textbf{Description} & \rot{eights} & \rot{fours} & \rot{twos} & \rot{ones} && \textbf{{\color{webblue}base 10}}\\[\sep]
 \hline\\[\negsep]
 $0 + 0 + 0 + 0$   & 0 & 0 & 0 & 0 && {\color{webblue}0} \\
-$0 + 0 + 0 + 1$   & 0 & 0 & 0 & 1 && {\color{webblue}1} \\
+
+\grr
+$0 + 0 + 0 + 1$ & 0 & 0 &  0 & 1 && {\color{webblue}1} \\
 
 $0 + 0 + 2 + 0$   & 0 & 0 & 1 & 0 && {\color{webblue}2} \\
 
+\grr
 $0 + 0 + 2 + 1$   & 0 & 0 & 1 & 1 && {\color{webblue}3} \\
 
 $0 + 4 + 0 + 0$   & 0 & 1 & 0 & 0 && {\color{webblue}4} \\
 
+\grr
 $0 + 4 + 0 + 1$   & 0 & 1 & 0 & 1 && {\color{webblue}5} \\
 
 $0 + 4 + 2 + 0$   & 0 & 1 & 1 & 0 && {\color{webblue}6} \\
 
+\grr
 $0 + 4 + 2 + 1$   & 0 & 1 & 1 & 1 && {\color{webblue}7} \\
 
 $8 + 0 + 0 + 0 $  & 1 & 0 & 0 & 0 && {\color{webblue}8} \\
 
+\grr
 $8 + 0 + 0 + 1 $  & 1 & 0 & 0 & 1 && {\color{webblue}9} \\
 
 $8 + 0 + 2 + 0 $  & 1 & 0 & 1 & 0 && {\color{webblue}10} \\
 
+\grr
 $8 + 0 + 2 + 1 $  & 1 & 0 & 1 & 1 && {\color{webblue}11} \\
 
 $8 + 4 + 0 + 0 $  & 1 & 1 & 0 & 0 && {\color{webblue}12} \\
 
+\grr
 $8 + 4 + 0 + 1 $  & 1 & 1 & 0 & 1 && {\color{webblue}13} \\
 
 $8 + 4 + 2 + 0 $  & 1 & 1 & 1 & 0 && {\color{webblue}14} \\
 
+\grr
 $8 + 4 + 2 + 1 $  & 1 & 1 & 1 & 1 && {\color{webblue}15} \\
 
 \hline
@@ -239,8 +248,10 @@ $2^{15}$ & $2^{14}$ & $2^{13}$ & $2^{12}$ & $2^{11}$ & $2^{10}$ & $2^9$ & $2^8$ 
 $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \\
 \hline\\[\negsep]
  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & zero \\
+\grr
  0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 32,767 \\
  1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 32,768 \\
+\grr
  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 65,535 \\[\sep]
 \hline
 
@@ -260,19 +271,26 @@ If the computer counts up from zero, then once it gets past the $2^{14}$ column,
 $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \textbf{Result} \\[\sep]
 \hline\\[\negsep]
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & {\color{webblue}\textbf{0}} \\
+\grr
 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & {\color{webblue}\textbf{2}} ($2 + 0$) \\
 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & {\color{webblue}\textbf{3}} ($2 + 1$) \\
+\grr
 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & {\color{webblue}\textbf{4}} ($4 + 0 + 0$) \\
 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & {\color{webblue}\textbf{7}} ($4 + 2 + 1$) \\
+\grr
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & {\color{webblue}\textbf{8}} ($8 + 0 + 0 + 0$) \\
 \\
 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & \makeblank{1.5in} \\
+\grr
 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & \makeblank{1.5in} \\
 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & \makeblank{1.5in} \\
+\grr
 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & \makeblank{1.5in} \\
 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & \makeblank{1.5in} \\
+\grr
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & \makeblank{1.5in} \\
 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & \makeblank{1.5in} \\
+\grr
 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & \makeblank{1.5in} \\[\sep]
 \hline
 
