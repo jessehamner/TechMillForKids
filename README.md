@@ -54,6 +54,11 @@ Kids can solder the gates if they want to, but the workshop should provide enoug
 <img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/4toggleboarddesign.png" width="300">
 </p>
 
+## Relevant Links
+
+* [Computer Science Unplugged](https://csunplugged.org/en/)
+* [Turing Tumble](https://www.turingtumble.com/)
+
 Jesse Hamner, 2016-2018 :rocket:
 
 ---
