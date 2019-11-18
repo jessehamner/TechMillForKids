@@ -46,6 +46,9 @@ In addition to reading and refining it, you can think about outlets for it. Do y
 ## Next Steps
 
 I've produced some simple logic gate PCBs for discrete components<a name="myfootnote1"><sup>1</sup></a>, including OR, AND, NOT, NOR, NAND, and even [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates"), but not [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates") (although I demonstrate using a NOT gate with an XOR gate in the text) and am testing their applicability and performance before I include the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote2"><sup>2</sup></a> files in this repository. Additionally, I have designed some full-adder PCBs using integrated components. As each gate is discrete, it is still easy to see the design of the full adder. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. 
+
+The next hardware widget will be a dual-NOR flip-flop gate, to provide some memory to write to and from which to read.
+
 As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that, and a slightly more challenging [Atari Punk Console soldering project repository](https://github.com/jessehamner/AtariPunkConsole) as well) and can make their own gates, since I use entirely through-hole components for the workshop PCBs. 
 
 Kids can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs (the designs are or will be included in this repository) will be very useful.
@@ -53,6 +56,11 @@ Kids can solder the gates if they want to, but the workshop should provide enoug
 <p align="center">
 <img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/4toggleboarddesign.png" width="300">
 </p>
+
+## Relevant Links
+
+* [Computer Science Unplugged](https://csunplugged.org/en/)
+* [Turing Tumble](https://www.turingtumble.com/)
 
 Jesse Hamner, 2016-2018 :rocket:
 
