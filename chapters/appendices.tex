@@ -183,10 +183,11 @@ Logic circuits need to store the numbers they are working with in order to do mo
 
 There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory these days is a circuit made up of six transistors, or one transistor and a capacitor or two. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the number, or the instructions, from memory on to be processed.
 
-One type of computer memory, called \emph{static RAM}, uses six transistors per bit instead of one transistor and a capacitor for bit (as used in dynamic RAM, or DRAM, the main memory for the computer), so it's bulky, but it's also faster. To store one bit with 6 transistors is also expensive so SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
+One type of computer memory, called \emph{static RAM}, uses at least six transistors per bit. The main computer RAM is called dynamic RAM, or DRAM, and uses only one transistor and one capacitor per bit. To store one bit with 6 or more transistors is also more expensive, so SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
 which is pretty complicated, but if you understand how the two types of transistors are turned on and off, it will make sense. To keep this diagram simple, no resistors are shown. If you look closely at the $Q_1$/$Q_2$ and $Q_3$/$Q_4$ transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate). When WL (the ``word line") goes high, $Q_5$ and $Q_6$ open up, allowing access to the single bit stored in $BL$ and the inverse of that bit in $\overline{BL}$. Whether the word line is active (that is, whether or not you can write to the memory bit), it is possible to read the value of the bit--making SRAM very fast, because the system does not wait on the word line to activate.
 
-% TODO add a simpler diagram here, substituting NOT gate symbols for the twin CMOS NOT gates.
+% TODO Replace this section with a complementary NOR gate flip-flop or a JK flip-flop: https://www.electronics-tutorials.ws/sequential/seq_2.html.
+% Flip-flop storage using NOR gates is better than this attempt with NOT gates. I've had trouble with the word/line controller circuit resistor values for positive clearing and setting of the gate states. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -196,18 +197,17 @@ which is pretty complicated, but if you understand how the two types of transist
 \end{center}
 \end{figure}
 
-SRAM uses 6 transistors per bit, making it very expensive compared to dynamic RAM, but each bit of SRAM can stand alone, with no other supporting circuitry except for the word line transistors. So, we use SRAM here because you can see the circuit and see how it works. As a bonus, you can construct a bit of SRAM with opposing NOT gates, making it fairly easy to see what is happening.
+SRAM uses 6 transistors per bit, making it very expensive compared to dynamic RAM, 
+but each bit of SRAM can stand alone, with no other supporting circuitry except 
+for the word line transistors. So, we use SRAM here because you can see the 
+circuit, and see how it works. As a bonus, you can construct a bit of SRAM with 
+opposing NOT gates, making it fairly easy to see what is happening.
 
-\begin{figure}[!hb]
-\begin{center}
-%\fbox{
-\includegraphics[scale=0.17, clip=true, trim=0 0 0 0]{sramnotgates.jpg}
-%}
-\medskip
-\caption{One implementations of a single bit of static RAM, using the NOT gates as seen elsewhere in this workshop plus a two-transistor switch as the word-line controller.}
-\label{fig:srambreadboard}
-\end{center}
-\end{figure}
+We are going to make some SRAM using a \emph{flip-flop} circuit, made of NAND gates.
+It uses more transistors, but it's simpler to create and this workshop already 
+includes plenty of NAND gates for use. Notably, this ``JK Flip-Flip" circuit uses
+both two input NAND gates and \emph{three}-input NAND gates. It operates mostly
+the same way as a regular ``set/reset (SR) flip-flop''.
 
 
 \clearpage
