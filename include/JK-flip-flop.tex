@@ -1,0 +1,113 @@
+%\documentclass[12pt]{article}
+%\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry} 
+%\usepackage{xcolor}
+%\usepackage{tikz}
+%\usepackage[american, EFvoltages, cuteinductors]{circuitikz}
+%
+%\begin{document}
+%\thispagestyle{empty}
+%
+%\begin{figure}[h!]
+%\begin{center}
+%
+\begin{circuitikz}
+
+
+% Clock input:
+\draw
+	(-2cm,2.75cm) node[ocirc](clknode) {} % CLK node
+	node[left] {{\color{red}$CLK$}} % CLK label
+;
+
+
+% Inputs and 3-input NAND gates:
+\begin{scope}
+	\draw
+		(0,4.25) 
+		node[american nand port, anchor=in 2, number inputs = 3](J){}
+		node[ocirc, xshift = -2cm](jnode){}
+    	node[xshift = -2cm, yshift = 3mm](){{\color{red}$J$}}
+		node[xshift = 0.9cm, yshift = 1.0cm] {{\footnotesize{$NAND_1$}}} 
+		(jnode) |-  (J.in 2)
+	;
+
+	\draw
+		(0,1.75) 
+		node[american nand port, anchor=in 1, number inputs = 3](K){}
+		node[ocirc, xshift = -2cm, yshift = -4mm](knode){}
+    	node[xshift = -2cm, yshift = -1mm](){{\color{red}$K$}}
+		node[xshift = 0.9cm, yshift = -1.3cm]{{\footnotesize{$NAND_2$}}} 
+		(knode) |-  (K.in 2)
+	;
+\end{scope}
+
+
+% Q output:
+\draw
+    (5,3.97) 
+	node[american nand port] (Nand3){}
+	node[xshift = -5mm, yshift = 1.0cm]{{\footnotesize{$NAND_3$}}} 
+	node[ocirc, xshift=2cm, yshift=0mm](qnode){}
+	node[xshift = 2cm, yshift = 3mm](){{\color{red}$Q$}}
+	(Nand3.out) to (qnode)
+;
+
+
+% not-Q output:
+\draw
+	(5,1.65) node[american nand port] (Nand4){}
+	node[xshift = -5mm, yshift = -1.0cm] {{\footnotesize{$NAND_4$}}} 
+	node[ocirc, xshift=2cm, yshift=0mm](notqnode){}
+	node[xshift = 2cm, yshift = 4mm](){{\color{red}$\overline{Q}$}}
+	(Nand4.out) to (notqnode)
+;
+
+
+% Nets and labels from the three-input NANDs to the SR circuit:
+\draw(J.out) -| (Nand3.in 1);
+\draw(K.out) -| (Nand4.in 2);
+
+\draw
+	(Nand3.in 1)
+	node[yshift = 3mm, xshift = -2mm](nots){{\color{red}$\overline{S}$}}
+;
+
+\draw
+	(Nand4.in 2)
+	node [yshift = -3mm, xshift = -2mm](notr){{\color{red}$\overline{R}$}}
+;
+
+
+% Shaded box surrounding the basic SR Flip-Flop:
+\filldraw (5cm,2.8cm) node[minimum size=5cm, draw, fill=blue!40, opacity=0.3]{};
+
+
+% Clock input line nets:
+\draw[blue, thick]
+	(-0.5, 2.75) node[circ, color=blue](clknode2){}
+	(clknode) to (clknode2)
+	(clknode2) |- (J.in 3)
+	(clknode2) |- (K.in 1)
+;
+
+% Signal / feedback from NAND outputs to 3-input NAND inputs and SR NAND inputs:
+\draw (Nand4.in 1)--++(180:5mm)--++(90:3mm)--([yshift=-3mm] Nand3.out)--(Nand3.out);
+\draw (Nand3.out) node[circ ](aux3){};
+
+\draw (Nand3.in 2)--++(180:5mm)--++(-90:3mm)--([yshift=3mm] Nand4.out)--(Nand4.out);
+\draw (Nand4.out) node[circ ](aux4){};
+
+\draw (Nand4.out) node[circ, xshift = 5mm](aux1){};
+\draw (aux1) --++(90:4cm)--++(-180:3cm) -| (J.in 1);
+
+\draw (Nand3.out) node[circ, xshift = 8mm](aux2){};
+\draw (aux2) --++(-90:4cm)--++(-180:3cm) -| (K.in 3);
+
+
+\end{circuitikz}
+
+%\caption{A gate-level schematic of one bit of memory, using a JK flip-flop circuit.}
+%\end{center}
+%\end{figure}
+
+%\end{document}

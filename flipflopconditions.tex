@@ -1,0 +1,92 @@
+
+
+% reset with initially Q = 0, ~Q = 1
+\newcommand{\actionreset}{
+  \renewcommand{\clockcolor}{hot}
+  \renewcommand{\jinput}{ground}
+  \renewcommand{\kinput}{hot}
+  \renewcommand{\joutput}{hot}
+  \renewcommand{\koutput}{hot}
+  \renewcommand{\qoutput}{ground}
+  \renewcommand{\notqoutput}{hot}
+  \renewcommand{\nandonecolor}{on}
+  \renewcommand{\nandtwocolor}{on}
+  \renewcommand{\nandthreecolor}{off}
+  \renewcommand{\nandfourcolor}{on}
+  \renewcommand{\jinputpulse}{thin}
+  \renewcommand{\kinputpulse}{very thick}
+}
+
+
+% set with initially Q = 0, ~Q = 1
+\newcommand{\actionset}{
+  \renewcommand{\clockcolor}{hot}
+  \renewcommand{\jinput}{hot}
+  \renewcommand{\kinput}{ground}
+  \renewcommand{\joutput}{hot}
+  \renewcommand{\koutput}{hot}
+  \renewcommand{\qoutput}{hot}
+  \renewcommand{\notqoutput}{ground}
+  \renewcommand{\nandonecolor}{on}
+  \renewcommand{\nandtwocolor}{on}
+  \renewcommand{\nandthreecolor}{on}
+  \renewcommand{\nandfourcolor}{off}
+  \renewcommand{\jinputpulse}{very thick}
+  \renewcommand{\kinputpulse}{thin}
+
+}
+
+
+% no clock signal with initially Q = 1, ~Q = 0 and no inputs
+\newcommand{\noclocknoinputs}{
+  \renewcommand{\clockcolor}{ground}
+  \renewcommand{\jinput}{ground}
+  \renewcommand{\kinput}{ground}
+  \renewcommand{\joutput}{ground}
+  \renewcommand{\koutput}{hot}
+  \renewcommand{\qoutput}{hot}
+  \renewcommand{\notqoutput}{ground}
+  \renewcommand{\nandonecolor}{on}
+  \renewcommand{\nandtwocolor}{on}
+  \renewcommand{\nandthreecolor}{on}
+  \renewcommand{\nandfourcolor}{off}
+  \renewcommand{\jinputpulse}{thin}
+  \renewcommand{\kinputpulse}{thin}
+
+}
+
+% no clock signal with initially Q = 0, ~Q = 1 and SET input only
+\newcommand{\noclockset}{
+  \renewcommand{\clockcolor}{ground}
+  \renewcommand{\jinput}{hot}
+  \renewcommand{\kinput}{ground}
+  \renewcommand{\joutput}{hot}
+  \renewcommand{\koutput}{hot}
+  \renewcommand{\qoutput}{hot}
+  \renewcommand{\notqoutput}{ground}
+  \renewcommand{\nandonecolor}{on}
+  \renewcommand{\nandtwocolor}{on}
+  \renewcommand{\nandthreecolor}{on}
+  \renewcommand{\nandfourcolor}{off}
+  \renewcommand{\jinputpulse}{very thick}
+  \renewcommand{\kinputpulse}{thin}
+
+}
+
+
+% no clock signal with initially Q = 0, ~Q = 1 and RESET input only
+\newcommand{\noclockreset}{
+  \renewcommand{\clockcolor}{ground}
+  \renewcommand{\jinput}{ground}
+  \renewcommand{\kinput}{hot}
+  \renewcommand{\joutput}{hot}
+  \renewcommand{\koutput}{hot}
+  \renewcommand{\qoutput}{hot}
+  \renewcommand{\notqoutput}{ground}
+  \renewcommand{\nandonecolor}{on}
+  \renewcommand{\nandtwocolor}{on}
+  \renewcommand{\nandthreecolor}{on}
+  \renewcommand{\nandfourcolor}{off}
+  \renewcommand{\jinputpulse}{thin}
+  \renewcommand{\kinputpulse}{very thick}
+}
