@@ -1,0 +1,75 @@
+%\documentclass[12pt]{article}
+%\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry} 
+%\usepackage{xcolor}
+%\usepackage{tikz}
+%\usepackage[american, EFvoltages, cuteinductors]{circuitikz}
+%\begin{document}
+%\thispagestyle{empty}
+
+\begin{figure}[h!]
+\begin{center}
+
+\begin{circuitikz}
+
+
+% Inputs and 3 NAND gates:
+\begin{scope}
+	\draw
+		(0,1.0cm) 
+		node[american nand port, anchor=in 2, number inputs = 2](N1){}
+		node[ocirc, xshift = -0.5cm, yshift = 0.55cm](anode){}
+	    node[xshift = -0.9cm, yshift = 7mm](){{\color{red}$A$}}
+	    
+        node[ocirc, xshift = -0.5cm, yshift = 0cm](bnode){}	
+        node[xshift = -0.9cm, yshift = 0.0mm](){{\color{red}$B$}}
+		
+		node[ocirc, xshift = -0.5cm, yshift = -0.6cm](cnode){}	
+        node[xshift = -0.9cm, yshift = -6mm](){{\color{red}$C$}}
+		
+		node[xshift = 0.6cm, yshift = 1.2cm] {{\footnotesize{$NAND_1$}}} 
+        
+        node[circ, xshift = 1.5cm, yshift = 0.3cm](N2tie){}
+        
+		(anode) |- (N1.in 1)
+		(bnode) |- (N1.in 2)
+		(N1.out) |- (N2tie)
+
+	;
+
+	\draw
+		(2.0cm,1.0cm) 
+		node[american nand port, anchor=in 2, number inputs = 2](N2){}
+		
+		node[xshift = 0.7cm, yshift = 1.2cm](){{\footnotesize{$NAND_2$}}}
+
+		(N1.out) |- (N2.in 2)
+		(N1.out) |- (N2.in 1)
+	;
+
+
+	\draw
+		(4.0cm, 0.4cm) 
+		node[american nand port, anchor=in 2, number inputs = 2](N3){}
+		
+		node[xshift = 0.8cm, yshift = 1.2cm](){{\footnotesize{$NAND_3$}}} 
+
+        node[ocirc, xshift = 2.2cm, yshift = 0.275cm](nand3output){}
+
+		(N2.out) |- (N3.in 1)
+		(N3.out) |- (nand3output)
+		node[xshift = 0.4cm, yshift = 0.5cm](){{\color{red}$Output$}}
+		(cnode) -- (N3.in 2)
+	;
+
+
+	
+\end{scope}
+
+
+\end{circuitikz}
+
+\caption{A three-input NAND gate created only from two-input NAND gates. The simplest version of a three-input NAND uses a single AND gate and a single NAND gate, but this example shows the potential to use NAND gates as universal gates, just like the NOR gates, above. NAND 2 is configured as a NOT gate, making NAND 1 and NAND 2 equal to an AND gate.}
+\end{center}
+\end{figure}
+
+%\end{document}
