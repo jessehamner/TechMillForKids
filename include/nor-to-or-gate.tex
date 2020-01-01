@@ -6,7 +6,7 @@
 %
 %\begin{document}
 %\thispagestyle{empty}
-
+%
 \begin{figure}[h!]
 \begin{center}
 
@@ -19,27 +19,28 @@
 		(0,1.0cm) 
 		node[american nor port, anchor=in 2, number inputs = 2](N1){}
 		node[ocirc, xshift = -0.5cm, yshift = 0.55cm](anode){}
-	    node[xshift = -0.9cm, yshift = 8mm](){{\color{red}$A$}}
+	    node[xshift = -0.9cm, yshift = 7mm](){{\color{red}$A$}}
 	    
         node[ocirc, xshift = -0.5cm, yshift = 0cm](bnode){}	
-        node[xshift = -0.9cm, yshift = -1.8mm](){{\color{red}$B$}}
+        node[xshift = -0.9cm, yshift = -0.1cm](){{\color{red}$B$}}
 		
-		node[xshift = 0.9cm, yshift = 1.2cm] {{\footnotesize{$NOR_1$}}} 
+		node[xshift = 0.6cm, yshift = 1.2cm] {{\footnotesize{$NOR_1$}}} 
 
 		(anode) |- (N1.in 1)
 		(bnode) |- (N1.in 2)
 	;
 
 	\draw
-		(3.0cm,1.0cm) 
+		(2.0cm,1.0cm) 
 		node[american nor port, anchor=in 2, number inputs = 2](N2){}
 		
-		node[xshift = 0.9cm, yshift = -0.7cm](){{\footnotesize{$NOR_2$}}} 
+		node[xshift = 0.7cm, yshift = -0.7cm](){{\footnotesize{$NOR_2$}}} 
 
-        node[circ, yshift = 0.0cm](N2tie){}
+        node[circ, yshift = 0.275cm](N2tie){}
         node[ocirc, xshift = 2.2cm, yshift = 0.275cm](nor2output){}
-		(N1.out) |-  (N2.in 2)
-		(N2.in 2) |- (N2.in 1)
+		(N2tie) |-  (N2.in 2)
+		(N2tie) |-  (N2.in 1)
+		(N1.out) -- (N2tie)
 		(N2.out) |- (nor2output)
 		node[xshift = 1.0cm](){{\color{red}$Output$}}
 	;
