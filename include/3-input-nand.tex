@@ -28,12 +28,11 @@
 		
 		node[xshift = 0.6cm, yshift = 1.2cm] {{\footnotesize{$NAND_1$}}} 
         
-        node[circ, xshift = 1.53cm, yshift = 0.28cm](N2tie){}
+        node[circ, xshift = 1.8cm, yshift = 0.28cm](N2tie){}
         
 		(anode) |- (N1.in 1)
 		(bnode) |- (N1.in 2)
 		(N1.out) |- (N2tie)
-
 	;
 
 	\draw
@@ -42,8 +41,9 @@
 		
 		node[xshift = 0.7cm, yshift = 1.2cm](){{\footnotesize{$NAND_2$}}}
 
-		(N1.out) |- (N2.in 2)
-		(N1.out) |- (N2.in 1)
+		(N1.out) -- (N2tie)
+		(N2tie) |-  (N2.in 2)
+		(N2tie) |-  (N2.in 1)
 	;
 
 
@@ -62,13 +62,11 @@
 	;
 
 
-	
 \end{scope}
-
 
 \end{circuitikz}
 
-\caption{A three-input NAND gate created only from two-input NAND gates. The simplest version of a three-input NAND uses a single AND gate and a single NAND gate, but this example shows the potential to use NAND gates as universal gates, just like the NOR gates, above. NAND 2 is configured as a NOT gate, making NAND 1 and NAND 2 equal to an AND gate.}
+\caption{A three-input NAND gate created only from two-input NAND gates. The simplest version of a three-input NAND uses a single AND gate and a single NAND gate, but this example shows the potential to use NAND gates as universal gates, just like the NOR gates, above. $NAND_2$ is configured as a NOT gate, making $NAND_1$ and $NAND_2$ equal to an AND gate.}
 \end{center}
 \end{figure}
 
