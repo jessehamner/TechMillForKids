@@ -6,7 +6,7 @@ The next few sections introduce some math ideas that may or may not be familiar 
 
 Exponentiation is a mathematical operation, written as $b^n$, involving two numbers, the base, $b$, and the exponent, $n$. Exponentiation means ``repeated multiplication of the base." 
 
-\noindent That is, $b^n$ is the product of multiplying n bases:
+\noindent That is, $b^n$ is the product of multiplying the base number $n$ times:
 
 
 \begin{equation*}
@@ -27,18 +27,18 @@ The base can be any number, though most people think most easily in base-10. So 
 
 \subsection*{Order of Magnitude (Columns)}
 
-When counting up from zero, in base 10, you eventually get to 9. In order to count any higher, you must ``carry the one" over to the next column and reset the counter in the ``ones" column (the place that counts by one, from zero to nine). When you move from the ``\emph{ones}'' column to the ``\emph{tens}'' column, the next column to the left represents the next \emph{order of magnitude} of the base. ``Magnitude" means ``size", and in math, it means, specifically, moving from counting by one number (the base) to counting by the base times itself -- first twice, then three times, then more. For base-10, you count from 0 to 9 in the right-most column, then from 10 to 90 in the next column to the left, then from 100 to 900 in the next column to the left, then from 1000 to 9000, and so on. Each time the counter gets full (reaches 9), you cannot represent any more of the quantity being counted without moving to the next largest order of magnitude. That is, if your display only shows two digits, once you count past 99, you have no idea is the number is 0, or 100, or 200, or 900, or ten thousand, or 4 billion.
+When counting up from zero, by one, in base 10, you eventually get to 9. In order to count any higher, you must ``carry the one" over to the next column and reset the counter in the ``ones" column (the place that counts by one, from zero to nine). When you move from the ``\emph{ones}'' column to the ``\emph{tens}'' column, the next column to the left represents the next \emph{order of magnitude} of the base. ``Magnitude" means ``size", and in math, it means, specifically, moving from counting by one number (the base) to counting by the base times itself -- first twice, then three times, then more. For base-10, you count from 0 to 9 in the right-most column, then from 10 to 90 in the next column to the left, then from 100 to 900 in the next column to the left, then from 1000 to 9000, and so on. Each time the counter gets full (reaches 9), you cannot represent any more of the quantity being counted without moving to the next largest order of magnitude. That is, if your display only shows two digits, once you count past 99, you have no idea is the number is 0, or 100, or 200, or 900, or ten thousand, or 4 billion.
 
 
 
 \newpage
 \subsection*{Squares}
 
-Squares are the same on each of two sides. \emph{Squaring a number} is multiplying the number times itself, just like, in a square, both sides are the same length (number). The most common way you will see a ``squared number" described is with a little 2 up above the number, like  $2^2$, or $3^2$, or $10^2$. That smaller `2' is the exponent.
+Squares are the same on each of two sides. \emph{Squaring a number} is multiplying the number times itself, just like, in a square, both sides are the same length (number). The most common way you will see a ``squared number" described is with a little 2 up above the number, like  $2^2$, or $3^2$, or $10^2$. That smaller `2' is the exponent, that we discussed above.
 
 \medskip
 
-Squaring the number 10 gets: $10 \times 10 = 100$
+Squaring the number 10 (that is, multiplying ten times itself) gets: $10 \times 10 = 100$
 
 \bigskip
 
@@ -62,7 +62,7 @@ Squaring the number 10 gets: $10 \times 10 = 100$
 
 \subsection*{Cubes}
 
-Cubes are the same length on each of \emph{three} sides. When cubing a number, you are multiplying the number times itself, and then multiplying it times itself \emph{again}, because all three sides are the same (number). The most common way you will see a ``cubed number" described is with a little 3 up above the number, like  $2^3$, or $3^3$, or $10^3$. That little number is called the ``exponent.'' The exponent tells you how many times you multiply the number times itself.
+Cubes are the same length on each of \emph{three} sides. When cubing a number, you are multiplying the number times itself, and then multiplying it times itself \emph{again}, because all three sides are the same (number). The most common way you will see a ``cubed number" described is with a little 3 up above the number, like  $2^3$, or $3^3$, or $10^3$. As above, the exponent tells you how many times you multiply the number times itself (here, that means three times).
 
 \medskip
 
@@ -228,7 +228,7 @@ $8 + 4 + 2 + 1 $  & 1 & 1 & 1 & 1 && {\color{webblue}15} \\
 \end{tabular}
 \end{center}
 
-\stbox{6.0in}{\emph{Problem 1:} what happens in the above table if you add 1 to 15? What number would the computer report if it only has four columns to use?
+\stbox{6.0in}{\emph{Problem 1:} what happens in the above table if you add 1 to 15? What number would the computer report if it only has four columns to use? (As above with counting past 99,999, this problem refers to \emph{overflow}).
 }
 
 \stbox{6.0in}{\emph{Problem 2:} Let's say the machine runs by itself at some regular speed, and adds one to the number each second. Let's also say you are using this counter as a way to control a single blinking light, since ``1'' means ``there is electricity available to that wire" and so a ``1'' would turn the light on. Look at each column of numbers (that is, each \emph{order of magnitude!}). Remembering that ``a line that has a voltage" is a 1 and ``no voltage'' is a zero, which line (column) would make the light blink fastest? Which line would blink the slowest?
@@ -241,16 +241,18 @@ $8 + 4 + 2 + 1 $  & 1 & 1 & 1 & 1 && {\color{webblue}15} \\
 
 \multicolumn{17}{c}{\textbf{How Computers Count to 2,020}}\\[\sep]
 
-\grr \hline\\[\negsep]
+\hline\\[\negsep]
 % 2020: 0111 1110 0100
-\grr $2^{15}$ & $2^{14}$ & $2^{13}$ & $2^{12}$ & $2^{11}$ & $2^{10}$ & $2^9$ & $2^8$ &
+$2^{15}$ & $2^{14}$ & $2^{13}$ & $2^{12}$ & $2^{11}$ & $2^{10}$ & $2^9$ & $2^8$ &
 $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \\
 \hline\\[\negsep]
+
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & zero \\
-\grr 
-0 & 0 & 0 & 0 & 0  & 1 & 1  & 1 & 1 & 1  & 1 & 0 & 0 & 0 & 1 & 1 & 2019 \\
+
+\grr 0 & 0 & 0 & 0 & 0  & 1 & 1  & 1 & 1 & 1  & 1 & 0 & 0 & 0 & 1 & 1 & 2019 \\
+
 0 & 0 & 0 & 0 & 0  & 1 & 1  & 1 & 1 & 1  & 1 & 0 & 0 & 1 & 0 & 0 & 2020 \\
-\grr
+
 %\\[\sep]
 \hline
 
@@ -281,7 +283,7 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \\
 
 If the computer counts up from zero, then once it gets past the $2^{14}$ column, it jumps to the $2^{15}$ (32,768) column. 
 
-\stbox{6.0in}{\emph{Useless skill:} Did you know you can count to 31 on one hand? You have five fingers, and each finger can be open or closed, and $2^5$ is 32. Use your thumb for the ``0 or 1" ($2^0$, ``two to the zeroth power") column; the digit to its left represents two to the first power (the ``twos digit"); the next digit to the left represents two to the second power (the ``fours digit"); and so on.}
+\stbox{6.0in}{\emph{Useless skill:} Did you know you can count to 31 on one hand? You have five fingers, and each finger can be open or closed, and $2^5$ is 32. Use your thumb for the ``0 or 1" ($2^0$, ``two to the zeroth power") column; the digit to its left represents two to the first power (the ``twos digit"); the next digit to the left represents two to the second power (the ``fours digit"); and so on. Watch out for ``4'' though!}
 
 \begin{tabular}{llll llll l}
 
@@ -327,4 +329,8 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$  & \textbf{Result}
     \medskip
 
     \noindent\emph{Remember:}  There are only 10 types of people in the world;\\
-those who understand binary, and those who don't.}
+those who understand binary, and those who don't.\\
+
+\bigskip
+
+(If the joke needs explanation, write 10 like \texttt{0010} and then figure up the value in binary)}
