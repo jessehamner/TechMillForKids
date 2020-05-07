@@ -194,7 +194,7 @@ It turns out that it is possible to make \emph{any} gate from NAND gates. The sa
 
 Logic circuits need to store the numbers they are working with in order to do more than one thing. Central Processing Units (CPUs), Arithmetic Logic Units (ALUs) or Floating-Point Units (FPUs) each work with numbers, and need to fetch them from somewhere and put them somewhere when they are done. The ``somewhere" is \emph{memory}. Keeping with the use of binary math and binary logic, a high voltage would be a 1 and a low voltage would be a 0. Through the use of these little stored charges, computers can keep track of many, many pieces of information. No matter what the circuits are doing, everything being stored is composed of some count of zeros and ones. 
 
-There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory that a CPU uses these days is usually called "dynamic RAM" (DRAM), and each bit consists of a circuit that is primarily a single capacitor and a single transistor, though it requires supporting circuitry and cannot be read without erasing the memory cell. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the information (numbers or instruction codes) from the memory on to be processed by the CPU.
+There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory that a CPU uses these days is usually called ``dynamic RAM" (DRAM), and each bit consists of a circuit that is primarily a single capacitor and a single transistor, though it requires supporting circuitry and cannot be read without erasing the memory cell. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the information (numbers or instruction codes) from the memory on to be processed by the CPU.
 
 One type of computer memory, called \emph{static RAM}, uses at least six transistors per bit. Since  DRAM is simpler (it uses only one transistor and one capacitor per bit), it is also cheaper. Therefore, to store one bit with 6 or more transistors is more expensive. So SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
 which is pretty complicated, but if you understand how the two types of transistors are turned on and off, it will make sense. To keep this diagram simple, no resistors are shown. If you look closely at the $Q_1$/$Q_2$ and $Q_3$/$Q_4$ transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate). When WL (the ``word line") goes high, $Q_5$ and $Q_6$ open up, allowing access to the single bit stored in $BL$ and the inverse of that bit in $\overline{BL}$. Whether the word line is active (that is, whether or not you can write to the memory bit), it is possible to read the value of the bit--making SRAM very fast, because the system does not wait on the word line to activate.
@@ -244,6 +244,12 @@ a natural ``base level'' of a set of inputs, though care must be taken to
 not accidentally create incompatible base conditions (such as accidentally setting
 both set and reset to high).
 
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.10]{twoflipflops.jpg}
+  \caption{Two bits of data storage, using JK flip-flop gates.}
+  \end{center}
+\end{figure}
 
 
 
