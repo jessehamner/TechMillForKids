@@ -23,7 +23,14 @@ Anyone who knows me knows that if you ask me what time it is, I often tell you h
 
 I did write a little more explanation of basic electronic components than was strictly necessary. And after giving the first bit of the lecture, I learned that I left too much out of the "binary" section. Though, to my credit, the kids really enjoyed learning how to [count to 31 on one hand](https://en.wikipedia.org/wiki/Finger_binary "Wikipedia Finger Binary Page")  (2<sup>5</sup> - 1), especially binary "4", which is just the middle finger!
 
-The basic flow of the lesson is "enough math to understand binary", "enough electronics to understand how electricity flows", "enough circuit theory to understand the common logic gates", and "enough digital logic to see how computers can [add](https://en.wikipedia.org/wiki/Adder_(electronics)) or [compare](https://en.wikipedia.org/wiki/XNOR_gate) numbers." That's actually a _lot._ 
+The basic flow of the lesson is:
+ - "enough math to understand binary"
+ - "enough electronics to understand how electricity flows"
+ - "enough circuit theory to understand the common logic gates", and
+ - "enough digital logic to see how computers can [add](https://en.wikipedia.org/wiki/Adder_(electronics)) or [compare](https://en.wikipedia.org/wiki/XNOR_gate) numbers." 
+
+That's actually a _lot._ This workshop takes around 4 hours of total time, if you don't do any soldering.
+
 
 I threw in a bunch of "experiments" or "applications" like the classic [lemon battery](https://en.wikipedia.org/wiki/Lemon_battery), a [saltwater resistor](https://en.wikipedia.org/wiki/Liquid_rheostat), a [Leyden jar](https://en.wikipedia.org/wiki/Leyden_jar) (the earliest capacitor), and a cardboard/aluminum foil variable capacitor. There are a handful of thought experiments designed to introduce slightly advanced topics like [_integer overflow_](https://en.wikipedia.org/wiki/Integer_overflow) without making it too hard. It might be useful to make an [aluminum foil & corrugated cardboard multi-layer capacitor](http://bizarrelabs.com/crystal.htm "Crystal Radio page on bizarrelabs.com") too, either beforehand or in place of the Leyden jar.
 
@@ -52,6 +59,11 @@ In addition to reading and refining it, you can think about outlets for it. Do y
 ## Next Steps
 
 I've produced some simple logic gate PCBs for discrete components<a name="myfootnote1"><sup>1</sup></a>, including OR, AND, NOT, NOR, NAND, and even [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates"), but not [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates") (although I demonstrate using a NOT gate with an XOR gate in the text) and am testing their applicability and performance before I include the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote2"><sup>2</sup></a> files in this repository. Additionally, I have designed some full-adder PCBs using integrated components. As each gate is discrete, it is still easy to see the design of the full adder. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. 
+
+<p align="center">
+<img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/XNOR1.jpg" width="400px"><br>
+<small>An XNOR gate built from an discrete-component XOR gate and NOT gate.<br>LED 0 is lit, indicating the two inputs (here, both tied to Vcc) are the same.</small>
+</p>
 
 The next hardware widget will be a dual-NAND flip-flop gate, to provide some memory to write to and from which to read.
 
