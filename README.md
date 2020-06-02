@@ -41,6 +41,8 @@ Download the PDF and read it. If you love it or hate it, tell me. If you want to
 
 <p align="center">
 <img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/practical_not_screencap.png" width="300">
+<br>
+<small>Screencap of a circuit diagram (schematic) from the text. These aren't easy to draw with most tools.</small>
 </p>
 
 I took or modified sentences here and there from Wikipedia (and Simple Wikipedia, which _wasn't always better_), and I know that sometimes the language is above the heads of 9-year olds. But they can learn the words, and with good instruction, the concepts are accessible. Still, I'd like to have some more careful or soft introductions to some of the ideas. The extra eyes, and authors, are most welcome.
@@ -59,6 +61,8 @@ Participants can solder the gates if they want to, but the workshop should provi
 
 <p align="center">
 <img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/4toggleboarddesign.png" width="300">
+<br>
+<small>A rendering of the 4-toggle circuit board, used to input numbers into a logic circuit.</small>
 </p>
 
 ## Relevant Links
