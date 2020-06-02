@@ -39,6 +39,10 @@ If you want to contribute, check the [Issues](../../issues) tab for existing nee
 
 Download the PDF and read it. If you love it or hate it, tell me. If you want to help make the document better, add comments or propose edits and we can all improve it. Why [LaTeX](https://tug.org "TeX Users' Group home page")? For one, I love it. Second, it's open-source, and beautiful. And third, there's no way to do a bunch of this stuff like [circuit diagrams](https://en.wikipedia.org/wiki/CircuiTikZ "Wikipedia CircuiTikZ Page") or elegant tables in Markdown.
 
+<p align="center">
+<img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/practical_not_screencap.png" width="300">
+</p>
+
 I took or modified sentences here and there from Wikipedia (and Simple Wikipedia, which _wasn't always better_), and I know that sometimes the language is above the heads of 9-year olds. But they can learn the words, and with good instruction, the concepts are accessible. Still, I'd like to have some more careful or soft introductions to some of the ideas. The extra eyes, and authors, are most welcome.
 
 In addition to reading and refining it, you can think about outlets for it. Do you think high schoolers could teach it to younger kids? Would a public library or elementary school summer program be interested in this workshop? What ages are actually appropriate for this topic and materials? 
@@ -47,11 +51,11 @@ In addition to reading and refining it, you can think about outlets for it. Do y
 
 I've produced some simple logic gate PCBs for discrete components<a name="myfootnote1"><sup>1</sup></a>, including OR, AND, NOT, NOR, NAND, and even [XOR](https://en.wikipedia.org/wiki/XOR_gate "Wikipedia page about XOR gates"), but not [XNOR](https://en.wikipedia.org/wiki/XNOR_gate "Wikipedia page about XNOR gates") (although I demonstrate using a NOT gate with an XOR gate in the text) and am testing their applicability and performance before I include the [Eagle CAD](http://www.autodesk.com/products/eagle/overview)<a name="myfootnote2"><sup>2</sup></a> files in this repository. Additionally, I have designed some full-adder PCBs using integrated components. As each gate is discrete, it is still easy to see the design of the full adder. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. 
 
-The next hardware widget will be a dual-NOR flip-flop gate, to provide some memory to write to and from which to read.
+The next hardware widget will be a dual-NAND flip-flop gate, to provide some memory to write to and from which to read.
 
 As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that, and a slightly more challenging [Atari Punk Console soldering project repository](https://github.com/jessehamner/AtariPunkConsole) as well) and can make their own gates, since I use entirely through-hole components for the workshop PCBs. 
 
-Kids can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs (the designs are or will be included in this repository) will be very useful.
+Participants can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs (the designs are or will be included in this repository) will be very useful.
 
 <p align="center">
 <img src="https://github.com/jessehamner/TechMillForKids/blob/master/images/4toggleboarddesign.png" width="300">
@@ -62,7 +66,7 @@ Kids can solder the gates if they want to, but the workshop should provide enoug
 * [Computer Science Unplugged](https://csunplugged.org/en/)
 * [Turing Tumble](https://www.turingtumble.com/)
 
-Jesse Hamner, 2016-2018 :rocket:
+Jesse Hamner, 2016-2020 :rocket:
 
 ---
 
