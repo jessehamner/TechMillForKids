@@ -557,6 +557,8 @@ XOR gates return ``true'' if---and \emph{only} if---the inputs are different. Pu
 
 Take a look at Figure \ref{fig:xorcomposite}: You can see that there are two AND gates. Recall that AND gates only return ``true'' if both inputs are 1. For XOR, we require that both inputs are different. So to correctly identify ``A is 1 and B is 0'', we use an inverter (a NOT gate) on the B input -- so if the B is a zero, the NOT gate converts the B to a 1, and then the AND gate gets both inputs as 1. The lower AND gate ($AND_2$) captures the opposite case: if A is 0 and B is 1, then the A input gets inverted by the NOT gate into a 1, and for that case, also, the AND gate correctly reports that the inputs are ``true''. Since the OR gate will return ``true'' if either input is 1, then both opposite cases where XOR is true can be passed along to the result. 
 
+It's also worth knowing that XOR gates can be used like a NOT gate, by holding one of the two inputs at 1. Then the other input will always be negated. If one input of an XOR gate is always held at zero, then the XOR gate always passes the same value that comes in on the other input (a gate that passes on its input without changing it is called a ``buffer").
+
 \bigskip
 
 \begin{figure}[!hb]
