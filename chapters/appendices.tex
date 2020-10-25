@@ -155,6 +155,26 @@ And here's a slightly more interesting one, with 8 bit numbers:
   
 \end{verbatim}
 
+Designing logic circuits for subtraction using the twos' complement is surprisingly elegant. Let's review what happens to execute a twos' complement subtraction operation:
+
+\bi
+\+ Get the ones' complement of the subtrahend (invert each bit with a NOT function)
+\+ Add 1
+\+ Add the resulting value to the minuend
+\ei
+
+Building a flexible subtraction logic circuit depends on two features of our existing gates: first, that full adders can accept an incoming ``carry'' bit; and second, that XOR gates can be used as NOT gates by tying one of the inputs to positive voltage. Therefore, the logic circuit works like this:
+
+\bi
+\+ Pass each bit of the subtrahend through XOR gates with one of the inputs pulled up to positive voltage level; this takes the ones' complement of the number
+\+ The result passes into one side of the full adder line we use for adding numbers
+\+ Set the carry bit on the right-most full adder (i.e. the zero or 1 register) to high -- \emph{this action adds 1 to the incoming number}
+\ei
+
+The result of the line of adders is the answer to the subtraction question.
+ 
+
+
 \newpage
 \section*{A Bit More About Capacitors}
 
