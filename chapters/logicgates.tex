@@ -10,7 +10,7 @@ Boolean logic is the sort of decision making and answers that computers use. You
 It may be helpful to see some of the logic and operations (decisions) made in a graphical form, looking at the overlap between circles, or between a circle and its surrounding area.
 
 % Draw Venn diagrams to graphically demonstrate OR, AND, and NOT.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \input{./include/vennand.tex}
 \caption{A graphic representing {\sc{and}}, {\sc{or}}, and {\sc{not}} with overlapping circles.}
@@ -73,7 +73,7 @@ The ``Truth Table" (how they behave) is:
 
 \noindent OR gates are very simple. They are so simple that transistors are not even needed, though they certainly can be used.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \input{./include/diodeorgate.tex}
 \caption{A very simple OR gate schematic. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal on Input A or on Input B, OUT will carry a voltage (and therefore, a ``1''). Diode \emph{propagation delay} (how much time the signal takes to cross through the diode) is slower than transistors, meaning transistorized circuits run faster.}
@@ -261,7 +261,7 @@ The ``Truth Table" (how they behave) is:
 
 A simple NOT circuit, using a very old resistor-transistor logic (RTL) design. It is easy to understand, though this example is not how NOT gates are actually implemented any more, because of the poor efficiency---wasted energy turns into heat, which then has to be cooled somehow. It is better to not make the heat in the first place.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \input{./include/simplenot.tex}
 \caption{A very simple NOT gate schematic. When IN is logic low (off), electricity cannot pass through to the ground, and so it is available at the OUT terminal---OUT is a 1. When IN is carrying current, the transistor opens up and electricity starts flowing to ground -- the ``path of least resistance''. As electricity flows to ground instead of OUT, OUT has a very low voltage available -- making it a zero.}
@@ -385,7 +385,7 @@ The ``Truth Table" (how they behave) is:
 
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics[scale=0.16]{trimmednandgate.png}
 \caption{A circuit board designed to make a NAND gate. Note that it uses four transistors.}
