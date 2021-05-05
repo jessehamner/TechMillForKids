@@ -14,7 +14,7 @@
 ---
 
 ## Introduction
-A few months ago my friend Adam asked me if I would teach his son about how computers work -- not "how do I use Windows" or "tips and tricks for a [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi home page")", but rather, how binary works and how logic circuits can do stuff like add numbers. He was seeking people to instruct on a very wide variety of topics. In a broader context, he is putting his child on the path to becoming a more human instance of Heinlein's [Competent Man](https://en.wikipedia.org/wiki/Competent_man "Heinlein's competent man description on Wikipedia") or, at some level, a [polymath](https://en.wikipedia.org/wiki/Polymath "Wikipedia's page describing polymaths"). He wanted an afternoon to do it, but this project's requirements mushroomed into a multi-day event. There don't seem to be any obvious, kid friendly workshops like this, even though I looked around a bit (though, [this project](https://www.raspberrypi.org/blog/digital-making-curriculum/) has lots of potential, as does the [Crash Course Computer Science](https://www.youtube.com/playlist?list=PLME-KWdxI8dcaHSzzRsNuOLXtM2Ep_C7a "Nerdfighters unite!") series). 
+A few years ago my friend Adam asked me if I would teach his son about how computers work -- not "how do I use Windows" or "tips and tricks for a [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi home page")", but rather, how binary works and how logic circuits can do stuff like add numbers. He was seeking people to instruct on a very wide variety of topics. In a broader context, he is putting his child on the path to becoming a more human instance of Heinlein's [Competent Man](https://en.wikipedia.org/wiki/Competent_man "Heinlein's competent man description on Wikipedia") or, at some level, a [polymath](https://en.wikipedia.org/wiki/Polymath "Wikipedia's page describing polymaths"). He wanted an afternoon to do it, but this project's requirements mushroomed into a multi-day event. There don't seem to be any obvious, kid friendly workshops like this, even though I looked around a bit (though, [this project](https://www.raspberrypi.org/blog/digital-making-curriculum/) has lots of potential, as does the [Crash Course Computer Science](https://www.youtube.com/playlist?list=PLME-KWdxI8dcaHSzzRsNuOLXtM2Ep_C7a "Nerdfighters unite!") series). 
 
 My daughter is pretty tech savvy and, like Adam's son, has expressed at least a passing interest in the Raspberry Pi. She has also helped me solder up some boards and fab some antennas. So I was willing to at least attempt the lesson, and I'd throw my kid into the mix too (they're already friends from school). Both kids are fourth graders, as of the 2017-2018 school year.
 
@@ -30,6 +30,7 @@ The basic flow of the lesson is:
  - "enough digital logic to see how computers can [add](https://en.wikipedia.org/wiki/Adder_(electronics)) or [compare](https://en.wikipedia.org/wiki/XNOR_gate) numbers." 
 
 That's actually a _lot._ This workshop takes around 4 hours of total time, if you don't do any soldering.
+It is best split into two sessions, regardless of whether you teach soldering or not.
 
 
 I threw in a bunch of "experiments" or "applications" like the classic [lemon battery](https://en.wikipedia.org/wiki/Lemon_battery), a [saltwater resistor](https://en.wikipedia.org/wiki/Liquid_rheostat), a [Leyden jar](https://en.wikipedia.org/wiki/Leyden_jar) (the earliest capacitor), and a cardboard/aluminum foil variable capacitor. There are a handful of thought experiments designed to introduce slightly advanced topics like [_integer overflow_](https://en.wikipedia.org/wiki/Integer_overflow) without making it too hard. It might be useful to make an [aluminum foil & corrugated cardboard multi-layer capacitor](http://bizarrelabs.com/crystal.htm "Crystal Radio page on bizarrelabs.com") too, either beforehand or in place of the Leyden jar.
@@ -65,7 +66,8 @@ I've produced some simple logic gate PCBs for discrete components<a name="myfoot
 <small>An XNOR gate built from an discrete-component XOR gate and NOT gate.<br>LED 0 is lit, indicating the two inputs (here, both tied to Vcc) are the same.</small>
 </p>
 
-The next hardware widget will be a dual-NAND flip-flop gate, to provide some memory to write to and from which to read.
+The next hardware widget will be a JK flip-flop gate, to provide some memory to write to and from which to read.
+The only new component it needs is a three-input NAND gate, and that component has been designed and tested too.
 
 As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that, and a slightly more challenging [Atari Punk Console soldering project repository](https://github.com/jessehamner/AtariPunkConsole) as well) and can make their own gates, since I use entirely through-hole components for the workshop PCBs. 
 
@@ -82,7 +84,7 @@ Participants can solder the gates if they want to, but the workshop should provi
 * [Computer Science Unplugged](https://csunplugged.org/en/)
 * [Turing Tumble](https://www.turingtumble.com/)
 
-Jesse Hamner, 2016-2020 :rocket:
+Jesse Hamner, 2016-2021 :rocket:
 
 ---
 
@@ -90,4 +92,4 @@ Jesse Hamner, 2016-2020 :rocket:
 
 <sup>[1](#myfootnote1)</sup>Sparkfun has already produced [a similar set of gates](https://www.sparkfun.com/products/11006), but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks.
  
-<sup>[2](#myfootnote2)</sup>In keeping with the open-source philosophy, and AutoDesk's recent change in the terms of use for Eagle CAD, KiCAD looms large in the future of this project.
+<sup>[2](#myfootnote2)</sup>In keeping with the open-source philosophy, and AutoDesk's recent change in the terms of use for Eagle CAD, I have begun to transition the PCB designs to KiCAD..
