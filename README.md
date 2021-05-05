@@ -83,6 +83,7 @@ Participants can solder the gates if they want to, but the workshop should provi
 
 * [Computer Science Unplugged](https://csunplugged.org/en/)
 * [Turing Tumble](https://www.turingtumble.com/)
+* [Ben Eater's YouTube series](https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU)
 
 Jesse Hamner, 2016-2021 :rocket:
 
@@ -92,4 +93,4 @@ Jesse Hamner, 2016-2021 :rocket:
 
 <sup>[1](#myfootnote1)</sup>Sparkfun has already produced [a similar set of gates](https://www.sparkfun.com/products/11006), but they use entirely integrated components, and I want to show the kids at least a few discrete-component gate blocks.
  
-<sup>[2](#myfootnote2)</sup>In keeping with the open-source philosophy, and AutoDesk's recent change in the terms of use for Eagle CAD, I have begun to transition the PCB designs to KiCAD..
+<sup>[2](#myfootnote2)</sup>In keeping with the open-source philosophy, and AutoDesk's recent change in the terms of use for Eagle CAD, I have begun to transition the PCB designs to KiCAD.
