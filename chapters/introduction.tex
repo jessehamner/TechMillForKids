@@ -1,4 +1,4 @@
-\section{Introduction}
+\section{Introduction For The Participants}
 
 This workshop is going to help you learn about computers -- but not how to \emph{use} computers. Rather, when we are finished, you will understand a little bit about how and why computers really do work and get answers to math problems. To get to that goal, you'll need to learn some new topics in math, and learn about electricity. You'll also need to learn about basic \emph{electronic components}, too. These are the small pieces that are used together in \emph{circuits} to do useful things with electricity. When assembled, circuits (whether simple or complex) enable electricity to do all the things we can make electricity do, like light our homes, play music on the radio, find directions with a GPS, run a gasoline engine, or show you a web page.
 
@@ -12,4 +12,41 @@ I'm so glad you're interested in computers. It makes me feel good when people le
 \bigskip
 
 \noindent Jesse Hamner, PhD\\
-\noindent 2018--2020\\
+\noindent 2018--2021\\
+
+
+\section{Introduction for the Adults}
+
+A few years ago my friend Adam asked me if I would teach his son about how computers work -- not ``how do I use Windows" or ``tips and tricks for a {\color{webblue}\href{https://www.raspberrypi.org}{Raspberry Pi}}", but rather, how binary works and how logic circuits can add or subtract numbers. He was seeking people to instruct on a very wide variety of topics. In a broader context, he is putting his child on the path to becoming a more human instance of Heinlein's {\color{webblue}\href{https://en.wikipedia.org/wiki/Competent_man}{\emph{Competent Man}}} or, at some level, a polymath. He wanted an afternoon to do it, but this project's requirements mushroomed into a two-day event, or three days if you want to introduce soldering to the participants. I couldn't find any kid friendly workshops like the one I ended up writing, though {\color{webblue}\href{https://www.raspberrypi.org/blog/digital-making-curriculum/}{this project}} has lots of potential, as does the {\color{webblue}\href{https://www.youtube.com/playlist?list=PLME-KWdxI8dcaHSzzRsNuOLXtM2Ep_C7a}{Crash Course Computer Science}} series. 
+
+My daughter is pretty tech savvy and, like Adam's son, has expressed at least a passing interest in the Raspberry Pi. She has also helped me solder up some boards and fab some antennas. So I was willing to at least attempt the lesson, and I'd throw my kid into the mix too (they're already friends from school). Both kids were fourth graders in 2017, and so I tried to pitch the workshop to them.
+
+\subsection*{What I Did}
+Anyone who knows me knows that if you ask me what time it is, I often tell you how to build a clock. This is typically a problem (people don't \emph{want} to hear the story of how {\color{webblue}\href{http://www.imdb.com/title/tt0083530/quotes#qt1422044}{the earth cooled}}, but in order to teach a kid what a {\color{webblue}\href{https://en.wikipedia.org/wiki/Logic_gate}{logic gate}} is and how we use them to do math, I was going to have to start pretty far back down the ladder. At least, in order for a kid to really understand how a transistor enables a logic gate, I want them to know a little more than the typical ``transistors are just like light switches, okay?"
+
+I did write a little more explanation of basic electronic components than was strictly necessary. And after giving the first bit of the lecture, I learned that I left too much out of the ``binary" section, though the kids really enjoyed learning how to {\color{webblue}\href{https://en.wikipedia.org/wiki/Finger_binary}{count to 31 on one hand}} especially binary ``4", which is just the middle finger!
+
+The basic flow of the lesson is:
+\begin{itemize}
+\item enough math to understand binary
+\item enough electronics to understand how electricity flows
+\item enough circuit theory to understand the common logic gates, and
+\item enough digital logic to see how computers can {\color{webblue}\href{https://en.wikipedia.org/wiki/Adder_(electronics)}{add}} or {\color{webblue}\href{https://en.wikipedia.org/wiki/XNOR_gate}{compare two numbers}}.
+\end{itemize} 
+
+That's actually a \emph{lot}. This workshop takes around 5 hours of total time, if you don't do any soldering.
+It is best split into two sessions, and perhaps three if you teach soldering.
+
+
+I added ``experiments" or ``applications" like the classic {\color{webblue}\href{https://en.wikipedia.org/wiki/Lemon_battery}{lemon battery}}, a {\color{webblue}\href{https://en.wikipedia.org/wiki/Liquid_rheostat}{saltwater resistor}}, a {\color{webblue}\href{https://en.wikipedia.org/wiki/Leyden_jar}{Leyden jar}} (the earliest capacitor), and a cardboard/aluminum foil variable capacitor. There are a handful of thought experiments designed to introduce slightly advanced topics like {\color{webblue}\href{https://en.wikipedia.org/wiki/Integer_overflow}{integer overflow}} without making it too hard. It might be useful to make an {\color{webblue}\href{http://bizarrelabs.com/crystal.htm}{aluminum foil/corrugated cardboard multi-layer capacitor}} too, either beforehand or in place of the Leyden jar.
+
+\subsection*{Next Steps}
+
+I've produced some simple logic gate PCBs for discrete components, including OR, AND, NOT, NOR, NAND, and even {\color{webblue}\href{https://en.wikipedia.org/wiki/XOR_gate}{XOR}}, but not {\color{webblue}\href{https://en.wikipedia.org/wiki/XNOR_gate}{XNOR}} gates (although I demonstrate using a NOT gate with an XOR gate in the text) and am including circuit board design files in this repository. Additionally, I have designed some full-adder PCBs using integrated components at the gate level. As each gate is discrete, it is still easy to see the design of the full adder. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. 
+
+The next hardware widget will be a JK flip-flop gate, to provide some memory to write to and from which to read.
+The only new component it needed was a three-input NAND gate, and I designed and tested that component, so the work can continue.
+
+As an added bonus, the kids can learn to solder (I've got a {\color{webblue}\href{https://github.com/jessehamner/TechMillForKids/tree/master/soldering}{separate tutorial}} in this repository for that, and a slightly more challenging {\color{webblue}\href{https://github.com/jessehamner/AtariPunkConsole}{Atari Punk Console soldering project repository}} as well). Thus, kids can make the same gates used in the tutorial, since I use entirely through-hole components for the discrete gate PCBs. 
+
+Participants can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs (the designs are or will be included in this repository) will be very useful.
