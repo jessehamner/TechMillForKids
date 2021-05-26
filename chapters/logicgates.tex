@@ -1,21 +1,23 @@
 \section{Logic Gates}
 
-The basic building blocks of computers are called \emph{gates}. Their only function is to report, with some yes-or-no electrical output, the result of their circuit following some input from somewhere else in the circuit. The way to understand how gates make decisions is called ``Boolean Algebra", but really it's a fairly simple set of decisions that get strung together in useful ways.
+The basic building blocks of computers are called \emph{gates}. Their only function is to report, with some yes-or-no electrical output, the result of their circuit following some input from somewhere else in the circuit. The way to understand how gates make decisions is called ``Boolean Algebra", but really it's a fairly simple set of decisions that get strung together in useful ways. The circuits are called gates because they either let electricity pass or prevent electricity from passing through, like a gate allows physical movement or prevents it.
 
 \subsection*{Boolean Logic}
 
 Boolean logic is the sort of decision making and answers that computers use. You can use it too, of course, and it will help you learn to program computers. The answer to every question in Boolean logic is either ``yes'' or ``no'' -- ``true'' or ``false''. In computers, that's a one or a zero, of course.   Every operation (decision) is composed of a set of operations: \emph{and}, \emph{or}, and \emph{not}. A British man named George Boole introduced these ideas to the world in 1847\footnote{
-\emph{The Mathematical Analysis of Logic} (1847), and \emph{An Investigation of the Laws of Thought} (1854). For more, see his {\color{webblue}\href{https://en.wikipedia.org/wiki/George_Boole}{Wikipedia entry}}.}. He did not realize he was laying the foundations for computing, but 50 years later another very important mathematician, Claude Shannon, understood that Boole's system for understanding decisions could be used to design electronic circuits\footnote{Shannon, Claude E. 1938. ``A Symbolic Analysis of Relay and Switching Circuits". \emph{Trans. AIEE.} 57 (12): 713--723.}.
+\emph{The Mathematical Analysis of Logic} (1847), and \emph{An Investigation of the Laws of Thought} (1854). For more, see his {\color{webblue}\href{https://en.wikipedia.org/wiki/George_Boole}{Wikipedia entry}}.}. He did not realize he was laying the foundations for computing, but 90 years later another very important mathematician, Claude Shannon, understood that Boole's system for understanding decisions could be used to design electronic circuits\footnote{Shannon, Claude E. 1938. ``A Symbolic Analysis of Relay and Switching Circuits". \emph{Trans. AIEE.} 57 (12): 713--723.}.
 
-It may be helpful to see some of the logic and operations (decisions) made in a graphical form, looking at the overlap between circles, or between a circle and its surrounding area.
+It may be helpful to see some of the logic and operations (decisions) made in a graphical form, looking at the overlap between circles, or between a circle and its surrounding area. Here, the shaded area shows the part of the relationship that is ``true'' for the given operation. That is, the region that is {\sc{not}} A, in the third diagram, is shaded.
 
 % Draw Venn diagrams to graphically demonstrate OR, AND, and NOT.
 \begin{figure}[!ht]
 \begin{center}
+\begin{minipage}{6in}
 \input{./include/vennand.tex}
-\caption{A graphic representing {\sc{and}}, {\sc{or}}, and {\sc{not}} with overlapping circles.}
-\end{center}
+\caption{A graphic representing {\sc{and}}, {\sc{or}}, and {\sc{not}} with overlapping circles. The shaded area represents the location where the Boolean operation is ``true''.}
 \label{fig:vennlogic}
+\end{minipage}
+\end{center}
 \end{figure}
 
 
@@ -24,7 +26,7 @@ Also note: more complex decisions can be made by combining these operations: NOT
 
 \subsection*{The OR Gate}
 
-OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 are equal to 1 -- that is, if either line has a voltage level above zero.
+OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 is equal to 1 -- that is, if either line has a voltage level above zero.
 
 \medskip
 \begin{center}
@@ -327,30 +329,6 @@ The NAND gate symbol is:
 
 \vspace{0.15in}
 
-You can also think of a NAND gate as two separate gates:
-
-\vspace{0.15in}
-
-\begin{circuitikz}
-	\draw(0,0)
-	node[american and port](andgate){}
-	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
-	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
-	;
-	
-	\draw(1.5,0)
-	node[american not port](notgate){}
-	(andgate.out) |- (notgate.in)
-	;
-	
-	\draw(3,0)
-	(notgate.out) node [right](){{\color{red}$OUT$}}
-	;
-
-\end{circuitikz}
-
-\vspace{0.15in}
-
 See the circle on the output? That means ``\emph{not}".
 
 &
@@ -380,15 +358,37 @@ The ``Truth Table" (how they behave) is:
 \end{tabular}
 \end{center}
 
+
+You can think of a NAND gate as two separate gates (AND and NOT):
+\begin{center}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american and port](andgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	;
+	
+	\draw(1.5,0)
+	node[american not port](notgate){}
+	(andgate.out) |- (notgate.in)
+	;
+	
+	\draw(3,0)
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+	;
+
+\end{circuitikz}
+
+\end{center}
+
 \bigskip
-
-
 
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[scale=0.16]{trimmednandgate.png}
-\caption{A circuit board designed to make a NAND gate. Note that it uses four transistors.}
+\caption{A circuit board designed to make a NAND gate using four transistors.}
 \label{fig:nandgate}
 \end{center}
 \end{figure}
@@ -398,7 +398,7 @@ The ``Truth Table" (how they behave) is:
 
 \subsection*{The NOR Gate}
 
-Not surprisingly, there is also a NOR gate, that has the reverse truth table to an OR gate. NOR gates are easy to implement, though as we have said elsewhere, more complicated NOR gates save power.
+Not surprisingly, there is also a NOR gate, that has the reverse truth table to an OR gate. NOR gates are easy to implement, though as we have said elsewhere, the more complicated NOR gates save power and run cooler.
 
 \medskip
 \begin{center}
@@ -419,33 +419,10 @@ The symbol for a NOR gate is:
 
 \end{circuitikz}
 
-\vspace{0.15in}
-
-You can also think of a NOR gate as two separate gates:
-
-\vspace{0.15in}
-
-\begin{circuitikz}
-	\draw(0,0)
-	node[american or port](orgate){}
-	(orgate.in 1) node [left](){{\color{red}$INPUT~A$}}
-	(orgate.in 2) node [left](){{\color{red}$INPUT~B$}}
-	;
-	
-	\draw(1.5,0)
-	node[american not port](notgate){}
-	(orgate.out) |- (notgate.in)
-	;
-	
-	\draw(3,0)
-	(notgate.out) node [right](){{\color{red}$OUT$}}
-	;
-
-\end{circuitikz}
-
-\vspace{0.15in}
+\vspace{0.10in}
 
 See the circle on the output? That means ``\emph{not}".
+\vspace{0.15in}
 
 &
 
@@ -467,6 +444,7 @@ The ``Truth Table" (how they behave) is:
 \hline
 \end{tabular}
 \\
+
 \tabularnewline
 
 \hline\\[\negsep]
@@ -474,12 +452,35 @@ The ``Truth Table" (how they behave) is:
 \end{tabular}
 \end{center}
 
+
+You can think of a NOR gate as two separate gates (OR and NOT):
+\begin{center}
+\begin{circuitikz}
+	\draw(0,0)
+	node[american or port](orgate){}
+	(orgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(orgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	;
+	
+	\draw(1.5,0)
+	node[american not port](notgate){}
+	(orgate.out) |- (notgate.in)
+	;
+	
+	\draw(3,0)
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+	;
+
+\end{circuitikz}
+\end{center}
+
+
 \bigskip
 
 
 \begin{figure}[!hb]
 \begin{center}
-\includegraphics[scale=0.5]{Agc_nor2.jpg}
+\includegraphics[scale=0.4]{Agc_nor2.jpg}
 \caption{An early integrated circuit NOR gate. It has six transistors, eight resistors, and three pairs of A/B inputs (thus, it has three separate yes/no outputs). This chip was part of the guidance computer that took Americans to the moon in 1969. \emph{Photo credit: Wikimedia Foundation}.}
 \end{center}
 \label{fig:apollonorgate}
@@ -490,7 +491,7 @@ The ``Truth Table" (how they behave) is:
 \newpage
 
 \subsection*{The Exclusive-OR Gate}
-There is also the ``eXclusive-OR", or ``XOR", gate. The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors. See Figures \ref{fig:xorcomposite}, \ref{fig:xorbreadboard}, and \ref{fig:xorgate}.
+There is also the ``eXclusive-OR", or ``XOR", gate. Here, ``exclusive'' means ``one, but not both.'' The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors. See Figures \ref{fig:xorcomposite}, \ref{fig:xorbreadboard}, and \ref{fig:xorgate}.
 
 \medskip
 \begin{center}
@@ -564,7 +565,7 @@ It's also worth knowing that XOR gates can be used like a NOT gate, by holding o
 \begin{figure}[!hb]
 \begin{center}
 \fbox{
-\includegraphics[scale=0.15]{xorgatebreadboard.jpg}
+\includegraphics[scale=0.15, clip=true, trim=0 0 100 0]{xorgatebreadboard.jpg}
 }
 \caption{An XOR gate wired up on a breadboard with discrete transistors and resistors. This is the same schematic (and the same color-coded signal wires) seen in Figure \ref{fig:xorgate}. The red switch is signal A and the blue switch is signal B. On the LED line, 0 and 1 are A and B, and 2 and 3 (lit up) are NOT A and NOT B.}
 \label{fig:xorbreadboard}
@@ -575,7 +576,7 @@ It's also worth knowing that XOR gates can be used like a NOT gate, by holding o
 \begin{figure}[ht!]
 \begin{center}
 \input{include/xorgate.tex}
-\caption{An exclusive-or (XOR) gate, composed of 12 transistors and some supporting resistors. You don't need to understand how it works, but it's not that hard if you break it down into the colored signals, two NOT gates, two AND gates with N-type FETs, and two linked AND gates with P-type FETs. A ``0'' signal opens a P-type FET, and a ``1'' signal opens an N-type FET.}
+\caption{An exclusive-or (XOR) gate, composed of 12 transistors and some supporting resistors. You don't need to understand how it works, but it's not that hard if you break it down into the colored signals, two NOT gates, two AND gates with N-type FETs, and two linked AND gates with P-type FETs. A ``0'' (ground) signal opens a P-type FET, and a ``1'' signal opens an N-type FET.}
 \label{fig:xorgate}
 \end{center}
 \end{figure}
