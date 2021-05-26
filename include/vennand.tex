@@ -14,9 +14,9 @@
 \setlength{\parskip}{5mm}
 
 
-\begin{tabular}{p{2.25in} p{2.25in} p{2.25in}}
+\begin{tabular}{ccc}
 
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.95]
 
 	\begin{scope}
         \clip \firstcircle;
@@ -33,7 +33,7 @@
 &
 
 % Set A or B
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.95]
 
     \draw[filled] \firstcircle node {$A$}
                   \secondcircle node {$B$};
@@ -46,7 +46,7 @@
 
 % NOT A
 
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.95]
 
 	\filldraw[blue!20,even odd rule] \firstsquare \firstcircle;
 	\draw[outline] \firstcircle node{$A$};
