@@ -173,6 +173,14 @@ Building a flexible subtraction logic circuit depends on two features of our exi
 
 The result of the line of adders is the answer to the subtraction question.
  
+\begin{figure}[ht!]
+\begin{center}
+
+\input{./include/real_subtraction_circuit.tex}
+
+\caption{How addition and subtraction gets implemented with logic gates to either subtract {\color{red}$A$}, a four digit binary number (something like \texttt{0010}, or ``2"), from {\color{blue}$B$} (perhaps \texttt{1000}, or ``8''), or add the two numbers instead. Each pair of bits goes into a full adder (the trapezoid-shaped symbol). To use subtraction, the M-line is held to a positive voltage, effectively turning the $XOR$ gate into a $NOT$ gate.}
+\end{center}
+\end{figure}
 
 
 \newpage
