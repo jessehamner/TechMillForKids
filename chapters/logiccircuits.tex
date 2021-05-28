@@ -90,6 +90,14 @@ Since full adders can accept three inputs, the truth table is pretty big.
 
 \begin{figure}[!ht]
 \begin{center}
+\input{./include/fulladder1_example001.tex}
+\caption{One of the possible input conditions for a full adder. Here, only the carry-in bit is 1. The inputs for A and B are 0. Since both A and B are the same, $XOR_1$ outputs 0 (no voltage). Since the carry-in bit (signal) is 1, and the output from $XOR_1$ is 0, the inputs to $XOR_2$ are different: so $XOR_2$ outputs 1. The inputs to $AND_2$ are not both 1, so $AND_2$ outputs 0. A and B are both 0, so $AND_1$ outputs 0. Since both $AND_1$ and $AND_2$ output 0, the OR gate outputs 0. Here, the value from the carry-out signal from another full adder is the only input. So at \emph{this} digit (``order of magnitude''), the sum is 1, and there is no value to carry out. }
+\end{center}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\begin{center}
 \includegraphics[scale=0.19]{FullAdderboard.png}
 \caption{A single full-adder circuit for adding two bits plus a carry-in digit, implemented on a small circuit board using individual integrated circuit gates instead of discrete transistors. You can see the gates easily, but the board is much simpler to work with, compared to forming up a full adder from five of the single-gate boards.}
 \end{center}
@@ -104,7 +112,6 @@ Since full adders can accept three inputs, the truth table is pretty big.
 
 Comparing two one-bit numbers to see if they are identical is done with XNOR gates. These gates are the same as an XOR gate passing output into a NOT gate. 
 
-\medskip
 \begin{center}
 
 \begin{tabular}{p{2.5in} p{3.5in} }
@@ -149,8 +156,6 @@ The ``Truth Table" (how they behave) is:
 
 \end{tabular}
 \end{center}
-
-\bigskip
 
 \begin{figure}[hb!]
 \begin{center}
