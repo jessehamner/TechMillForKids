@@ -1,0 +1,49 @@
+\begin{circuitikz}
+
+\tikzset{one bit adder/.style={muxdemux, 
+  muxdemux def={Lh=4, NL=2, Rh=2, NR=1, NB=1, NT=1, w=1.5,
+  inset w=0.5, inset Lh=2, inset Rh=1.5}}
+}
+
+% Inputs and NOT gates: (for illustrative purposes; in reality, add/subtract are switched
+% via a simple high-low signal line and complement is handled with XOR gates, with carry-in
+% handling the "add one to get the two's complement" into the LSB full adder)
+\begin{scope}
+
+	\adderblock{1.25}{zero}{0}
+		
+	\adderblock{4.25}{one}{1}
+
+	\adderblock{7.25}{two}{2}
+	
+	\adderblock{10.25}{three}{3}
+
+\end{scope}
+
+% the add-one input to the least-significant-bit full adder, for two's complement:
+\draw
+	(2cm,-1.0cm) node[ocirc](carrynode) {} 
+	node[below] {{\color{black}$Carry-In$}}
+;
+
+\draw
+[color=rltgreen, style=thick]
+    (carrynode) -| (fazero.bpin 1)
+    (fazero.tpin 1) -| (faone.bpin 1)
+    (faone.tpin 1) -| (fatwo.bpin 1)
+    (fatwo.tpin 1) -| (fathree.bpin 1)
+    (fathree.tpin 1) to (2.5,13) node[ocirc, label={[label distance=0mm]75:{{\color{black}$Overflow$}}}](overflow){}
+;
+
+\draw(-4cm, 13cm)
+[color=rltred]
+node[ocirc, color=rltred](dosubtractionnode){}
+node[xshift=1.5cm, yshift = 0.2cm](dosubtractionlabel){\color{rltred}\emph{Do Subtraction}}
+;
+
+\draw
+[color=rltred, style=thick]
+  (carrynode) -| (-4cm, 0) -| (mzeronode) -| (monenode)  -| (mtwonode)  -- (mthreenode) -- (dosubtractionnode)
+;
+
+\end{circuitikz}
