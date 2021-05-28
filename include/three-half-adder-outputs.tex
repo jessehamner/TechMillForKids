@@ -1,0 +1,22 @@
+\begin{figure}[ht!]
+\begin{center}
+
+\begin{tabular}{m{3.2in} m{2.5in}}
+\hline\\[\negsep]
+\input{./include/halfadder1_example00.tex} & 
+Neither input is 1. The XOR gate does not output high because both inputs are equal. The AND gate does not output high because both inputs are not 1. Adding 0 to 0 equals 0, and so the output (sum $ = 0 \times 1$, carry $ = 0 \times 2$) is correct.\\[\sep]
+\hline\\[\negsep]
+
+\input{./include/halfadder1_example01.tex} &  
+One input is 1, and one input is 0. The XOR gate outputs high because only one input is supplying voltage. The AND gate does not output high because both inputs are not 1. Adding 1 to 0 equals 1, and so the output (sum $ = 1 \times 1$, carry $ = 0 \times 2$) is correct.\\[\sep]
+\hline\\[\negsep]
+
+\input{./include/halfadder1_example02.tex} &  
+Both inputs are 1. The XOR gate outputs low (ground, or zero) because both inputs are equal. The AND gate outputs high because both inputs are 1. Adding 0 to 2 equals 2, and so the output (sum $ = 0 \times 1$, carry $ = 1 \times 2$) is correct.\\[\sep]
+\hline
+\end{tabular}
+
+\caption{The three possible conditions for a half adder.}
+\label{fig:threehalfadders}
+\end{center}
+\end{figure}
