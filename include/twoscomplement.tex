@@ -14,50 +14,6 @@
 % bit pattern name (zero, e.g.) is arg 2
 % numeric indicator (0, e.g.) is arg 3
 
-\newcommand{\adderblock}[3]{
-
-	\begin{scope}
-
-	  \draw (0,#1)
-	    [xshift = 2.5cm]
-	    node[one bit adder, scale=0.75](fa#2){}
-	    node[xshift=0.75cm, yshift=1cm](fa#2carrylabel){\footnotesize $Carry_#3$}
-  	    node[ocirc, xshift=1.5cm, label={[label distance=0mm]0:$Sum_#3$}](fa#2sum){}
-	  ;
-	\end{scope}
-	  
-  \begin{scope}
-    \draw (0,#1)
- 	  [yshift=-0.65cm] 
-	  node[american not port](nota#2){}
-	  node[ocirc, xshift = -1cm](nota#2node){}
-   	  node[xshift = -1.3cm, yshift = 3mm](){{\color{red}$A_{#3}$}}
-	  node[xshift = 0.7cm, yshift = 5mm] {{\footnotesize{$NOT_{A_{{#3}}}$}}} 
-	;
-  \end{scope}
-
-  \begin{scope}
-    \draw (0,#1)
-	  [yshift=0.65cm]
-	  node[ocirc, xshift = -2.0cm](b#2node){}
-   	  node[xshift = -2.3cm, yshift = 3mm](){{\color{blue}$B_{#3}$}}
-	  ;
-  \end{scope}	
-	
-  \begin{scope}
-    \draw (0,#1)
-	  [color=blue] 
-	  (b#2node) -- (fa#2.lpin 1) 
-	;
-  \end{scope}
-
-  \draw (0,#1)
-	  (nota#2node) -- (nota#2.in 1)
-	  (nota#2.out) -- (fa#2.lpin 2)
-	  (fa#2.rpin 1) -- (fa#2sum)
-	;
-}
-
 \begin{figure}[h!]
 \begin{center}
 
