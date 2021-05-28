@@ -1,0 +1,64 @@
+
+
+\begin{circuitikz}
+
+
+% Gates:
+\draw
+	(4,2) node[xor port, fill=yellow](xorGate) {} % xor gate
+	(4.2,3.0) node[left] {$XOR$} % XOR label
+	
+	(4,0) node[and port, fill=gray!40](andGate) {} % AND gate
+	(4.2,-1.0) node[left] {$AND$} % AND label
+;
+
+% Input nodes:
+\draw
+	(0,2.27) node[ocirc](ainput) {} % A node
+	(0,2.3) node[left] {{\color{red}$A = 1$}} % A label
+
+	(0,1.72) node[ocirc](binput) {} % B node
+	(0,1.72) node[left] {{\color{red}$B = 0$}} % B label
+;
+
+% Output nodes:
+\draw
+	(5,2) node[ocirc, fill=red](snode) {} % S node
+;
+
+\draw[red, very thick](xorGate.out) to (snode) % S output wiring
+;
+
+\draw
+	(5,2) node[right] {{\color{red}$Sum$}} % S label
+;
+\draw
+	(5,0) node[ocirc](cnode) {} % C node
+	(andGate.out) to (cnode) % C output wiring
+	(5,0) node[right] {{\color{red}$Carry$}} % C label
+;
+
+% Nets:
+\draw[red, very thick](ainput) -- (xorGate.in 1) % xor A wiring
+;
+
+\draw (binput) -- (xorGate.in 2) % xor B wiring	
+;
+
+	
+\draw[black] (1.5,1.72) |- (andGate.in 1)
+;
+
+\draw[red, very thick] (1,2.27) |- (andGate.in 2)
+;
+
+
+\draw[black] (1,2.27) node[circ] {}
+;
+
+\draw[black] (1.5,1.72) node[circ] {}
+;
+
+
+
+\end{circuitikz}
