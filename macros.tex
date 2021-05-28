@@ -1,6 +1,6 @@
 % tikz stuff and other macros
 % Jesse Hamner
-% 2013--2019
+% 2013--2021
 
 % make a few color defs:
 \definecolor{rltbrightred}{rgb}{1,0,0}
@@ -258,3 +258,53 @@
 
 % tilt the text atop a table row at an angle:
 \newcommand*\rot{\multicolumn{1}{R{55}{1.2ex}}}% no optional argument here, please!
+
+
+\newcommand{\adderblock}[3]{
+
+	\begin{scope}
+
+	\draw (0,#1)
+	  [xshift = 2.5cm]
+	  node[one bit adder, scale=0.75](fa#2){}
+	  node[xshift=0.75cm, yshift=1cm](fa#2carrylabel){\footnotesize $Carry_#3$}
+  	  node[ocirc, xshift=1.5cm, label={[label distance=0mm]0:$Sum_#3$}](fa#2sum){}
+	;
+
+    \draw (0.5,#1)
+ 	  [yshift=-0.65cm] 
+	  node[american xor port](axorb#2){}
+	  node[ocirc, xshift = -2.2cm, yshift = -0.28cm](axorb#2node){}
+   	  node[xshift = -2.6cm, yshift = 0mm](){{\color{red}$A_{#3}$}}
+	  node[xshift = 0.2cm, yshift = 6mm] {{\footnotesize{$XOR_{#3}$}}}
+   	  node[ocirc, xshift = -4.5cm, yshift = 0.32cm](m#2node){}
+	  node[xshift = -4.0cm, yshift = 0.6cm, color=rltred]{\color{rltred}$M_{#3}$}
+	;
+ 
+    \draw (0,#1)
+	  [yshift=0.65cm]
+	  node[ocirc, xshift = -2.0cm](b#2node){}
+   	  node[xshift = -2.3cm, yshift = 3mm](){{\color{blue}$B_{#3}$}}
+    ;
+  
+    \draw (0,#1)
+	  [color=blue] 
+	  (b#2node) -- (fa#2.lpin 1) 
+	;
+  
+    \draw
+	  [color=rltred] 
+	  (m#2node) -- (axorb#2.in 1) 
+	;
+
+    \draw (0,#1)
+	  (axorb#2node) -- (axorb#2.in 2)
+	  (fa#2.rpin 1) -- (fa#2sum)
+	;
+	
+    \draw(0, #1)[color=brown, very thick]
+      (axorb#2.out) -- (fa#2.lpin 2)
+    ;
+    
+  \end{scope}
+}
