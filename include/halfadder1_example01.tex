@@ -1,14 +1,11 @@
-
-
 \begin{circuitikz}
-
 
 % Gates:
 \draw
 	(4,2) node[xor port, fill=yellow](xorGate) {} % xor gate
 	(4.2,3.0) node[left] {$XOR$} % XOR label
 	
-	(4,0) node[and port, fill=gray!40](andGate) {} % AND gate
+	(4,0) node[and port](andGate) {} % AND gate
 	(4.2,-1.0) node[left] {$AND$} % AND label
 ;
 
@@ -58,7 +55,6 @@
 
 \draw[black] (1.5,1.72) node[circ] {}
 ;
-
 
 
 \end{circuitikz}
