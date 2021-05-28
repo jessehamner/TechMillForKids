@@ -45,9 +45,9 @@
 ;
 
 % Tie XOR_1 output to XOR_2 input and to AND_2 input:
-\draw[red, thick]
+\draw[cyan, thick]
 	(xorGate1.out) |- (xorGate2.in 1) 
-	(3.5,4.0) node[circ, color=red]{}
+	(3.5,4.0) node[circ, color=cyan]{}
 	(3.5,4.0) |- (andGate2.in 1)
 ;
 
@@ -63,9 +63,9 @@
 ;
 
 % Tie C-in to AND_2 and XOR_2:
-\draw[blue, thick]
+\draw[brown, thick]
 	(cin) |- (andGate2.in 2)
-	(3.0,1.72) node[circ, color=blue]{}
+	(3.0,1.72) node[circ, color=brown]{}
 	(3.0,1.72) |- (3.0, 3.4)
 	(3.0,3.40) |- (xorGate2.in 2)
 ;
@@ -76,7 +76,7 @@
 	(6,2)   |- (orGate1.in 1)
 ;	
 
-\draw[brown, thick]
+\draw[blue, thick]
 	(andGate1.out) to[short](6,0)
 	(6,0)   |- (orGate1.in 2)
 ;
