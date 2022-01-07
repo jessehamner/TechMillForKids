@@ -34,15 +34,20 @@
 	(3,\y+3) to [R, l^=$R_1$](3,\y)
 	(Q2.S) to [R, -*, l^=$R_2$](aground) 
 	(ain) to [R, -*, l^=$R_3$](3,\y+5)
+;
 
 % nets:
-	(avin) |- (Q1.S)
+\draw[cyan, thick](avin) |- (Q1.S);
+
+\draw
 	(Q1.D) -* (Q2.D)
 	(3,\y) |- (aground)
-	(3,\y+5) |- (Q2.G)
-	(3,\y+5) |- (Q1.G)
-
 ;
+\draw[cyan, thick]
+    (3,\y+5) |- (Q2.G)
+	(3,\y+5) |- (Q1.G)
+;
+
 
 % Second NOT gate, Input B
 \draw 
@@ -156,13 +161,13 @@
 	(\x+3,\y+4.0) node[circ](){}
 
 	(12,2) -- (14,2) -- (ground3)
-
 ;
 
+
 % A signal:
-\draw[ultra thick, yellow]
+\draw[thick, cyan]
 	(3,\y+5) -- (3, \y+7) -- (6, \y+7) -- (6,\y-1) -- (Q9.G)
-	(6,\y+5) node[circ, color=yellow](){}
+	(6,\y+5) node[circ, color=cyan](){}
 	(6,\y+5) -| (Q5.G)
 ;
 
@@ -191,6 +196,7 @@
 	(10,3) -- (10,8.0) -- (11, 8.0) -- (Q8.G)
 ;
 
+
 \draw[thick, color=white]
 	(5,4) -- (6.5,4) --  (6.5,0.5) -- (10,0.5) -- (10,5) -- (Q12.G)
 	(10,3) -- (10,8.0) -- (11, 8.0) -- (Q8.G)
@@ -204,13 +210,11 @@
 
 	(10.0,0.5) node[circ, color=black](){}
 	(10.0,0.5) to [R, -* , l^=$R_{10}$](14,0.5)
-
-
 ;
 
 % XOR signal:
 
-\draw[color=brown, ultra thick]
+\draw[color=brown, thick]
 	(\x, \y+1) -* (\x+3, \y+1)
 	(\x,\y+1) node[circ](){}
 	(\x+3,\y+1) node[circ](){}
@@ -220,15 +224,14 @@
 	(\x+3,\y+1) |- (xor)
 ;
 
+
 % Labeling and explanation
 \draw
- (15,6) node[align=left](exp1){This pair of AND \\ gates grounds \\ the circuit if \\ both inputs are \\  the same.}
+ (15,6) node[align=left, text width = 3cm](exp1){This pair of AND gates grounds the circuit if both inputs are the same.}
 
- (15,12) node[align=left](exp1){This pair of AND \\ gates controls \\ circuit power input. \\ Each (linked) pair \\ only functions if the \\ inputs are different.}
+ (15,12) node[align=left, text width = 4cm](exp1){This pair of AND gates controls circuit power input. Each (linked) pair only functions if the \\ inputs are different.}
 
- (1,7) node[align=left](exp1){Two NOT \\ gates enable \\ comparisons \\ among inputs.}
-
+ (1,7) node[align=left, text width = 2.75cm](exp1){Two NOT gates enable comparisons among inputs.}
 ;
-
 
 \end{circuitikz}
