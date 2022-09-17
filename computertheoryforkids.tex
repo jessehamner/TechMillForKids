@@ -14,6 +14,7 @@
 \usepackage{hyperref}
 \usepackage{verbatim}
 \usepackage{marvosym}
+\usepackage[font=small,labelfont=bf, width=0.9\textwidth]{caption}
 
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 
@@ -45,7 +46,7 @@
 
 \title{Introducing Computer Theory to Fourth Graders}
 \author{Jesse Hamner}
-\date{2017--2021\\
+\date{2017--2022\\
 % \vspace{0.15in}
 % \begin{quote}
 % \centering
@@ -86,16 +87,6 @@ This work is licensed under a {\color{webblue}\href{https://creativecommons.org/
 \tableofcontents
 
 \vfill
-
-\begin{figure}[!hb]
-\begin{center}
-\fbox{
-\includegraphics[scale=0.08, clip=true, trim=0 0 0 300]{breadboardgates.jpg}
-}
-\medskip
-\caption{Two logic gates (OR \& AND) implemented with N-type transistors on a solderless breadboard. Note pull-down resistors connecting transistor gate pins to ground.}
-\end{center}
-\end{figure}
 
 \clearpage
 %---------------------------
@@ -175,6 +166,8 @@ This work is licensed under a {\color{webblue}\href{https://creativecommons.org/
 \input{./chapters/appendices.tex}
 %---------------------------
 
+\clearpage
+\input{./chapters/appendix_logic_gate_challenges.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
