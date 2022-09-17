@@ -1,0 +1,70 @@
+%\documentclass[12pt]{standalone}
+%\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry} 
+%\usepackage{xcolor}
+%\usepackage{tikz}
+%\usepackage[american, EFvoltages, cuteinductors]{circuitikz}
+%
+%\begin{document}
+%\thispagestyle{empty}
+
+\begin{circuitikz}
+
+% Inputs:
+	\draw
+		(2,5) 
+		node[american and port, anchor=in 2, number inputs = 2](And1){{\color{gray}$\mathsf{AB}$~}}
+		node[ocirc, xshift = -3cm, yshift=5.5mm](anode){}
+    	node[xshift = -3.4cm, yshift = 6mm](){{\color{red}$A$}}
+		node[xshift = 0.9cm, yshift = -0.6cm] {{\footnotesize{$AND_1$}}} 
+		[brown, thick](anode) |-  (And1.in 1)
+	;
+
+	\draw
+		(2,3.0) 
+		node[american and port, anchor=in 2, number inputs = 2](And2){{\color{gray}$\mathsf{BC}$~}}
+		node[ocirc, xshift = -3cm, yshift=0mm](bnode){}
+    	node[xshift = -3.3cm, yshift = 0.0mm](){{\color{red}$B$}}
+		node[xshift = 0.9cm, yshift = -0.6cm]{{\footnotesize{$AND_2$}}} 
+		(bnode) -|  (And2.in 2)
+	;
+
+	\draw
+	    (2,0.5) 
+		node[american and port, anchor=in 2, number inputs = 2](And3){{\color{gray}$\mathsf{AC}$~}}
+		node[ocirc, xshift = -3cm, yshift=0cm](cnode){}
+    	node[xshift = -3.3cm, yshift = 0.0mm](){{\color{red}$C$}}
+		node[xshift = 0.9cm, yshift = -0.6cm]{{\footnotesize{$AND_3$}}} 
+		[blue](cnode) -|  (And3.in 2)
+	;
+
+
+
+    \draw(6, 4.0) 
+        node[american or port, anchor=out, number inputs = 2](Or1){}
+        node[xshift = 0.0cm, yshift = -0.5cm]{{\footnotesize{$OR_1$}}}
+    ;
+
+    \draw(8.5, 1.75) 
+        node[american or port, anchor=out, number inputs = 2](Or2){}
+        node[xshift = 0.0cm, yshift = -0.5cm]{{\footnotesize{$OR_2$}}}
+       	node[xshift = 1.8cm, yshift = 0.0mm](){{\color{red}$R$}}
+       	node[ocirc, xshift = 1.5cm, yshift=0cm](rnode){}
+       	(rnode) -- (Or2.out)
+    ;
+
+
+\draw (Or1.out) -| (Or2.in 1);
+\draw (And1.out) -| (Or1.in 1);
+\draw (And2.out) -| (Or1.in 2);
+\draw (And3.out) -| (Or2.in 2);
+
+\draw (anode) node[circ, xshift = 0.5cm](aux1){};
+\draw [brown, thick](aux1) |- (And3.in 1);
+\draw (bnode) node[circ, xshift = 1.5cm](aux2){};
+\draw (aux2) |- (And1.in 2);
+\draw [blue](cnode) node[circ, xshift = 2.5cm](aux3){};
+\draw [blue](aux3) |- (And2.in 1);
+
+\end{circuitikz}
+
+%\end{document}

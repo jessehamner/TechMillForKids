@@ -1,0 +1,32 @@
+\begin{circuitikz}
+
+% Inputs:
+\draw
+	(0,5.5) node[ocirc](anode) {} %A node
+	(0.25,6.0) node[left] {{\color{red}$A$}} %A label
+	
+	(0.75,5.5) node[ocirc](bnode) {} %B node
+	(1.1,6.0) node[left] {{\color{red}$B$}} %B label
+;
+
+% NOT gate:
+\draw 
+    (2,4.5) node[american not port](notb){}
+    node[xshift=5mm, yshift=5mm] {{\footnotesize{$NOT_1$}}} 
+;
+
+% AND gate:
+\draw 
+    (5,3.75) node[american and port, anchor=out](andGate1) {}
+	node[xshift=2mm, yshift=-6mm] {{\footnotesize{$AND_1$}}}
+    node[ocirc, xshift=2cm](snode) {} %S node
+	node[xshift=2cm, yshift=5mm] {{\color{red}$Result$}} % S label
+;
+
+% Nets:
+\draw[thick](anode) |- (andGate1.in 2);
+\draw[blue, thick] (bnode) |- (notb.in 1); 
+\draw[thick](notb.out) -| (andGate1.in 1);
+\draw (andGate1.out) to (snode);
+
+\end{circuitikz}
