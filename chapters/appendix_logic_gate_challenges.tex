@@ -1,0 +1,229 @@
+%\documentclass[12pt]{article}
+%\usepackage{tabularx}
+%\usepackage{xcolor}
+%\usepackage{tikz}
+%\usepackage[american, EFvoltages, cuteinductors]{circuitikz}
+%\parindent = 0.0pt
+%\parskip = 6pt
+%\begin{document}
+
+\section{Logic Gate Puzzles}
+
+This section contains some logic puzzles that help you cement your understanding of how using gates together can check inputs and provide outputs according to the questions you specify. The challenges start with simple examples and move to more challenging questions. Every puzzle has an answer provided.
+
+
+Each puzzle's objective is to solve the question asked, using as few gates as possible. There are many possible solutions, but the solutions focus on one straightforward answer, and sometimes a more clever answer where it exists. All puzzles have similar rules.
+
+\begin{itemize}
+\item The solution must only use OR gates, AND gates, and NOT gates
+\item There must be a single output to check for the result (that is, you can't ask the user to check three separate AND gates to see if $AB$, $AC$, or $BC$ are ``true'')
+\end{itemize}
+
+Some other parameters:
+\begin{itemize}
+\item You can connect signals to more than one gate at a time if you want to
+\item You can connect inputs to each other if it helps
+\item You may not have to build a circuit to handle every case
+\end{itemize}
+
+\clearpage
+
+\subsection*{Puzzle 1}
+
+Design a circuit that tests to see if A is true but B is false.
+
+
+\vfill 
+
+\subsubsection*{Answer}
+
+Since there are two \emph{required} conditions, an OR gate won't help us. 
+AND gates check if both inputs are equal to 1, but an AND gate will only be useful if it can check if B is 0. 
+Another way to express the puzzle is ``A AND NOT B''. 
+Because a NOT gate will convert B from ``off'' to ``on'', then the AND gate will work as we want it to.
+
+The solution is the same for the reverse (check for $B=1$ and $A=0$), provided the NOT gate converts the A input instead of the B input.
+
+
+\begin{figure}[hb!]
+\begin{center}
+
+\input{./include/a_and_not_b_circuit.tex}
+
+\caption{Using discrete gates to test for $A$ AND NOT $B$.}
+
+\end{center}
+\end{figure}
+
+
+\clearpage
+
+\subsection*{Puzzle 2}
+
+Design a circuit that tests to see if A is \emph{different from} B, no matter what value A has. \emph{Hint: the solution to Puzzle 1 is a huge chunk of the answer.}
+
+
+\vfill
+
+\subsubsection*{Answer}
+
+This challenge asks you to make an XOR gate. Use the solution from Puzzle 1, twice, swapping the NOT gate in one of the ($A$ AND NOT $B$) or ($B$ AND NOT $A$) blocks. Then take the result from each block and merge the result with an OR gate.
+
+\begin{figure}[hb!]
+\begin{center}
+
+\input{./include/xorcomposited.tex}
+
+\caption{Using discrete gates to make an XOR gate. One pair of NOT and AND gates solves for ($A$ AND NOT $B$), while the other pair solves for ($B$ AND NOT $A$). The OR gate returns true if either condition is true.}
+
+\end{center}
+\end{figure}
+
+\clearpage
+
+\subsection*{Puzzle 3}
+
+Say you had three inputs $A$, $B$, and $C$, and you want to know when a majority of them are ``on'' or ``true''. The question is simple enough: with three inputs, use connected logic gates in a way that can tell when the majority of inputs (here, that's two of the three) are ``true''. There's a way to represent these conditions in a compact way: 
+\begin{itemize}
+\item If all of the inputs are off, then the condition can be represented by: $\overline{ABC}$. 
+\item When all inputs are on, the shorthand would be $ABC$. 
+\item When only A is off, the condition is represented by $\overline{A}BC$. 
+\end{itemize}
+
+So a line over the letter indicates ``NOT true", and no line indicates ``true''.
+
+\subsubsection*{Setting Up}
+
+We hinted at the solution above.
+The goal is to detect if any two signals are true. 
+That means any combination of the three signals that has two or more of them reporting ``yes''. 
+How many combinations are there in total?
+
+\begin{enumerate}
+\item Each input can be 1 or 0 -- there are exactly two possible states
+\item There are three inputs in total, and each can be on or off
+\item Each input is not affected by any other input (the inputs are not tied together in any way)
+\end{enumerate}
+
+The truth table will have $2 \times 2 \times 2$ (that is, $2^3$) possible combinations. So let's make a table by counting from 0 to 7 in binary. We will assign one of the inputs to each column ($2^0$, $2^1$, and $2^2$).
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabular}{m{2in} m{3in}}
+
+\begin{tabular}{cccc}
+\hline
+A & B & C & Symbol\\
+\hline
+0 & 0 & 0 & $\overline{ABC}$\\
+0 & 0 & 1 & $\overline{AB}C$\\
+0 & 1 & 0 & $\overline{A}B\overline{C}$\\
+0 & 1 & 1 & $\overline{A}BC$\\
+1 & 0 & 0 & $A\overline{BC}$\\
+1 & 0 & 1 & $A\overline{B}C$\\
+1 & 1 & 0 & $AB\overline{C}$\\
+1 & 1 & 1 & $ABC$\\
+\hline
+\end{tabular}
+
+&
+
+To cover every possible case, half of of each column will be ``true'' and half will be ``false. For the left-most column (``A''), the first four column values are ``off'' and the next four are ``on''. The right-most column alternates ``on-off'' four times, and the middle column alternates off and on every other row. 
+
+
+\\
+\end{tabular}
+
+\renewcommand{\arraystretch}{1.0}
+
+
+The table shows us all possible conditions for these three inputs. Now add a results column, showing the answer our logic circuit should produce. Remember, if any two inputs in the row are true, then the result column will be true. Otherwise, the result is false.
+
+\begin{tabular}{m{2in} m{3in}}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccccc}
+\hline
+A & B & C & Symbol & Result\\
+\hline
+0 & 0 & 0 & $\overline{ABC}$ & 0\\
+0 & 0 & 1 & $\overline{AB}C$ & 0\\
+0 & 1 & 0 & $\overline{A}B\overline{C}$ & 0\\
+0 & 1 & 1 & $\overline{A}BC$ & 1\\
+1 & 0 & 0 & $A\overline{BC}$ & 0\\
+1 & 0 & 1 & $A\overline{B}C$ & 1\\
+1 & 1 & 0 & $AB\overline{C}$ & 1\\
+1 & 1 & 1 & $ABC$ & 1\\
+\hline
+\end{tabular}
+
+&
+
+The fourth, sixth, seventh, and eighth rows all have two or more inputs set to ``on''. The results (``R'') column is 1/``true'' for these four rows, and 0/``false'' for the rest. 
+
+\\
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+
+The logic can be expressed like this: 
+
+($A$ AND $B$) OR ($A$ AND $C$) OR ($B$ AND $C$) OR ($A$ AND $B$ AND $C$). 
+
+So if any of these individual conditions is true, the result is true.
+Note that all three values do not have to be true for the result to be true. Any two true inputs gives the same result as all three inputs being on. So there is no need to specifically test for all three inputs being true.
+
+
+\clearpage
+\subsubsection*{Answer 1}
+
+How can we build a logic circuit to produce this result? Let's start with the example we started above. If we use an AND gate for each of the three combinations of inputs that could produce a result of ``true'', we can then put each of the results into an OR gate, because the output of any AND gate tells us that we should produce a result of ``yes''. We have three outputs, and to this point we haven't discovered that there are three-input gates (heh) so we must use two OR gates to capture all three possible ``majority yes'' voting conditions.
+
+Follow the logic and see if you can convince yourself that the logic is correct.
+
+
+\begin{figure}[hb!]
+\begin{center}
+\input{./include/majority_logic_1.tex}
+
+\caption{A majority detection circuit using three AND gates and two OR gates. Testing specifically for all three inputs being true can be ignored because the circuit only needs to check for a majority of the inputs.}
+
+\end{center}
+\end{figure}
+
+\clearpage
+
+\subsubsection*{Answer 2}
+But might there be a more efficient way to do this? That is, could we get by with fewer than three AND and two OR gates?\footnote{Would I even ask this question if the answer was ``no''?}
+
+We can be clever and produce a slightly less straightforward-looking circuit that still accomplishes our goal, but uses fewer resources to get the correct answer. The goal is the same -- figure out if any two of the inputs are ``yes''. 
+
+\begin{enumerate}
+\item If ($B$ AND $C$) is true, $A$ does not matter -- the result is ``true''
+
+\item If $A$ is ``true'', either $B$ OR $C$ can be ``true'' to get a ``true'' result.
+
+\end{enumerate}
+
+By connecting inputs $B$ and $C$ to both an OR gate and an AND gate, we can capture these conditions more efficiently. Let's write out the logic:
+
+\begin{enumerate}
+\item If ($B$ AND $C$) is true, A does not matter---the result is ``true'' regardless of the value of A (this implies that we can use an OR gate to give a result of true if ($B$ AND $C$) is true.
+
+\item If ($B$ OR $C$) is true, AND A is true, the result is also ``true''
+\end{enumerate}
+
+So now it should be clear that by connecting B and C to both an AND gate and an OR gate, we can capture condition (1) with an AND gate; and condition (2) with an OR gate that feeds into an input of an AND gate, with the other input tied to A. 
+Each result connects to a second OR gate that gives the result value.
+In this way, we can solve the question with two AND gates and two OR gates, reducing our need for one AND gate! 
+Not the most exciting game, true, but it's the same sort of puzzle as Sudoku.
+
+\begin{figure}[hb!]
+\begin{center}
+
+\input{./include/majority_logic_2.tex}
+
+\caption{A majority detection circuit using only two AND gates and two OR gates.}
+
+\end{center}
+\end{figure}
+
+% \end{document}
