@@ -1,0 +1,45 @@
+\section{Higher Order Exponents}
+
+You can multiply a number times itself as many times as you want. Understanding a little more about exponents (the number of times you multiply a number times itself) will make understanding the language we use to discuss computers quite a bit easier. Just as we mention kilobytes and megabytes as units of storage, there are also less common units of storage that invent new multiplier terms for bits and bytes, because of the ``powers of 2.'' So let's learn about base-2 exponents-- the ``powers of two".
+
+\bigskip
+\newcommand{\expline}[2]{
+$2^{#1}$ & = & #2 
+}
+
+\begin{footnotesize}
+\begin{tabular}{l c l p{3.5in} }
+
+\multicolumn{3}{c}{\textbf{Powers of Two}} & \textbf{Notes} \\ 
+\hline\\[\negsep]
+
+\expline{0}{1}& This one is strange, sort of. But it works! Any number ``to the zeroth power" is equal to 1. See below for more. \\
+\expline{1}{2} \\
+\expline{2}{4} \\
+\expline{3}{8} \\
+\expline{4}{16} & Since $2^2 = 4$, $2^2 \times 2^2 = 16 $   \\
+\expline{5}{32} &  This is why you can count to 31 on one hand. \\
+\expline{6}{64} \\
+\expline{7}{128} \\
+\expline{8}{256} & 8-bit computers were the first machines really adopted by consumers. Also, 8 bits makes up one \emph{byte} of computer memory, so each byte can take on up to 256 values. \\ 
+\expline{9}{512} \\
+\expline{10}{1,024} & 1,000 usually gets the prefix \emph{kilo-}, like a kilogram is 1000 grams. A \emph{kilobyte} is 1024 bytes.\\
+\expline{16}{65,536} \\
+\expline{20}{1,048,576} & $2^{10}$ bytes is a kilobyte; ($2^{10} \times 2^{10}$) bytes is a \emph{megabyte}.\\
+\expline{24}{16,777,216} & Most computer displays can show up to 16 million colors, using red, green, and blue, all in combination. Each piece of the color can have 256 ($2^8$) levels, from zero (black) to 255 (100\% red, or green, or blue)\\
+\expline{30}{1,073,741,824} & $2^{30}$ bytes is a \emph{gibibyte}, or a bit more than a \emph{gigabyte}, which is 1000 megabytes. \\
+\expline{32}{4,294,967,296} \\ 
+\expline{40}{1,099,511,627,776} & $2^{40}$ bytes is a \emph{tebibyte}, or a few percent more than 1000 gigabytes -- a \emph{terabyte.} \\
+\expline{50}{1,125,899,906,842,624} & $2^{50}$ bytes is \emph{pebibyte}. A petabyte is so large that one pebibyte is enough to store the DNA of the entire population of the USA\ldots{}and then clone them, \emph{twice.} \\[\sep]
+\hline
+\end{tabular}
+
+\end{footnotesize}
+% $10^2 & = & 100 & \\
+%$10^3 & = & 1000 & \\
+%$10^4 & = & 10000 & \\
+
+\vfill
+
+\stbox{6.0in}{\emph{Explanation:} The reason that any number to the zeroth power is equal to one comes from the way we subtract exponents when dividing. You know that 8 divided by 4 equals 2; written another way, $2^3 \div 2^2 = 2^1$. Notice that the exponents change by subtraction, but the equation is the same! You can \emph{divide} base-exponent numbers by \emph{subtracting} the exponents (\emph{extra-special historical trivia: this is how slide rules work}; see Figure \ref{fig:sliderule} for a picture). And since any number divided by itself equals one, as in $2^3 \div 2^3 = 1 $, subtracting the exponents gives $2^0$.}
+

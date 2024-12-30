@@ -1,0 +1,131 @@
+
+\section{Negative Numbers and Subtraction}
+%
+%If we had told the computer that it was using \emph{signed} numbers, it would count upwards from -32,768, and the first column would be a one, to indicate it was negative, with the rest of them zeros. That is, the format for storing negative numbers subtracts 32,768 from 0 -- the range is still the same (65,536 numbers), but the starting point is different. 
+
+\subsection*{Numbers Below Zero?}
+
+Representing \emph{positive} numbers is easy for a computer: it counts upwards from zero. Representing \emph{negative} numbers is harder, because \emph{taking away values by adding them} is a little awkward. To represent a negative, designers use the leading (left-most) bit to declare ``positive'' (zero) or ``negative'' (one). Note that the \emph{range} of numbers that can be represented does not change -- for a 4-digit binary number, whether counting from zero to 15, or from -8 to 7, the total space used on the number line is still 16 numbers, in order.
+
+\stbox{6.0in}{
+\emph{Problem:} If the computer doesn't know it is supposed to use that first number to determine whether a number is negative or not, how does it evaluate the number?
+}
+
+\subsection*{Complement of a Number}
+
+In mathematics, the \emph{complement} of a binary number is ``the value obtained by inverting all the bits in the binary representation of the number (swapping 0s for 1s and vice versa)." This number is called the \emph{ones' complement} of the number.\footnote{{\color{webblue}\href{https://en.wikipedia.org/wiki/Ones\%27_complement}{Wikipedia page on Ones' Complement.}}}
+
+
+Here's an example:
+
+\bigskip
+
+\begin{tabular} {c c c}
+ Number &  $+$   &   $-$ \\[\sep]
+ \hline\\[\negsep]
+ 0  &  0000 &  1111  \\ 
+\grr
+ 1  & 0001  & 1110  \\
+ 2  & 0010  & 1101\\
+\grr
+ 3  & 0011  & 1100\\
+ 4  & 0100  & 1011\\
+\grr
+ 5  & 0101  & 1010\\
+ 6  & 0110  & 1001\\
+\grr
+ 7  & 0111  & 1000\\
+ \hline
+
+\end{tabular}
+
+\subsection*{Subtraction}
+
+Subtraction is similar to addition -- very similar, since the process is ``adding a negative number". To this point, we haven't seen negative numbers, because numbers below zero are harder to create or see, compared to numbers between zero and 15, or some other positive number. To get a negative number, computer scientists decided to create a pattern for describing negative numbers, that computers can correctly interpret. They decided to use the first bit (1 or 0, just a ``yes'' or ``no'' indicator) of the number as the \emph{sign bit}: that is, if the first bit, in a ``signed integer", is 1, then the number is a negative number. So if we have a four bit number, and the first bit is only for the ``is this number negative'' indicator, the number represents numbers in the range $[-7,8]$ -- still 16 values, but counting from $-7$ instead of zero. Also note that if you don't tell the computer the number is signed, it will happily assume the number is \emph{unsigned} and give you the wrong answer\footnote{Well, really, it will give you the \emph{right} answer to a question that is different from the question you thought you were asking!}.
+
+To subtract, we first create the \emph{two's complement} of the number we are subtracting (the ``subtrahend"). We leave the number from which we are subtracting (the ``minuend") alone.
+
+Two's complement works like this: you take the \emph{complement} of the number, and add one. \emph{Complement} means you swap all the zeroes for ones, and all the ones for zeroes. Put another way, you run each bit through a NOT gate, then add a one to the result, using a set of full adders.
+
+Let's take the two's complement of 7.
+
+\begin{verbatim}
+       0111      7
+
+       1000           ones' complement of 7
+       0001           add one to get two's complement of 7
+===========   ====
+       1001     -8 + 1 = -7 
+
+\end{verbatim}
+
+So here's a simple example of subtraction:
+
+\begin{verbatim}
+       0110      6
+-      0011      3
+===========   ====
+
+       1100           ones' complement of 3
+       0001           add one to get two's complement
+===========	   
+       1101           (-8 + 1 + 0 + 4) = -3 ... good. Now we can add:
+
+
+       0110      6
++      1101     -3
+===========   ====
+       0011      3      (see how the sign bit was converted to positive?)
+                        (the overflowed bit doesn't matter in this case)
+
+\end{verbatim}
+
+\newpage
+And here's a slightly more interesting one, with 8 bit numbers:
+
+\begin{verbatim}
+  0000 0110      6
+- 0001 0011     19
+===========   ====
+
+  0001 0011     19
+  
+  1110 1100             ones' complement
+  0000 0001             add one
+===========   ====
+  1110 1101     (-128 + 64 + 32 + 0 + 8 + 4 + 0 + 1) = -19
+
+
+  0000 0110      6
++ 1110 1101    -19
+===========   ====
+  1111 0011    -13   (-128 + 64 + 32 + 16 + 0 + 0 + 2 + 1) = BOOM! 
+  
+\end{verbatim}
+
+Designing logic circuits for subtraction using the twos' complement is surprisingly elegant. Let's review what happens to execute a twos' complement subtraction operation:
+
+\bi
+\+ Get the ones' complement of the subtrahend (invert each bit with a NOT function)
+\+ Add 1
+\+ Add the resulting value to the minuend
+\ei
+
+Building a flexible subtraction logic circuit depends on two features of our existing gates: first, that full adders can accept an incoming ``carry'' bit; and second, that XOR gates can be used as NOT gates by tying one of the inputs to positive voltage. Therefore, the logic circuit works like this:
+
+\bi
+\+ Pass each bit of the subtrahend through XOR gates with one of the inputs pulled up to positive voltage level; this takes the ones' complement of the number
+\+ The result passes into one side of the full adder line we use for adding numbers
+\+ Set the carry bit on the right-most full adder (i.e. the zero or 1 register) to high -- \emph{this action adds 1 to the incoming number}
+\ei
+
+The result of the line of adders is the answer to the subtraction question.
+ 
+\begin{figure}[ht!]
+\begin{center}
+
+\input{./include/real_subtraction_circuit.tex}
+
+\caption{How addition and subtraction gets implemented with logic gates to either subtract {\color{red}$A$}, a four digit binary number (something like \texttt{0010}, or ``2"), from {\color{blue}$B$} (perhaps \texttt{1000}, or ``8''), or add the two numbers instead. Each pair of bits goes into a full adder (the trapezoid-shaped symbol). To use subtraction, the M-line is held to a positive voltage, effectively turning the $XOR$ gate into a $NOT$ gate.}
+\end{center}
+\end{figure}

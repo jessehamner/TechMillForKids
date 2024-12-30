@@ -1,0 +1,62 @@
+\section{Memory}
+%---------------------------
+
+Logic circuits need to store the numbers they are working with in order to do more than one thing. Central Processing Units (CPUs), Arithmetic Logic Units (ALUs) or Floating-Point Units (FPUs) each work with numbers, and need to fetch them from somewhere and put them somewhere when they are done. The ``somewhere" is \emph{memory}. Keeping with the use of binary math and binary logic, a high voltage would be a 1 and a low voltage would be a 0. Through the use of these little stored charges, computers can keep track of many, many pieces of information. No matter what the circuits are doing, everything being stored is composed of some count of zeros and ones. 
+
+There have been \emph{many} forms of memory through the years, including punched paper cards, and even a wiggly wire! The most common memory that a CPU uses these days is usually called ``dynamic RAM" (DRAM), and each bit consists of a circuit that is primarily a single capacitor and a single transistor, though it requires supporting circuitry and cannot be read without erasing the memory cell. Computers read eight, sixteen, 32, or 64 bits at a time from a row of memory and pass the information (numbers or instruction codes) from the memory on to be processed by the CPU.
+
+One type of computer memory, called \emph{static RAM}, uses at least six transistors per bit. Since  DRAM is simpler (it uses only one transistor and one capacitor per bit), it is also cheaper. Therefore, to store one bit with 6 or more transistors is more expensive. So SRAM is mostly used for very important memory, like the memory very close to the core of the computer processor. Have a look at Figure \ref{fig:sram}\footnote{Diagram and supporting information adapted from {\color{webblue}\href{https://en.wikipedia.org/wiki/Static_random-access_memory}{Wikipedia}} and {\color{webblue}\href{https://www.entner.net/sites/default/files/diss-entner-final-v1.pdf}{Robert Entner's dissertation}}.}, 
+which is pretty complicated, but if you understand how the two types of transistors are turned on and off, it will make sense. To keep this diagram simple, no resistors are shown. If you look closely at the $Q_1$/$Q_2$ and $Q_3$/$Q_4$ transistors, you can see that they are acting like inverters (that is, each pair makes a NOT gate). When WL (the ``word line") goes high, $Q_5$ and $Q_6$ open up, allowing access to the single bit stored in $BL$ and the inverse of that bit in $\overline{BL}$. Whether the word line is active (that is, whether or not you can write to the memory bit), it is possible to read the value of the bit--making SRAM very fast, because the system does not wait on the word line to activate.
+
+
+\begin{figure}[h!]
+\begin{center}
+\input{./include/sramcell.tex}
+\caption{A static ram cell. The bit line ($BL$) on the right is the value of the bit, and the bit line on the left ($\low{BL}$) is the complement (NOT) the value of that bit.} % With a bit of careful circuitry, it is possible to write using only one of the bit lines, but it is safer to have two inputs (one positive, and one complement) to ensure the gates both change and lock in the value of the bit.  
+\label{fig:sram}
+\end{center}
+\end{figure}
+
+SRAM uses 6 transistors per bit, making it very expensive compared to dynamic RAM, 
+but each bit of SRAM can stand alone, with no other supporting circuitry except 
+for the word line transistors. So, we use SRAM here because you can see the 
+circuit, and see how it works. As a bonus, you can construct a bit of SRAM with 
+opposing NOT gates, making it fairly easy to see what is happening.
+
+\begin{figure}
+  \begin{center}
+  \input{./include/JK-flip-flop.tex}
+  \caption{A gate-level schematic of one bit of memory, using a JK flip-flop circuit. Note that the two left-most NAND gates have \emph{three} inputs.}
+  \end{center}
+\end{figure}
+
+% JK flip-flop: 
+% Flip-flop storage using NOR gates is better than my previous attempt using NOT gates. 
+% I had trouble with the word/line controller circuit resistor values for positive 
+% clearing and setting of the gate states. 
+
+We are going to implement some RAM using a {\color{webblue}\href{https://www.electronics-tutorials.ws/sequential/seq_2.html}{\emph{flip-flop}}} circuit, made of NAND gates.
+It uses even more transistors than the SRAM circuit, but it is simpler to create and uses logic gates with which you are already familiar. This ``JK Flip-Flop" circuit uses
+two input NAND gates and also \emph{three}-input NAND gates. 3-input NAND operates mostly
+the same way as a regular NAND gate, except that the inputs also include the value of the 
+Q and not-Q output (value) lines. 
+These lines are required before the output state (value) of the gate will change. And so is a ``clock" signal line. By using a signal that turns on or turns off everywhere at once, the computer memory can be more reliable. The clock line ticks on and off like the second hand of a clock, allowing the computer to read or write to the memory without wondering if the values are changing.
+So, the set- and reset- functions for the memory cell
+only activate when the clock signal is also high (has positive voltage on the line).
+This extra feature allows for certainty of reads and writes: it helps
+avoid rapid oscillation / instability or lock-ups should a circuit (or a third
+grader!) try to both set and reset the
+flip-flop at the same time. Furthermore, when powering up a simple SR flip-flop,
+there is no inherent guarantee of what the value would be (of course, it's
+possible to put a pull-up or pull-down resistor on the signal lines to create
+a natural ``base level'' of a set of inputs, though care must be taken to 
+not accidentally create incompatible base conditions (such as accidentally setting
+both set and reset to high).
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.10]{twoflipflops.jpg}
+  \caption{Two bits of data storage, using JK flip-flop gates.}
+  \end{center}
+\end{figure}
+

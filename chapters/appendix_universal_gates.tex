@@ -1,0 +1,11 @@
+\section{Why NAND Gates and NOR Gates are ``Universal"}
+%---------------------------
+
+It turns out that it is possible to make \emph{any} gate from NAND gates. The same is true for NOR gates. A very simple example can be seen, where we can create an OR gate from two NOR gates. 
+
+\input{./include/nor-to-or-gate.tex}
+
+
+\input{./include/3-input-nand.tex}
+
+Just because these gates are universal doesn't make them an efficient use of transistors. NOT gates use two transistors, so that will always be simpler to implement than using a NAND or a NOR gate (four transistors each) to create one. But the universal nature of NAND and NOR gates makes them very flexible and useful if you are missing an XOR gate or something: you know you can make one in a pinch with enough NAND or NOR gates.
