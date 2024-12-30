@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools}
+\usepackage{amsthm,amssymb}
+\usepackage{verbatim,comment,xcolor,graphicx,hyperref}
+%\usepackage[papersize={4.5in, 6.2in}, width=4.13in, height=5.83in, vcentering, centering]{geometry} % Kindle-size pages
+\usepackage[left=1.0in,right=1.0in,top=1.0in,bottom=1.0in]{geometry} % never use the anysize package!
+\usepackage{mathpazo}
+
+\newcommand{\degs}[1]{\textsuperscript{$\circ$}#1}
+\definecolor{footlineblue}{rgb}{0.392,0.706,0.941}
+
+\parskip=12pt
+\parindent=0pt
+
+\input{../macros.tex}
+\graphicspath{{../images/}}
+
+\begin{document}
+
+\thispagestyle{empty}
+\date{}
+\title{Discrete Logic Gates Guide}
+\author{Jesse Hamner}
+
+
+\maketitle
+
+\begin{abstract}
+This guide contains the parts lists and schematics for each of the logic gates included in the repository. All fundamental logic gates are included, as are several more complex gates. These gates are in no way designed to be efficient or cost-effective; they are intended as functional, educational-only components. Some of the boards require surface-mount components, to reduce cost and size, but none of the discrete logic gates do. That is, some of the infrastructure pieces, and ``move things along more smoothly'' pieces, require SMD soldering, but workarounds for these units exist, using through-hole components and a solderless breadboard (see text for more). The bills of materials (BOMs) were created with cost in mind, but very few through-hole P-type MOSFETs are available, and they cost over USD\$0.30 apiece, as of this writing. The N-type MOSFETs are much cheaper, but the costs can add up quickly if you are building XOR gates. Especially because of the cost of through-hole P-type MOSFETS, some components will be SMD-only until demand rises for through-hole solderable versions.\\
+~\\
+\textbf{Keywords:} STEM; education; electronics; elementary education; soldering.
+
+\end{abstract}
+
+\begin{center}
+\fbox{
+\includegraphics[scale=0.09, clip=true, trim = 100 200 500 0]{soldering2.jpg}
+}
+
+A second grader soldering through-hole headers and components.
+\end{center}
+\clearpage 
+
+~
+\vfill
+
+\begin{center}
+\includegraphics[scale=1.0]{by-nc-nd.png}
+
+This work is licensed under a {\color{webblue}\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.}}
+% Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+\end{center}
+
+
+\newpage
+
+
+\section{OR Gate} Making an OR gate is almost trivially easy -- you can even make it without 
+transistors. The simplest OR gate is two inputs, each into a diode, and the diodes tied together 
+as an output. It's not a very good OR gate, but it works. 
+Transistor-transistor logic (TTL) OR gates are more recognizable, but BJT transistors need a 
+significant amount of resistance on the gate and the output to drag the voltage low enough to 
+count as a zero. Typically, a CMOS OR gate is a NOR gate coupled with a NOT gate, since both 
+of these gates can be made with CMOS circuits and therefore save energy and reduce heat.
+
+
+
+\section{AND Gate}
+
+Two versions exist: MOSFET and TTL. Similar to the OR gate, CMOS AND gates are usually NAND and NOT gates on the output.
+The TTL version is only for demonstration. 
+
+\section{NOT Gate}
+
+The NOT, NOR, and NAND gates all use {\color{webblue}\href{https://en.wikipedia.org/wiki/CMOS}{Complementary Metal Oxide Semiconductor}} (CMOS) construction, because of the low power consumption and clarity of output voltages. The NOT gate, in particular, is very elegant in CMOS construction: when the input line is low (logic 0), the P-type transistor is open and the N-type transistor is closed, meaning all voltage is available via the P-type FET, cannot flow to ground because the N-type FET is blocked off, and so goes to the output. The reverse (the \emph{complement}) happens when the input line is high (logic 1): the P-type gate is closed, and the N-type gate is open, preventing the flow of current from the voltage input, and exposing ground voltage (zero volts) to the output.
+
+\begin{center}
+\input{../include/NOTgateBOM.tex }
+\end{center}
+
+\section{NOR Gate}
+
+CMOS
+
+\section{NAND Gate}
+
+CMOS
+
+\section{XOR Gate}
+
+While it is possible to make an XOR gate with less than 12 transistors, this version uses 12, because it becomes possible to see the individual gates in the schematic and even the board layout. This board also uses CMOS topology, which improves its speed and output response.
+
+\begin{figure}[!hb]
+\begin{center}
+\fbox{
+\includegraphics[scale=0.20]{xorgatelayout.png}
+}
+\medskip
+\caption{A 12-transistor eXclusive-OR (XOR) gate. This design uses complementary transistors (CMOS).}
+\label{fig:xor1}
+\end{center}
+\end{figure}
+
+
+\section{Full Adder}
+
+Uses SMD components, with one logic gate per IC. While it is possible to get full adders on a single chip, these boards maintain the relative ease of ``following the electrons" from gate to gate, without the cost or size requirements to achieve 4 or more full adders with discrete transistors. Participants would be well-served to make at least one full adder from discrete-component gates, just to prove that it works to themselves, but perhaps use these full adder boards to make the ``calculator.''
+
+The added difficulty of SMD soldering is obvious, and including the SMD design reflects a space- and cost-conscious approach, rather than the expectation that all novices should be able to solder surface-mount components. These are not the easiest to surface mount, but the author has had success hand-soldering 0603 and even 0402-sized components without a microscope, so with practice, the larger 0805 and SOT-23 pattern components are not a challenge.
+
+\section{Toggle Switch Board}
+
+a bank of 4 toggle switches, with LED indicators built in. This design requires SMD soldering, but can be duplicated without much pain on a breadboard. Furthermore, the LED indication can be omitted with no loss of functionality. In other words, while it is easier to solder the SMD components first, it is at least possible to solder them after installing the switches. These designs include some ``nice-to-haves" like  capacitors on the data inputs and power supply. Especially in winter, stray capacitance can create some odd effects, so these extra components provide a measure of reliability and help ensure sane behavior of the circuits.
+
+\input{../include/4toggleboardBOM.tex}
+
+\section{8-LED Indicator}
+
+Again, this indicator bank uses surface mount components, primarily to economize on cost of transistors and PCBs. It is very easy to rig up many LED indicators on a solderless breadboard, should SMD soldering be daunting to the end-users. However, as above, hand-soldering these components is not unreasonably hard. This board is available here because of its general usefulness, and because it appears in some document figures. Admittedly, these boards are best soldered in a reflow oven, using solder paste and a solder stencil. See Figure \ref{fig:smds} as evidence a 9-year-old can do that with some care and patience.
+
+\begin{figure}[!hb]
+\begin{center}
+\fbox{
+\includegraphics[scale=0.08]{placingSMDs.jpg}
+}
+\medskip
+\caption{An elementary school student placing 0805 and SOT-23 components on to a PCB with solder paste already applied through a metal stencil. The solder paste helps hold components in place until they are soldered in a reflow oven. Reflow ovens can be obtained as cheaply as USD 200.}
+\label{fig:smds}
+\end{center}
+\end{figure}
+
+\input{../include/8LEDBOM.tex}
+
+
+
+\end{document}
