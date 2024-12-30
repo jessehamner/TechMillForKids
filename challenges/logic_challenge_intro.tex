@@ -1,0 +1,22 @@
+
+
+\section*{Introduction}
+
+This section contains some logic puzzles that help you cement your understanding of how using gates together can check inputs and provide outputs according to the questions you specify. The challenges start with simple examples and move to more challenging questions. Every puzzle has an answer provided in the answer key.
+
+Each puzzle's objective is to solve the question asked, using as few gates as possible. There are many possible solutions, but the solutions focus on one straightforward answer, and sometimes a more clever answer where it exists. All puzzles have similar rules.
+
+\begin{itemize}
+\item The solution must only use OR gates, AND gates, and NOT gates
+\item There must be a single output to check for the result (that is, you can't ask the user to check three separate AND gates to see if $AB$, $AC$, or $BC$ are ``true'')
+\end{itemize}
+
+Some other parameters:
+\begin{itemize}
+\item You can connect signals to more than one gate at a time if you want to
+\item You can connect inputs to each other if it helps
+\item You may not have to build a circuit to handle every case
+\end{itemize}
+
+Your first move should be to understand the potential combinations of inputs and how to test them. Don't think about testing all of them at once. Start small. There may not be more than one thing to test, but if you need to, figure out the smallest test that helps you out, and then move on to the next one. You may have to figure out how the results of some tests must be compared: you may need to add AND, NOT, and OR comparisons to some of the results of individual tests.
+
