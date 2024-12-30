@@ -1,0 +1,15 @@
+\vfill
+
+\subsubsection*{Answer}
+
+This challenge asks you to make an XOR gate. Use the solution from Puzzle 1, twice, swapping the NOT gate in one of the ($A$ AND NOT $B$) or ($B$ AND NOT $A$) blocks. Then take the result from each block and merge the result with an OR gate.
+
+\begin{figure}[hb!]
+\begin{center}
+
+\input{../include/xorcomposited.tex}
+
+\caption{Using discrete gates to make an XOR gate. One pair of NOT and AND gates solves for ($A$ AND NOT $B$), while the other pair solves for ($B$ AND NOT $A$). The OR gate returns true if either condition is true.}
+
+\end{center}
+\end{figure}

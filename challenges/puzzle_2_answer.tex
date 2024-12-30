@@ -1,0 +1,22 @@
+\vfill 
+
+\subsubsection*{Answer}
+
+Since there are two \emph{required} conditions, an OR gate won't help us. 
+AND gates check if both inputs are equal to 1, but an AND gate will only be useful if it can check if B is 0. 
+Another way to express the puzzle is ``A AND NOT B''. 
+Because a NOT gate will convert B from ``off'' to ``on'', then the AND gate will work as we want it to.
+
+The solution is the same for the reverse (check for $B=1$ and $A=0$), provided the NOT gate converts the A input instead of the B input.
+
+
+\begin{figure}[hb!]
+\begin{center}
+
+\input{../include/a_and_not_b_circuit.tex}
+
+\caption{Using discrete gates to test for $A$ AND NOT $B$.}
+
+\end{center}
+\end{figure}
+

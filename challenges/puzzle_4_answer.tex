@@ -1,0 +1,60 @@
+\vfill
+
+\subsubsection*{Answer 1}
+
+How can we build a logic circuit to produce this result? Let's start with the example we started above. If we use an AND gate for each of the three combinations of inputs that could produce a result of ``true'', we can then put each of the results into an OR gate, because the output of any AND gate tells us that we should produce a result of ``yes''. We have three outputs, and to this point we haven't discovered that there are three-input gates (heh) so we must use two OR gates to capture all three possible ``majority yes'' voting conditions.
+
+Follow the logic and see if you can convince yourself that the logic is correct.
+
+
+\begin{figure}[hb!]
+\begin{center}
+\input{../include/majority_logic_1.tex}
+
+\caption{A majority detection circuit using three AND gates and two OR gates. Testing specifically for all three inputs being true can be ignored because the circuit only needs to check for a majority of the inputs.}
+
+\end{center}
+\end{figure}
+
+\clearpage
+
+\subsubsection*{Answer 2}
+
+A majority of the inputs would be 2 out of 3 or 3 out of 3. That is, the sum of the all three values must be 2 or 3. We could also use a full adder circuit and check the output of the carry bit to see if the resulting sum is at least 2. This answer is appealing because the full adder is such a fundamental building block of electronic logic, but it uses a comparatively large number of gates, and so it isn't a great answer to the question.
+
+
+
+\subsubsection*{Answer 3}
+But might there be a more efficient way to do this? That is, could we get by with fewer than three AND and two OR gates?\footnote{Would I even ask this question if the answer was ``no''?}
+
+We can be clever and produce a slightly less straightforward-looking circuit that still accomplishes our goal, but uses fewer resources to get the correct answer. The goal is the same -- figure out if any two of the inputs are ``yes''. 
+
+\begin{enumerate}
+\item If ($B$ AND $C$) is true, $A$ does not matter -- the result is ``true''
+
+\item If $A$ is ``true'', either $B$ OR $C$ can be ``true'' to get a ``true'' result.
+
+\end{enumerate}
+
+By connecting inputs $B$ and $C$ to both an OR gate and an AND gate, we can capture these conditions more efficiently. Let's write out the logic:
+
+\begin{enumerate}
+\item If ($B$ AND $C$) is true, A does not matter---the result is ``true'' regardless of the value of A (this implies that we can use an OR gate to give a result of true if ($B$ AND $C$) is true.
+
+\item If ($B$ OR $C$) is true, AND A is true, the result is also ``true''
+\end{enumerate}
+
+So now it should be clear that by connecting B and C to both an AND gate and an OR gate, we can capture condition (1) with an AND gate; and condition (2) with an OR gate that feeds into an input of an AND gate, with the other input tied to A. 
+Each result connects to a second OR gate that gives the result value.
+In this way, we can solve the question with two AND gates and two OR gates, reducing our need for one AND gate! 
+Not the most exciting game, true, but it's the same sort of puzzle as Sudoku.
+
+\begin{figure}[hb!]
+\begin{center}
+
+\input{../include/majority_logic_2.tex}
+
+\caption{A majority detection circuit using only two AND gates and two OR gates.}
+
+\end{center}
+\end{figure}
