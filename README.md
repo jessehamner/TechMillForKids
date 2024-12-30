@@ -50,8 +50,10 @@ workshop. The workshop now includes, in addition to the main document:
 - some puzzles (with an answer key!) to challenge them after they get through
 learning about logic circuits,
 - some new proto-chapters in the appendix, in hopes that the content there will be useful for reference, or for
-new material for the workshop.
+new material for the workshop,
+- A guide to the logic gate PCBs, including some assembly and parts info (see the `boards` directory).
 
+See also "Next Steps", below, for more about the soldering tutorial and some other pieces.
 
 ## What You Can Do
 
@@ -79,7 +81,7 @@ I've produced some simple logic gate PCBs for discrete components<a name="myfoot
 </p>
 
 The next hardware widget will be a JK flip-flop gate, to provide some memory to write to and from which to read.
-The only new component it needs is a three-input NAND gate, and that component has been designed and tested too.
+The circuit requires a three-input NAND gate, and I have designed and tested that component.
 
 As an added bonus, the kids can learn to solder (I've got a [separate tutorial](https://github.com/jessehamner/TechMillForKids/tree/master/soldering) in this repository for that, and a slightly more challenging [Atari Punk Console soldering project repository](https://github.com/jessehamner/AtariPunkConsole) as well) and can make their own gates, since I use entirely through-hole components for the workshop PCBs. 
 
@@ -97,7 +99,7 @@ Participants can solder the gates if they want to, but the workshop should provi
 * [Turing Tumble](https://www.turingtumble.com/)
 * [Ben Eater's YouTube series](https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU)
 
-Jesse Hamner, 2016-2021 :rocket:
+Jesse Hamner, 2016-2024 :rocket:
 
 ---
 
