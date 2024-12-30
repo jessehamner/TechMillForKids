@@ -1,6 +1,15 @@
 % tikz stuff and other macros
 % Jesse Hamner
-% 2013--2021
+% 2013--2024
+
+\usepackage{tabularx}
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+
 
 % make a few color defs:
 \definecolor{rltbrightred}{rgb}{1,0,0}
@@ -307,4 +316,49 @@
     ;
     
   \end{scope}
+}
+
+
+
+% Half Adder Symbol:
+\newcommand{\halfadder}{
+\begin{tikzpicture}
+
+\draw [very thick] (0,0) -- (1.25,0) -- (1.25,2) -- (0,2) -- cycle;
+\draw [thick] (-1,0.5) -- (0,0.5);
+\draw [thick] (-1,1.5) -- (0,1.5);
+\draw [thick] (1.25,0.5) -- (2.25,0.5);
+\draw [thick] (1.25,1.5) -- (2.25,1.5);
+
+\node[xshift=-10mm, yshift=20mm, anchor= north west] {$A$};
+\node[xshift=-10mm, yshift=10mm, anchor= north west] {$B$};
+\node[xshift=6mm, yshift=18mm, anchor= north west] {$\Sigma$};
+\node[xshift=6mm, yshift=8mm, anchor= north west] {$C$};
+
+\end{tikzpicture}
+}
+
+
+% Full Adder Symbol:
+\newcommand{\fulladder}{
+\begin{tikzpicture}
+
+\draw [very thick] (0,0) -- (2.5,0) -- (2.5,2) -- (0,2) -- cycle;
+\draw [thick] (-1,0.15) -- (0,0.15);
+\draw [thick] (-1,1.0) -- (0,1.0);
+\draw [thick] (-1,1.75) -- (0,1.75);
+
+\draw [thick] (2.5,0.5) -- (3.5,0.5);
+\draw [thick] (2.5,1.5) -- (3.5,1.5);
+
+\node[xshift=-10mm, yshift=23mm, anchor= north west] {$A$};
+\node[xshift=-10mm, yshift=15mm, anchor= north west] {$B$};
+\node[xshift=-10mm, yshift=7mm, anchor= north west] {$C_{in}$};
+
+\node[xshift=19mm, yshift=18mm, anchor= north west] {$\Sigma$};
+\node[xshift=15mm, yshift=8mm, anchor= north west] {$C_{out}$};
+\node[xshift=1.5mm, yshift=16mm, anchor= north west] {Full};
+\node[xshift=1.5mm, yshift=11mm, anchor= north west] {Adder};
+
+\end{tikzpicture}
 }
