@@ -1,0 +1,56 @@
+\section{Logic Gates}
+
+The basic building blocks of computers are called \emph{gates}. Their only function is to report, with some yes-or-no electrical output, the result of their circuit following some input from somewhere else in the circuit. The way to understand how gates make decisions is called ``Boolean Algebra", but really it's a fairly simple set of decisions that get strung together in useful ways. The circuits are called gates because they either let electricity pass or prevent electricity from passing through, like a gate allows physical movement or prevents it.
+
+\subsection*{Boolean Logic}
+
+Boolean logic is the sort of decision making and answers that computers use. You can use it too, of course, and it will help you learn to program computers. The answer to every question in Boolean logic is either ``yes'' or ``no'' -- ``true'' or ``false''. In computers, that's a one or a zero, of course.   Every operation (decision) is composed of a set of operations: \emph{and}, \emph{or}, and \emph{not}. A British man named George Boole introduced these ideas to the world in 1847\footnote{
+\emph{The Mathematical Analysis of Logic} (1847), and \emph{An Investigation of the Laws of Thought} (1854). For more, see his {\color{webblue}\href{https://en.wikipedia.org/wiki/George_Boole}{Wikipedia entry}}.}. He did not realize he was laying the foundations for computing, but 90 years later another very important mathematician, Claude Shannon, understood that Boole's system for understanding decisions could be used to design electronic circuits\footnote{Shannon, Claude E. 1938. ``A Symbolic Analysis of Relay and Switching Circuits". \emph{Trans. AIEE.} 57 (12): 713--723.}.
+
+It may be helpful to see some of the logic and operations (decisions) made in a graphical form, looking at the overlap between circles, or between a circle and its surrounding area. Here, the shaded area shows the part of the relationship that is ``true'' for the given operation. That is, the region that is {\sc{not}} A, in the third diagram, is shaded.
+
+% Draw Venn diagrams to graphically demonstrate OR, AND, and NOT.
+\begin{figure}[!ht]
+\begin{center}
+\begin{minipage}{6in}
+\input{./include/vennand.tex}
+\caption{A graphic representing {\sc{and}}, {\sc{or}}, and {\sc{not}} with overlapping circles. The shaded area represents the location where the Boolean operation is ``true''.}
+\label{fig:vennlogic}
+\end{minipage}
+\end{center}
+\end{figure}
+
+
+Also note: more complex decisions can be made by combining these operations: NOT $+$ AND, for instance).
+
+\input{./chapters/logic_gates_buffer.tex}
+\clearpage
+\newpage
+
+\input{./chapters/logic_gates_or.tex}
+\clearpage
+\newpage
+
+\input{./chapters/logic_gates_and.tex}
+\clearpage
+\newpage
+
+\input{./chapters/logic_gates_not.tex}
+\clearpage
+\newpage
+
+\section{Complex Logic Gates}
+
+Combining gates is possible to produce more complex circuits that answer different questions, like outputs that tell us if two inputs are ``NOT AND", ``NOT OR", or ``Exclusively OR". Each of these gates allows new comparisons between two inputs, but each is composed of the fundamental three gates, seen above. There is even an ``Exclusive NOT OR" gate, which is how computers compare two numbers and determine if they are equal.
+
+
+\input{./chapters/logic_gates_nand.tex}
+\clearpage
+\newpage
+
+\input{./chapters/logic_gates_nor.tex}
+\clearpage
+\newpage
+
+\input{./chapters/logic_gates_xor.tex}
+\clearpage
