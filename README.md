@@ -41,6 +41,18 @@ During [Open Data Day](https://www.opendenton.com/open-data-day), another friend
 
 I am perennially over-committed, and have little free time as it is, but this, like so many projects, did seem worthy and I did seem like the guy to do it. But: I want some feedback from some fellow nerds. If I'm doing something that seems useful, I want other people to know about it, and I value collaborative efforts. And since I don't have the time to run a summer workshop or anything like that, I am happy to post it on github so we can all work on it and share it, and so _somebody besides me_ can turn this into a successful "thing" if it looks like it's worth the trouble.
 
+## Workshop Pieces
+
+As the time permitted, I've been able to expand some of the content of the
+workshop. The workshop now includes, in addition to the main document:
+
+- An introductory letter for the participants to read (a separate printable PDF; the text is the same in the main document)
+- some puzzles (with an answer key!) to challenge them after they get through
+learning about logic circuits,
+- some new proto-chapters in the appendix, in hopes that the content there will be useful for reference, or for
+new material for the workshop.
+
+
 ## What You Can Do
 
 If you want to contribute, check the [Issues](../../issues) tab for existing needs. Further:
