@@ -1,0 +1,82 @@
+\subsection*{The NOT Gate}
+
+NOT gates, sometimes called \emph{inverters}, take one input and reverse the value of that input. So a 1 becomes a 0, or vice versa. Put another way, this gate creates the \emph{complement} of the input value. Notice that the symbol for a NOT gate, below, is the same as for the buffer, with a little bubble on the output. That bubble means ``opposite'' or ``NOT''. A buffer passes along the signal it is given; the NOT gate inverts the signal. So a 1 becomes 0, and a 0 becomes 1.
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for a NOT gate is:
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,-0.5)
+	node[american not port](notgate){}
+	(notgate.in) node [left](){{\color{red}$INPUT$}}
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+;
+\end{circuitikz}
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{l | c}
+\multicolumn{2}{c}{\textbf{NOT Gate }}\\
+\multicolumn{2}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{IN} & \textbf{OUT}\\
+\hline
+0 & 1 \\
+1 & 0  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
+
+A simple NOT circuit, using a very old resistor-transistor logic (RTL) design. It is easy to understand, though this example is not how NOT gates are actually implemented any more, because of the poor efficiency---wasted energy turns into heat, which then has to be cooled somehow. It is better to not make the heat in the first place.
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/simplenot.tex}
+\caption{A very simple NOT gate schematic. When IN is logic low (off), electricity cannot pass through to the ground, and so it is available at the OUT terminal---OUT is a 1. When IN is carrying current, the transistor opens up and electricity starts flowing to ground -- the ``path of least resistance''. As electricity flows to ground instead of OUT, OUT has a very low voltage available -- making it a zero.}
+\label{fig:simplenot}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/CMOSNOT.tex}
+
+\caption{A practical inverter (NOT) circuit. While more complicated than a simple NOT circuit, it is more efficient, wasting much less energy. It uses one P-type and one N-type \emph{field effect transistor} (FET). P-type transistors clamp off electricity when their gate \emph{has} voltage on it. N-type transistors clamp off when their gate \emph{does not have} voltage on it. So, here, when the input is high, the top transistor clamps off voltage input, and the bottom transistor opens up, allowing any current to flow to ground--but there's no current available! The situation reverses when the input is low: the top transistor opens up, allowing current to flow, and the bottom transistor clamps off, preventing current from going anywhere -- but putting a high signal at the output.}
+\label{fig:cmosnot}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.15]{trimmednotgate.png} % convert NOTgate.png -alpha off -trim  trimmednotgate.png
+\caption{A circuit board designed using the more elegant NOT gate schematic seen in Figure \ref{fig:cmosnot}. The NOT gate takes exactly one \emph{input}, A, and produces a \emph{result}, R.}
+\label{fig:notgateboard}
+\end{center}
+\end{figure}
+
+\begin{table}
+\input{./include/NOTgateBOM.tex}
+\caption{The list of components needed to make the NOT gate seen in Figures \ref{fig:cmosnot} and \ref{fig:notgateboard}.}
+
+\end{table}

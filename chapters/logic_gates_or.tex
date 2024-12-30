@@ -1,0 +1,87 @@
+\subsection*{The OR Gate}
+
+OR gates take two inputs and provide a ``yes'' if line 1 OR line 2 is equal to 1 -- that is, if either line has a voltage level above zero.
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+The symbol for an OR gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american or port](orgate){}
+	(orgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(orgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(orgate.out) node [right](){{\color{red}$OUT$}}
+;
+\end{circuitikz}
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{OR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 0  \\
+1 & 0 & 1  \\
+0 & 1 & 1  \\
+1 & 1 & 1  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+\hline\\[\negsep]
+\end{tabular}
+
+\end{center}
+\bigskip
+
+\noindent OR gates are very simple. They are so simple that transistors are not even needed, though they certainly can be used.
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/diodeorgate.tex}
+\caption{A very simple OR gate schematic. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal on Input A or on Input B, OUT will carry a voltage (and therefore, a ``1''). Diode \emph{propagation delay} (how much time the signal takes to cross through the diode) is slower than transistors, meaning transistorized circuits run faster.}
+\label{fig:diodeorgate}
+\end{center}
+\end{figure}
+
+\stbox{6.0in}{\emph{Experiment:} Wire up an OR gate on a breadboard, like the one seen in the cover image. Use LEDs as indicators for Input A, Input B, and OUT. Feel free to use diodes, but using transistors is pretty easy. It's best to use N-type transistors as switches for each LED and for the OR-output LED.}
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/npnorgate.tex}
+\caption{A simple transistor-based OR gate. Transistors are better than diodes in this application because transistors amplify (or at least do not degrade) signals, while diodes lose half a volt or more.  In this schematic, each transistor acts as an independent switch for the output -- either switch pushes OUT to high.}
+\label{fig:npnorgate}
+\end{center}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=1.25]{orgateschembetter.png}
+\caption{A schematic from a real circuit design program showing a practical, real implementation of the idealized schematic in Figure \ref{fig:npnorgate}. The wires connecting components are the green lines. Mostly there are more resistors to help keep the transistors behaving well. For instance, the 100K resistors make sure the transistors are always at a low logic level (zero volts) when the inputs are `off'.}
+\label{fig:orgateeagleschematic}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics[scale=0.25]{trimmedorgate.png}
+\caption{A circuit board designed using the above OR gate schematic. You can solder these without much trouble. You can see the top and bottom of the board here, but all components go on the top. However, both top and bottom have \emph{traces}, that carry electricity instead of using loose/floppy wires. The larger resistors are the lowest value (they're just there to make the transistors behave a little better): 100R means ``100 Ohms''. The smaller resistors are either 100,000 Ohms (that is, 100K Ohms) or 1,000 Ohms (1K Ohms). The OR gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
+\label{fig:orgatepcbs}
+\end{center}
+\end{figure}

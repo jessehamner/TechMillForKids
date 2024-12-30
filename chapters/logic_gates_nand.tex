@@ -1,0 +1,99 @@
+\subsection*{The NAND Gate}
+
+A ``NOT-AND", or ``NAND", gate just reverses the value obtained from an AND gate -- so it has the exact opposite truth table. Since a NAND gate just reverses the output of AND, one way to create a NAND gate is to put a NOT gate on the result (output) line of an AND gate and make a NAND gate, just like you were using Legos. The AND gate goes through the NOT gate, and becomes NOT-AND, or ``NAND".
+
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The NAND gate symbol is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american nand port](nandgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+See the circle on the output? That means ``\emph{not}".
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{NAND Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 1  \\
+1 & 0 & 1  \\
+0 & 1 & 1  \\
+1 & 1 & 0  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+
+You can think of a NAND gate as two separate gates (AND and NOT):
+\begin{center}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american and port](andgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	;
+	
+	\draw(1.5,0)
+	node[american not port](notgate){}
+	(andgate.out) |- (notgate.in)
+	;
+	
+	\draw(3,0)
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+	;
+
+\end{circuitikz}
+
+\end{center}
+
+\bigskip
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.16]{trimmednandgate.png}
+\caption{A circuit board designed to make a NAND gate using four transistors.}
+\label{fig:nandgate}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/cmosandgate.tex}
+\caption{A schematic of an AND gate, created using a NAND gate and a NOT gate. It turns out that usable and practical AND gates are not as easy to make as NAND gates and NOT gates. So, modern AND gates are made using a NOT-NAND logic. Since NOT-NOT-AND is the same as AND, it works.}
+\label{fig:cmosandgate}
+\end{center}
+\end{figure}

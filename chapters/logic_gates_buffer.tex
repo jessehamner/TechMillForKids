@@ -1,0 +1,44 @@
+\subsection*{The Buffer}
+
+The simplest gate is called a \emph{buffer}. It passes along the same signal it is given. While this does not allow any computation, these gates are commonly used to amplify weak signals, making the signal more usable to the rest of the circuit. They can also be used to make a signal more compatible with the rest of the circuit: perhaps the signal comes in as 12 volts, but every other part of the circuit uses 5 volts. 12 volts might even damage the circuit components. But this workshop doesn't need either of these functions that a buffer provides. This section will introduce the \emph{truth table}, and because buffers are very simple, the truth table will be simple too. 
+
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+The symbol for a buffer is:
+
+\vspace{0.25in}
+
+\input{./include/buffer.tex}
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{l | c}
+\multicolumn{2}{c}{\textbf{Buffer }}\\
+\multicolumn{2}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{IN} & \textbf{OUT}\\
+\hline
+0 & 0  \\
+1 & 1  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+\hline\\[\negsep]
+\end{tabular}
+
+\end{center}
+\bigskip
+
+Since you haven't seen a truth table before, they are used to tell us what we expect to see when we use a certain circuit or logic gate. For each possible input, the truth table will have a row that shows the input or inputs and the output that results. Since the buffer only passes along whatever signal it is given, the IN and OUT will be the same for every row.
+
+Because there are only two inputs possible (ON or OFF), there are two rows, and the output is the same as the input. In the next sections you will see truth tables with more inputs, but the truth table will be used in the same way for each gate.

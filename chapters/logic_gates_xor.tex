@@ -1,0 +1,91 @@
+
+\subsection*{The Exclusive-OR Gate}
+There is also the ``eXclusive-OR", or ``XOR", gate. Here, ``exclusive'' means ``one, but not both.'' The XOR gate output (result) is 1 when \emph{the inputs are not the same}. It returns a 1 if, and \emph{only} if, both inputs are different. That is, it provides a one ``exclusively if'' there is a single ``one'' (sometimes called ``logic high", for ``voltage above zero") in the two inputs. XOR gates take a lot of transistors to implement. The most common version requires 12, though it is possible to make an XOR gate with 8 transistors. See Figures \ref{fig:xorcomposite}, \ref{fig:xorbreadboard}, and \ref{fig:xorgate}.
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for an XOR gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american xor port](xorgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+\vspace{0.15in}
+
+(the curved line behind the OR gate means that it is ``exclusive")
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{XOR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 0  \\
+1 & 0 & 1  \\
+0 & 1 & 1  \\
+1 & 1 & 0  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
+
+% XOR gate, composited:
+\begin{figure}[h!]
+\begin{center}
+\input{include/xorcomposited.tex}
+\caption{XOR gate, as a composite of the simple gates.}
+\label{fig:xorcomposite}
+\end{center}
+\end{figure}
+
+XOR gates return ``true'' if---and \emph{only} if---the inputs are different. Put another way, the inputs ``must sum to 1'', or the inputs ``must not be equal''. OR gates return ``true'' if the inputs are different, but \emph{also} if both inputs are 1. So, it isn't the same. There are two cases where XOR can be ``true''--where A is 1 and B is 0, or where A is 0 and B is 1. The logic of the XOR circuit must handle either case, and list the result of 1 (``true'') for only those two cases.
+
+Take a look at Figure \ref{fig:xorcomposite}: You can see that there are two AND gates. Recall that AND gates only return ``true'' if both inputs are 1. For XOR, we require that both inputs are different. So to correctly identify ``A is 1 and B is 0'', we use an inverter (a NOT gate) on the B input -- so if the B is a zero, the NOT gate converts the B to a 1, and then the AND gate gets both inputs as 1. The lower AND gate ($AND_2$) captures the opposite case: if A is 0 and B is 1, then the A input gets inverted by the NOT gate into a 1, and for that case, also, the AND gate correctly reports that the inputs are ``true''. Since the OR gate will return ``true'' if either input is 1, then both opposite cases where XOR is true can be passed along to the result. 
+
+It's also worth knowing that XOR gates can be used like a NOT gate, by holding one of the two inputs at 1. Then the other input will always be negated. If one input of an XOR gate is always held at zero, then the XOR gate always passes the same value that comes in on the other input (a gate that passes on its input without changing it is called a ``buffer").
+
+\bigskip
+
+\begin{figure}[!hb]
+\begin{center}
+\fbox{
+\includegraphics[scale=0.15, clip=true, trim=0 0 100 0]{xorgatebreadboard.jpg}
+}
+\caption{An XOR gate wired up on a breadboard with discrete transistors and resistors. This is the same schematic (and the same color-coded signal wires) seen in Figure \ref{fig:xorgate}. The red switch is signal A and the blue switch is signal B. On the LED line, 0 and 1 are A and B, and 2 and 3 (lit up) are NOT A and NOT B.}
+\label{fig:xorbreadboard}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[ht!]
+\begin{center}
+\input{include/xorgate.tex}
+\caption{An exclusive-or (XOR) gate, composed of 12 transistors and some supporting resistors. You don't need to understand how it works, but it's not that hard if you break it down into the colored signals, two NOT gates, two AND gates with N-type FETs, and two linked AND gates with P-type FETs. A ``0'' (ground) signal opens a P-type FET, and a ``1'' signal opens an N-type FET.}
+\label{fig:xorgate}
+\end{center}
+\end{figure}

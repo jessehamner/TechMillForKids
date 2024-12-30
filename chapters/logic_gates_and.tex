@@ -1,0 +1,98 @@
+\subsection*{The AND Gate}
+
+AND gates take two inputs and provide a ``yes'' (a one, or a ``logic high" signal) only if both line 1 AND line 2 are equal to 1.
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for an AND gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american and port](andgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{AND Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 0  \\
+1 & 0 & 0  \\
+0 & 1 & 0  \\
+1 & 1 & 1  \\
+\hline
+\end{tabular}
+\\
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\subsubsection*{Making a few AND Gates}
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/diodeandgate.tex}
+\caption{One way to make an AND gate without transistors. Diodes conduct electricity only in the ``forward'' direction. So Input A cannot affect Input B. But either way, if there is a signal only on Input A or on Input B, the voltage will move through the ``off'' input and the voltage level at ``OUT'' will remain low. Only if both inputs have a voltage on them (and therefore, a ``1'') will the voltages across the diode be mostly equal, and then the electric current coming from $V_{in}$ will flow to the OUT pin. As with a few of the other examples, this circuit is only practical when used by itself. The AND gates we solder and use for this workshop are more complex and use more components. The functionality is the same, and the performance is better.}
+\label{fig:diodeandgate}
+\end{center}
+\end{figure}
+
+
+There are more complicated AND gates, but in this section there are two easy-to-understand examples you can make, with an without transistors. Remember that transistors act like switches: the \emph{gate} acts like the switch that opens up the flow of electricity from the \emph{source} to the \emph{drain}. Look at the schematic in Figure \ref{fig:simpleandgate} -- note that the drain of the top transistor ($Q_1$) flows into the source of the other transistor ($Q_2$), meaning that even if $Q_2$ is turned on, it may not necessarily start carrying electricity (because $Q_1$ may not allow the electricity from $V_{cc}$ to pass through). Thus, both gate 1 AND gate 2 have to be turned on in order to see voltage at the output.
+
+\bigskip
+
+\begin{figure}[!ht]
+\begin{center}
+\input{./include/simpleand.tex}
+
+\caption{A simple AND gate schematic. When Input A is a zero, no current flows into the ``collector" (voltage input wire) of Transistor 2. When Input B is zero, no current can flow to OUT, regardless of whether Input A is 0 or 1. Only when Input A is 1 (current can flow past Q1) and when Input B is 1 (current is available to Q2, and Q2 is turned ``on'', allowing current to pass) does OUT go ``high". $R_3$ prevents too much current from flowing to ground, and is not strictly necessary in all gates, but is included here because it is common to see them. $R_1$ and $R_2$ should be about 100 ohms. $R_3$ should be about 100K ohms. This design is just for demonstration.}
+\label{fig:simpleandgate}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\begin{center}
+\fbox{
+\includegraphics[scale=0.14]{andgatebreadboard.jpg}
+}
+\medskip
+
+\caption{A single AND gate on a solderless breadboard. The transistor on the left, controlled by the gray button, makes electricity available to the input of the second transistor, controlled by the green button. Only if both transistors are ``on'' (that is, A \emph{and} B are passing electricity) will the LED light up. Using this picture, wire up an AND gate on a breadboard with N-type transistors. Use LEDs as indicators for Input A, Input B, and the result.}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.25]{andgate.png}
+\caption{A circuit board designed using the above AND gate schematic, though with two 100K pull-down resistors also implemented (these guarantee the transistor's gate are reliably held at 0 volts instead of allowed to \emph{float}, until either of the inputs goes high (that is, pushes some voltage into the transistor gate). The pull-down resistors are important practically, but they do not appear in this circuit diagram for simplicity. This board looks almost exactly like the OR gate, but the wiring is different! Also, you can see both the front and back sides of the circuit board in this image. The AND gate takes two \emph{inputs}, A and B, and produces one \emph{result}, R.}
+\end{center}
+\label{fig:andgate}
+\end{figure}

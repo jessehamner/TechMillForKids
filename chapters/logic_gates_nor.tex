@@ -1,0 +1,89 @@
+\subsection*{The NOR Gate}
+
+Not surprisingly, there is also a NOR gate, that has the reverse truth table to an OR gate. NOR gates are easy to implement, though as we have said elsewhere, the more complicated NOR gates save power and run cooler.
+
+\medskip
+\begin{center}
+
+\begin{tabular}{p{2.3in} p{3.7in} }
+\hline\\[\negsep]
+
+The symbol for a NOR gate is:
+
+\vspace{0.25in}
+
+\begin{circuitikz}
+	\draw(0,0)
+	node[american nor port](norgate){}
+	(andgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(andgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	(andgate.out) node [right](){{\color{red}$OUT$}};
+
+\end{circuitikz}
+
+\vspace{0.10in}
+
+See the circle on the output? That means ``\emph{not}".
+\vspace{0.15in}
+
+&
+
+\centering
+
+The ``Truth Table" (how they behave) is:
+\vspace{0.15in}
+
+\begin{tabular}{ll | c}
+\multicolumn{3}{c}{\textbf{NOR Gate }}\\
+\multicolumn{3}{c}{\textbf{Truth Table}}\\
+\hline\\[\negsep]
+\textbf{A} & \textbf{B} & \textbf{OUT}\\
+\hline
+0 & 0 & 1  \\
+1 & 0 & 0  \\
+0 & 1 & 0  \\
+1 & 1 & 0  \\
+\hline
+\end{tabular}
+\\
+
+\tabularnewline
+
+\hline\\[\negsep]
+
+\end{tabular}
+\end{center}
+
+
+You can think of a NOR gate as two separate gates (OR and NOT):
+\begin{center}
+\begin{circuitikz}
+	\draw(0,0)
+	node[american or port](orgate){}
+	(orgate.in 1) node [left](){{\color{red}$INPUT~A$}}
+	(orgate.in 2) node [left](){{\color{red}$INPUT~B$}}
+	;
+	
+	\draw(1.5,0)
+	node[american not port](notgate){}
+	(orgate.out) |- (notgate.in)
+	;
+	
+	\draw(3,0)
+	(notgate.out) node [right](){{\color{red}$OUT$}}
+	;
+
+\end{circuitikz}
+\end{center}
+
+
+\bigskip
+
+
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics[scale=0.4]{Agc_nor2.jpg}
+\caption{An early integrated circuit NOR gate. It has six transistors, eight resistors, and three pairs of A/B inputs (thus, it has three separate yes/no outputs). This chip was part of the guidance computer that took Americans to the moon in 1969. \emph{Photo credit: Wikimedia Foundation}.}
+\end{center}
+\label{fig:apollonorgate}
+\end{figure}
