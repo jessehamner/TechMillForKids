@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[american, EFvoltages, cuteinductors]{circuitikz}
+
+\definecolor{rltgreen}{rgb}{0,0.6,0}
+\definecolor{rltred}{rgb}{0.8,0,0}
+
+\begin{document}
+\thispagestyle{empty}
+
+% In this function,
+% y coord is arg 1
+% bit pattern name (zero, e.g.) is arg 2
+% numeric indicator (0, e.g.) is arg 3
+
+\newcommand{\adderblock}[3]{
+
+	\begin{scope}
+
+	  \draw (0,#1)
+	    [xshift = 2.5cm]
+	    node[one bit adder, scale=0.75](fa#2){}
+	    node[xshift=0.75cm, yshift=1cm](fa#2carrylabel){\footnotesize $Carry_#3$}
+  	    node[ocirc, xshift=1.5cm, label={[label distance=0mm]0:$Sum_#3$}](fa#2sum){}
+	  ;
+
+	  
+  
+    \draw (0.5,#1)
+ 	  [yshift=-0.65cm] 
+	  node[american xor port](axorb#2){}
+	  node[ocirc, xshift = -2.2cm, yshift = -0.28cm](axorb#2node){}
+   	  node[xshift = -2.6cm, yshift = 0mm](){{\color{red}$A_{#3}$}}
+	  node[xshift = 0.2cm, yshift = 6mm] {{\footnotesize{$XOR_{#3}$}}}
+   	  node[ocirc, xshift = -4.5cm, yshift = 0.32cm](m#2node){}
+	  node[xshift = -4.0cm, yshift = 0.6cm, color=rltred]{\color{rltred}$M_{#3}$}
+	;
+  
+
+  
+    \draw (0,#1)
+	  [yshift=0.65cm]
+	  node[ocirc, xshift = -2.0cm](b#2node){}
+   	  node[xshift = -2.3cm, yshift = 3mm](){{\color{blue}$B_{#3}$}}
+	  ;
+  
+	
+  
+    \draw (0,#1)
+	  [color=blue] 
+	  (b#2node) -- (fa#2.lpin 1) 
+	;
+  
+
+    \draw
+	  [color=rltred] 
+	  (m#2node) -- (axorb#2.in 1) 
+	;
+
+
+  \draw (0,#1)
+	  (axorb#2node) -- (axorb#2.in 2)
+	  (fa#2.rpin 1) -- (fa#2sum)
+	;
+	
+  \draw(0, #1)[color=brown, very thick]
+    (axorb#2.out) -- (fa#2.lpin 2)
+    
+    ;
+  \end{scope}
+}
+
+\begin{figure}[h!]
+\begin{center}
+
+\begin{circuitikz}
+
+\tikzset{one bit adder/.style={muxdemux, 
+  muxdemux def={Lh=4, NL=2, Rh=2, NR=1, NB=1, NT=1, w=1.5,
+  inset w=0.5, inset Lh=2, inset Rh=1.5}}
+}
+
+% Inputs and NOT gates: (for illustrative purposes; in reality, add/subtract are switched
+% via a simple high-low signal line and complement is handled with XOR gates, with carry-in
+% handling the "add one to get the two's complement" into the LSB full adder)
+\begin{scope}
+
+	\adderblock{1.25}{zero}{0}
+		
+	\adderblock{4.25}{one}{1}
+
+	\adderblock{7.25}{two}{2}
+	
+	\adderblock{10.25}{three}{3}
+
+\end{scope}
+
+% the add-one input to the least-significant-bit full adder, for two's complement:
+\draw
+	(2cm,-1.0cm) node[ocirc](carrynode) {} 
+	node[below] {{\color{black}$Carry-In$}}
+;
+
+\draw
+[color=rltgreen, style=thick]
+    (carrynode) -| (fazero.bpin 1)
+    (fazero.tpin 1) -| (faone.bpin 1)
+    (faone.tpin 1) -| (fatwo.bpin 1)
+    (fatwo.tpin 1) -| (fathree.bpin 1)
+    (fathree.tpin 1) to (2.5,13) node[ocirc, label={[label distance=0mm]75:{{\color{black}$Overflow$}}}](overflow){}
+;
+
+\draw(-4cm, 13cm)
+[color=rltred]
+node[ocirc, color=rltred](dosubtractionnode){}
+node[xshift=1.5cm, yshift = 0.2cm](dosubtractionlabel){\color{rltred}\emph{Do Subtraction}}
+;
+
+\draw
+[color=rltred, style=thick]
+  (carrynode) -| (-4cm, 0) -| (mzeronode) -| (monenode)  -| (mtwonode)  -- (mthreenode) -- (dosubtractionnode)
+;
+
+
+
+\end{circuitikz}
+
+\caption{How addition and subtraction gets implemented with logic gates to either subtract {\color{red}$A$}, a four digit binary number (something like \texttt{0010}, or ``2"), from {\color{blue}$B$} (perhaps \texttt{1000}, or ``8''), or add the two numbers instead. Each pair of bits goes into a full adder (the trapezoid-shaped symbol). To use subtraction, the M-line is held to a positive voltage, effectively turning the $XOR$ gate into a $NOT$ gate.}
+\end{center}
+\end{figure}
+
+\end{document}
