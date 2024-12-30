@@ -1,0 +1,82 @@
+
+
+\begin{circuitikz}
+
+\draw 
+	(0,4.0) node[ocirc](ain) {} % A IN node
+	(0,4.0) node[left] {{\color{red}$A$}} % A IN label
+
+	(0,1.0) node[ocirc](bin) {} % B IN node
+	(0,1.0) node[left] {{\color{red}$B$}} % B IN label
+
+
+	(11.5,4) node[ocirc](out){} % OUT node
+	(11.75,4) node[right] {{\color{red}$OUT$}} % OUT label
+
+	(10,4) |- (out)
+	(10,4) node[circ](){}
+
+% Vdd:
+	(5,7.0) node[color=red!80!black, vcc](vin){}
+    (4.5,7.0) node[above] {$V_{in}$} % Vin
+
+% GND
+    (8,0) node[ground](ground){}
+%   (7.75,0.5) node[below] {{\color{red}$GND$}} % GND
+
+% P-type FET
+	(10,5) node[pmos, emptycircle, xscale=1](Q1){}
+	(10.5,5.0) node[above]{$Q_1$}
+
+% N-type FET
+	(10,3) node[nmos, rotate=0](Q2){}
+	(10.5,2.5) node[above]{$Q_2$}
+
+% 2 P-type FETs:
+	(4,5) node[pmos, emptycircle, xscale=1](Q4){$Q_4$}
+	(7.5,5) node[pmos, emptycircle](Q6){$Q_6$}
+
+% 2 N-type FETs:
+	(5,3) node[nmos, xscale=1](Q3){}
+	(5,3) node[right]{$Q_3$}
+	(5,1) node[nmos](Q5){$Q_5$}
+
+
+% Resistors:
+    (ground) to ++ (2,0) to  [R, -|, l^=$R_3$] ++ (0,2) -| (Q2.S)
+	(ground) to [R, l^=$R_4$] ++ (-3cm,0) -|  (Q5.S)
+	(ain) to [R, -*, l^=$R_1$](3,4)
+	(bin) to [R, -*, l^=$R_2$](3,1)
+
+% nets:
+	(Q4.D) ++ (1,0) node[circ](q4_d){}
+	(Q4.D) |- (Q6.D)
+	(q4_d) |- (Q3.D)
+	(Q3.S) |- (Q5.D)
+	(Q1.D) |- (Q2.D)
+	(Q2.G) -| (Q1.G)
+	(Q1.G) ++ (0, -0.77cm) node[circ](q1_g){}
+	(Q6.D) -| node[circ](q6_d){}
+	(Q6.D) -| (q1_g)
+	;
+
+% VCC net:
+    \draw[color=red!80!black]
+    (vin) |- node[circ](Q1.S){}
+	(Q6.S) |- node[circ](Q1.S){}
+	(Q6.S) |- (Q4.S)
+	(Q6.S) |- (Q1.S)
+    ;
+
+% Signal A:
+    \draw[color=red!30!blue!90, thick]
+    (Q4.G) -| (3,4) |- (Q3.G)
+    ;
+
+% Signal B:
+	\draw[green!70!black, thick] 
+	  (3,1) -| (Q5.G)
+	  (3,1) |- ++ (0,1) -| (Q6.G)
+	;
+
+\end{circuitikz}

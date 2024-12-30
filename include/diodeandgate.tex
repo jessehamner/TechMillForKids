@@ -1,0 +1,34 @@
+\begin{circuitikz}
+
+\ctikzset{bipoles/diode/height=.375}
+\ctikzset{bipoles/diode/width=.3}
+
+\draw 
+% IN nodes:
+	(0,5) node[ocirc](ina) {}
+	(0,5) node[left] {{\color{red}$INPUT~A$}} % INPUT A label
+	(0,3) node[ocirc](inb) {}
+	(0,3) node[left] {{\color{red}$INPUT~B$}} % INPUT B label
+
+% OUT node:
+	(4.5,5) node[ocirc](out){} 
+	(4.5,5) node[right] {{\color{red}$OUT$}} % OUT label
+
+% VCC:
+	(2,8.0) node[color=red!80!black, vcc](vin){}
+    (1.5,8.0) node[above] {$V_{in}$}
+
+% Nets:
+	(2,5) node[circ](diodemerge){}
+	(diodemerge) to (out)
+    
+% Diodes:
+	(diodemerge) to [diode, l^=$D_1$, name=d1](0.5,5){} to (ina)
+	(diodemerge) to (2,3) to [diode, l^=$D_2$, name=d2](0.5,3){} to (inb)
+
+% Resistor:
+	(diodemerge) to [R, l^=$R_1$] (2,8) to (vin)
+
+;
+
+\end{circuitikz}

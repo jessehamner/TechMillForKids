@@ -1,0 +1,13 @@
+
+\begin{circuitikz}
+	\draw
+	(1.25,0) node[buffer](buffer){}
+    (0,0) node[ocirc](ina) {}
+	(0,0) node[left] {{\color{red}$INPUT$}} % INPUT label
+	(2.5,0) node[ocirc](out) {}
+	(2.5,0) node[right] {{\color{red}$OUTPUT$}} % INPUT label
+
+	(ina) to (buffer.in)
+	(buffer.out) to (out)
+;
+\end{circuitikz}
