@@ -12,7 +12,7 @@ I'm so glad you're interested in computers. It makes me feel good when people le
 \bigskip
 
 \noindent Jesse Hamner, PhD\\
-\noindent 2018--2021\\
+\noindent 2018--2024\\
 
 
 \begin{figure}[!hb]
@@ -52,13 +52,16 @@ It is best split into two sessions, and perhaps three if you teach soldering.
 
 I added ``experiments" or ``applications" like the classic {\color{webblue}\href{https://en.wikipedia.org/wiki/Lemon_battery}{lemon battery}}, a {\color{webblue}\href{https://en.wikipedia.org/wiki/Liquid_rheostat}{saltwater resistor}}, a {\color{webblue}\href{https://en.wikipedia.org/wiki/Leyden_jar}{Leyden jar}} (the earliest capacitor), and a cardboard/aluminum foil variable capacitor. There are a handful of thought experiments designed to introduce slightly advanced topics like {\color{webblue}\href{https://en.wikipedia.org/wiki/Integer_overflow}{integer overflow}} without making it too hard. It might be useful to make an {\color{webblue}\href{http://bizarrelabs.com/crystal.htm}{aluminum foil/corrugated cardboard multi-layer capacitor}} too, either beforehand or in place of the Leyden jar.
 
+
+The workshop also includes some logic-gate puzzles in a separate document. There's an answer key provided, along with the puzzle packets.
+
 \subsection*{Next Steps}
 
-I've produced some simple logic gate PCBs for discrete components, including OR, AND, NOT, NOR, NAND, and even {\color{webblue}\href{https://en.wikipedia.org/wiki/XOR_gate}{XOR}}, but not {\color{webblue}\href{https://en.wikipedia.org/wiki/XNOR_gate}{XNOR}} gates (although I demonstrate using a NOT gate with an XOR gate in the text) and am including circuit board design files in this repository. Additionally, I have designed some full-adder PCBs using integrated components at the gate level. As each gate is discrete, it is still easy to see the design of the full adder. I may also wire up a 4-bit adder, since stacking all these gates together to make even a 4-bit adder will get ungainly and will be very slow to implement and tough to troubleshoot. 
+I've produced some simple logic gate PCBs for discrete components, including OR, AND, NOT, NOR, NAND, and even {\color{webblue}\href{https://en.wikipedia.org/wiki/XOR_gate}{XOR}}, but not {\color{webblue}\href{https://en.wikipedia.org/wiki/XNOR_gate}{XNOR}} gates (although I demonstrate using a NOT gate with an XOR gate in the text) and am including circuit board design files in this repository. Additionally, I have designed some full-adder PCBs using integrated components at the gate level. As each \emph{gate} is discrete, it is still easy to see the design of the full adder. I may also fab a 4-bit adder, since stacking all these gates together to make even a 4-bit adder gets awkward and can be hard to troubleshoot. But wiring up the four individual adders to the inputs and output LEDs is very satisfying for the kids, even if they need some help.
 
 The next hardware widget will be a JK flip-flop gate, to provide some memory to write to and from which to read.
 The only new component it needed was a three-input NAND gate, and I designed and tested that component, so the work can continue.
 
 As an added bonus, the kids can learn to solder (I've got a {\color{webblue}\href{https://github.com/jessehamner/TechMillForKids/tree/master/soldering}{separate tutorial}} in this repository for that, and a slightly more challenging {\color{webblue}\href{https://github.com/jessehamner/AtariPunkConsole}{Atari Punk Console soldering project repository}} as well). Thus, kids can make the same gates used in the tutorial, since I use entirely through-hole components for the discrete gate PCBs. 
 
-Participants can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs (the designs are or will be included in this repository) will be very useful.
+Participants can solder the gates if they want to, but the workshop should provide enough to make some complete logic circuits without that portion of the workshop, so soldering is optional. A few other PCBs like a 4-switch deck of toggles, a 4-bit XNOR comparator, and small boards of 4 or 8 LEDs (the designs are or will be included in this repository) will be  useful.
